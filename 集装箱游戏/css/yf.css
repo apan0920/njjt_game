@@ -1,0 +1,21 @@
+/*
+* @Author: pz
+* @Date:   2017-12-04 19:26:56
+* @Last Modified by:   pz
+* @Last Modified time: 2017-12-04 19:36:16
+*/
+/* 堆场指位-start(pz)****************************************************************************
+******************************************************************************************/
+.yf_box_item { display: block; position: absolute; width: 100%; height: 100%; top:0; left:0; }
+.yf_box_item_img2 .yf_box_intro { width: 150px; height: 130px; left:20px; top:20px; }
+.yf_box_intro{position: absolute;padding: 15px 10px;background: rgba(255,255,255,.5);border-radius: 6px;box-shadow: 0px 0px 5px 2px rgba(0,0,0,.1);margin-top: 181px;margin-left: 41px;
+}
+.yf_box_intro p.p_intro { text-align: justify; color: #f00; text-indent: 2em; line-height: 18px; }
+.yf_box_intro .yf_next { display: none; position: absolute; width: 100px; left:50%; margin-left:-50px; bottom:15px; font-size: 15px; line-height: 30px; color:#fff; text-align: center; border-radius: 6px; background: #a7c62f; box-shadow: 1px 1px 2px 1px rgba(114,150,2,.8); letter-spacing: 2px; cursor: pointer; }
+
+.yf_close a.btn_sub{ background: url(../images/ico_r1.png) center no-repeat; }/* 提交 */
+.yf_close a.btn_next{ background: url(../images/ico_000.png) center no-repeat; }/* 下一步 */
+.yf_close a.btn_skip{ background: url(../images/ico_222.png) center no-repeat; }/* 跳过 */
+
+/*堆场指位-end(pz)****************************************************************************
+******************************************************************************************/
