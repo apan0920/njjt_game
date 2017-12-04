@@ -2,20 +2,55 @@
 * @Author: pz
 * @Date:   2017-12-04 19:26:56
 * @Last Modified by:   pz
-* @Last Modified time: 2017-12-04 19:36:16
+* @Last Modified time: 2017-12-04 20:48:44
 */
 /* 堆场指位-start(pz)****************************************************************************
 ******************************************************************************************/
+.yf_content { background: url(../images/img2/bg_e1.png); }
+.yf_close { bottom:30px; }
+.yf_bg { padding:210px 80px 0; }
+.yf_box { height: 470px; border-radius: 10px; position: relative; background-color: rgba(255, 255, 255, 0.6);
+    -moz-box-shadow: box-shadow: 0 1px 2px #7cdef0 inset, 2px 2px 2px #669bb1;
+    -webkit-box-shadow: box-shadow: 0 1px 2px #7cdef0 inset,2px 2px 2px #669bb1;
+    box-shadow: 0 1px 2px #7cdef0 inset, 2px 2px 2px #669bb1; }
+.yf_box_item { display: none; position: absolute; width: 100%; height: 100%; top:0; left:0; }
+.yf_box_item:first-child { display: block; }
+
+
+
 .yf_box_item { display: block; position: absolute; width: 100%; height: 100%; top:0; left:0; }
 .yf_box_item_img2 .yf_box_intro { width: 150px; height: 130px; left:20px; top:20px; }
-.yf_box_intro{position: absolute;padding: 15px 10px;background: rgba(255,255,255,.5);border-radius: 6px;box-shadow: 0px 0px 5px 2px rgba(0,0,0,.1);margin-top: 181px;margin-left: 41px;
+.yf_box_intro{position: absolute;padding: 15px 10px;background: rgba(255,255,255,.5);border-radius: 6px;box-shadow: 0px 0px 5px 2px rgba(0,0,0,.1);margin-top: 1px;margin-left: 1px;
 }
 .yf_box_intro p.p_intro { text-align: justify; color: #f00; text-indent: 2em; line-height: 18px; }
 .yf_box_intro .yf_next { display: none; position: absolute; width: 100px; left:50%; margin-left:-50px; bottom:15px; font-size: 15px; line-height: 30px; color:#fff; text-align: center; border-radius: 6px; background: #a7c62f; box-shadow: 1px 1px 2px 1px rgba(114,150,2,.8); letter-spacing: 2px; cursor: pointer; }
 
+/* 按钮-start*/
+.yf_close { width: 100%; margin:0; left:0; text-align: center; font-size: 0; bottom: 30px}
+.yf_close a { display: inline-block; width: 188px; margin:0 5px; }
 .yf_close a.btn_sub{ background: url(../images/ico_r1.png) center no-repeat; }/* 提交 */
 .yf_close a.btn_next{ background: url(../images/ico_000.png) center no-repeat; }/* 下一步 */
 .yf_close a.btn_skip{ background: url(../images/ico_222.png) center no-repeat; }/* 跳过 */
+/* 按钮-end*/
+
+
+/* 区域选择 */
+.yf_list {background-color: pink; height: 200px; }
+.yf_item { cursor: pointer; position: absolute; width: 32px; height: 32px;background-color: green;  }
+.yf_item.selected { background: rgba(0,255,252,.9); }
+.yf_box_item_img3 { cursor: pointer; }
+
+.yf_item_01 { width: 30px; height: 40px; top:125px; left:245px; }
+.yf_item_02 { width: 31px; height: 55px; top:111px; left:284px; }
+.yf_item_03 { width: 69px; height: 59px; top:106px; left:316px; }
+.yf_item_04 { width: 68px; height: 104px; top:60px; left:394px; }
+.yf_item_05 { width: 68px; height: 103px; top:61px; left:473px; }
+.yf_item_06 { width: 70px; height: 103px; top:61px; left:550px; }
+
+
+
+
+
 
 /*堆场指位-end(pz)****************************************************************************
 ******************************************************************************************/
