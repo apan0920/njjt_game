@@ -22,6 +22,8 @@ function getTaskList(){
 					goodsName = item.goodsName,
 					goodsParameter = item.goodsParameter;
 
+					alert(isDone)
+
 				var html = '<a href="javascript:;" class="task_item" recordId='+recordId+' goodsName="'+goodsName+'" goodsParameter="'+goodsParameter+'">'+
 							'<h3>任务'+(i+1)+'</h3>'+
 							'<p>'+remark+'</p>'+
