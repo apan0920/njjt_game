@@ -2,7 +2,7 @@
 * @Author: pz
 * @Date:   2017-12-06 20:25:13
 * @Last Modified by:   pz
-* @Last Modified time: 2017-12-07 15:43:55
+* @Last Modified time: 2017-12-07 21:06:36
 */
 
 /*界面生成---start********************************************************************************************/
@@ -200,27 +200,41 @@ var holdOnFlag = false;//是否已抓取货物
 			return boxNum;
 		}
 
-		/*根据绳子的位置获取可以左右移动的位置*/
-		function getMinLeft(lineObj) {
-			var minLeft = 80;
+		/*根据绳子的位置判断是否可以向左移动*/
+		function getIfLeft(lineObj) {
+			var ifLeft = false;
 			var lineTop = lineObj.position().top;
 			var lineLeft = lineObj.position().left-20;//计算移动后的距离
-			if (lineTop<-66) {//箱子上方（top:-66px至-162px  left:80px至630px）
-				minLeft = 80;
-			} else {//箱子区域（top：135px至-66px）
-				if (lineLeft>521) {//箱子右侧（left：521px至630px）
-					还要考虑车上集装箱的高度，
-					限制车上只能放一个集装箱
-					if (lineTop>135px) {
+			if (lineLeft<80 || lineLeft>630) {
+				ifLeft = false;
+			} else {
+				if (lineTop<-66) {//箱子上方（top:-66px至-162px  left:80px至630px）
+					ifLeft = true;
+				} else {//箱子区域（top：135px至-66px）
+					if (lineLeft>500) {//箱子右侧（left：521px至630px）
+						ifLeft = true;
+						/*还要考虑车上集装箱的高度，
+						限制车上只能放一个集装箱
+						if (lineTop>135px) {
+							判断对应高度第6列是否有障碍物！！
+						} else {}*/
+					} else if(lineLeft>430 && lineLeft<500){//判断第6列对应高度是否有障碍物（在每次移动 1px 时，只需在临界值计算是否可以移动！！！！！）
 						判断对应高度第6列是否有障碍物！！
-					} else {}
-				} else if(lineLeft>79 && lineLeft<521){//箱子区域（根据左右侧箱子的高度获取可移动距离）
+					} else if(lineLeft>360 && lineLeft<430){//5
 
-				} else if(lineLeft<80){
-					minLeft = 80;
+					} else if(lineLeft>290 && lineLeft<360){//4
+
+					} else if(lineLeft>220 && lineLeft<290){//3
+
+					} else if(lineLeft>150 && lineLeft<220){//2
+
+					} else if(lineLeft>80 && lineLeft<150){//1
+						ifLeft = true;
+					} 
 				}
 			}
-			return minLeft;
+			
+			return ifLeft;
 		}
 		/*function getMinLeft(lineObj) {
 			var minLeft = 80;
