@@ -583,9 +583,8 @@ a.booking_item { display: inline-block; }
 /* .yf_close a.btn_skip { display: inline-block; } */
 
 .yf_list {  }
-.yf_item { cursor: pointer; position: absolute; width: 32px; height: 32px; background-color: pink; }
+.yf_item { cursor: pointer; position: absolute; width: 32px; height: 32px; border: 1px solid blue; }
 .yf_item.selected { border: 2px solid #FF0202;}
-/*.yf_box_item_img2 .yf_item:hover { background: rgba(255,255,0,.9); }*/
 .yf_box_item_img3 { cursor: pointer; }
 
 .yf_item_1 { width: 30px; height: 40px; top:12px; left:451px; }
@@ -610,18 +609,6 @@ a.booking_item { display: inline-block; }
 .yf_item_17 { width: 99px; height: 58px; top:302px; left:340px; }
 .yf_item_18 { width: 99px; height: 58px; top:302px; left:451px; }
 .yf_item_19 { width: 99px; height: 58px; top:302px; left:562px; }
-
-
-
-/* .yf_item_11 { top:11px; left:64px; }
-.yf_item_12 { top:11px; left:262px; }
-.yf_item_13 { top:44px; left:196px; }
-.yf_item_14 { top:76px; left:296px; }
-.yf_item_15 { top:76px; left:626px; }
-.yf_item_16 { top:110px; left:593px; }
-.yf_item_17 { top:141px; left:130px; }
-.yf_item_18 { top:141px; left:427px; }
-.yf_item_19 { top:173px; left:427px; } */
 .yf_item_20 { top:173px; left:460px; }
 .yf_item_21 { top:206px; left:791px; }
 .yf_item_22 { top:268px; left:693px; }
@@ -634,13 +621,117 @@ a.booking_item { display: inline-block; }
 .yf_item_29 { top:396px; left:329px; }
 .yf_item_30 { top:429px; left:264px; }
 
+.yf_bay_list{width: 709px; height: 299px;}
+/* 贝位黄色区域  */
+.yf_bay { position: absolute; width: 40px; height: 257px; border: 1px solid blue;} 
+.yf_bay.selected { border: 2px solid #FF0202;}
+
+.yf_bay_style { cursor: pointer; position: absolute; width: 39px; height: 249px; border: 1px solid blue;}
+.yf_bay_style.selected { border: 2px solid #FF0202;}
+
+.yf_bay_1 {left:0px; }
+.yf_bay_3 {left:45px; }
+.yf_bay_5 {left:90px; }
+.yf_bay_7 {left:135px; }
+.yf_bay_9 {left:179px; }
+.yf_bay_11 {left:223px; }
+.yf_bay_13 {left:268px; }
+.yf_bay_15 {left:312px; }
+.yf_bay_17 {left:357px; }
+.yf_bay_19 {left:401px; }
+.yf_bay_21 {left:446px; }
+.yf_bay_23 {left:491px; }
+.yf_bay_25 {left:535px; }
+.yf_bay_27 {left:580px; }
+.yf_bay_29 {left:624px; }
+.yf_bay_31 {left:669px; }
+/* 贝位数字 */
+.yf_bay_no {width: 28px; height: 22px;}
+
+.yf_bay_no_01 {top:262px; left:7px;}
+.yf_bay_no_03 {top:262px; left:51px;}
+.yf_bay_no_05 {top:262px; left:96px; }
+.yf_bay_no_07 {top:262px; left:139px; }
+.yf_bay_no_09 {top:262px; left:185px; }
+.yf_bay_no_11 {top:262px; left:229px; }
+.yf_bay_no_13 {top:262px; left:274px; }
+.yf_bay_no_15 {top:262px; left:319px; }
+.yf_bay_no_17 {top:262px; left:362px; }
+.yf_bay_no_19 {top:262px; left:408px; }
+.yf_bay_no_21 {top:262px; left:452px; }
+.yf_bay_no_23 {top:262px; left:497px; }
+.yf_bay_no_25 {top:262px; left:541px; }
+.yf_bay_no_27 {top:262px; left:586px; }
+.yf_bay_no_29 {top:262px; left:630px; }
+.yf_bay_no_31 {top:262px; left:675px; }
+
+.yf_bay_no_02 {top:292px; left:30px;}
+.yf_bay_no_04 {top:292px; left:74px;}
+.yf_bay_no_06 {top:292px; left:119px;}
+.yf_bay_no_08 {top:292px; left:163px;}
+.yf_bay_no_10 {top:292px; left:208px;}
+.yf_bay_no_12 {top:292px; left:252px;}
+.yf_bay_no_14 {top:292px; left:297px;}
+.yf_bay_no_16 {top:292px; left:341px;}
+.yf_bay_no_18 {top:292px; left:385px;}
+.yf_bay_no_20 {top:292px; left:430px;}
+.yf_bay_no_22 {top:292px; left:475px;}
+.yf_bay_no_24 {top:292px; left:519px;}
+.yf_bay_no_26 {top:292px; left:562px;}
+.yf_bay_no_28 {top:292px; left:608px;}
+.yf_bay_no_30 {top:292px; left:653px;}
+
 /* 堆场指位游戏-start-pz *******************************************************************************************/
 .bodyGame { width: 100%; height: 100%; overflow: hidden; background: url(../images/img8/game/yardFigerGame_bg.jpg); background-size: 100% 100%; }
-.longDoor {height: 520px; background:url(../images/img8/game/longDoor.png) no-repeat}
-.line {height: 500px; background:url(../images/img8/game/line.png) no-repeat}
-.redLine {height: 500px; background:url(../images/img8/game/redLine.png) no-repeat}
-.car {height: 500px; background:url(../images/img8/game/car.png) no-repeat}
-.box {height: 500px; background:url(../images/img8/game/boxOrange.png)}
+.longDoor {width: 784px;height: 527px; background:url(../images/img8/game/longDoor.png) no-repeat;position: absolute;bottom: 15%;left: 60px;}
+.moveList {width: 784px;height: 527px; position: absolute;bottom: 17%;left: 60px;}
+/* .cab {width: 192px;height: 118px; background:url(../images/img8/game/cab.png) no-repeat;position: absolute;top: 179px;left: 602px;} */
+.cab {width: 192px;height: 118px; background:url(../images/img8/game/cab.png) no-repeat;position: absolute;top: 65px;left: 545px;}
+.line {width: 80px;height: 346px; background:url(../images/img8/game/line.png) no-repeat;position: absolute;top: -162px;left: 630px;}
+.car {width: 90px;height: 74px; background:url(../images/img8/game/car.png) no-repeat;position: absolute;left: 600px;top: 452px;}
+.boxList {width: 417px;height: 245px;background-color: #FF9900;position: absolute;margin: 280px 0 0 85px;}
+.boxGame {width: 67px;height: 49px;background-color: pink;position: absolute;}
+/* 箱子背景图片 */
+.boxBgImgBlue{background:url(../images/img8/game/boxBlue.png);}
+.boxBgImgGreen{background:url(../images/img8/game/boxGreen.png);}
+.boxBgImgGrey{background:url(../images/img8/game/boxGrey.png);}
+.boxBgImgLightBlue{background:url(../images/img8/game/boxLightBlue.png);}
+.boxBgImgOrange{background:url(../images/img8/game/boxOrange.png);}
+/* 箱子位置 */
+.box11{position: absolute;top: 196px;}
+.box12{position: absolute;top: 147px;}
+.box13{position: absolute;top: 98px;}
+.box14{position: absolute;top: 49px;}
+.box15{position: absolute;top: 0;}
+.box21{position: absolute;top: 196px;left: 70px;}
+.box22{position: absolute;top: 147px;left: 70px;}
+.box23{position: absolute;top: 98px;left: 70px;}
+.box24{position: absolute;top: 49px;left: 70px;}
+.box25{position: absolute;top: 0;left: 70px;}
+.box31{position: absolute;top: 196px;left: 140px;}
+.box32{position: absolute;top: 147px;left: 140px;}
+.box33{position: absolute;top: 98px;left: 140px;}
+.box34{position: absolute;top: 49px;left: 140px;}
+.box35{position: absolute;top: 0;left: 140px;}
+
+.box41{position: absolute;top: 196px;left: 210px;}
+.box42{position: absolute;top: 147px;left: 210px;}
+.box43{position: absolute;top: 98px;left: 210px;}
+.box44{position: absolute;top: 49px;left: 210px;}
+.box45{position: absolute;top: 0;left: 210px;}
+
+.box51{position: absolute;top: 196px;left: 280px;}
+.box52{position: absolute;top: 147px;left: 280px;}
+.box53{position: absolute;top: 98px;left: 280px;}
+.box54{position: absolute;top: 49px;left: 280px;}
+.box55{position: absolute;top: 0;left: 280px;}
+
+.box61{position: absolute;top: 196px;left: 350px;}
+.box62{position: absolute;top: 147px;left: 350px;}
+.box63{position: absolute;top: 98px;left: 350px;}
+.box64{position: absolute;top: 49px;left: 350px;}
+.box65{position: absolute;top: 0;left: 350px;}
+/* .box {width: 67px;height: 49px; background:url(../images/img8/game/boxOrange.png);position: absolute;margin-top: 462px;margin-left: 90px;} */
 /* 堆场指位游戏-end-pz *******************************************************************************************/
 
 /*堆场指位-end(pz)****************************************************************************
@@ -786,9 +877,9 @@ a.booking_item { display: inline-block; }
 	.booking_answer td label { margin-right:4px; }
 
 	/* 堆场指位-start-pz */
-	.yf_bg { padding: 185px 80px 0; }
+	.yf_bg { padding: 210px 80px 0; }
 	.yf_box { height:380px;  }
-	.yf_close { bottom:20px; }
+	.yf_close { bottom:-7px; }
 	.yf_close a,
 	.yf_close a.btn_sub,
 	.yf_close a.btn_next,

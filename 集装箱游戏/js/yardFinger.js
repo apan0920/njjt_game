@@ -2,7 +2,7 @@
 * @Author: pz
 * @Date:   2017-12-04 16:01:50
 * @Last Modified by:   pz
-* @Last Modified time: 2017-12-05 20:02:52
+* @Last Modified time: 2017-12-07 19:53:35
 */
 /*第8关-堆场指位*/
 
@@ -78,24 +78,33 @@ $('.yf_box_item_img3').click(function(){
 				return;
 			};
 			var section = $('.task_item.selected').attr('section');//任务中区位编号
-			var number = $('.yf_box_item_img1 .yf_item.selected').attr("number");//选择的区位编号
-			if (number != section ) {
+			var sectionNumber = $('.yf_box_item_img1 .yf_item.selected').attr("number");//选择的区位编号
+			if (sectionNumber != section ) {
 				showAlert('请选出正确的堆场区位！','end');
 				return;
 			}
 			$('.yf_box_item_img1').fadeOut();
 			$('.yf_box_item_img2').fadeIn();
 		}else if($('.yf_box_item_img2').css('display') == 'block'){
-			if($('.yf_box_item_img2 .yf_item.selected').length<=0){
+			if($('.yf_box_item_img2 .yf_bay_style.selected').length<=0){
 				showAlert('请选出集装箱所在的堆场贝位！','end');
 				return;
 			};
-
+			var belt = $('.task_item.selected').attr('belt');//任务中贝位
+			var beltNumber = $('.yf_box_item_img2 .yf_bay_style.selected').attr("number");//选择的贝位编号
+			console.log("belt=="+belt+";beltNumber=="+beltNumber)
+			if (beltNumber != belt ) {
+				showAlert('请选出正确的堆场贝位！','end');
+				return;
+			}
+			/*进入动画----啦啦啦~~~~~~~~~~~~~~~~~~~~~~~~~~~*************************************/
 			$('.yf_box_item_img2').fadeOut();
 			$('.yf_box_item_img3').fadeIn();
-			$('.btn_3').css('display','none');
-			$('.btn_1').css('display','inline-block');
-		}else{}
+			$('.btn_next').css('display','none');
+			$('.btn_sub').css('display','inline-block');
+		}else{
+
+		}
 	});
 
 
@@ -208,6 +217,30 @@ $(function(){
 		}else{	
 			$(this).parents('.yf_list').find('.yf_item').removeClass('selected');
 			$(this).addClass('selected');
+		}
+	});
+
+
+	//贝位选择
+	$('.yf_bay_style').click(function(){
+		if($(this).hasClass('selected')){
+			$(this).removeClass('selected');
+		}else{	
+			$(this).parents('.yf_bay_list').find('.yf_bay_style').removeClass('selected');
+			$(this).addClass('selected');
+			/*控制对应贝位变色*/
+			$(this).parents('.yf_bay_list').find('.yf_bay').removeClass('selected');
+			var  bayNo = Number($(this).attr("number"));
+			if (bayNo%2 == 0) {
+				var minBayNo = ".yf_bay_"+(bayNo-1);
+				var maxBayNo = ".yf_bay_"+(bayNo+1);
+				$(minBayNo).addClass('selected');
+				$(maxBayNo).addClass('selected');
+			} else {
+				$(".yf_bay_"+bayNo).addClass('selected');
+				
+			}
+			
 		}
 	});
 

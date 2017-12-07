@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../js/jquery.min.js"></script>
+	
+</head>
+<body>
+	<div id="box" class="container" style="background:#98bf21;height:50px;width:50px;margin:6px;position:absolute;left:0px;top:0px;">
+	</div>
+
+	<div id="cargo" class="container" style="background:pink;height:50px;width:50px;margin:6px;position:absolute;top:55px;left:0px;">
+	</div>
+	<script type="text/javascript">
+
+		var holdOnFlag = false;//是否已抓取货物
+		/*键盘监听*/
+		$(document).keyup(function(e){
+			var keyCode = e.keyCode;
+			var moveDist = 20;//每次移动距离
+			var $lineObj = $("#box");
+			var $cargoObj = $("#cargo");
+			moveBox(keyCode,$lineObj,$cargoObj,moveDist);
+			console.log("当前keyCode=="+keyCode);
+		});
+
+		/*根据方向移动钢丝绳(及货物)*/
+		function moveBox(keyCode,lineObj,cargoObj,moveDist) {
+			console.log("holdOnFlag=="+holdOnFlag);
+			if (keyCode == 37) {
+				lineObj.animate({'left':"-="+ moveDist +"px"},'slow');//钢丝绳移动
+				if (holdOnFlag) {
+					cargoObj.animate({'left':"-="+ moveDist +"px"},'slow');//货物跟随钢丝绳移动
+				}
+			} else if (keyCode == 38) {
+				lineObj.animate({'top':"-="+ moveDist +"px"},'slow');
+				if (holdOnFlag) {
+					cargoObj.animate({'top':"-="+ moveDist +"px"},'slow');
+				} 
+			} else if (keyCode == 39) {
+				lineObj.animate({'left':"+="+ moveDist +"px"},'slow');
+				if (holdOnFlag) {
+					cargoObj.animate({'left':"+="+ moveDist +"px"},'slow');
+				}
+			} else if (keyCode == 40) {
+				lineObj.animate({'top':"+="+ moveDist +"px"},'slow');
+				if (holdOnFlag) {
+					cargoObj.animate({'top':"+="+ moveDist +"px"},'slow');
+				}
+			} else if (keyCode == 13) {
+					flowLineObj(lineObj,cargoObj);
+			}
+		}
+		/*抓取货物效果*/
+		function flowLineObj(lineObj,cargoObj){
+			alert(holdOnFlag);
+			if (holdOnFlag) {//释放货物条件判断
+				holdOnFlag = false;//释放货物
+			} else {//if货物与绳子的距离top、left＜20px,按Enter键可以抓取货物。---后续距离判断ing
+				// var boxTop = lineObj.position().top+50;
+				// var boxLeft = lineObj.position().left;
+				var boxTop;
+				var aaa = lineObj.height()*1 + lineObj.position().top*1;
+				alert('a')
+				if(aaa<265){
+					boxTop = aaa - 265;
+				}else if(aaa>265){
+					boxTop = 265 - aaa;
+				}else{
+					boxTop = 265;
+				}
+
+				var boxLeft = lineObj.position().left -85;
+
+				cargoObj.css({top:boxTop,left:boxLeft});
+				holdOnFlag = true;
+			}
+			console.log("货物位置boxTop="+boxTop+"&&&&"+"boxLeft="+boxLeft);
+		};
+
+		/*提交判断车上的货物编号是否与任务中相同*/
+		function subJudgment(argument) {
+			// body...
+		}
+		
+	</script>
+	
+</body>
+</html>
