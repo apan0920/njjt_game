@@ -2,11 +2,11 @@
 * @Author: pz
 * @Date:   2017-12-06 20:25:13
 * @Last Modified by:   pz
-* @Last Modified time: 2017-12-08 17:23:20
+* @Last Modified time: 2017-12-08 21:08:42
 */
 
 /*1、界面生成---start********************************************************************************************/
-var randomX = getRandom(1, 6);//列
+		var randomX = getRandom(1, 6);//列
         var randomY = getRandom(1, 5); //层
         var businessList = ["提箱","放箱"];
 		var	business = businessList[Math.floor(Math.random() * businessList.length)];//提箱or放箱
@@ -46,9 +46,12 @@ var randomX = getRandom(1, 6);//列
 				}
 			}
 		} else if (business == "放箱") {
+			//隐藏位置及以上的箱子
 			for (var i = randomY; i < 6; i++) {
 					$("#box"+randomX+i).hide();
 			}
+			//将任务中箱子放在车上
+			$("#box"+randomX+randomY).css({top:"147px",left:"527px"}).show();
 		}
 /*1、界面生成---end********************************************************************************************/
 
@@ -70,10 +73,14 @@ var randomX = getRandom(1, 6);//列
 			return ifUp;
 		}
 
-		function getIfDown(lineObj,moveDist) {
+		/*是否可以向下移动*/
+		function getIfDown(lineObj,moveDist, holdOnFlag, perError) {
 			var ifDown = false;
-			var minHeight = getMinHeight(lineObj,moveDist);
+			var minHeight = getMinHeight(lineObj,moveDist, holdOnFlag, perError);
 			var afterMoveTop = lineObj.position().top+moveDist;//计算移动后的距离
+			if (holdOnFlag) {
+				afterMoveTop = afterMoveTop + 49;//携带货物时加上货物的高度
+			} 
 			/*问题：待解决。
 				1、两侧箱子高度不同时，有问题。
 				2、最左侧有问题。
@@ -95,8 +102,7 @@ var randomX = getRandom(1, 6);//列
 			//3）车子：>520[minHeight=135-车子高度-二分之一的箱子高度]
 		*/
 		//位置范围还需微调！！！微调！！！微调！！！微调！！！微调！！！后续优化！！！！！！
-		function getMinHeight(lineObj,moveDist) {
-			var perError = 2;//允许误差左右2px
+		function getMinHeight(lineObj, moveDist, holdOnFlag, perError) {
 			var minHeight = 90;//默认箱子右侧区
 			var lineLeft = lineObj.position().left;//当前绳子的left
 			var boxNum = 0;//箱子个数
@@ -120,7 +126,7 @@ var randomX = getRandom(1, 6);//列
 				} else if (lineLeft == 360) {
 					boxNum = getBoxNum(0,0,280);
 				} else if (lineLeft>360 && lineLeft<430) {
-					boxNum = Math.max(getBoxNum(209,280,-1),getBoxNum(349,417,-1));					
+					boxNum = Math.max(getBoxNum(279,350,-1),getBoxNum(349,417,-1));					
 				} else if (lineLeft>429 && lineLeft<501) {
 					boxNum = getBoxNum(349,417,-1);					
 				} 
@@ -154,8 +160,11 @@ var randomX = getRandom(1, 6);//列
 			return boxNum;
 		}
 
-		/*根据绳子的位置判断------是否可以向左移动*/
+		/*根据绳子的位置判断------是否可以向左移动
+			左右移动没有计算带箱子的情况！！！！！！！！！！！！！！！！！！！！！
+		*/
 		function getIfLeft(lineObj,moveDist) {
+			holdOnFlag悲催的人生啊~~~~~~~~~~~~~~~~~~
 			var ifLeft = false;
 			var lineTop = lineObj.position().top;
 			var lineLeft = lineObj.position().left-moveDist;//计算移动后的距离
@@ -316,36 +325,121 @@ var randomX = getRandom(1, 6);//列
 /*3、抓取箱子效果--start***********************************************************************************/
 		
 		/*抓取货物效果*/
-		function flowLineObj(lineObj,cargoObj,holdOnFlag){
-			if (holdOnFlag) {//释放货物条件判断
-				holdOnFlag = false;//释放货物
-			} else {//if货物与绳子的距离top、left＜20px,按Enter键可以抓取货物。---后续距离判断ing
-				/*var boxTop = lineObj.position().top+50;
-				var boxLeft = lineObj.position().left;
-				cargoObj.css({top:boxTop,left:boxLeft});
-				holdOnFlag = true;*/
-				var boxTop;
-				var aaa = lineObj.height()*1 + lineObj.position().top*1;
-				boxTop = aaa-280;
-				/*if(aaa<280){
-					boxTop = aaa - 280;
-				}else if(aaa>280){
-					boxTop = 280 - aaa;
-				}else{
-					boxTop = 280;
-				}*/
-
-				var boxLeft = lineObj.position().left -85;
-
-				cargoObj.css({top:boxTop-5,left:boxLeft+7});
-				holdOnFlag = true;
+		function flowLineObj(lineObj,cargoObj,holdOnFlag, moveDist, perError){
+			var returnArr = new Array();
+			cargoObj = getWhichBox(lineObj,perError);
+			if (cargoObj != null) {
+				console.log("flowLineObj返回值=x="+cargoObj.attr("x")+";y=="+cargoObj.attr("y"));
+				if (holdOnFlag) {//释放货物条件判断
+					if (getIfPutDownBox(lineObj, moveDist, perError)) {
+						holdOnFlag = false;//释放货物
+					} else {
+						alert("放置货物位置不正确！！！！！！");
+					}
+					
+				} else {//if货物与绳子的距离top、left＜20px,按Enter键可以抓取货物。---后续距离判断ing
+					var boxTop;
+					var aaa = lineObj.height()*1 + lineObj.position().top*1-280;
+					var boxLeft = lineObj.position().left -85;
+					cargoObj.css({top:boxTop-5,left:boxLeft+7});
+					holdOnFlag = true;
+				}
 			}
-			return holdOnFlag;
+			returnArr[0] = cargoObj;
+			returnArr[1] = holdOnFlag;
+			return returnArr;
 		};
 
-		/*是否可以抓取箱子*/
-		function ifGetBox(argument) {
-			// body...
+		/*判断可以抓取箱子是哪一个,允许误差perError = 2px*/
+		function getWhichBox(lineObj,perError) {
+			var testBoxNum = 0;//允许抓取的箱子的数量
+			var $cargoObj = null;
+			var approBoxTop = lineObj.height()*1 + lineObj.position().top*1-280-5;//将钢丝绳的top转换成对应的箱子的top
+			var approboxLeft = lineObj.position().left -80;//将钢丝绳的left转换成对应的箱子的left
+			for (var i = 1; i < 7; i++) {
+				for (var j = 1; j < 6; j++) {
+					var $currentBox = $("#box"+i+j);
+					var displayFlag = $currentBox.css('display');//可见属性
+					var currentBoxLeft = $currentBox.position().left;
+					var currentBoxTop = $currentBox.position().top;
+					var distTop = Math.abs(currentBoxTop-approBoxTop);
+					var distLeft = Math.abs(currentBoxLeft-approboxLeft);
+					if (displayFlag == 'block') {
+						if ( distTop<perError && distLeft<perError) {//计算左侧有没有箱子
+							$cargoObj = $("#box"+i+j);
+							testBoxNum++;
+						}
+					}
+				}
+			}
+			return $cargoObj;
+		}
+
+		/*判断是否可以将货物放下
+			1.不可以超层：箱子上方不可以放 top<-110(绳子top+箱子高度)
+			2.箱子区域：boxLeft=0/70/140/210/280/350
+			3.车上：能放一个，且只能放一个
+		*/
+		function getIfPutDownBox(lineObj, moveDist, perError) {
+			var putDown = false;
+			var lineTop = lineObj.position().top;
+			var lineLeft = lineObj.position().left;
+			if (lineTop < -111) {
+				putDown = false;
+			} else {
+				if (lineLeft > 500) {//车
+					if (boxOnCar()) {//判断车上是否有货物
+						putDown = false;
+					} else {
+						if (604<lineLeft<607) {
+							if (87 < lineTop < 92) {
+								putDown = true;
+							} else {
+								putDown = false;
+							}
+						} else {
+							putDown = false;
+						}
+					}
+					
+				} else {
+					if (lineLeft==80 || lineLeft==150 ||lineLeft==220 || lineLeft==290 || lineLeft==360 || lineLeft==430) {
+						//判断是否放到其他箱子上：：防止箱子悬空
+						var minHeight = getMinHeight(lineObj, moveDist, holdOnFlag, perError);
+						var distop = Math.abs((lineTop+lineObj.height())-minHeight);
+						if (distop<2) {//相差不大于1px
+							putDown = true;
+						} else {
+							putDown = false;
+						}
+						
+					}
+				}
+			} 
+			return putDown;
+		}
+		//判断车上是否有货物
+		function boxOnCar(lineObj) {
+			var boxNum = 0;//车上箱子数量
+			var isOn = false;
+			for (var i = 1; i < 7; i++) {
+				for (var j = 1; j < 6; j++) {
+					var $currentBox = $("#box"+i+j);
+					var displayFlag = $currentBox.css('display');//可见属性
+					var currentBoxLeft = $currentBox.position().left;
+					var currentBoxTop = $currentBox.position().top;
+					if (displayFlag == 'block') {
+						if ( currentBoxTop<130 && currentBoxLeft>500) {//如果放箱子没问题，，其实top不用比较
+							boxNum++;
+						}
+					}
+				}
+			}
+			console.log("车上货物数量=="+boxNum);
+			if (boxNum > 0) {
+				isOn = true;
+			} 
+			return isOn;
 		}
 /*3、抓取箱子效果--end***********************************************************************************/
 

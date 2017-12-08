@@ -2,7 +2,7 @@
 * @Author: pz
 * @Date:   2017-12-08 14:40:07
 * @Last Modified by:   pz
-* @Last Modified time: 2017-12-08 17:24:11
+* @Last Modified time: 2017-12-08 21:02:29
 */
 	//当页面加载完后
 	window.onload = function(){
@@ -22,6 +22,8 @@
 	    var holdOnFlag = false;//是否已抓取货物
 	    
 		var timing = 2;//ms
+		var perError = 3;//允许距离误差
+		var returnArr = new Array();
 
 		//当按下对应方向键时，对应变量为true
 	    document.onkeydown = function(ev){
@@ -41,7 +43,9 @@
 	    		bottomKey=true;
 	    		break;
 	    		case 13:
-	    		holdOnFlag = flowLineObj($lineObj,$cargoObj,holdOnFlag);//抓取物体并获取抓取状态返回值
+	    		returnArr = flowLineObj($lineObj, $cargoObj, moveDist, holdOnFlag, perError);//抓取物体并获取抓取状态返回值
+	    		$cargoObj = returnArr[0];
+	    		holdOnFlag = returnArr[1];
 	    		break;
 	    	}
 	    };
@@ -49,7 +53,7 @@
 	    //设置一个定时，时间为50左右，不要太高也不要太低,控制速度用
 	    setInterval(function(){
 	        //当其中一个条件为true时，则执行当前函数（移动对应方向）
-	        moveBox($lineObj,$cabObj,$cargoObj,moveDist,leftKey,rightKey,topKey,bottomKey,enterKey,holdOnFlag);
+	        moveBox($lineObj,$cabObj,$cargoObj,moveDist,leftKey,rightKey,topKey,bottomKey,enterKey,holdOnFlag, perError);
 	    },timing);
 
 	     //执行完后，所有对应变量恢复为false，保持静止不动
@@ -73,8 +77,8 @@
 	    	}
 	    }
 	}
-
-	function moveBox(lineObj,cabObj,cargoObj,moveDist,leftKey,rightKey,topKey,bottomKey,enterKey,holdOnFlag) {
+	/*左右移动没有计算带箱子的情况！！！！！！！！！！！！！！！！！！！！！*/
+	function moveBox(lineObj, cabObj, cargoObj, moveDist, leftKey, rightKey, topKey, bottomKey, enterKey, holdOnFlag, perError) {
 		if (leftKey) {//方向键：左←
 			if (getIfLeft(lineObj,moveDist)) {
 				lineObj.css({left:lineObj.position().left-moveDist+"px"});//钢丝绳移动
@@ -99,7 +103,7 @@
 				}
 			}
 		} else if (bottomKey) {//方向键：下↓
-			if (getIfDown(lineObj,moveDist)) {
+			if (getIfDown(lineObj,moveDist, holdOnFlag, perError)) {
 				lineObj.css({top:lineObj.position().top+moveDist+"px"});
 				if (holdOnFlag) {
 					cargoObj.css({top:cargoObj.position().top+moveDist+"px"});
