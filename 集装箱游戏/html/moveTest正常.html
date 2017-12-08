@@ -14,20 +14,20 @@
             top:100px;
         }
     </style>
+   
+</head>
+<body>
+<div id="div1"></div>
     <script>
-
         //当页面加载完后
         window.onload = function(){
-
             //获取Div元素
             var oDiv = document.getElementById("div1");
-
             //创建各个方向条件判断初始变量
             var left = false;
             var right = false;
             var top = false;
             var bottom = false;
-
             //当按下对应方向键时，对应变量为true
             document.onkeydown = function(ev){
                 var oEvent = ev || event;
@@ -50,7 +50,6 @@
 
             //设置一个定时，时间为50左右，不要太高也不要太低,控制速度用
             setInterval(function(){
-
                 //当其中一个条件为true时，则执行当前函数（移动对应方向）
                 if(left){
                     oDiv.style.left = oDiv.offsetLeft-1+"px";
@@ -85,8 +84,5 @@
             }
         }
     </script>
-</head>
-<body>
-<div id="div1"></div>
 </body>
 </html>

@@ -2,7 +2,7 @@
 * @Author: pz
 * @Date:   2017-12-06 20:25:13
 * @Last Modified by:   pz
-* @Last Modified time: 2017-12-08 17:23:20
+* @Last Modified time: 2017-12-08 14:45:18
 */
 
 /*1、界面生成---start********************************************************************************************/
@@ -54,8 +54,59 @@ var randomX = getRandom(1, 6);//列
 
 
 /*2、移动钢丝绳--start***********************************************************************************/
+		
 
+		var holdOnFlag = false;//是否已抓取货物
+		/*键盘监听*/
+		$(document).keyup(function(e){
+			var keyCode = e.keyCode;//按键
+			var moveDist = 20;//每次移动距离
+			var $lineObj = $("#line");//钢丝绳
+			var $cabObj = $("#cab");//驾驶室
+			var $cargoObj = $("#box11");//要抓取的物体
+			moveBox(keyCode,$lineObj,$cabObj,$cargoObj,moveDist);
+		});
 
+		/*根据方向移动钢丝绳(及货物)
+			lineObj：
+			      top：（最高-最低）-162px至135px（一层箱子的高度）-箱子高度？？？？
+			      left：（最左-最右）630px至78px
+		*/
+		function moveBox(keyCode,lineObj,cabObj,cargoObj,moveDist) {
+			if (keyCode == 37) {//方向键：左←
+				if (getIfLeft(lineObj,moveDist)) {
+					lineObj.animate({'left':"-="+ moveDist +"px"},'slow');//钢丝绳移动
+					cabObj.animate({'left':"-="+ moveDist +"px"},'slow');//左右移动式驾驶室跟随移动
+					if (holdOnFlag) {
+						cargoObj.animate({'left':"-="+ moveDist +"px"},'slow');//货物跟随钢丝绳移动
+					}
+				}
+			} else if (keyCode == 38) {//方向键：上↑
+				if (getIfUp(lineObj,moveDist)) {
+					lineObj.animate({'top':"-="+ moveDist +"px"},'slow');
+					if (holdOnFlag) {
+						cargoObj.animate({'top':"-="+ moveDist +"px"},'slow');
+					} 
+				}
+			} else if (keyCode == 39) {//方向键：右→
+				if (getIfRight(lineObj,moveDist)) {
+					lineObj.animate({'left':"+="+ moveDist +"px"},'slow');
+					cabObj.animate({'left':"+="+ moveDist +"px"},'slow');
+					if (holdOnFlag) {
+						cargoObj.animate({'left':"+="+ moveDist +"px"},'slow');
+					}
+				}
+			} else if (keyCode == 40) {//方向键：下↓
+				if (getIfDown(lineObj,moveDist)) {
+					lineObj.animate({'top':"+="+ moveDist +"px"},'slow');
+					if (holdOnFlag) {
+						cargoObj.animate({'top':"+="+ moveDist +"px"},'slow');
+					}
+				}
+			} else if (keyCode == 13) {//Enter键
+				flowLineObj(lineObj,cargoObj);
+			}
+		}
 
 		/*是否可以向上移动*/
 		function getIfUp(lineObj,moveDist) {
@@ -64,9 +115,10 @@ var randomX = getRandom(1, 6);//列
 			if (afterMoveTop > -162) {
 				ifUp = true;
 			} else {
-				/*alert("你要上天吗？");*///会不停弹出这句话。。！！！！！！！！什么原因？？？？
+				alert("你要上天吗？");
 				ifUp = false;
 			}
+			/*console.log("是否可以向上移动=="+ifUp);*/
 			return ifUp;
 		}
 
@@ -83,7 +135,7 @@ var randomX = getRandom(1, 6);//列
 			}else{
 				ifDown = true;
 			}
-			/*console.log("是否可以向下移动=="+ifDown);*/
+			console.log("是否可以向下移动=="+ifDown);
 			return ifDown;
 		}
 
@@ -94,39 +146,39 @@ var randomX = getRandom(1, 6);//列
 			//2）箱子与车的空白区：500-520[minHeight=135]
 			//3）车子：>520[minHeight=135-车子高度-二分之一的箱子高度]
 		*/
-		//位置范围还需微调！！！微调！！！微调！！！微调！！！微调！！！后续优化！！！！！！
+		//没有计算偏移误差！！！！！！！！！！！！！！！
 		function getMinHeight(lineObj,moveDist) {
-			var perError = 2;//允许误差左右2px
 			var minHeight = 90;//默认箱子右侧区
-			var lineLeft = lineObj.position().left;//当前绳子的left
+			var lineLeft = lineObj.position().left-moveDist;//计算移动后的距离
 			var boxNum = 0;//箱子个数
 			if (lineLeft<501) {//箱子区
-				if (lineLeft < (80+perError)) {
+				/*var oneCloumn = Math.abs(lineLeft-);*/
+				if (lineLeft == 80) {
 					boxNum = getBoxNum(0,0,0);
-				} else if (lineLeft>(80+perError) && lineLeft<150) {//取第一列与第二列最大高度
-					boxNum = Math.max(getBoxNum(-1,70,-1),getBoxNum(69,140,-1));//-1作为标识
+				} else if (lineLeft>80 && lineLeft<150) {
+					boxNum = getBoxNum(-1,70,-1);//-1作为标识
 				} else if (lineLeft == 150) {
 					boxNum = getBoxNum(0,0,70);
 				} else if (lineLeft>150 && lineLeft<220) {
-					boxNum = Math.max(getBoxNum(69,140,-1),getBoxNum(139,210,-1));
+					boxNum = getBoxNum(69,140,-1);
 				} else if (lineLeft == 220) {
 					boxNum = getBoxNum(0,0,140);
 				}else if (lineLeft>220 && lineLeft<290) {
-					boxNum = Math.max(getBoxNum(139,210,-1),getBoxNum(209,280,-1));
+					boxNum = getBoxNum(139,210,-1);
 				} else if (lineLeft == 290) {
 					boxNum = getBoxNum(0,0,210);
 				} else if (lineLeft>290 && lineLeft<360) {
-					boxNum = Math.max(getBoxNum(209,280,-1),getBoxNum(279,350,-1));
+					boxNum = getBoxNum(209,280,-1);
 				} else if (lineLeft == 360) {
 					boxNum = getBoxNum(0,0,280);
 				} else if (lineLeft>360 && lineLeft<430) {
-					boxNum = Math.max(getBoxNum(209,280,-1),getBoxNum(349,417,-1));					
+					boxNum = getBoxNum(279,350,-1);					
 				} else if (lineLeft>429 && lineLeft<501) {
 					boxNum = getBoxNum(349,417,-1);					
 				} 
 				minHeight = 135-(boxNum-1)*49;
 			}
-			/*console.log("lineLeft=="+lineLeft+"箱子个数="+boxNum+";可下降的高度=="+minHeight);*/
+			console.log("lineLeft=="+lineLeft+"箱子个数="+boxNum+";可下降的高度=="+minHeight);
 			return minHeight;
 		}
 
@@ -155,11 +207,10 @@ var randomX = getRandom(1, 6);//列
 		}
 
 		/*根据绳子的位置判断------是否可以向左移动*/
-		function getIfLeft(lineObj,moveDist) {
+		function getIfLeft(lineObj) {
 			var ifLeft = false;
 			var lineTop = lineObj.position().top;
-			var lineLeft = lineObj.position().left-moveDist;//计算移动后的距离
-			/*console.log("是否可以向左移动==移动后的位置=="+lineLeft);*/
+			var lineLeft = lineObj.position().left-20;//计算移动后的距离
 			if (lineLeft<80) {
 				ifLeft = false;
 			} else {
@@ -173,31 +224,31 @@ var randomX = getRandom(1, 6);//列
 						if (lineTop>135px) {
 							判断对应高度第6列是否有障碍物！！
 						} else {}*/
-					} else if(lineLeft>430 && lineLeft<501){//判断第6列对应高度是否有障碍物（在每次移动 1px 时，只需在临界值计算是否可以移动！！！！！）
+					} else if(lineLeft>430 && lineLeft<500){//判断第6列对应高度是否有障碍物（在每次移动 1px 时，只需在临界值计算是否可以移动！！！！！）
 						/*判断对应高度第6列是否有障碍物！！*/
 						ifLeft = haveBox(lineObj,6);
-					} else if(lineLeft>360 && lineLeft<431){//5
+					} else if(lineLeft>360 && lineLeft<430){//5
 						ifLeft = haveBox(lineObj,5);
-					} else if(lineLeft>290 && lineLeft<361){//4
+					} else if(lineLeft>290 && lineLeft<360){//4
 						ifLeft = haveBox(lineObj,4);
-					} else if(lineLeft>220 && lineLeft<291){//3
+					} else if(lineLeft>220 && lineLeft<290){//3
 						ifLeft = haveBox(lineObj,3);
-					} else if(lineLeft>150 && lineLeft<221){//2
+					} else if(lineLeft>150 && lineLeft<220){//2
 						ifLeft = haveBox(lineObj,2);
-					} else if(lineLeft>80 && lineLeft<151){//1
+					} else if(lineLeft>80 && lineLeft<150){//1
 						ifLeft = true;
 					} 
 				}
 			}
-			/*console.log("是否可以向左移动=="+ifLeft);*/
+			console.log("是否可以向左移动=="+ifLeft);
 			return ifLeft;
 		}
 
 		/*根据绳子的位置判断------是否可以向右移动*/
-		function getIfRight(lineObj,moveDist) {
+		function getIfRight(lineObj) {
 			var ifRight = true;
 			var lineTop = lineObj.position().top;
-			var lineLeft = lineObj.position().left+moveDist;//计算移动后的距离(+绳子的宽度??????)
+			var lineLeft = lineObj.position().left+20;//计算移动后的距离(+绳子的宽度??????)
 			if (lineLeft > 630) {
 				ifRight = false;
 			} else {
@@ -226,7 +277,7 @@ var randomX = getRandom(1, 6);//列
 					} 
 				}
 			}
-			/*console.log("是否可以向右移动=="+ifRight);*/
+			console.log("是否可以向右移动=="+ifRight);
 			return ifRight;
 		}
 
@@ -293,7 +344,7 @@ var randomX = getRandom(1, 6);//列
 					}
 				}
 			}
-			/*console.log("左侧箱子个数boxNum=="+boxNum);*/
+			console.log("左侧箱子个数boxNum=="+boxNum);
 			if (boxNum>0) {
 				haveBoxFlag = true;
 			} else {
@@ -316,7 +367,7 @@ var randomX = getRandom(1, 6);//列
 /*3、抓取箱子效果--start***********************************************************************************/
 		
 		/*抓取货物效果*/
-		function flowLineObj(lineObj,cargoObj,holdOnFlag){
+		function flowLineObj(lineObj,cargoObj){
 			if (holdOnFlag) {//释放货物条件判断
 				holdOnFlag = false;//释放货物
 			} else {//if货物与绳子的距离top、left＜20px,按Enter键可以抓取货物。---后续距离判断ing
@@ -340,7 +391,6 @@ var randomX = getRandom(1, 6);//列
 				cargoObj.css({top:boxTop-5,left:boxLeft+7});
 				holdOnFlag = true;
 			}
-			return holdOnFlag;
 		};
 
 		/*是否可以抓取箱子*/
