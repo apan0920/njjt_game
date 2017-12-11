@@ -2,7 +2,7 @@
 * @Author: pz
 * @Date:   2017-12-04 16:01:50
 * @Last Modified by:   pz
-* @Last Modified time: 2017-12-11 15:12:54
+* @Last Modified time: 2017-12-11 13:47:14
 */
 /*第8关-堆场指位*/
 
@@ -33,6 +33,7 @@ function getTaskList(){
 					cyNo = section + belt + yfColumn + yfFloor,//堆场箱位号=区+贝+列+层
 					isRight = item.isRight,//是否答对
 					pulishDate = item.pulishDate;//发布时间
+					console.log('content=='+content);
 
 				var html = '<a href="javascript:;" class="task_item" recordId="'+taskId+'" business="'+business+'" containerType="'+ containerType +'" cyNo="'+cyNo+'" section="'+ section +'" belt="'+ belt +'" yfColumn="'+ yfColumn +'" yfFloor="'+ yfFloor +'" >'+
 							'<h3>任务'+(i+1)+'</h3>'+
@@ -51,14 +52,29 @@ function getTaskList(){
 			//滚动条
 			$(".task_list").mCustomScrollbar();
 		},
+	/*	error: function(xhr,status,error){
+			alert(xhr);
+			console.log(xhr);
+        	alert(status);
+        	alert(error);
+    	},
+    	complete: function(response){
+    		alert(response);
+    		console.log(response);
+            if(response.status == 200){
+                alert('有效');
+            }else{
+                alert('无效');
+            }
+        }*/
 		error : function(XMLHttpRequest, textStatus, errorThrown) {
-				if (XMLHttpRequest.status == 0) {
+				/*if (XMLHttpRequest.status == 0) {
 					showAlert('服务器连接错误！','end',function(obj){
 						setTimeout(function(){
 							window.location.href = 'index.html';
 						},1000);
 					});
-				}
+				}*/
 			}
 	});
 };
@@ -83,29 +99,32 @@ function getTaskList(){
 			if($('.yf_box_item_img2 .yf_bay_style.selected').length<=0){
 				showAlert('请选出集装箱所在的堆场贝位！','end');
 				return;
-			}else{
-				var belt = $('.task_item.selected').attr('belt');//任务中贝位
-				var beltNumber = $('.yf_box_item_img2 .yf_bay_style.selected').attr("number");//选择的贝位编号
-				if (beltNumber != belt ) {
-					showAlert('请选出正确的堆场贝位！','end');
-					return;
-				}else{
-					/*进入动画----啦啦啦~~~~~~~~~~~~~~~~~~~~~~~~~~~*************************************/
-					/*任务赋值*/
-					var taskTitle = $('#taskTite').html(),
-						taskDate = splitColon($('#taskDate').html()),
-						content = splitColon($('#taskContent').html()),
-						business = splitColon($('#taskBusuness').html()),
-						containerType = splitColon($('#taskContainerType').html()),
-						cyNo = splitColon($('#taskCyNo').html()),
-						yfColumn = $('#yfColumn').val(),
-						yfFloor = $('#yfFloor').val();
-						console.log("URL的参数值=="+taskTitle,taskDate, cyNo, business, containerType, content, yfColumn, yfFloor);
-						window.location.href = "yardFingerGame.html?taskTitle="+taskTitle+"&taskDate="+taskDate+"&content="+content+"&business="+business+"&containerType="+containerType+"&cyNo="+cyNo+"&yfColumn="+yfColumn+"&yfFloor="+yfFloor;
-						$('.yf_box_item_img2').fadeOut();
-						$('.btn_next').css('display','none');
-				}
+			};
+			var belt = $('.task_item.selected').attr('belt');//任务中贝位
+			var beltNumber = $('.yf_box_item_img2 .yf_bay_style.selected').attr("number");//选择的贝位编号
+			console.log("belt=="+belt+";beltNumber=="+beltNumber)
+			if (beltNumber != belt ) {
+				showAlert('请选出正确的堆场贝位！','end');
+				return;
 			}
+			/*进入动画----啦啦啦~~~~~~~~~~~~~~~~~~~~~~~~~~~*************************************/
+			/*任务赋值*/
+			$('.task_list a').removeClass('selected');
+			$(this).addClass('selected');
+
+
+			var taskTitle = $('.task_item.selected').find('h3').html(),
+				taskDate = $('.task_item.selected').find('.task_item_date').html(),
+				content = $('.task_item.selected').find('p').html(),
+				business = $('.task_item.selected').attr('business'),
+				containerType = $('.task_item.selected').attr('containerType'),
+				cyNo = $('.task_item.selected').attr('cyNo'),
+				yfColumn = $('.task_item.selected').attr('yfColumn'),
+				yfFloor = $('.task_item.selected').attr('yfFloor');
+
+				window.location.href = "yardFingerGame.html?taskTitle="+taskTitle+"&taskDate="+taskDate+"&content="+content+"&business="+business+"&containerType="+containerType+"&cyNo="+cyNo+"&yfColumn="+yfColumn+"&yfFloor="+yfFloor;
+				$('.yf_box_item_img2').fadeOut();
+				$('.btn_next').css('display','none');
 		}
 	});
 
@@ -143,21 +162,17 @@ $(function(){
 
 		var taskTitle = $('.task_item.selected').find('h3').html(),
 			taskDate = $('.task_item.selected').find('.task_item_date').html(),
-			content = $('.task_item.selected').find('p').html(),
+			content = $('.task_item.selected').find('p').html();
 			business = $('.task_item.selected').attr('business'),
-			containerType = $('.task_item.selected').attr('containerType'),
-			cyNo = $('.task_item.selected').attr('cyNo'),
-			yfColumn = $('.task_item.selected').attr('yfColumn'),
-			yfFloor = $('.task_item.selected').attr('yfFloor');
+			containerType = $('.task_item.selected').attr('containerType');
+			cyNo = $('.task_item.selected').attr('cyNo');
 
-		$('.task_details_title').html(taskTitle)
+		$('.task_details_title').html(taskTitle);
 		$('.task_details_date').html(taskDate)
 		$('.task_details_cyNo').html('场箱位号：'+cyNo)
 		$('.task_details_business').html('业务类型：'+business)
 		$('.task_details_containerType').html('区位类型：'+containerType)
-		$('.task_details_content').html('任务内容：'+content)
-		$('#yfColumn').val(yfColumn)
-		$('#yfFloor').val(yfFloor)
+		$('.task_details_content').html('任务内容：'+content);
 
 		$('.task_content').removeClass('bounceInDown delay_10').addClass('bounceOutUp');
 
@@ -189,9 +204,10 @@ $(function(){
 	//确定-开始游戏
 	$('#determine').click(function(){
 		var recordId = $('.task_item.selected').attr('recordId');
+		alert("开始游戏recordId=="+recordId);
+		
 		set_address('yardFingerId',recordId);
 		set_address('yardFingerStartTime',new Date());
-
 		$('.task_alert_main_1').removeClass('rollIn delay_10').show().addClass('rollOut');
 		$('.task_alert_people_1').removeClass('zoomInRight delay_05').addClass('delay_02').addClass('zoomOutRight');
 		$('.task_alert_1').removeClass('delay_05 fadeIn').addClass('delay_05').addClass('fadeOut');
@@ -242,10 +258,3 @@ $(function(){
 	});
 
 });
-	/*截取冒号后的字符串*/
-	function splitColon(str) {
-		var result=str.split("：");
-		if (result !=null && result.length>0) {
-			return result[1];
-		} 
-	}
