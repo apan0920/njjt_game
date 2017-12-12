@@ -22,7 +22,7 @@ function getTaskList(){
 
 				var html = '<a href="javascript:;" class="task_item" fareTaskId='+fareTaskId+'>'+
 							'<h3>任务'+(i+1)+'</h3>'+
-							'<p>'+remark+'</p>'+
+							'<p class="task_item_content" title="'+remark+'">'+remark+'</p>'+
 							'<div class="task_item_right">'+
 								'<span class="task_item_date">发布时间：'+pulishDate+'</span>'+
 								'<span class="task_item_state"></span>'+

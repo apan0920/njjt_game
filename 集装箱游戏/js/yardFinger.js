@@ -2,7 +2,7 @@
 * @Author: pz
 * @Date:   2017-12-04 16:01:50
 * @Last Modified by:   pz
-* @Last Modified time: 2017-12-11 15:12:54
+* @Last Modified time: 2017-12-12 10:21:07
 */
 /*第8关-堆场指位*/
 
@@ -36,7 +36,7 @@ function getTaskList(){
 
 				var html = '<a href="javascript:;" class="task_item" recordId="'+taskId+'" business="'+business+'" containerType="'+ containerType +'" cyNo="'+cyNo+'" section="'+ section +'" belt="'+ belt +'" yfColumn="'+ yfColumn +'" yfFloor="'+ yfFloor +'" >'+
 							'<h3>任务'+(i+1)+'</h3>'+
-							'<p>'+content+'</p>'+
+							'<p class="task_item_content" title="'+content+'">'+content+'</p>'+
 							'<div class="task_item_right">'+
 								'<span class="task_item_date">发布时间：'+pulishDate+'</span>'+
 								'<span class="task_item_state"></span>'+
@@ -100,7 +100,7 @@ function getTaskList(){
 						cyNo = splitColon($('#taskCyNo').html()),
 						yfColumn = $('#yfColumn').val(),
 						yfFloor = $('#yfFloor').val();
-						console.log("URL的参数值=="+taskTitle,taskDate, cyNo, business, containerType, content, yfColumn, yfFloor);
+						/*console.log("调试--URL的参数值=="+taskTitle,taskDate, cyNo, business, containerType, content, yfColumn, yfFloor);*/
 						window.location.href = "yardFingerGame.html?taskTitle="+taskTitle+"&taskDate="+taskDate+"&content="+content+"&business="+business+"&containerType="+containerType+"&cyNo="+cyNo+"&yfColumn="+yfColumn+"&yfFloor="+yfFloor;
 						$('.yf_box_item_img2').fadeOut();
 						$('.btn_next').css('display','none');
@@ -190,7 +190,7 @@ $(function(){
 	$('#determine').click(function(){
 		var recordId = $('.task_item.selected').attr('recordId');
 		set_address('yardFingerId',recordId);
-		set_address('yardFingerStartTime',new Date());
+		set_address('yardFingerStartTime',getNowFormatDate());
 
 		$('.task_alert_main_1').removeClass('rollIn delay_10').show().addClass('rollOut');
 		$('.task_alert_people_1').removeClass('zoomInRight delay_05').addClass('delay_02').addClass('zoomOutRight');

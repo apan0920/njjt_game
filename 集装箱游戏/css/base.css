@@ -88,6 +88,8 @@ body.freight .logo_1 img { display: none; }
 .task_item:first-child { margin:0; }
 .task_item h3 { font-size: 16px; line-height: 24px; color:#fff; }
 .task_item p { font-size: 14px; line-height: 24px; color:#efefef; }
+.task_item_content{  width: 300px; line-height:24px; overflow: hidden; white-space: nowrap; -o-text-overflow: ellipsis; text-overflow:  ellipsis; }
+
 /*.task_list { height: 492px; padding:10px; border-radius: 10px; background-color: rgba(0, 151, 229, 0.2); -moz-box-shadow: box-shadow: 0 1px 2px #7cdef0 inset, 2px 2px 2px #669bb1; -webkit-box-shadow: box-shadow: 0 1px 2px #7cdef0 inset,2px 2px 2px #669bb1; box-shadow: 0 1px 2px #7cdef0 inset, 2px 2px 2px #669bb1; }*/
 .task_list_bg { position:relative; height: 492px; padding:10px 10px 90px; border-radius: 10px; background-color: rgba(0, 151, 229, 0.2); -moz-box-shadow: box-shadow: 0 1px 2px #7cdef0 inset, 2px 2px 2px #669bb1; -webkit-box-shadow: box-shadow: 0 1px 2px #7cdef0 inset,2px 2px 2px #669bb1; box-shadow: 0 1px 2px #7cdef0 inset, 2px 2px 2px #669bb1; }
 .task_list { height: 100%; }
@@ -548,7 +550,6 @@ a.booking_item { display: inline-block; }
 
 /* 堆场指位-start(pz)****************************************************************************
 ******************************************************************************************/
-
 .yf_content { background: url(../images/img8/bg_sy.png); } 
 .yf_close { bottom:30px; }
 .yf_bg { padding:210px 80px 0; }
@@ -570,7 +571,7 @@ a.booking_item { display: inline-block; }
 .yf_prompt { position: absolute; top:10px; right:10px; font-size: 14px; line-height: 28px; width: 70px; text-align: center; border-radius: 5px;background: #a7c62f; box-shadow: 1px 1px 2px 1px rgba(114,150,2,.8); letter-spacing: 2px; cursor: pointer; -moz-user-select:none; -webkit-user-select:none; -ms-user-select:none; -o-user-select:none; user-select:none;}
 
 .yf_box_item_img1 .yf_box_intro { width: 150px; height: 120px; }
-.yf_box_item_img2 .yf_box_intro { width: 150px; height: 130px; left:20px; top:20px; }
+.yf_box_item_img2 .yf_box_intro { width: 245px; left:464px; top:325px; padding: 4px 10px;}
 .yf_box_item_img3 .yf_box_intro { width: 150px; height: 130px; right:10px; top:40px; background-color:rgba(255,255,255,.95); }
 
 .yf_close { width: 100%; margin:0; left:0; text-align: center; font-size: 0; bottom: 30px }

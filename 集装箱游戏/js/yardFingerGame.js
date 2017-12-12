@@ -2,7 +2,7 @@
 * @Author: pz
 * @Date:   2017-12-06 20:25:13
 * @Last Modified by:   pz
-* @Last Modified time: 2017-12-11 21:40:44
+* @Last Modified time: 2017-12-12 09:56:25
 */
 
 /*1、游戏界面初始化---start********************************************************************************************/
@@ -142,7 +142,7 @@
 
 		function getBoxNum(minLeft, maxLeft, left, holdOnFlag){
 			/*循环获取位置内display：block的元素的数量*/
-			console.log("抓取的箱子 holdOnCargoX="+holdOnCargoX+";y轴=="+holdOnCargoY);
+			/*console.log("调试---抓取的箱子 holdOnCargoX="+holdOnCargoX+";y轴=="+holdOnCargoY);*/
 			var boxNum = 0;
 			for (var i = 1; i < 7; i++) {
 				for (var j = 1; j < 6; j++) {
@@ -186,7 +186,7 @@
 				lineTop = lineTop + 49;
 			} 
 			var lineLeft = lineObj.position().left-moveDist+8;//计算移动后的距离，8是夹子边距的距离
-			console.log("是否可以向左移动==移动后的位置=="+lineLeft);
+			/*console.log("调试---是否可以向左移动==移动后的位置=="+lineLeft);*/
 			if (lineLeft<80) {
 				ifLeft = false;
 			} else {
@@ -359,7 +359,7 @@
 			var returnArr = new Array();
 			cargoObj = getWhichBox(lineObj,perError);
 			if (cargoObj != null) {
-				console.log("flowLineObj返回值=x="+cargoObj.attr("x")+";y=="+cargoObj.attr("y"));
+				/*console.log("调试---flowLineObj返回值=x="+cargoObj.attr("x")+";y=="+cargoObj.attr("y"));*/
 				if (holdOnFlag) {//释放货物条件判断
 					if (getIfPutDownBox(lineObj, moveDist, holdOnFlag, perError)) {
 						holdOnFlag = false;//释放货物
@@ -489,7 +489,7 @@
 					}
 				}
 			}
-			console.log("车上货物数量=="+boxNum);
+			/*console.log("调试--车上货物数量=="+boxNum);*/
 			if (boxNum > 0) {
 				isOn = true;
 			} 
@@ -502,7 +502,8 @@
 
 /*4、提交按钮--start***********************************************************************************/
 		/*提交判断车上的货物编号是否与任务中相同*/
-		$("#gameSubBtn").click(function () {
+		function gameSubBtn(business, holdOnFlag) {
+			var business = splitColon($(".task_details_business").html());
 			var missionX = $("#yfColumn").val();
 			var missionY = $("#yfFloor").val();
 			if (business == "提箱") {	/*获取车上是否有箱子（及箱子编号）*/
@@ -510,13 +511,18 @@
 					var boxOnCarX = boxOnCar()[1].attr("x"),
 						boxOnCarY = boxOnCar()[1].attr("y");
 						if (boxOnCarX == missionX && boxOnCarY == missionY) {
-							showAlert('答题正确！','end',function(obj){
-							/*$('.slot_content').removeClass('bounceInDown').addClass('delay_02').addClass('bounceOutUp');*/
-								gameSub();//提交结果
-								setTimeout(function(){
-									window.location.href = 'index.html';
-								},1000);
-							});
+							if (holdOnFlag) {
+								showAlert('答题失败！请先完成放箱作业。','end');
+							} else {
+								showAlert('答题正确！','end',function(obj){
+								/*$('.slot_content').removeClass('bounceInDown').addClass('delay_02').addClass('bounceOutUp');*/
+									gameSub();//提交结果
+									setTimeout(function(){
+										window.location.href = 'index.html';
+									},1000);
+								});
+							}
+						
 						} else {
 							showAlert('答题失败！集装箱所在的列、层选择错误。','end');
 						}
@@ -525,45 +531,55 @@
 				}
 			} else if (business == "放箱") {
 				if (boxOnCar()!=null && !boxOnCar()[0]) {//只要箱子不在车上及算正确，不管箱子堆在集装箱的哪个位置
-					showAlert('答题正确！','end',function(obj){
-					/*$('.slot_content').removeClass('bounceInDown').addClass('delay_02').addClass('bounceOutUp');*/
-						gameSub();//提交结果
-						setTimeout(function(){
-							window.location.href = 'index.html';
-						},1000);
-					});
+					if (holdOnFlag) {
+						showAlert('答题失败！请先完成放箱作业。','end');
+					} else {
+						showAlert('答题正确！','end',function(obj){
+						/*$('.slot_content').removeClass('bounceInDown').addClass('delay_02').addClass('bounceOutUp');*/
+							gameSub();//提交结果
+							setTimeout(function(){
+								window.location.href = 'index.html';
+							},1000);
+						});
+					}
+					
 				} else {
 					showAlert('答题失败！集装箱放置位置错误。','end');
 				}
 			}
-		});
+		};
 
 		/*调用接口提交答题结果*/
 		function gameSub() {
+				var obj = $('.gameSubBtn a');
+				if(obj.attr('isSubmit') == 'false'){ return; }//禁止重复提交
+				obj.attr('isSubmit','false');
+
 				var ucode = get_address('ucode');//用户编号	
 				var taskId = get_address('yardFingerId')*1;//任务Id	
 				var startingTime = get_address('yardFingerStartTime');//开始时间	
-				var endingTime = new Date();//结束时间	
+				var endingTime = getNowFormatDate();//结束时间	base.js
 				var flag = 1;//是否答对	(0:错 1:对)
 			$.ajax({
-				url: ajaxUrl + 'congame/inter/yard-task!grade.action',/*http://ip:port/congame/inter/yard-task!grade.action*/
+				url: ajaxUrl + 'inter/yard-task!grade.action',/*http://ip:port/congame/inter/yard-task!grade.action*/
 				type: 'post',
 				dataType: 'json',
-				data: { 'ucode': ucode ,'taskId': recordId ,'startingTime': startingTime ,'endingTime': endingTime ,'flag': flag },
+				data: { 'ucode': ucode ,'taskId': taskId ,'startingTime': startingTime ,'endingTime': endingTime ,'flag': flag },
 				success: function(data){
-					if(data.status == 0){ showAlert('成绩保存失败，请重新提交！'); return; }
-
+					if(data.status == 0){
+					 showAlert('成绩保存失败，请重新提交！'); 
+					 return; 
+					}
 					obj.attr('isSubmit','true');
 					showAlert('成绩保存成功！','end',function(){
 						/*$(this).removeClass('delay_10 bounceInRight');
 						$('.booking_date_bg').removeClass('bounceInDown delay_05').addClass('bounceOutDown');
 						$('.booking_date_ico').removeClass('bounceInDown delay_08 tada').addClass('delay_02').addClass('bounceOutDown');
 						$('.booking_main').removeClass('zoomIn').addClass('delay_05').addClass('bounceOut');*/
-
 						setTimeout(function(){
 							window.location.href = 'yardFinger.html';
 						},1200);
-					})
+					});
 
 				},
 				error: function(){ console.log('加载失败') }
@@ -572,4 +588,10 @@
 		
 /*4、提交按钮--end***********************************************************************************/
 
- 
+ 	/*截取冒号后的字符串*/
+	function splitColon(str) {
+		var result=str.split("：");
+		if (result !=null && result.length>0) {
+			return result[1];
+		} 
+	}

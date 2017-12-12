@@ -2,7 +2,7 @@
 * @Author: pz
 * @Date:   2017-12-08 14:40:07
 * @Last Modified by:   pz
-* @Last Modified time: 2017-12-11 21:43:03
+* @Last Modified time: 2017-12-12 09:18:17
 */
 	//当页面加载完后
 	window.onload = function(){
@@ -111,6 +111,12 @@
 	    			break;
 	    	}	
 	    }
+
+
+	    /*提交按钮绑定时间*/
+		$("#gameSubBtn").bind("click",function(){
+			gameSubBtn(business, holdOnFlag);
+		});
 	}
 
 	/*通过shift键来控制速度*/
