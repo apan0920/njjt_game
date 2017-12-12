@@ -693,12 +693,16 @@ a.booking_item { display: inline-block; }
 .car {width: 90px;height: 74px; background:url(../images/img8/game/car.png) no-repeat;position: absolute;left: 600px;top: 452px;}
 .boxList {width: 417px;height: 245px;position: absolute;margin: 280px 0 0 85px;}
 .boxGame {width: 67px;height: 49px;background-color: pink;position: absolute;}
+/* .boxGame {width: 67px;height: 49px;background-color: pink;position: absolute;color: #EEE;font-size: 15px;text-align: center;line-height: 49px;font-weight: 700;} */
 /* 箱子背景图片 */
 .boxBgImgBlue{background:url(../images/img8/game/boxBlue.png);}
 .boxBgImgGreen{background:url(../images/img8/game/boxGreen.png);}
 .boxBgImgGrey{background:url(../images/img8/game/boxGrey.png);}
 .boxBgImgLightBlue{background:url(../images/img8/game/boxLightBlue.png);}
 .boxBgImgOrange{background:url(../images/img8/game/boxOrange.png);}
+.boxBgImgGreyBlue{background:url(../images/img8/game/greyBlue.png);}
+.boxBgImgYellow{background:url(../images/img8/game/yellow.png);}
+.boxBgImgRed{background:url(../images/img8/game/red.png);}
 /* 箱子位置 */
 .box11{position: absolute;top: 196px;}
 .box12{position: absolute;top: 147px;}

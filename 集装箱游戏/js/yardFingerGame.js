@@ -2,7 +2,7 @@
 * @Author: pz
 * @Date:   2017-12-06 20:25:13
 * @Last Modified by:   pz
-* @Last Modified time: 2017-12-12 16:45:08
+* @Last Modified time: 2017-12-12 20:11:55
 */
 
 /*1、游戏界面初始化---start********************************************************************************************/
@@ -16,13 +16,20 @@
 
 		function initGame(taskTitle,taskDate, cyNo, business, containerType, content, yfColumn, yfFloor) {
 			//1.左侧箱子区
-			var bg = ["boxBgImgBlue","boxBgImgGreen","boxBgImgGrey","boxBgImgLightBlue","boxBgImgOrange"];
+			var bg = ["boxBgImgBlue","boxBgImgGreen","boxBgImgGrey","boxBgImgLightBlue","boxBgImgGreyBlue","boxBgImgYellow"];//"boxBgImgOrange",
 			for (var i = 1; i < 7; i++) {
 				for (var j = 1; j < 6; j++) {
 					var randomBg = bg[Math.floor(Math.random() * bg.length)];
-					$("#box"+i+j).addClass(randomBg);
+					if (i==yfColumn && j==yfFloor) {
+						$("#box"+i+j).addClass("boxBgImgRed");//任务箱子设置为醒目的橘色
+					}else{
+						$("#box"+i+j).addClass(randomBg);
+					}
+					
+
 				}
 			}
+			
 			/*根据业务类型、任务中列+层，随机隐藏箱子==>生成最终的界面效果*/
 			if (business == "提箱") {
 				/*隐藏右上角4个箱子
@@ -80,7 +87,7 @@
 			var minHeight = getMinHeight(lineObj,moveDist, holdOnFlag, perError);
 			var afterMoveTop = lineObj.position().top+moveDist;//计算移动后的距离
 			if (holdOnFlag) {
-				afterMoveTop = afterMoveTop + 49 - (perError-1)-2;//携带货物时加上货物的高度,误差为2px。6为夹子的下编辑
+				afterMoveTop = afterMoveTop + 49 - (perError-1);//携带货物时加上货物的高度,误差为2px。6为夹子的下编辑
 			} 
 			/*问题：待解决。
 				1、两侧箱子高度不同时，有问题。
@@ -361,7 +368,9 @@
 					if (holdOnFlag) {//释放货物条件判断
 						var putDownArr = getIfPutDownBox(lineObj, moveDist, holdOnFlag, perError);
 						if (putDownArr[0]) {
+							autoHoming(cargoObj, perError);
 							holdOnFlag = false;//释放货物
+
 							//给已抓取的货物赋值
 							holdOnCargoX = 0;
 							holdOnCargoY = 0;
@@ -385,6 +394,42 @@
 			}
 			return returnArr;
 		};
+		/*货物自动归位*/
+		function autoHoming(cargoObj, perError) {
+			var cargoTop = cargoObj.position().top,
+				cargoLeft = cargoObj.position().left;
+				//top
+				if (cargoLeft < 430) {//箱子区
+					if (0-perError<cargoTop && cargoTop<0+perError) {
+						cargoObj.css({top:0});
+					} else if (49-perError<cargoTop && cargoTop<49+perError) {
+						cargoObj.css({top:49});
+					} else if (98-perError<cargoTop && cargoTop<98+perError) {
+						cargoObj.css({top:98});
+					} else if (147-perError<cargoTop && cargoTop<147+perError) {
+						cargoObj.css({top:147});
+					} else if (196-perError<cargoTop && cargoTop<196+perError) {
+						cargoObj.css({top:196});
+					}
+				//left
+					if (cargoLeft < 0+perError) {
+						cargoObj.css({left:0});
+					} else if (70-perError<cargoLeft && cargoLeft<70+perError) {
+						cargoObj.css({left:70});
+					} else if (140-perError<cargoLeft && cargoLeft<140+perError) {
+						cargoObj.css({left:140});
+					} else if (210-perError<cargoLeft && cargoLeft<210+perError) {
+						cargoObj.css({left:210});
+					} else if (280-perError<cargoLeft && cargoLeft<280+perError) {
+						cargoObj.css({left:280});
+					} else if (350-perError<cargoLeft && cargoLeft<350+perError) {
+						cargoObj.css({left:350});
+					}
+
+				} else {//小车区
+					cargoObj.css({top:149,left:527});
+				}
+		}
 
 		/*判断可以抓取箱子是哪一个,允许误差perError = 2px*/
 		function getWhichBox(lineObj,perError) {
@@ -426,7 +471,7 @@
 			if (holdOnFlag) {
 				lineTop = lineTop+49;//加上箱子的高度
 			}
-			if (lineTop < -111) {
+			if (lineTop < -25) {//不能超过5层（-61）
 				putDown = false;
 			} else {
 				if (lineLeft > 500) {//车
@@ -450,6 +495,8 @@
 				} else {
 					var putDownFlag = false;
 					if (80-perError<lineLeft && lineLeft<80+perError){
+						putDownFlag = true;
+					} else if (150-perError<lineLeft && lineLeft<150+perError) {
 						putDownFlag = true;
 					} else if (220-perError<lineLeft && lineLeft<220+perError) {
 						putDownFlag = true;
