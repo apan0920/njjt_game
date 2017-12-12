@@ -691,7 +691,7 @@ a.booking_item { display: inline-block; }
 .cab {width: 192px;height: 118px; background:url(../images/img8/game/cab.png) no-repeat;position: absolute;top: 65px;left: 545px;}
 .line {width: 80px;height: 346px; background:url(../images/img8/game/line.png) no-repeat;position: absolute;top: -162px;left: 630px;}
 .car {width: 90px;height: 74px; background:url(../images/img8/game/car.png) no-repeat;position: absolute;left: 600px;top: 452px;}
-.boxList {width: 417px;height: 245px;background-color: #FF9900;position: absolute;margin: 280px 0 0 85px;}
+.boxList {width: 417px;height: 245px;position: absolute;margin: 280px 0 0 85px;}
 .boxGame {width: 67px;height: 49px;background-color: pink;position: absolute;}
 /* 箱子背景图片 */
 .boxBgImgBlue{background:url(../images/img8/game/boxBlue.png);}

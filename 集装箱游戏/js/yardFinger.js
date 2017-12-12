@@ -2,7 +2,7 @@
 * @Author: pz
 * @Date:   2017-12-04 16:01:50
 * @Last Modified by:   pz
-* @Last Modified time: 2017-12-12 10:21:07
+* @Last Modified time: 2017-12-12 11:43:31
 */
 /*第8关-堆场指位*/
 
@@ -223,7 +223,16 @@ $(function(){
 	//贝位选择
 	$('.yf_bay_style').click(function(){
 		if($(this).hasClass('selected')){
-			$(this).removeClass('selected');
+			$(this).removeClass('selected');//清除数字选中状态
+			var  bayNo = Number($(this).attr("number"));//清除贝位选中状态
+			if (bayNo%2 == 0) {
+				var minBayNo = ".yf_bay_"+(bayNo-1);
+				var maxBayNo = ".yf_bay_"+(bayNo+1);
+				$(minBayNo).removeClass('selected');
+				$(maxBayNo).removeClass('selected');
+			} else {
+				$(".yf_bay_"+bayNo).removeClass('selected');
+			}
 		}else{	
 			$(this).parents('.yf_bay_list').find('.yf_bay_style').removeClass('selected');
 			$(this).addClass('selected');

@@ -2,7 +2,7 @@
 * @Author: pz
 * @Date:   2017-12-08 14:40:07
 * @Last Modified by:   pz
-* @Last Modified time: 2017-12-12 09:18:17
+* @Last Modified time: 2017-12-12 14:07:37
 */
 	//当页面加载完后
 	window.onload = function(){
@@ -139,8 +139,12 @@
 	}*/
 	/*左右移动没有计算带箱子的情况！！！！！！！！！！！！！！！！！！！！！*/
 	function moveBox(lineObj, cabObj, cargoObj, moveDist, leftKey, rightKey, topKey, bottomKey, enterKey, holdOnFlag, perError) {
+		if ($("#task_alert").css("display") == "block") {//弹出提示框时，禁止操作
+				return;
+			}
+			
 		if (leftKey) {//方向键：左←
-			if (getIfLeft(lineObj, moveDist, holdOnFlag)) {
+			if (getIfLeft(lineObj, moveDist, holdOnFlag, perError)) {
 				lineObj.css({left:lineObj.position().left-moveDist+"px"});//钢丝绳移动
 				cabObj.css({left:cabObj.position().left-moveDist+"px"});//左右移动式驾驶室跟随移动
 				if (holdOnFlag && cargoObj!==null) {
@@ -155,7 +159,7 @@
 				} 
 			}
 		} else if (rightKey) {//方向键：右→
-			if (getIfRight(lineObj, moveDist, holdOnFlag)) {
+			if (getIfRight(lineObj, moveDist, holdOnFlag, perError)) {
 				lineObj.css({left:lineObj.position().left+moveDist+"px"});//钢丝绳移动
 				cabObj.css({left:cabObj.position().left+moveDist+"px"});//左右移动式驾驶室跟随移动
 				if (holdOnFlag && cargoObj!==null) {

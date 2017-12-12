@@ -2,7 +2,7 @@
 * @Author: pz
 * @Date:   2017-12-06 20:25:13
 * @Last Modified by:   pz
-* @Last Modified time: 2017-12-12 16:45:08
+* @Last Modified time: 2017-12-12 13:51:24
 */
 
 /*1、游戏界面初始化---start********************************************************************************************/
@@ -102,14 +102,13 @@
 			//2）箱子与车的空白区：500-520[minHeight=135]
 			//3）车子：>520[minHeight=135-车子高度-二分之一的箱子高度]
 		*/
+		//位置范围还需微调！！！微调！！！微调！！！微调！！！微调！！！后续优化！！！！！！
 		function getMinHeight(lineObj, moveDist, holdOnFlag, perError) {
 			var minHeight = 90;//默认箱子右侧区
 			if (holdOnFlag) {
-				if (!(boxOnCar()!=null && boxOnCar()[0])) {
-					minHeight = minHeight+45;//车上没有箱子
-				}
+				minHeight = minHeight+45;
 			}
-			var lineLeft = lineObj.position().left;//当前绳子的left
+			var lineLeft = lineObj.position().left+2;//当前绳子的left，8为夹子边距//+8下不去
 			var boxNum = 0;//箱子个数
 			if (lineLeft<501) {//箱子区
 				if (lineLeft < (80+perError)) {
@@ -176,9 +175,11 @@
 			return boxNum;
 		}
 
-		/*根据绳子的位置判断------是否可以向左移动*/
-		function getIfLeft(lineObj, moveDist, holdOnFlag, perError) {
-			perError = perError-1;//左右移动误差不大于1
+		/*根据绳子的位置判断------是否可以向左移动
+			左右移动没有计算带箱子的情况！！！！！！！！！！！！！！！！！！！！！
+		*/
+		function getIfLeft(lineObj, moveDist, holdOnFlag) {
+			/*holdOnFlag悲催的人生啊~~~~~~~~~~~~~~~~~~*/
 			var ifLeft = false;
 			var lineTop = lineObj.position().top;
 			if (holdOnFlag) {//抓取货物时加上货物的高度
@@ -194,69 +195,73 @@
 				} else {//箱子区域（top：135px至-66px）
 					if (lineLeft>500) {//箱子右侧（left：521px至630px）
 						ifLeft = true;
-					} else if(500-perError<lineLeft && lineLeft<500+perError){//判断第6列对应高度是否有障碍物（在每次移动 1px 时，只需在临界值计算是否可以移动！！！！！）
+						/*还要考虑车上集装箱的高度，
+						限制车上只能放一个集装箱
+						if (lineTop>135px) {
+							判断对应高度第6列是否有障碍物！！
+						} else {}*/
+					} else if(lineLeft>427 && lineLeft<501){//判断第6列对应高度是否有障碍物（在每次移动 1px 时，只需在临界值计算是否可以移动！！！！！）
 						/*判断对应高度第6列是否有障碍物！！*/
 						ifLeft = haveBox(lineObj, 6, holdOnFlag);
-					}else if(430-perError<lineLeft && lineLeft<430+perError){
+					}else if(lineLeft>425 && lineLeft<428){//判断第6列对应高度是否有障碍物（在每次移动 1px 时，只需在临界值计算是否可以移动！！！！！）
+						/*判断对应高度第6列是否有障碍物！！*/
 						ifLeft = haveBox(lineObj, 5, holdOnFlag);
-					} else if(360-perError<lineLeft && lineLeft<360+perError){
+					} else if(lineLeft>360 && lineLeft<426){//5
 						ifLeft = haveBox(lineObj, 4, holdOnFlag);
-					} else if(290-perError<lineLeft && lineLeft<290+perError){
+					} else if(lineLeft>290 && lineLeft<361){//4
 						ifLeft = haveBox(lineObj, 3, holdOnFlag);
-					} else if(220-perError<lineLeft && lineLeft<220+perError){
+					} else if(lineLeft>220 && lineLeft<291){//3
 						ifLeft = haveBox(lineObj, 2, holdOnFlag);
-					} else if(150-perError<lineLeft && lineLeft<150+perError){
+					} else if(lineLeft>150 && lineLeft<221){//2
 						ifLeft = haveBox(lineObj, 1, holdOnFlag);
-					} else{
+					} else if(lineLeft>80 && lineLeft<151){//0
 						ifLeft = true;
-					}
+					} 
 				}
 			}
+			/*console.log("是否可以向左移动=="+ifLeft);*/
 			return ifLeft;
 		}
 
 		/*根据绳子的位置判断------是否可以向右移动*/
-		function getIfRight(lineObj, moveDist, holdOnFlag, perError) {
-			perError = perError-1;//左右移动误差不大于1
+		function getIfRight(lineObj, moveDist, holdOnFlag) {
 			var ifRight = true;
 			var lineTop = lineObj.position().top;
-			var lineLeft = lineObj.position().left+moveDist+67;//计算箱子右侧的位置【移动后的距离+箱子宽度。】
+			var lineLeft = lineObj.position().left+moveDist;//计算移动后的距离(+绳子的宽度??????)
 			
 			if (holdOnFlag) {//抓取货物时加上货物的高度
 				lineTop = lineTop + 49;
 			} 
 
-			if (lineLeft > 707) {//最右侧边距
+			if (lineLeft > 630) {
 				ifRight = false;
 			} else {
 				if (lineTop<-66) {//箱子上方（top:-66px至-162px  left:80px至630px）
 					ifRight = true;
 				} else {//箱子区域（top：135px至-66px）
-					if (lineLeft>430) {//箱子第六列+箱子右侧（left：521px至630px）
-						if (lineLeft > 595 ) {//考虑车上集装箱时的高度
-							if (boxOnCar()!=null && boxOnCar()[0] && lineTop>87) {
-								ifRight = false;
-							}else{
-								ifRight = true;
-							} 
-						} else {
-							ifRight = true;
-						}
-					} else if(430-perError<lineLeft && lineLeft<430+perError){//判断第6列对应高度是否有障碍物（在每次移动 1px 时，只需在临界值计算是否可以移动！！！！！）
-						ifRight = haveBox(lineObj, 6, holdOnFlag);
-					} else if(360-perError<lineLeft && lineLeft<360+perError){//5
-						ifRight = haveBox(lineObj, 5, holdOnFlag);
-					} else if(290-perError<lineLeft && lineLeft<290+perError){//4
-						ifRight = haveBox(lineObj, 4, holdOnFlag);
-					} else if(220-perError<lineLeft && lineLeft<220+perError){//3
-						ifRight = haveBox(lineObj, 3, holdOnFlag);
-					} else if(150-perError<lineLeft && lineLeft<150+perError){//2
-						ifRight = haveBox(lineObj, 2, holdOnFlag);
-					} else{
+					if (lineLeft>500) {//箱子右侧（left：521px至630px）
 						ifRight = true;
-					}
+						/*还要考虑车上集装箱的高度，
+						限制车上只能放一个集装箱
+						if (lineTop>135px) {
+							判断对应高度第6列是否有障碍物！！
+						} else {}*/
+					} else if(lineLeft>430 && lineLeft<500){
+						ifRight = true;
+					} else if(lineLeft>360 && lineLeft<430){//6//判断第6列对应高度是否有障碍物（在每次移动 1px 时，只需在临界值计算是否可以移动！！！！！）
+						ifRight = haveBox(lineObj, 6, holdOnFlag);
+					} else if(lineLeft>290 && lineLeft<360){//5
+						ifRight = haveBox(lineObj, 5, holdOnFlag);
+					} else if(lineLeft>220 && lineLeft<290){//4
+						ifRight = haveBox(lineObj, 4, holdOnFlag);
+					} else if(lineLeft>150 && lineLeft<220){//3
+						ifRight = haveBox(lineObj, 3, holdOnFlag);
+					} else if(lineLeft>80 && lineLeft<150){//2
+						ifRight = haveBox(lineObj, 2, holdOnFlag);
+					} 
 				}
 			}
+			/*console.log("是否可以向右移动=="+ifRight);*/
 			return ifRight;
 		}
 
@@ -311,7 +316,7 @@
 				minTop = 146;
 				maxTop = 196;				
 			} else if (boxTop>196) {
-				minTop = 195;
+				minTop = 196;
 				maxTop = 245;//箱子区域底部边缘
 			} 
 
@@ -359,14 +364,13 @@
 				if (cargoObj != null) {
 					/*console.log("调试---flowLineObj返回值=x="+cargoObj.attr("x")+";y=="+cargoObj.attr("y"));*/
 					if (holdOnFlag) {//释放货物条件判断
-						var putDownArr = getIfPutDownBox(lineObj, moveDist, holdOnFlag, perError);
-						if (putDownArr[0]) {
+						if (getIfPutDownBox(lineObj, moveDist, holdOnFlag, perError)) {
 							holdOnFlag = false;//释放货物
 							//给已抓取的货物赋值
 							holdOnCargoX = 0;
 							holdOnCargoY = 0;
 						} else {
-							showAlert(putDownArr[1],'end');
+							showAlert('集装箱放置位置错误,请重新放置！','end');
 						}
 
 					} else {//if货物与绳子的距离top、left＜20px,按Enter键可以抓取货物。---后续距离判断ing
@@ -417,10 +421,7 @@
 			3.车上：能放一个，且只能放一个
 		*/
 		function getIfPutDownBox(lineObj, moveDist, holdOnFlag, perError) {
-			var putDownArr = new Array();
 			var putDown = false;
-			var putDownPrompt = '集装箱放置位置错误,请重新放置！' ;
-
 			var lineTop = lineObj.position().top;
 			var lineLeft = lineObj.position().left;
 			if (holdOnFlag) {
@@ -432,13 +433,9 @@
 				if (lineLeft > 500) {//车
 					if (boxOnCar()!=null && boxOnCar()[0]) {//判断车上是否有货物
 						putDown = false;
-						if (lineLeft>607 && lineTop>88) {
-							putDownPrompt = "车上只能放一个集装箱!";
-						}
-						
 					} else {
-						if (604<lineLeft && lineLeft<609) {	
-							if (87<(lineTop-49) && (lineTop-49)<92) {
+						if (604<lineLeft<607) {	
+							if (87 < lineTop < 92) {
 								putDown = true;
 							} else {
 								putDown = false;
@@ -472,9 +469,7 @@
 					} 
 				}
 			} 
-			putDownArr[0] = putDown;
-			putDownArr[1] = putDownPrompt;
-			return putDownArr;
+			return putDown;
 		}
 		//判断车上是否有货物
 		function boxOnCar() {

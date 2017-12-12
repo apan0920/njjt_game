@@ -52,7 +52,7 @@ function getNowFormatDate() {
  */
 //弹窗1（船期的选定）
 function showAlert(name,status,callback){
-	var alert_html = '<div class="task_alert task_alert_2">'+
+	var alert_html = '<div id="task_alert" class="task_alert task_alert_2">'+
 						'<div class="task_alert_box">'+
 							'<div class="task_alert_people"></div>'+
 							'<div class="task_alert_main">'+
