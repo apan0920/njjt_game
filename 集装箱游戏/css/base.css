@@ -12,6 +12,7 @@ html,body { width:100%; height: 100%; }
 em.em_05 { display: inline-block; width: .5em; }
 em.em_1 { display: inline-block; width: 1em; }
 em.em_2 { display: inline-block; width: 2em; }
+em.em_5 { display: inline-block; width: 5em; }
 
 .fl { float:left; }
 .fr { float:right; }
@@ -418,9 +419,9 @@ video::-webkit-media-controls-fullscreen-button { display: none; }
 
 .slot_close { width: 100%; margin:0; left:0; text-align: center; font-size: 0; }
 .slot_close a { display: inline-block; display: none; width: 188px; margin:0 5px; }
-.slot_close a.btn_1{ background: url(../images/ico_r1.png) center no-repeat; }/* 提交 */
-.slot_close a.btn_3{ background: url(../images/ico_000.png) center no-repeat; }/* 下一步 */
-.slot_close a.btn_4{ background: url(../images/ico_222.png) center no-repeat; }/* 跳过 */
+.slot_close a.btn_1{ background: url(../images/ico_r1.png) center no-repeat; }
+.slot_close a.btn_3{ background: url(../images/ico_000.png) center no-repeat; }
+.slot_close a.btn_4{ background: url(../images/ico_222.png) center no-repeat; }
 .slot_close a.btn_2,
 .slot_close a.btn_4 { display: inline-block; }
 
@@ -518,6 +519,7 @@ a.booking_item { display: inline-block; }
 .booking_answer td:last-child { width: 10%; }
 .booking_answer td span { font-size: 14px; line-height: 20px; display: block; color:#666; margin-bottom:5px; }
 .booking_answer td textarea { width: 100%; resize:none; border:none; background:#fefefe; border:1px solid #e1e1e1; font-size: 14px; line-height: 20px; padding:6px; height: 34px; overflow:hidden}
+.booking_answer td textarea.goods_hide { display: none; }
 .booking_answer td.div_1 { padding:0; position: relative; }
 .booking_answer td .w_50 { position: absolute; top:0; width: 50%; height: 100%; left:50%; padding-top:30px; text-align: center; }
 .booking_answer td .w_50:first-child { left:0; border-right:1px solid #e1e1e1; }
@@ -530,6 +532,7 @@ a.booking_item { display: inline-block; }
 .booking_pic:first-child { display: block; }
 
 /***********************/
+.goods .booking_content { background: url(../images/img3/bg_1.png); }
 .goods .booking_img.img_1 { background: url(../images/img3/img_01.png) center no-repeat; background-size: 100% 100%; }
 .goods .booking_img.img_2 { background: url(../images/img3/img_02.png) center no-repeat; background-size: 100% 100%; }
 .goods .booking_img.img_3 { background: url(../images/img3/img_03.png) center no-repeat; background-size: 100% 100%; }
@@ -542,17 +545,30 @@ a.booking_item { display: inline-block; }
 .goods .booking_img.img_10 { background: url(../images/img3/img_10.png) center no-repeat; background-size: 100% 100%; }
 .goods .booking_img.img_11 { background: url(../images/img3/img_11.png) center no-repeat; background-size: 100% 100%; }
 
+.booking_title { padding-bottom:10px; line-height: 24px; }
+.booking_title h3 { text-align: center; position: relative; margin-bottom:10px; }
+.booking_title h3 span { display: block; }
+.booking_title h3 p { position: absolute; top:0; right:20%; }
+.booking_title_intro { text-align: right; }
+
+.goods_d .booking_main { background: url(../images/img3/bg_2.png) center no-repeat; background-size: 100% 100%; }
+.goods_d .booking_answer table { table-layout:inherit; }
+.goods_d .booking_answer table td { width: 25%; min-height: 36px; }
+.goods_d .booking_answer table tr.tdC td { text-align: center; position: relative; }
+.goods_d .booking_answer table tr.tdC td p { position: absolute; left:5px; top:5px; font-size: 14px; }
+.goods_d .booking_answer table tr.tdC td i { font-size: 50px; line-height: 100px; display: inline-block; height: 100px; }
+.booking_answer td textarea[disabled="disabled"] { border:none; background: none; }
+.booking_title .fl { width: 60%; }
+.booking_title input { width: 70%; background: #fefefe; border: 1px solid #e1e1e1; font-size: 14px; line-height: 20px; padding: 6px; height: 34px; overflow: hidden; }
 
 /*订舱单的填制-end****************************************************************************
 ******************************************************************************************/
 
-
-
 /* 堆场指位-start(pz)****************************************************************************
 ******************************************************************************************/
-.yf_content { background: url(../images/img8/bg_sy.png); } 
+.yf_content { background: url(../images/img8/bg_sy.png);width: 1028px;height: 823px;top: -50px; } 
 .yf_close { bottom:30px; }
-.yf_bg { padding:210px 80px 0; }
+.yf_bg { padding:262px 80px 0; }
 .yf_box { height: 470px; border-radius: 10px; position: relative; background-color: rgba(255, 255, 255, 0.6);
     -moz-box-shadow: box-shadow: 0 1px 2px #7cdef0 inset, 2px 2px 2px #669bb1;
     -webkit-box-shadow: box-shadow: 0 1px 2px #7cdef0 inset,2px 2px 2px #669bb1;
@@ -571,10 +587,11 @@ a.booking_item { display: inline-block; }
 .yf_prompt { position: absolute; top:10px; right:10px; font-size: 14px; line-height: 28px; width: 70px; text-align: center; border-radius: 5px;background: #a7c62f; box-shadow: 1px 1px 2px 1px rgba(114,150,2,.8); letter-spacing: 2px; cursor: pointer; -moz-user-select:none; -webkit-user-select:none; -ms-user-select:none; -o-user-select:none; user-select:none;}
 
 .yf_box_item_img1 .yf_box_intro { width: 150px; height: 120px; }
-.yf_box_item_img2 .yf_box_intro { width: 245px; left:464px; top:325px; padding: 4px 10px;}
+.yf_box_item_img2 .yf_box_intro { width: 245px; top:415px; left:620px; padding: 4px 10px;}
+.yf_box_item_img2 { padding: 15px 0 0 12px;}
 .yf_box_item_img3 .yf_box_intro { width: 150px; height: 130px; right:10px; top:40px; background-color:rgba(255,255,255,.95); }
 
-.yf_close { width: 100%; margin:0; left:0; text-align: center; font-size: 0; bottom: 30px }
+.yf_close { width: 100%; margin:0; left:0; text-align: center; font-size: 0; bottom: 20px }
 
 /* .yf_close a { display: inline-block; display: none; width: 188px; margin:0 5px; } */
 .yf_close a { display: inline-block; width: 188px; margin:0 5px; }
@@ -589,28 +606,28 @@ a.booking_item { display: inline-block; }
 .yf_item.selected { border: 2px solid #FF0202;}
 .yf_box_item_img3 { cursor: pointer; }
 
-.yf_item_1 { width: 30px; height: 40px; top:12px; left:451px; }
+.yf_item_1 { width: 255px; height: 69px; top:16px; left:554px; }
 
-.yf_item_2 { width: 99px; height: 58px; top:121px; left:11px; }
-.yf_item_3 { width: 99px; height: 58px; top:121px; left:121px; }
-.yf_item_4 { width: 99px; height: 58px; top:121px; left:233px; }
-.yf_item_5 { width: 99px; height: 58px; top:121px; left:341px; }
-.yf_item_6 { width: 99px; height: 58px; top:121px; left:451px; }
-.yf_item_7 { width: 99px; height: 58px; top:121px; left:562px; }
+.yf_item_2 { width: 119px; height: 71px; top:148px; left:15px; }
+.yf_item_3 { width: 119px; height: 71px; top:148px; left:149px; }
+.yf_item_4 { width: 119px; height: 71px; top:148px; left:285px; }
+.yf_item_5 { width: 119px; height: 71px; top:148px; left:420px; }
+.yf_item_6 { width: 119px; height: 71px; top:148px; left:554px; }
+.yf_item_7 { width: 119px; height: 71px; top:148px; left:690px; }
 
-.yf_item_8 { width: 99px; height: 58px; top:233px; left:11px; }
-.yf_item_9 { width: 99px; height: 58px; top:233px; left:121px; }
-.yf_item_10 { width: 99px; height: 58px; top:233px; left:233px; }
-.yf_item_11 { width: 99px; height: 58px; top:233px; left:340px; }
-.yf_item_12 { width: 99px; height: 58px; top:233px; left:451px; }
-.yf_item_13 { width: 99px; height: 58px; top:233px; left:562px; }
+.yf_item_8 { width: 119px; height: 71px; top:285px; left:15px; }
+.yf_item_9 { width: 119px; height: 71px; top:285px; left:149px; }
+.yf_item_10 { width: 119px; height: 71px; top:285px; left:285px; }
+.yf_item_11 { width: 119px; height: 71px; top:285px; left:420px; }
+.yf_item_12 { width: 119px; height: 71px; top:285px; left:554px; }
+.yf_item_13 { width: 119px; height: 71px; top:285px; left:690px; }
 
-.yf_item_14 { width: 99px; height: 58px; top:302px; left:11px; }
-.yf_item_15 { width: 99px; height: 58px; top:302px; left:121px; }
-.yf_item_16 { width: 99px; height: 58px; top:302px; left:233px; }
-.yf_item_17 { width: 99px; height: 58px; top:302px; left:340px; }
-.yf_item_18 { width: 99px; height: 58px; top:302px; left:451px; }
-.yf_item_19 { width: 99px; height: 58px; top:302px; left:562px; }
+.yf_item_14 { width: 119px; height: 71px; top:370px; left:15px; }
+.yf_item_15 { width: 119px; height: 71px; top:370px; left:149px; }
+.yf_item_16 { width: 119px; height: 71px; top:370px; left:285px; }
+.yf_item_17 { width: 119px; height: 71px; top:370px; left:420px; }
+.yf_item_18 { width: 119px; height: 71px; top:370px; left:554px; }
+.yf_item_19 { width: 119px; height: 71px; top:370px; left:690px; }
 .yf_item_20 { top:173px; left:460px; }
 .yf_item_21 { top:206px; left:791px; }
 .yf_item_22 { top:268px; left:693px; }
@@ -623,65 +640,66 @@ a.booking_item { display: inline-block; }
 .yf_item_29 { top:396px; left:329px; }
 .yf_item_30 { top:429px; left:264px; }
 
-.yf_bay_list{width: 709px; height: 299px;}
+.yf_bay_list{width: 709px; height: 260px;position: absolute;}
 /* 贝位黄色区域  */
-.yf_bay { position: absolute; width: 40px; height: 257px;} 
+.yf_bay { position: absolute; width: 49px; height: 306px;} 
 .yf_bay.selected { border: 2px solid #FF0202;}
 
 .yf_bay_style { cursor: pointer; position: absolute; width: 39px; height: 249px;}
 .yf_bay_style.selected { border: 2px solid #FF0202;}
 
 .yf_bay_1 {left:0px; }
-.yf_bay_3 {left:45px; }
-.yf_bay_5 {left:90px; }
-.yf_bay_7 {left:135px; }
-.yf_bay_9 {left:179px; }
-.yf_bay_11 {left:223px; }
-.yf_bay_13 {left:268px; }
-.yf_bay_15 {left:312px; }
-.yf_bay_17 {left:357px; }
-.yf_bay_19 {left:401px; }
-.yf_bay_21 {left:446px; }
-.yf_bay_23 {left:491px; }
-.yf_bay_25 {left:535px; }
-.yf_bay_27 {left:580px; }
-.yf_bay_29 {left:624px; }
-.yf_bay_31 {left:669px; }
+.yf_bay_3 {left:53px; }
+.yf_bay_5 {left:106px; }
+.yf_bay_7 {left:158px; }
+.yf_bay_9 {left:212px; }
+.yf_bay_11 {left:265px; }
+.yf_bay_13 {left:320px; }
+.yf_bay_15 {left:371px; }
+.yf_bay_17 {left:424px; }
+.yf_bay_19 {left:477px; }
+.yf_bay_21 {left:530px; }
+.yf_bay_23 {left:583px; }
+.yf_bay_25 {left:634px; }
+.yf_bay_27 {left:689px; }
+.yf_bay_29 {left:742px; }
+.yf_bay_31 {left:795px; }
 /* 贝位数字 */
-.yf_bay_no {width: 28px; height: 22px;}
+.yf_bay_no {width: 35px; height: 26px;}
 
-.yf_bay_no_01 {top:262px; left:7px;}
-.yf_bay_no_03 {top:262px; left:51px;}
-.yf_bay_no_05 {top:262px; left:96px; }
-.yf_bay_no_07 {top:262px; left:139px; }
-.yf_bay_no_09 {top:262px; left:185px; }
-.yf_bay_no_11 {top:262px; left:229px; }
-.yf_bay_no_13 {top:262px; left:274px; }
-.yf_bay_no_15 {top:262px; left:319px; }
-.yf_bay_no_17 {top:262px; left:362px; }
-.yf_bay_no_19 {top:262px; left:408px; }
-.yf_bay_no_21 {top:262px; left:452px; }
-.yf_bay_no_23 {top:262px; left:497px; }
-.yf_bay_no_25 {top:262px; left:541px; }
-.yf_bay_no_27 {top:262px; left:586px; }
-.yf_bay_no_29 {top:262px; left:630px; }
-.yf_bay_no_31 {top:262px; left:675px; }
+.yf_bay_no_01 {top:313px; left:7px;}
+.yf_bay_no_03 {top:313px; left:58px;}
+.yf_bay_no_05 {top:313px; left:112px; }
+.yf_bay_no_07 {top:313px; left:165px; }
+.yf_bay_no_09 {top:313px; left:219px; }
+.yf_bay_no_11 {top:313px; left:272px; }
+.yf_bay_no_13 {top:313px; left:327px; }
+.yf_bay_no_15 {top:313px; left:378px; }
+.yf_bay_no_17 {top:313px; left:430px; }
+.yf_bay_no_19 {top:313px; left:486px; }
+.yf_bay_no_21 {top:313px; left:539px; }
+.yf_bay_no_23 {top:313px; left:591px; }
+.yf_bay_no_25 {top:313px; left:642px; }
+.yf_bay_no_27 {top:313px; left:698px; }
+.yf_bay_no_29 {top:313px; left:749px; }
+.yf_bay_no_31 {top:313px; left:803px; }
 
-.yf_bay_no_02 {top:292px; left:30px;}
-.yf_bay_no_04 {top:292px; left:74px;}
-.yf_bay_no_06 {top:292px; left:119px;}
-.yf_bay_no_08 {top:292px; left:163px;}
-.yf_bay_no_10 {top:292px; left:208px;}
-.yf_bay_no_12 {top:292px; left:252px;}
-.yf_bay_no_14 {top:292px; left:297px;}
-.yf_bay_no_16 {top:292px; left:341px;}
-.yf_bay_no_18 {top:292px; left:385px;}
-.yf_bay_no_20 {top:292px; left:430px;}
-.yf_bay_no_22 {top:292px; left:475px;}
-.yf_bay_no_24 {top:292px; left:519px;}
-.yf_bay_no_26 {top:292px; left:564px;}
-.yf_bay_no_28 {top:292px; left:608px;}
-.yf_bay_no_30 {top:292px; left:653px;}
+.yf_bay_no_02 {top:348px; left:34px;}
+.yf_bay_no_04 {top:348px; left:87px;}
+.yf_bay_no_06 {top:348px; left:141px;}
+
+.yf_bay_no_08 {top:348px; left:194px;}
+.yf_bay_no_10 {top:348px; left:247px;}
+.yf_bay_no_12 {top:348px; left:299px;}
+.yf_bay_no_14 {top:348px; left:354px;}
+.yf_bay_no_16 {top:348px; left:406px;}
+.yf_bay_no_18 {top:348px; left:459px;}
+.yf_bay_no_20 {top:348px; left:512px;}
+.yf_bay_no_22 {top:348px; left:565px;}
+.yf_bay_no_24 {top:348px; left:619px;}
+.yf_bay_no_26 {top:348px; left:670px;}
+.yf_bay_no_28 {top:348px; left:724px;}
+.yf_bay_no_30 {top:348px; left:779px;}
 
 /* 堆场指位游戏-start-pz *******************************************************************************************/
 .bodyGame { width: 100%; height: 100%; overflow: hidden; background: url(../images/img8/game/yardFigerGame_bg.jpg); background-size: 100% 100%; }
@@ -744,8 +762,7 @@ a.booking_item { display: inline-block; }
 .gameSubBtn a { width: 100%; height: 100%; background: url(../images/img8/game/img8_sub.png) center no-repeat; }
 /* 堆场指位游戏-end-pz *******************************************************************************************/
 
-/*堆场指位-end(pz)****************************************************************************
-******************************************************************************************/
+
 
 @media (max-height: 900px){
 
@@ -754,6 +771,8 @@ a.booking_item { display: inline-block; }
 	.booking_answer { padding:90px 70px; }
 	.booking_question { padding:90px 70px 70px; }
 	.booking_close { top:30px; }
+
+	
 
 }
 
@@ -856,7 +875,7 @@ a.booking_item { display: inline-block; }
 	.slot_item_20 { top: 140px; left: 372px; }
 	.slot_item_21 { top: 166px; left: 638px; }
 	.slot_item_22 { top: 217px; left: 559px; }
-	.slot_item_23 { top: 217px; left: 399px; }
+	.slot_item_23 { top: 217px; left: 3119px; }
 	.slot_item_24 { top: 243px; left: 426px; }
 	.slot_item_25 { top: 243px; left: 79px; }
 	.slot_item_26 { top: 269px; left: 159px; }
@@ -887,22 +906,219 @@ a.booking_item { display: inline-block; }
 	.booking_answer td label { margin-right:4px; }
 
 	/* 堆场指位-start-pz */
-	.yf_bg { padding: 210px 80px 0; }
+	/* .yf_bg { padding: 210px 80px 0; }
 	.yf_box { height:380px;  }
 	.yf_close { bottom:-7px; }
 	.yf_close a,
 	.yf_close a.btn_sub,
 	.yf_close a.btn_next,
 	.yf_close a.btn_skip { width: 150px; height: 46px; background-size: 100% 100%; }
-
+	
 	.yf_prompt { top:6px; right:8px; width: 60px; line-height: 24px; }
 	.yf_box_item_img3 .yf_box_intro { right: 8px; top: 32px; }
+	
+	.signOutGame { position: absolute; z-index: 9999; width: 132px; height: 77px; bottom:20px; right: 20px; }
+	.signOutGame a { width: 100%; height: 100%; background: url(../images/img8/game/img8_sign_out.png) center no-repeat; }
+	.gameSubBtn { position: absolute; z-index: 9999; width: 132px; height: 77px; bottom:20px; right: 140px; }
+	.gameSubBtn a { width: 100%; height: 100%; background: url(../images/img8/game/img8_sub.png) center no-repeat; } */
+	/* 堆场指位-end-pz */
+
+	/* 堆场指位-start(pz)****************************************************************************
+******************************************************************************************/
+/* 	.yf_content { background: url(../images/img8/bg_sy.png); }  */
+	.yf_close { bottom:30px; }
+	.yf_bg { padding:200px 80px 0; }
+	.yf_box { height: 380px; border-radius: 10px; position: relative; background-color: rgba(255, 255, 255, 0.6);
+	    -moz-box-shadow: box-shadow: 0 1px 2px #7cdef0 inset, 2px 2px 2px #669bb1;
+	    -webkit-box-shadow: box-shadow: 0 1px 2px #7cdef0 inset,2px 2px 2px #669bb1;
+	    box-shadow: 0 1px 2px #7cdef0 inset, 2px 2px 2px #669bb1; }
+	.yf_box_item { display: none; position: absolute; width: 100%; height: 100%; top:0; left:0; }
+	.yf_box_item:first-child { display: block; }
+
+
+	.yf_box_intro { position: absolute; padding:15px 10px; background: rgba(255,255,255,.5); border-radius: 6px; box-shadow: 0px 0px 5px 2px rgba(0,0,0,.1); }
+	.yf_box_intro h3 { font-size: 16px; line-height: 16px; color:#333; margin-bottom:8px; }
+	.yf_box_intro p { font-size: 14px; color:#333; line-height: 16px; margin-bottom:5px; }
+	.yf_box_intro p.p_num { height: 16px; }
+	.yf_box_intro p.p_intro { text-align: justify; color: #f00; text-indent: 2em; line-height: 18px; }
+	.yf_box_intro .yf_next { display: none; position: absolute; width: 100px; left:50%; margin-left:-50px; bottom:15px; font-size: 15px; line-height: 30px; color:#fff; text-align: center; border-radius: 6px; background: #a7c62f; box-shadow: 1px 1px 2px 1px rgba(114,150,2,.8); letter-spacing: 2px; cursor: pointer; }
+
+	.yf_prompt { position: absolute; top:10px; right:10px; font-size: 14px; line-height: 28px; width: 70px; text-align: center; border-radius: 5px;background: #a7c62f; box-shadow: 1px 1px 2px 1px rgba(114,150,2,.8); letter-spacing: 2px; cursor: pointer; -moz-user-select:none; -webkit-user-select:none; -ms-user-select:none; -o-user-select:none; user-select:none;}
+
+	.yf_box_item_img1 .yf_box_intro { width: 150px; height: 120px; }
+	.yf_box_item_img2 .yf_box_intro { width: 245px; left:464px; top:325px; padding: 4px 10px;}
+	.yf_box_item_img2 { padding: 0;}
+	.yf_box_item_img3 .yf_box_intro { width: 150px; height: 130px; right:10px; top:40px; background-color:rgba(255,255,255,.95); }
+
+	.yf_close { width: 100%; margin:0; left:0; text-align: center; font-size: 0; bottom: 11px }
+
+	/* .yf_close a { display: inline-block; display: none; width: 188px; margin:0 5px; } */
+	.yf_close a { display: inline-block; width: 188px; margin:0 5px; }
+	.yf_close a.btn_sub{ background: url(../images/ico_r1.png) center no-repeat; }/* 提交 */
+	.yf_close a.btn_next{ background: url(../images/ico_000.png) center no-repeat; }/* 下一步 */
+	.yf_close a.btn_skip{ background: url(../images/ico_222.png) center no-repeat; }/* 跳过 */
+	.yf_close a.btn_2,
+	/* .yf_close a.btn_skip { display: inline-block; } */
+
+	.yf_list {  }
+	.yf_item { cursor: pointer; position: absolute; width: 32px; height: 32px; }
+	.yf_item.selected { border: 2px solid #FF0202;}
+	.yf_box_item_img3 { cursor: pointer; }
+
+	.yf_item_1 { width: 208px;height: 58px;top: 13px;left: 452px; }
+
+	.yf_item_2 { width: 99px; height: 58px; top:121px; left:11px; }
+	.yf_item_3 { width: 99px; height: 58px; top:121px; left:121px; }
+	.yf_item_4 { width: 99px; height: 58px; top:121px; left:233px; }
+	.yf_item_5 { width: 99px; height: 58px; top:121px; left:341px; }
+	.yf_item_6 { width: 99px; height: 58px; top:121px; left:451px; }
+	.yf_item_7 { width: 99px; height: 58px; top:121px; left:562px; }
+
+	.yf_item_8 { width: 99px; height: 58px; top:233px; left:11px; }
+	.yf_item_9 { width: 99px; height: 58px; top:233px; left:121px; }
+	.yf_item_10 { width: 99px; height: 58px; top:233px; left:233px; }
+	.yf_item_11 { width: 99px; height: 58px; top:233px; left:340px; }
+	.yf_item_12 { width: 99px; height: 58px; top:233px; left:451px; }
+	.yf_item_13 { width: 99px; height: 58px; top:233px; left:562px; }
+
+	.yf_item_14 { width: 99px; height: 58px; top:302px; left:11px; }
+	.yf_item_15 { width: 99px; height: 58px; top:302px; left:121px; }
+	.yf_item_16 { width: 99px; height: 58px; top:302px; left:233px; }
+	.yf_item_17 { width: 99px; height: 58px; top:302px; left:340px; }
+	.yf_item_18 { width: 99px; height: 58px; top:302px; left:451px; }
+	.yf_item_19 { width: 99px; height: 58px; top:302px; left:562px; }
+	.yf_item_20 { top:173px; left:460px; }
+	.yf_item_21 { top:206px; left:791px; }
+	.yf_item_22 { top:268px; left:693px; }
+	.yf_item_23 { top:268px; left:494px; }
+	.yf_item_24 { top:300px; left:528px; }
+	.yf_item_25 { top:300px; left:98px; }
+	.yf_item_26 { top:333px; left:197px; }
+	.yf_item_27 { top:333px; left:395px; }
+	.yf_item_28 { top:364px; left:660px; }
+	.yf_item_29 { top:396px; left:329px; }
+	.yf_item_30 { top:429px; left:264px; }
+
+	.yf_bay_list{width: 709px; height: 299px;}
+	/* 贝位黄色区域  */
+	.yf_bay { position: absolute; width: 40px; height: 257px;} 
+	.yf_bay.selected { border: 2px solid #FF0202;}
+
+	.yf_bay_style { cursor: pointer; position: absolute; width: 39px; height: 249px;}
+	.yf_bay_style.selected { border: 2px solid #FF0202;}
+
+	.yf_bay_1 {left:0px; }
+	.yf_bay_3 {left:45px; }
+	.yf_bay_5 {left:90px; }
+	.yf_bay_7 {left:135px; }
+	.yf_bay_9 {left:179px; }
+	.yf_bay_11 {left:223px; }
+	.yf_bay_13 {left:268px; }
+	.yf_bay_15 {left:312px; }
+	.yf_bay_17 {left:357px; }
+	.yf_bay_19 {left:401px; }
+	.yf_bay_21 {left:446px; }
+	.yf_bay_23 {left:491px; }
+	.yf_bay_25 {left:535px; }
+	.yf_bay_27 {left:580px; }
+	.yf_bay_29 {left:624px; }
+	.yf_bay_31 {left:669px; }
+	/* 贝位数字 */
+	.yf_bay_no {width: 28px; height: 22px;}
+
+	.yf_bay_no_01 {top:262px; left:7px;}
+	.yf_bay_no_03 {top:262px; left:51px;}
+	.yf_bay_no_05 {top:262px; left:96px; }
+	.yf_bay_no_07 {top:262px; left:139px; }
+	.yf_bay_no_09 {top:262px; left:185px; }
+	.yf_bay_no_11 {top:262px; left:229px; }
+	.yf_bay_no_13 {top:262px; left:274px; }
+	.yf_bay_no_15 {top:262px; left:319px; }
+	.yf_bay_no_17 {top:262px; left:362px; }
+	.yf_bay_no_19 {top:262px; left:408px; }
+	.yf_bay_no_21 {top:262px; left:452px; }
+	.yf_bay_no_23 {top:262px; left:497px; }
+	.yf_bay_no_25 {top:262px; left:541px; }
+	.yf_bay_no_27 {top:262px; left:586px; }
+	.yf_bay_no_29 {top:262px; left:630px; }
+	.yf_bay_no_31 {top:262px; left:675px; }
+
+	.yf_bay_no_02 {top:292px; left:30px;}
+	.yf_bay_no_04 {top:292px; left:74px;}
+	.yf_bay_no_06 {top:292px; left:119px;}
+	.yf_bay_no_08 {top:292px; left:163px;}
+	.yf_bay_no_10 {top:292px; left:208px;}
+	.yf_bay_no_12 {top:292px; left:252px;}
+	.yf_bay_no_14 {top:292px; left:297px;}
+	.yf_bay_no_16 {top:292px; left:341px;}
+	.yf_bay_no_18 {top:292px; left:385px;}
+	.yf_bay_no_20 {top:292px; left:430px;}
+	.yf_bay_no_22 {top:292px; left:475px;}
+	.yf_bay_no_24 {top:292px; left:519px;}
+	.yf_bay_no_26 {top:292px; left:564px;}
+	.yf_bay_no_28 {top:292px; left:608px;}
+	.yf_bay_no_30 {top:292px; left:653px;}
+
+	/* 堆场指位游戏-start-pz *******************************************************************************************/
+	.bodyGame { width: 100%; height: 100%; overflow: hidden; background: url(../images/img8/game/yardFigerGame_bg.jpg); background-size: 100% 100%; }
+	.longDoor {width: 784px;height: 527px; background:url(../images/img8/game/longDoor.png) no-repeat;position: absolute;bottom: 15%;left: 60px;}
+	.moveList {width: 784px;height: 527px; position: absolute;bottom: 17%;left: 60px;}
+	/* .cab {width: 192px;height: 118px; background:url(../images/img8/game/cab.png) no-repeat;position: absolute;top: 179px;left: 602px;} */
+	.cab {width: 192px;height: 118px; background:url(../images/img8/game/cab.png) no-repeat;position: absolute;top: 65px;left: 545px;}
+	.line {width: 80px;height: 346px; background:url(../images/img8/game/line.png) no-repeat;position: absolute;top: -162px;left: 630px;}
+	.car {width: 90px;height: 74px; background:url(../images/img8/game/car.png) no-repeat;position: absolute;left: 600px;top: 452px;}
+	.boxList {width: 417px;height: 245px;position: absolute;margin: 280px 0 0 85px;}
+	.boxGame {width: 67px;height: 49px;background-color: pink;position: absolute;}
+	/* .boxGame {width: 67px;height: 49px;background-color: pink;position: absolute;color: #EEE;font-size: 15px;text-align: center;line-height: 49px;font-weight: 700;} */
+	/* 箱子背景图片 */
+	.boxBgImgBlue{background:url(../images/img8/game/boxBlue.png);}
+	.boxBgImgGreen{background:url(../images/img8/game/boxGreen.png);}
+	.boxBgImgGrey{background:url(../images/img8/game/boxGrey.png);}
+	.boxBgImgLightBlue{background:url(../images/img8/game/boxLightBlue.png);}
+	.boxBgImgOrange{background:url(../images/img8/game/boxOrange.png);}
+	.boxBgImgGreyBlue{background:url(../images/img8/game/greyBlue.png);}
+	.boxBgImgYellow{background:url(../images/img8/game/yellow.png);}
+	.boxBgImgRed{background:url(../images/img8/game/red.png);}
+	/* 箱子位置 */
+	.box11{position: absolute;top: 196px;}
+	.box12{position: absolute;top: 147px;}
+	.box13{position: absolute;top: 98px;}
+	.box14{position: absolute;top: 49px;}
+	.box15{position: absolute;top: 0;}
+	.box21{position: absolute;top: 196px;left: 70px;}
+	.box22{position: absolute;top: 147px;left: 70px;}
+	.box23{position: absolute;top: 98px;left: 70px;}
+	.box24{position: absolute;top: 49px;left: 70px;}
+	.box25{position: absolute;top: 0;left: 70px;}
+	.box31{position: absolute;top: 196px;left: 140px;}
+	.box32{position: absolute;top: 147px;left: 140px;}
+	.box33{position: absolute;top: 98px;left: 140px;}
+	.box34{position: absolute;top: 49px;left: 140px;}
+	.box35{position: absolute;top: 0;left: 140px;}
+
+	.box41{position: absolute;top: 196px;left: 210px;}
+	.box42{position: absolute;top: 147px;left: 210px;}
+	.box43{position: absolute;top: 98px;left: 210px;}
+	.box44{position: absolute;top: 49px;left: 210px;}
+	.box45{position: absolute;top: 0;left: 210px;}
+
+	.box51{position: absolute;top: 196px;left: 280px;}
+	.box52{position: absolute;top: 147px;left: 280px;}
+	.box53{position: absolute;top: 98px;left: 280px;}
+	.box54{position: absolute;top: 49px;left: 280px;}
+	.box55{position: absolute;top: 0;left: 280px;}
+
+	.box61{position: absolute;top: 196px;left: 350px;}
+	.box62{position: absolute;top: 147px;left: 350px;}
+	.box63{position: absolute;top: 98px;left: 350px;}
+	.box64{position: absolute;top: 49px;left: 350px;}
+	.box65{position: absolute;top: 0;left: 350px;}
 
 	.signOutGame { position: absolute; z-index: 9999; width: 132px; height: 77px; bottom:20px; right: 20px; }
 	.signOutGame a { width: 100%; height: 100%; background: url(../images/img8/game/img8_sign_out.png) center no-repeat; }
 	.gameSubBtn { position: absolute; z-index: 9999; width: 132px; height: 77px; bottom:20px; right: 140px; }
 	.gameSubBtn a { width: 100%; height: 100%; background: url(../images/img8/game/img8_sub.png) center no-repeat; }
-	/* 堆场指位-end-pz */
+/* 堆场指位游戏-end-pz *******************************************************************************************/
 }
 
 

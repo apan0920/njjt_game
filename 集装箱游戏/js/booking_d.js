@@ -101,8 +101,6 @@ function bookingSubmit(recordId,startTime,endTime){
 		lenSuccess = lenTotal - errorList.length,
 		time = timeDifference;
 
-	alert('用户名：'+ucode+"，任务ID："+recordId+"，时间差(分)："+time+"，总题数："+lenTotal+"，答对题数："+lenSuccess);
-
 	$.ajax({
 		url: ajaxUrl + 'inter/order-game!grade.action',
 		type: 'post',
@@ -143,7 +141,7 @@ $(function(){
 		startTime = new Date();
 		$('.booking_submit a').attr('isSubmit','true');
 
-		time = 1;
+		time = 600;
 		var _time = time*1000*60;
 		$('.booking_date_speed').animate({'top':'100%'},_time,function(){
 			bookingSubmit(recordId,startTime,0);

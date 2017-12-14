@@ -97,7 +97,7 @@ $(function(){
 		$('.slot_video_bg').show();
 	});
 
-	//选择列&层-提示	
+	//选择列&层-提示
 	$('.slot_prompt').click(function(){
 		$('.slot_box_item_img3 .slot_box_intro').stop();
 		$('.slot_box_item_img3 .slot_box_intro').slideToggle();

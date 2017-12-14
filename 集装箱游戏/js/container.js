@@ -16,13 +16,11 @@ function getTaskList(){
 			$('#taskList').html('');
 			$.each(taskList,function(i,item){
 				var recordId = item.recordId,
-					isDone = item.isDone,
+					isDone = item.isRight,
 					pulishDate = item.pulishDate,
 					remark = item.remark,
 					goodsName = item.goodsName,
 					goodsParameter = item.goodsParameter;
-
-					alert(isDone)
 
 				var html = '<a href="javascript:;" class="task_item" recordId='+recordId+' goodsName="'+goodsName+'" goodsParameter="'+goodsParameter+'">'+
 							'<h3>任务'+(i+1)+'</h3>'+

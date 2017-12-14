@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>集装箱游戏-南京交通</title>
+    <link rel="stylesheet" type="text/css" href="../css/base.css">
+    <link rel="stylesheet" type="text/css" href="../css/animate.css">
+	<script type="text/javascript" src="../js/jquery.min.js"></script>
+</head>
+<body>
+	<div class="login_top">
+		<div class="logo logo_1">
+			<!-- <img src="../images/logo_1.png"> -->
+		</div>
+		<div class="logo logo_2">
+			<img src="../images/logo_2.png">
+		</div>
+	</div>
+	<div class="home_content task_content bounceInDown animated">
+		<div class="task_box">
+			<div class="task_list_bg">
+				<div class="task_list" id="taskList">
+					
+				</div>
+				<div class="task_close">
+					<a href="index.html"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="home_content route_content">
+		<div class="route_box">
+			<div class="route_list">
+				<table cellpadding="0" cellspacing="0">
+					<thead>
+						<tr>
+							<td><span>船名</span></td>
+							<td><span>航次</span></td>
+							<td><span>运营人</span></td>
+							<td><span>起航港口</span></td>
+							<td><span>起航时间</span></td>
+							<td><span>目的港口</span></td>
+							<td><span>到达时间</span></td>
+							<td class="last"></td>
+						</tr>
+					</thead>
+					<tbody id="route">
+					</tbody>
+				</table>
+				<div class="route_btn">
+					<a href="javascript:void(0)" id="routeBtn"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="task_map" id="task_map">
+		<div class="task_port port_2" endingport='奥克兰'></div>
+		<div class="task_port port_4" endingport='汉堡'></div>
+		<div class="task_port port_6" endingport='洛杉矶'></div>
+		<div class="task_port port_7" endingport='的里雅斯特'></div>
+		<div class="task_port port_3" endingport='威尼斯'></div>
+		<div class="task_port port_8" endingport='科佩尔'></div>
+		<div class="task_port port_10" endingport='达曼'></div>
+		<div class="task_port port_11" endingport='迪拜'></div>
+		<div class="task_port port_12" endingport='里耶卡'></div>
+		<div class="task_port port_13" endingport='釜山'></div>
+		<div class="task_port port_14" endingport='马耳他'></div>
+		<div class="task_port port_15" endingport='鹿特丹'></div>
+		<div class="task_port port_5" endingport='泽布勒赫'></div>
+		<div class="task_port port_9" endingport='费利克斯托'></div>
+		<div class="task_port port_1" state='start'></div>
+	</div>
+
+	<div class="task_alert task_alert_1">
+		<div class="task_alert_box">
+			<div class="task_alert_people task_alert_people_1"></div>
+			<div class="task_alert_main task_alert_main_1">
+				<p id="taskPort"></p>
+				<div class="task_alert_btn">
+					<a href="javascript:;" class="determine"></a>
+					<a href="javascript:;" class="cancel"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="task_alert task_alert_3">
+		<div class="task_alert_box">
+			<div class="task_alert_people task_alert_people_3"></div>
+			<div class="task_alert_main task_alert_main_3">
+				<p id="taskIntro"></p>
+				<div class="task_alert_btn">
+					<a href="javascript:;" class="determine"></a>
+					<!-- <a href="javascript:;" class="cancel"></a> -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="signOut">
+		<a href="javascript:;" id="signOut"></a>
+	</div>
+	<div class="task">
+		<a href="javascript:;" id="task"></a>
+		<div class="task_details">
+			<h3 class="task_details_title">任务一</h3>
+			<p class="task_details_date">发布时间：2017-10-11 10:00:01</p>
+			<p class="task_details_start">起航港口：上海</p>
+			<p class="task_details_end">目的港口：土耳其</p>
+			<p class="task_details_intro">备注：任务说明任务说明任务说明</p>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="../js/base.js"></script>
+	<link rel="stylesheet" type="text/css" href="../js/mCustomScrollbar/jquery.mCustomScrollbar.css">
+	<script type="text/javascript" src="../js/mCustomScrollbar/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../js/mCustomScrollbar/jquery.mousewheel.min.js"></script>
+	<script type="text/javascript" src="../js/mCustomScrollbar/jquery.mCustomScrollbar.min.js"></script>
+	<script type="text/javascript" src="../js/taskList.js"></script>
+</body>
+</html>
