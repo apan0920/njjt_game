@@ -144,7 +144,7 @@ $(function(){
 			var step = source.eq(index).attr('step');
 			if(answers.indexOf(step) == -1){
 				// if(answer!=step){
-				error.push(step);
+				error.push(index+1);
 			};
 
 			isTarget=false;					

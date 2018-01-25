@@ -8,8 +8,7 @@
 
 //获取任务列表
 function getTaskList(){
-	/*var ucode = get_address('ucode');*/
-	var ucode = 's001';  /*测试帐号*--20171205pz*/
+	var ucode = get_address('ucode');
 	$.ajax({
 		url: ajaxUrl + 'inter/yard-task!getTask.action',
 		type: 'get',

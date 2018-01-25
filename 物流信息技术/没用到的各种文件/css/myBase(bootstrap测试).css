@@ -1,0 +1,15 @@
+/*
+* @Author: pz
+* @Date:   2018-01-16 09:52:21
+* @Last Modified by:   pz
+* @Last Modified time: 2018-01-17 13:55:18
+*/
+
+body { font-family: "Microsoft YaHei",Helvetica,Arial,sans-serif; font-size: 14px; line-height: 1.42857143; color: #333; background: #f6f6f6;}
+html,body { width:100%; height: 100%; }
+.sys_bg{background: url(../images/sys_bg.png) no-repeat; background-size: 100% 100%;}
+/* .logo{width: 100%;position: absolute;top: 30px;}
+.logo_nos{width: 194px; left: 60px;position: absolute; display: inline;}
+.logo_school{width: 244px; right: 60px; position: absolute; display: inline;} */
+/* .login{background: url(../images/sys_login.png) no-repeat;width: 505px;height: 349px;background-position: center;} */
+.footer{position: absolute; bottom: 1px; left: 50%;transform: translate(-50%);color:#EEE;}

@@ -1,5 +1,14 @@
 
-var ajaxUrl = 'http://192.168.10.61:9080/congame/';
+var ajaxUrl = 'http://192.168.10.61:9999/nosgame/';
+/*var curWwwPath=window.document.location.href; 
+//获取主机地址之后的目录如：/Tmall/index.jsp 
+var pathName=window.document.location.pathname; 
+
+var pos=curWwwPath.indexOf(pathName); 
+
+//获取主机地址，如： http://localhost:8080 
+var localhostPaht=curWwwPath.substring(0,pos); 
+var ajaxUrl = localhostPaht + "/nosgame/"; //ip地址+项目名称*/
 
 /**
  * [本地储存的字段]

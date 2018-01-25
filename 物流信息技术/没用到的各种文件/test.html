@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+<body>
+	<div>
+		<li id="area1">test1</li>
+	</div>
+	<div id="area2" style="background-color: red;">
+		<li >test2</li>
+	</div>
+
+	<div>
+		<li id="area3">test3</li>
+	</div>
+	<div>
+		<li id="area4">test4</li>
+	</div>
+	<div>
+		<li id="area5">test5</li>
+	</div>
+
+	<script type="text/javascript">
+		$(function(){
+			/*var arrOne = ["1","2","3"];	*/
+			var arrTwo = ["1","2","3"];	
+			for (var i = 0; i < arrTwo.length; i++) {
+				if ("2" == arrTwo[i]) {
+					console.log(i);
+					$("#area"+(i+1)).hover(function () {
+						alert(2);
+					},function () {
+						alert(29);
+					});
+				} else {
+
+				}
+			}
+		});
+	</script>
+</body>
+</html>

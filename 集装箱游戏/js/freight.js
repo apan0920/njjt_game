@@ -176,6 +176,8 @@ function submitRoute(){
 			$('.freight_alert_box_1').addClass('animated').addClass('jackInTheBox');
 
 			$('#submitRoute').attr('isSubmit','true');
+			
+			
 		},
 		error: function(){ $('#submitRoute').attr('isSubmit','true'); }
 	});
@@ -321,5 +323,7 @@ $(function(){
 			$('.route_content').removeClass('bounceOutUp delay_13').hide();
 			$('.task_content').removeClass('delay_20');
 		},2500);
+
+		window.location.reload();
 	});
 });

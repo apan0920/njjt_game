@@ -1,0 +1,219 @@
+/*
+* @Author: pz
+* @Date:   2018-01-16 09:52:21
+* @Last Modified by:   pz
+* @Last Modified time: 2018-01-25 10:16:02
+*/
+
+body { font-family: "Microsoft YaHei",Helvetica,Arial,sans-serif; font-size: 14px; line-height: 1.42857143; color: #333; background: #f6f6f6;}
+html,body { width:100%; height: 100%;min-width: 800px;min-height: 600px; }
+#wrapper{height: 100%;min-width: 800px;min-height: 600px;position: relative;}
+/* 登录页--start */
+body{background: url(../images/sys_bg.png) no-repeat; background-size: 100% 100%;}
+.logo{position: absolute; display: inline;top: 30px;}
+.logo_nos{width: 194px; height: 42px; left: 60px;background: url(../images/logo_nos_blue.png) no-repeat; background-size: 100% 100%;}
+.logo_school{width: 244px; height: 42px; right: 60px;background: url(../images/logo_school.png) no-repeat; background-size: 100% 100%;}
+
+
+.sys_name{width: 38%;margin-left: 50%; margin-top: 110px; transform: translateX(-50%);}
+.login_box{background: url(../images/login_box_bg.png) no-repeat; width: 27%; min-width: 300px; height: 36%; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); background-size: 100% 100%;}
+.login_input_bg{width: 399px; height: 50px;background: url(../images/bg_login02.png); background-size: 100% 100%; }
+.login_btn_bg{width: 399px; height: 50px;background: url(../images/img_login03.png); background-size: 100% 100%; }
+.login_box_content{width: 70%; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
+.login_box span{border: none;background: none;}
+.login_box input{border: none;border-radius: 25px;}
+.inputDiv{margin-top:8%;}
+.bottom_btns{ width: 100%;position: absolute;bottom:11%;}
+.footer{position: absolute; bottom: 1px; left: 50%;transform: translate(-50%);color:#EEE;}
+/* 登录页--end */
+
+
+/* 游戏选择界面 --start*/
+/*.game_select_bg{width: 60%; min-width: 700px; height: 75%;min-height: 475px; background: url(../images/sel_bg.png); background-size: 100% 100%; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}*/
+.game_select_bg{background: darkred;width: 60%; min-width: 700px; height: 75%;min-height: 475px; background: url(../images/sel_bg.png); background-size: 100% 100%; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
+.sel_title{font-size: 26px;font-weight: bold;position: absolute; left: 50%; transform: translateX(-50%);top: 4%;}
+.sel_btns{width: 80%; height: 50%;position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
+.sel_btn{width: 45%; height: 58px;background: url(../images/sel_btn.png); background-size: 100% 100%;display: inline-block;margin:2%;position: relative;}
+.sel_btn:hover{width: 45%; height: 58px;background: url(../images/sel_btn_hover.png); background-size: 100% 100%;display: inline-block;margin:2%;position: relative;}
+.sel_btn_addon{width: 17%; height: 76%; background: url(../images/sel_btn_icons.png) no-repeat; left: 3%; top: 50%; position: absolute; transform: translateY(-50%);}
+.sel_btn_title{font-size: 17px; left: 19%; color: #0097B9; position: absolute; transform: translateY(-50%); top: 50%;}
+.addon1{ background-position: -3px 0px;}
+.addon2{ background-position: -55px 0px;}
+.addon3{ background-position: -3px -45px;}
+.addon4{ background-position: -55px -45px;}
+.addon5{ background-position: -3px -90px;}
+.addon6{ background-position: -55px -90px;}
+.addon7{ background-position: -3px -135px;}
+.addon8{ background-position: -55px -142px;}
+.addon9{ background-position: -3px -180px;}
+.sel_btn_hover{width: 442px; height: 58px;background: url(../images/sel_btn_hover.png); background-size: 100% 100%;}
+/* 游戏选择界面 --end*/
+
+/* 第一关--物流信息系统分类配对游戏--start */
+.p1_game_content{width: 92%; height: 75%;position: absolute; left: 50%; top: 55%; transform: translate(-50%,-50%);}
+.p1_game_title{font-size: 32px;font-weight:bold;}
+.p1_target_area{background-color: pink; width: 50%; height: 75%;}
+.p1_target_area span{width: 250px;height: 58px;background: url(../images/img1/target_btn.png) no-repeat; background-size: 100% 100%;}
+
+
+.p1_target_font{font-size: 16px; color: #0097B9; padding-left: 60px; line-height: 57px;}
+.p1_target1{ position: absolute; top: 15%;}
+.p1_target2{ position: absolute; top: 30%;}
+.p1_target3{ position: absolute; top: 45%;}
+.p1_target4{ position: absolute; top: 60%;}
+.p1_game_intro{position: absolute; top: 75%;color: #CE1717;width: 40%;}
+
+
+.p1_game_content_right{width: 55%;height: 100%; position: absolute; top: 0; left: 48%;}
+.p1_drag_btn{width: 45%;height: 10%; background: url(../images/img1/drag_btn.png) no-repeat;background-size: 100% 100%;position: relative; display: inline-block; margin: 0% 4% 7% 0;cursor: pointer;}
+.p1_btn_icons{width: 20%; height: 76%; background: url(../images/img1/match_icons.png) no-repeat; left: 3%; top: 50%; position: absolute; transform: translateY(-50%);}
+.p1_addon1{background-position: 8px 5px; }
+.p1_addon2{ background-position: -55px 7px;}
+.p1_addon3{background-position: 8px -35px;}
+.p1_addon4{ background-position: -55px -35px;}
+.p1_addon5{background-position: 8px -75px;}
+.p1_addon6{ background-position: -55px -78px;}
+.p1_addon7{background-position: 8px -125px;}
+.p1_addon8{ background-position: -55px -125px;}
+.p1_addon9{background-position: 8px -166px;}
+.p1_addon10{ background-position: -55px -169px;}
+.p1_addon11{background-position: 8px -210px;}
+.p1_sel_btn_title{font-size: 17px; left: 27%; color: #0097B9; position: absolute; transform: translateY(-50%); top: 50%;}
+
+.p1_game_time_box {position: absolute; bottom: 0; width: 35%; }
+.p1_game_time_bg {background: url(../images/img1/time_bar_bg.png) no-repeat; width: 83%; height: 21px; display: inline-block; background-size: 100% 100%; }
+.p1_game_time_speed_box {position: relative; width: 100%; height: 21px; left: 1px; overflow: hidden; }
+.p1_game_time_speed {position: absolute; width: 99%; height: 80%; top: 1px;left: -99%; background: url(../images/img1/time_bar.png) center left repeat-x; background-size: auto 100%; border-radius: 30px; }
+.p1_game_time {display: inline-block; color: #5C4A22; position: absolute; left: 86%; opacity: 0.7; }
+
+.next_btn{background: url(../images/next_pass.png) no-repeat; width: 141px; height: 50px; position: absolute;left: 50%; transform: translateX(-50%);cursor:pointer;}
+
+/* 提示框 */
+.msg_box_alert {display: none; position: fixed; z-index: 99999; width: 100%; height: 100%; top: 0; left: 0; background: rgba(0,0,0,.7); }
+.msg_box{background: url(../images/msg_box_bg.png) no-repeat;width: 329px;height: 173px; position: absolute; top: 50%; left: 50%;margin-top:-82px; margin-left:-163px; transform: translate(-50%,-50%);}
+.msg_content{color:#CE1717;position: absolute; top: 30%; left: 27%;}
+.msg_confirm{background: url(../images/msg_box_confirm.png) no-repeat;width: 107px;height: 37px;position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%);}
+.msg_cancel{background: url(../images/msg_box_cancel.png) no-repeat;width: 107px;height: 37px;position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%);}
+.msg_close{width: 28px;height: 28px;position: absolute; right: 1%;}
+
+.back_btn{background: url(../images/btn_back.png)  no-repeat; background-size: 100%; width: 52px; height: 52px; position: absolute;right: 1%; cursor:pointer;}
+
+/* 第一关--物流信息系统分类配对游戏--end */
+
+
+/* 第二关--物流标准化存在的问题判断--start */
+.p2_content{width: 75%; height: 75%;position: absolute; left: 50%; top: 55%; transform: translate(-50%,-50%);}
+
+.p2_box_item { display: none; position: relative; width: 100%; height: 50%; top:0; left:50%;transform: translateX(-50%);}
+.p2_box_item:first-child { display: block; } 
+.p2_video { height: 100%; background: #EBFBFF; position: relative; padding: 1px;}
+.p2_video_bg { position: absolute; z-index: 9; width: 100%; height: 100%; top:0; left:0;background: url(../images/img2/play_btn.png) center no-repeat #EBFBFF; cursor: pointer; }
+.p2_video_bg_refresh { position: absolute; z-index: 9; width: 100%; height: 100%; top:0; left:0;background: url(../images/img2/refresh_btn.png) center no-repeat #EBFBFF; cursor: pointer; display: none; }
+.p2_video video { display: block; margin:auto; position: relative; z-index: 8;width: 100%;height: 100%;}
+video::-internal-media-controls-download-button { display:none; }
+video::-webkit-media-controls-enclosure { overflow:hidden; }
+video::-webkit-media-controls-panel { width: calc(100% + 30px);  }
+/* video::-webkit-media-controls-fullscreen-button { display: none; } */
+
+.p2_intro{ width: 100%;position: absolute; margin-top: 22px;}
+
+.p2_answer{width: 100%;height:40%;position: absolute; margin-top: 60px;}
+.p2_option{width: 100%;height:33%;}
+.p2_radio{position: absolute;width: 36px;height: 36px;background: url(../images/img2/radio.png);background-size: 100%;}
+.p2_radio_sel{background: url(../images/img2/radio_sel.png);background-size: 100%; }
+.p2_option_text{ max-width: 99%;line-height: 36px;background: url(../images/img2/text_bg.png) no-repeat;background-size: 100% 100%; margin-left: 40px;padding-left: 17px;color: #0097B9;}
+/* 第二关--物流标准化存在的问题判断--end */
+
+/* 第三关--RFID读写工作原理展现游戏--start */
+.p3_box_item{height: 100%;}
+
+/* 第三关--RFID读写工作原理展现游戏--end */
+
+/* 第5关--EDI标准构成识别游戏--start */
+.p5_content{width: 75%; height: 80%;position: absolute; left: 50%; top: 55%; transform: translate(-50%,-50%);}
+
+.p5_content_top{width: 100%; height: 53%;position: absolute; left: 50%; transform: translateX(-50%);background: url(../images/img5/answer.png) no-repeat;background-size: 100% 100%; }
+.p5_content_middle{width: 115%; height: 35%;position: absolute; left: 51%; top: 55%; transform: translateX(-50%); margin-left: 1%;}
+/* .p5_target_area{ background: pink;width: 7%; height: 60%; display: inline-block; margin-top: 15%; border-radius: 25px;} */
+/* .p5_target_1{margin-left: 0%; }
+.p5_target_2{margin-left: 6%; }
+.p5_target_3{margin-left: 6%; }
+.p5_target_4{margin-left: 7%; }
+.p5_target_5{margin-left: 6%; }
+.p5_target_6{margin-left: 5%; }
+.p5_target_7{margin-left: 5%; }
+.p5_target_8{margin-left: 5%; position: absolute;right: 0;} */
+
+.p5_target_area{width: 8%; height: 64%; display: inline-block; margin-top: 15%; border-radius: 25px;position: absolute;}
+.p5_target_1{left: -3px; }
+.p5_target_2{left: 13%; }
+.p5_target_3{left: 27%; }
+.p5_target_4{left: 41%; }
+.p5_target_5{left: 54%; }
+.p5_target_6{left: 67%; }
+.p5_target_7{right: 12%; }
+.p5_target_8{right: -3px;}
+
+.p5_drag_btn{width: 6%;height: 100%;position: relative;display: inline-block;margin-left: 3%;}
+.p5_drag_1{background: url(../images/img5/drag_1.png) no-repeat;background-size: 100% 100%;margin-left: 2%;}
+.p5_drag_2{background: url(../images/img5/drag_2.png) no-repeat;background-size: 100% 100%; }
+.p5_drag_3{background: url(../images/img5/drag_3.png) no-repeat;background-size: 100% 100%; }
+.p5_drag_4{background: url(../images/img5/drag_4.png) no-repeat;background-size: 100% 100%; }
+.p5_drag_5{background: url(../images/img5/drag_5.png) no-repeat;background-size: 100% 100%; }
+.p5_drag_6{background: url(../images/img5/drag_6.png) no-repeat;background-size: 100% 100%; }
+.p5_drag_7{background: url(../images/img5/drag_7.png) no-repeat;background-size: 100% 100%; }
+.p5_drag_8{background: url(../images/img5/drag_8.png) no-repeat;background-size: 100% 100%; }
+.p5_drag_9{background: url(../images/img5/drag_9.png) no-repeat;background-size: 100% 100%; }
+.p5_drag_10{background: url(../images/img5/drag_10.png) no-repeat;background-size: 100% 100%; }
+
+
+.p5_content_bottom{width: 100%;position: absolute;bottom: 1px;text-align: center;}
+.p5_game_intro{color: #CE1717;}
+.p5_game_time_box{ position: relative; bottom: -5px; width: 35%;display: inline-block;}
+.p5_game_time{left: 95%;}
+/* 第5关--EDI标准构成识别游戏--end */
+
+
+
+@media (max-height: 900px) {
+	/* 游戏选择界面 --start*/
+	.sel_btns { height: 65%;}
+	.sel_btn { width: 47%;margin: 1%;}
+	.sel_btn:hover{width: 47%;margin:1%;}
+	.sel_btn_title{font-size: 16px;}
+	/* 游戏选择界面 --end*/
+
+	/* 第一关--物流信息系统分类配对游戏--start */
+	.sel_title {top: 3%;}
+	
+	.p1_target_area span{height: 45px;}
+	.p1_target_font{line-height: 45px;}
+	.p1_game_intro{top: 60%;}
+	.p1_drag_btn{ height: 12%; margin: 0% 4% 4% 0;}
+	.p1_btn_icons{width: 30%;left: 0%;}
+	/* 第二关--物流标准化存在的问题判断--start */
+
+	/* 第二关--物流标准化存在的问题判断--end */
+
+	/* 第五关--EDI标准构成识别游戏--start */
+	.p5_target_area{ margin-top: 14%;}
+	/* 第五关--EDI标准构成识别游戏--end */
+
+}
+
+@media (max-height: 600px) {
+	/* 第一关--物流信息系统分类配对游戏--start */
+	.sel_title {top: 2%;}
+	/* 第一关--物流信息系统分类配对游戏--end */
+
+
+	/* 第二关--物流标准化存在的问题判断--start */
+
+	/* 第二关--物流标准化存在的问题判断--end */
+
+	/* 第五关--EDI标准构成识别游戏--start */
+	.p5_target_area{ margin-top: 13%;}
+	/* 第五关--EDI标准构成识别游戏--end */
+
+
+}

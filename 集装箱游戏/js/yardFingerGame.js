@@ -2,7 +2,7 @@
 * @Author: pz
 * @Date:   2017-12-06 20:25:13
 * @Last Modified by:   pz
-* @Last Modified time: 2017-12-12 20:11:55
+* @Last Modified time: 2017-12-27 20:31:56
 */
 
 /*1、游戏界面初始化---start********************************************************************************************/
@@ -562,51 +562,43 @@
 			var business = splitColon($(".task_details_business").html());
 			var missionX = $("#yfColumn").val();
 			var missionY = $("#yfFloor").val();
+			var scoreFlag = 1;////是否答对	(0:错 1:对)
+			var prompt = "答题正确！";
 			if (business == "提箱") {	/*获取车上是否有箱子（及箱子编号）*/
 				if (boxOnCar()!=null && boxOnCar()[0]) {
 					var boxOnCarX = boxOnCar()[1].attr("x"),
 						boxOnCarY = boxOnCar()[1].attr("y");
-						if (boxOnCarX == missionX && boxOnCarY == missionY) {
-							if (holdOnFlag) {
-								showAlert('答题失败！请先完成放箱作业。','end');
-							} else {
-								showAlert('答题正确！','end',function(obj){
-								/*$('.slot_content').removeClass('bounceInDown').addClass('delay_02').addClass('bounceOutUp');*/
-									gameSub();//提交结果
-									setTimeout(function(){
-										window.location.href = 'index.html';
-									},1000);
-								});
-							}
-						
-						} else {
-							showAlert('答题失败！集装箱所在的列、层选择错误。','end');
-						}
+					if (holdOnFlag) {
+						showAlert('答题失败！请先完成放箱作业。','end');
+					} else {
+						if (!(boxOnCarX == missionX && boxOnCarY == missionY)) {
+							scoreFlag = 0;
+							prompt = "答题错误！";
+						} 
+					}
 				} else {
 					showAlert('请进行提箱操作！','end');
 				}
 			} else if (business == "放箱") {
-				if (boxOnCar()!=null && !boxOnCar()[0]) {//只要箱子不在车上及算正确，不管箱子堆在集装箱的哪个位置
-					if (holdOnFlag) {
-						showAlert('答题失败！请先完成放箱作业。','end');
-					} else {
-						showAlert('答题正确！','end',function(obj){
-						/*$('.slot_content').removeClass('bounceInDown').addClass('delay_02').addClass('bounceOutUp');*/
-							gameSub();//提交结果
-							setTimeout(function(){
-								window.location.href = 'index.html';
-							},1000);
-						});
-					}
-					
+				if (holdOnFlag) {
+					showAlert('答题失败！请先完成放箱作业。','end');
 				} else {
-					showAlert('答题失败！集装箱放置位置错误。','end');
+					if (!putRight(missionX, missionY)) {
+						scoreFlag = 0;
+						prompt = "答题错误！";
+					}
 				}
 			}
+			showAlert(prompt,'end',function(obj){
+				setTimeout(function(){
+					window.location.href = 'yardFinger.html';
+				},1000);
+			});
+			gameSub(scoreFlag);//提交结果
 		};
 
 		/*调用接口提交答题结果*/
-		function gameSub() {
+		function gameSub(scoreFlag) {
 				var obj = $('.gameSubBtn a');
 				if(obj.attr('isSubmit') == 'false'){ return; }//禁止重复提交
 				obj.attr('isSubmit','false');
@@ -615,12 +607,11 @@
 				var taskId = get_address('yardFingerId')*1;//任务Id	
 				var startingTime = get_address('yardFingerStartTime');//开始时间	
 				var endingTime = getNowFormatDate();//结束时间	base.js
-				var flag = 1;//是否答对	(0:错 1:对)
 			$.ajax({
 				url: ajaxUrl + 'inter/yard-task!grade.action',/*http://ip:port/congame/inter/yard-task!grade.action*/
 				type: 'post',
 				dataType: 'json',
-				data: { 'ucode': ucode ,'taskId': taskId ,'startingTime': startingTime ,'endingTime': endingTime ,'flag': flag },
+				data: { 'ucode': ucode ,'taskId': taskId ,'startingTime': startingTime ,'endingTime': endingTime ,'flag': scoreFlag },
 				success: function(data){
 					if(data.status == 0){
 					 showAlert('成绩保存失败，请重新提交！'); 
@@ -642,6 +633,58 @@
 			});
 		}
 		
+	/*判断放箱位置是否正确*/
+	function putRight(missionX, missionY) {
+		var res = true, rightTop = 0, rightLeft = 0;
+
+		switch(Number(missionX)){
+			case 1:
+			  rightLeft = 0
+			  break;
+			case 2:
+			  rightLeft = 70
+			  break;
+			case 3:
+			  rightLeft = 140
+			  break;
+			case 4:
+			  rightLeft = 210
+			  break;
+			case 5:
+			  rightLeft = 280
+			  break;
+			case 6:
+			  rightLeft = 350
+			  break;
+		}
+
+		switch(Number(missionY)){
+			case 1:
+			  rightTop = 196
+			  break;
+			case 2:
+			  rightTop = 147
+			  break;
+			case 3:
+			  rightTop = 98
+			  break;
+			case 4:
+			  rightTop = 49
+			  break;
+			case 5:
+			  rightTop = 0
+			  break;
+		}
+
+		var missionBox = $("#box"+missionX+missionY);
+
+		if (missionBox.position().left == rightLeft && missionBox.position().top == rightTop) {
+			res = true;
+		} else {
+			res = false;
+		}
+		return res;
+	}
 /*4、提交按钮--end***********************************************************************************/
 
  	/*截取冒号后的字符串*/

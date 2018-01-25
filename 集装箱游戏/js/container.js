@@ -387,6 +387,8 @@ $(function(){
 				$('.task_alert').removeClass('content_alert');
 				$('.task').hide();
 			},1500);
+
+			window.location.reload();
 		});
 	});
 
