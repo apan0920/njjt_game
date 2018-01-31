@@ -2,7 +2,7 @@
 * @Author: pz
 * @Date:   2018-01-23 16:47:46
 * @Last Modified by:   pz
-* @Last Modified time: 2018-01-25 18:11:41
+* @Last Modified time: 2018-01-26 10:55:28
 */
 /*
 * @Author: pz
@@ -16,95 +16,51 @@ $(function () {
 					helper : "clone"
 				});
 				$("#targetBox div,#sourceBox div").droppable({
-								accept : "#targetBox div,#sourceBox div",
-								drop : function(event, ui) {
-									$("#targetBox div").each(function (i, obj){
-											var targetText = obj[i].text();
-											if (targetText == ui.draggable.text()) {
-												obj.draggable({ disabled: false });
-												var bgArrSource = "target_bg.png";
-												obj.css({"background":"url(../images/img5/"+bgArrSource+")", "background-size":"100% 100%"});
-												obj.text("将正确系统拖至此处");
-												obj.find(".p5_sourceBox_text").css({"color":"#7E7E7E"}); 
-											}
-										});
-									//更换背景
-									var dragNo = ui.draggable.attr("dragNo");//被拖动的元素的id
-									// replaceId拖动后替换原来的文字
-									var oldText = $(this).text().trim();//原文字
-									$(this).find(".replaceId").remove();
-									$(this).text('');
-									var icon_html = '<span class="p5_sourceBox_text">' + ui.draggable.text() + '</span>';
-									var obj = $(icon_html);
-									obj.appendTo(this).addClass("replaceId");
-									$(this).attr("dragNo",dragNo);
-									//更换背景
-									/*var dragNo = ui.draggable.attr("dragNo");//被拖动的元素的id*/
-									var bgArr = "drag_" + dragNo + ".png";
-									$(this).css({"background":"url(../images/img5/"+bgArr+")","background-size":"100% 100%"}); 
-									//禁止已拖动的按钮继续拖动,并修改样式
-									
-									
+					accept : "#targetBox div,#sourceBox div",
+					drop : function(event, ui) {
+						//更换背景
+						var dragNo = ui.draggable.attr("dragNo");//被拖动的元素的id
 
-									if (oldText != '将正确系统拖至此处') {
-										$("#sourceBox div").each(function(){
-											var targetText = $(this).text();
-											if (targetText == oldText) {
-												$(this).draggable({ disabled: false });
-												var bgArrSource = "drag_" + dragNo + ".png";
-												$(this).css({"background":"url(../images/img5/"+bgArrSource+")", "background-size":"100% 100%"});
-												$(this).find(".p5_sourceBox_text").css({"color":"#0097B9"}); 
-											}
-										});
-									}
-									
-
-									ui.draggable.draggable({ disabled: true });
-									var bgArrSource = "drag_" + dragNo + "_grey.png";
-									ui.draggable.css({"background":"url(../images/img5/"+bgArrSource+")", "background-size":"100% 100%"});
-									$(".p5_drag_" + dragNo +"> span").css({"color":"#7E7E7E"}); 
-
-									
-									
+						/*1.修改接收区样式*/
+						var oldText = $(this).text().trim();//原文字
+						$(this).find(".replaceId").remove();
+						$(this).text('');
+						var icon_html = '<span class="p5_sourceBox_text">' + ui.draggable.text() + '</span>';
+						var obj = $(icon_html);
+						obj.appendTo(this).addClass("replaceId");
+						$(this).attr("dragNo",dragNo);
+						//更换背景
+						var bgArr = "drag_" + dragNo + ".png";
+						$(this).css({"background":"url(../images/img5/"+bgArr+")","background-size":"100% 100%"}); 
+						/*2.如被拖动按钮在接收区，且替换了其他答案--还原被替换的按钮在答案区域的样式*/
+						if (oldText != '将正确标准拖至此处') {
+							$("#sourceBox div").each(function(){
+								var targetText = $(this).text();
+								if (targetText == oldText) {
+									$(this).draggable({ disabled: false });
+									var bgArrSource = "drag_" + dragNo + ".png";
+									$(this).css({"background":"url(../images/img5/"+bgArrSource+")", "background-size":"100% 100%"});
+									$(this).find(".p5_sourceBox_text").css({"color":"#0097B9"}); 
 								}
-							}).sortable();
-				/*$("#sourceBox div").draggable({
-					helper : "clone"
-				});
-				$("#targetBox div").droppable({
-								accept : "#sourceBox div",
-								drop : function(event, ui) {
-									// replaceId拖动后替换原来的文字
-									var sourceText = $(this).text().trim();//原文字
-									$(this).find(".replaceId").remove();
-									$(this).text('');
-									var icon_html = '<span class="p5_sourceBox_text">' + ui.draggable.text() + '</span>';
-									var obj = $(icon_html);
-									obj.appendTo(this).addClass("replaceId");
-
-									//更换背景
-									var dragNo = ui.draggable.attr("dragNo");//被拖动的元素的id
-									var bgArr = "drag_" + dragNo + ".png";
-									$(this).css({"background":"url(../images/img5/"+bgArr+")","background-size":"100% 100%"}); 
-									//禁止已拖动的按钮继续拖动,并修改样式
-									if (sourceText != '将正确系统拖至此处') {
-										$("#sourceBox div").each(function(){
-											var targetText = $(this).text();
-											if (targetText == sourceText) {
-												$(this).draggable({ disabled: false });
-												var bgArrSource = "drag_" + dragNo + ".png";
-												$(this).css({"background":"url(../images/img5/"+bgArrSource+")", "background-size":"100% 100%"});
-												$(this).find(".p5_sourceBox_text").css({"color":"#0097B9"}); 
-											}
-										});
-									}
-									ui.draggable.draggable({ disabled: true });
-									var bgArrSource = "drag_" + dragNo + "_grey.png";
-									ui.draggable.css({"background":"url(../images/img5/"+bgArrSource+")", "background-size":"100% 100%"});
-									$(".p5_drag_" + dragNo +"> span").css({"color":"#7E7E7E"}); 
-									
-								}
-							}).sortable();*/
+							});
+						}
+						// console.log(ui.draggable);
+						
+						/*2.修改被拖动后的样式*/
+						if (ui.draggable.hasClass('p5_drag_btn')) {//拖动答案区域的按钮【禁止答案区域已拖动的按钮继续拖动,并置灰】
+							ui.draggable.draggable({ disabled: true });//禁止拖动
+							var bgArrSource = "drag_" + dragNo + "_grey.png";//背景置灰
+							ui.draggable.css({"background":"url(../images/img5/"+bgArrSource+")", "background-size":"100% 100%"});
+							$(".p5_drag_" + dragNo +"> span").css({"color":"#7E7E7E"});//改变文字颜色
+						} else {//拖动接收区的按钮【还原至初始状态】
+							ui.draggable.removeAttr("style").removeAttr("dragNo");//将div还原到初始状态
+							ui.draggable.empty();
+							var icon_html = '<span class="p5_targetBox_text ui-sortable-handle">将正确标准拖至此处</span>';
+							var obj = $(icon_html);
+							ui.draggable.append(obj)
+						}
+					}
+				}).sortable();
 			});
 /*拖拽功能--end*/
 
@@ -118,7 +74,7 @@ function nextBtn() {
 		var contentTJ = this.innerHTML.trim();//取值===拖拽后的值
 		answerArr.push(contentTJ);
 	});
-	console.log("answerArr="+answerArr);
+	/*console.log("answerArr="+answerArr);*/
 	if (standard_arr.sort().toString() == answerArr.sort().toString()) {
 		showAlert('游戏完成，返回主界面!','end',function(){
 				window.location.href = "index.html";

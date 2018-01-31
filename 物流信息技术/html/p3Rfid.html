@@ -7,7 +7,6 @@
 		<title>物流信息技术教学游戏--RFID读写工作原理展现游戏</title>
 		<meta name="keywords" content="物流信息技术教学游戏,RFID读写工作原理展现游戏,物流游戏,游戏" />
 		<meta name="description" content="南京交通-物流信息技术教学游戏" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 		<!-- basic styles -->
 		<link href="../js/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -22,10 +21,11 @@
 				<!-- 引入公共头页面 -->
 			</div>
 
-			<div class="game_select_bg " >
+			<div class="game_select_bg game_select_bg_p3" >
 				<div class="sel_title">RFID读写工作原理展现游戏</div>
-				<div class="p2_content">
-					<div class="p2_box_item p3_box_item">
+				<div class="p3_content">
+					<!-- 1.视频 -->
+					<div class="p2_box_item p3-box-item" style="display: block;">
 						<div class="p2_video">
 							<div class="p2_video_bg"></div>
 							<div class="p2_video_bg_refresh"></div>
@@ -35,35 +35,122 @@
 							</video>
 						</div>
 					</div>
-					<div id="infoBox">
+					<!-- 2.信息流动画 -->
+					<div id="infoBox" class="p3-info-box" style="display: none;">
+						<div class="p3-reader-text">应用电感耦合、电磁反向散射耦合原理</div>
+						<div class="p3-reader"></div>
+						<div class="p3-line p3-line1"></div>
+						<div class="p3-antenna p3-antenna-left"></div>
 
+						<div class="p3-wave-text">形成磁场</div>
+						<!-- 覆盖波纹初始化的点 -->
+						<div class="ps-wave-cover"></div>
+						<div class="animate p3-wave">  
+						    <div class="p3-w1"></div>  
+						    <div class="p3-w2"></div>  
+						    <div class="p3-w3"></div>  
+						    <div class="p3-w4"></div>  
+						    <div class="p3-w5"></div>  
+					    </div> 
+					    <div class="p3-time"></div>
+					    <div class="p3-energy"></div>
+					    <div class="p3-data">
+					    	<img class="p3-data-left" src="../images/img3/info/dataleft.png" alt="数">
+					    	<img class="p3-data-right" src="../images/img3/info/dataright.png" alt="据">
+					    </div>
+
+						<div class="p3-antenna p3-antenna-right"></div>
+						<div class="p3-line p3-line2"></div>
+						<div class="p3-rfid"></div>
+
+						<div class="p3-line3"></div>
+						<div class="p3-application"></div>
 					</div>
-					<div id="sceneBox">
+					<!-- 3.场景动画 -->
+					<div id="sceneBox" class="p3-scene-box" style="display: none;">
+						<div class="p3-scene-left">
+							<!-- 车 -->
+							<div class="p3-car">
+								<div class="p3-car-tyre p3-car-tyre-left"></div>
+								<div class="p3-car-tyre p3-car-tyre-right"></div>
+								<!-- 车上的电子标签 -->
+								<div class="p3-car-rfid">
+									<div class="p3-car-rfid-in"></div>
+									<div class="p3-car-rfid-out"></div>
+								</div>
+							</div>
+							<!-- 信号 -->
+							<div class="p3-single-box">
+								<!-- 覆盖波纹初始化的点 -->
+								<!-- <div class="ps-wave-cover"></div> -->
+								<div class="p3-single p3-single-blue">  
+									<div class="p3-b1 semi-circle-blue"></div>  
+									<div class="p3-b2 semi-circle-blue"></div>  
+									<div class="p3-b3 semi-circle-blue"></div>  
+									<div class="p3-b4 semi-circle-blue"></div>  
+									<div class="p3-b5 semi-circle-blue"></div>
+									<div class="p3-b6 semi-circle-blue"></div>
+									<div class="p3-b7 semi-circle-blue"></div>  
+									<!--  <div class="p3-b8 semi-circle-blue"></div>  
+									<div class="p3-b9 semi-circle-blue"></div>  
+									<div class="p3-b10 semi-circle-blue"></div>  
+									<div class="p3-b11 semi-circle-blue"></div>
+									<div class="p3-b12 semi-circle-blue"></div> -->
+								</div>
 
+								<div class="p3-single p3-single-red">  
+									<div class="p3-b1 semi-circle-red"></div>  
+									<div class="p3-b2 semi-circle-red"></div>  
+									<div class="p3-b3 semi-circle-red"></div>  
+									<div class="p3-b4 semi-circle-red"></div>  
+									<div class="p3-b5 semi-circle-red"></div>
+									<div class="p3-b6 semi-circle-red"></div>
+									<div class="p3-b7 semi-circle-red"></div>  
+								</div>
+							</div>
+							<!-- 天线 -->
+							<img src="../images/img3/scene/wall.png" alt="墙" class="p3-scene-wall">
+							<img src="../images/img3/scene/door.png" alt="门框" class="p3-scene-door">
+							<img src="../images/img3/scene/antenna.png" alt="天线" class="p3-scene-antenna">
+							<img src="../images/img3/scene/rf.png" alt="rf读卡器" class="p3-scene-rf">
+							<img src="../images/img3/scene/gate-close.png" alt="门闸关" class="p3-scene-gate-close">
+							<img src="../images/img3/scene/gate-open.png" alt="门闸开" class="p3-scene-gate-open">
+							<img src="../images/img3/scene/pc.png" alt="电脑" class="p3-scene-pc">
+							<img src="../images/img3/scene/yes.png" alt="yes指令" class="p3-scene-yes">
+
+							<!-- 信号传输线条 -->
+							<div class="p3-scene-line">
+								<div class="p3-scene-line1 p3-scene-line-blue"></div>
+								<div class="p3-scene-line2 p3-scene-line-blue"></div>
+								<div class="p3-scene-line3 p3-scene-line-blue"></div>
+								<div class="p3-scene-line4 p3-scene-line-blue"></div>
+								<div class="p3-scene-line1 p3-scene-line-yellow active a1"></div>
+								<div class="p3-scene-line2 p3-scene-line-yellow active a2"></div>
+								<div class="p3-scene-line3 p3-scene-line-yellow active a3"></div>
+								<div class="p3-scene-line4 p3-scene-line-yellow active a4"></div>
+								<div class="p3-scene-line5 p3-scene-line-yellow active a5"></div>
+								<div class="p3-scene-line6 p3-scene-line-yellow active a6"></div>
+							</div>
+
+						</div>
+
+						
+						<div class="p3-scene-right">
+							<div class="p3-scene-btn p3-scene-btn1" >天线发出信号</div>
+							<div class="p3-scene-btn p3-scene-btn2">电子标签激活</div>
+							<div class="p3-scene-btn p3-scene-btn3">标签发出信号</div>
+							<div class="p3-scene-btn p3-scene-btn4">天线接收信号</div>
+							<div class="p3-scene-btn p3-scene-btn5">读写器解码</div>
+							<div class="p3-scene-btn p3-scene-btn6">系统判断发出指令</div>
+							<div class="p3-scene-btn p3-scene-btn7">执行系统指令</div>
+						</div>
 					</div>
-					<!-- <div class="p2_intro">观看动画场景，判断其属于以下三个标准化问题中的哪一个。</div>
-					<div class="p2_answer">
-						<div class="p2_option">
-							<span class="p2_radio" option="A" ></span>
-							<input type="radio" name="scene1Answer">
-							<p class="p2_option_text">物流标准化与相关产业现有的标准体系之间的矛盾得不到协调解决</p>
-						</div>
-						<div class="p2_option">
-							<span class="p2_radio" option="B" ></span>
-							<p class="p2_option_text">物流标准化各相关产业之间的不协调</p>
-						</div>
-						<div class="p2_option">
-							<span class="p2_radio" option="C" ></span>
-							<p class="p2_option_text">物流标准化的市场基础比较薄弱</p>
-						</div>
-					</div> -->
-
 				</div>
 			</div>
 			
 			<div class="bottom_btns">
 				<!-- 下一关-按钮 -->
-				<div class="next_btn"></div>
+				<div class="next_btn" onclick="nextBtn();"></div>
 				<!-- 返回主界面按钮 -->
 				<div class="back_btn" onclick="backBtn();"></div>
 			</div>
@@ -74,6 +161,8 @@
 		<!-- basic scripts -->
 		<script src="../js/jquery.min.js"></script>
 		<script src="../js/base.js"></script>
+		<!-- 旋转插件 -->
+		<script src="../js/jquery.rotate.min.js"></script>
 
 		<script src="../js/p3Rfid.js"></script>
 	</body>

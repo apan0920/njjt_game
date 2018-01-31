@@ -2,7 +2,7 @@
 * @Author: pz
 * @Date:   2018-01-16 09:52:21
 * @Last Modified by:   pz
-* @Last Modified time: 2018-01-31 15:34:26
+* @Last Modified time: 2018-01-29 15:30:47
 */
 
 body { font-family: "Microsoft YaHei",Helvetica,Arial,sans-serif; font-size: 14px; line-height: 1.42857143; color: #333; background: #f6f6f6;}
@@ -173,71 +173,88 @@ video::-webkit-media-controls-panel { width: calc(100% + 30px);  }
 
 
 /* 场景动画 */
-.p3-scene-box{display: none;}
+.p3-scene-box{}
 .p3-scene-left{position: absolute; width: 75%;height: 100%;background: url(../images/img3/scene/bg.png); background-size: 100% 100%; overflow: hidden;}
-
-/* 小车 */
-.p3-car{width: 200px; height: 81px; position: absolute; bottom: 12%; left: -40%; background: url(../images/img3/scene/car.png); background-size: 100% 100%;z-index: 100;}
+.p3-car{width: 200px; height: 81px; position: absolute; bottom: 15%; left: -40%; background: url(../images/img3/scene/car.png); background-size: 100% 100%;}
 .p3-car-tyre{width: 29px; height: 29px; position: absolute; bottom: 0; background: url(../images/img3/scene/tyre.png); background-size: 100% 100%;}
 .p3-car-tyre-left{ left: 12%; }
 .p3-car-tyre-right{ right: 11%; }
 
-.p3-car-rfid{display: none;position: absolute; right: 92px; top: 13px;}
-.p3-car-rfid-in{position: absolute; width: 27px; height: 27px; background: url(../images/img3/scene/rfid-in.png) no-repeat; background-size: 100% 100%;}
-.p3-car-rfid-out{position: absolute; width: 44px; height: 44px; background: url(../images/img3/scene/rfid-out.png) no-repeat; background-size: 100% 100%; right: -36px; top: -9px;}
+/*  @-webkit-keyframes singleBlue{
+	  from { transform: scale(.2);width: 0px; height: 0px;top:58%; left:139% } 
+	  to { transform: scale(1);width: 146px; height: 177px;top:-333%; left:294%; }   
+	}  */
+/* @-webkit-keyframes singleBlue{
+  	0% {width: 33px; height: 63px;top:58%; left:139%;}
+  	16% {width: 44px; height: 82px;top:12%; left:166%;}
+  	32% {width: 62px; height: 102px;top:-46%; left:184%;}
+  	50% {width: 81px; height: 121px;top:-114%; left:207%;}
+  	66% {width: 100px; height: 140px;top:-196%; left:232%;}
+  	82% {width: 113px; height:158px;top:-268%; left:262%;}
+  	100% {width: 132px; height: 177px;top:-333%; left:294%;}
+  }  */
+
+/* @-webkit-keyframes singleBlue{
+	0% {width: 33px; height: 63px;top:58%; left:139%;background: url(../images/img3/scene/line-blue-1.png);}
+ 	16% {width: 44px; height: 82px;top:12%; left:166%;background: url(../images/img3/scene/line-blue-2.png);}
+ 	32% {width: 62px; height: 102px;top:-46%; left:184%;background: url(../images/img3/scene/line-blue-3.png);}
+ 	50% {width: 81px; height: 121px;top:-114%; left:207%;background: url(../images/img3/scene/line-blue-4.png);}
+	66% {width: 100px; height: 140px;top:-196%; left:232%;background: url(../images/img3/scene/line-blue-5.png);}
+	82% {width: 113px; height:158px;top:-268%; left:262%;background: url(../images/img3/scene/line-blue-6.png);}
+	100% {width: 132px; height: 177px;top:-333%; left:294%;background: url(../images/img3/scene/line-blue-7.png);} 
+} */
+/* .animateSingle .p3-b2{-webkit-animation-delay:0.2s; }
+.animateSingle .p3-b3{-webkit-animation-delay:0.4s; }
+.animateSingle .p3-b4{-webkit-animation-delay:0.6s; }
+.animateSingle .p3-b5{-webkit-animation-delay:0.8s; }
+.animateSingle .p3-b6{-webkit-animation-delay:1s; }
+.p3-single-blue{width: 15rem; height: 15rem; position: absolute; left: 26%; top: 57%; width: 50px; height: 50px; background: pink;}
+.p3-single-blue *{position:absolute;  -webkit-animation:singleBlue 1s infinite;background: url(../images/img3/scene/line-blue-7.png); } */
 
 
-/* 信号--start */
-.p3-single-box{}
-.p3-single{width: 15rem; height: 15rem; position: absolute; left: 20%; top: 50%;}
-.p3-single .p3-b2{-webkit-animation-delay:1s; }
-.p3-single .p3-b3{-webkit-animation-delay:2s; }
-.p3-single .p3-b4{-webkit-animation-delay:3s; }
-.p3-single .p3-b5{-webkit-animation-delay:4s; }
-.p3-single .p3-b6{-webkit-animation-delay:5s; }
-/* .p3-single .p3-b7{-webkit-animation-delay:6s; }
-.p3-single .p3-b8{-webkit-animation-delay:7s; }
-.p3-single .p3-b9{-webkit-animation-delay:8s; }
-.p3-single .p3-b10{-webkit-animation-delay:9s; }
-.p3-single .p3-b11{-webkit-animation-delay:10s; }
-.p3-single .p3-b12{-webkit-animation-delay:11s; } */
 @-webkit-keyframes singleBlue{
 	from {width:0; height:0; top:50%; left:50%; } 
 	to {width: 100px; height: 100px; top:-66%; left:120%; } 
 }
-.p3-single-blue *{ position:absolute; width: 0px; height: 0px;   -webkit-animation:singleBlue 5s infinite; }
-.semi-circle-blue{border:2px solid #58A8F2; transform: rotate(90deg); border-radius: 100px 0px 0 0; border-bottom: 0; border-right: 0;}
+.animateSingle .p3-b2{-webkit-animation-delay:1s; }
+.animateSingle .p3-b3{-webkit-animation-delay:2s; }
+.animateSingle .p3-b4{-webkit-animation-delay:3s; }
+.animateSingle .p3-b5{-webkit-animation-delay:4s; }
+.animateSingle .p3-b6{-webkit-animation-delay:5s; }
+/* .animateSingle .p3-b7{-webkit-animation-delay:6s; }
+.animateSingle .p3-b8{-webkit-animation-delay:7s; }
+.animateSingle .p3-b9{-webkit-animation-delay:8s; }
+.animateSingle .p3-b10{-webkit-animation-delay:9s; }
+.animateSingle .p3-b11{-webkit-animation-delay:10s; }
+.animateSingle .p3-b12{-webkit-animation-delay:11s; } */
 
-@-webkit-keyframes singleRed{
-	from {width:0; height:0; top:-50%; left:150%; } 
-	to {width: 100px; height: 100px; top:0%; left:50%; } 
-}
-.p3-single-red *{position:absolute; width: 0px; height: 0px;   -webkit-animation:singleRed 5s infinite; }
-.semi-circle-red{border:2px solid #DD4747; transform: rotate(-90deg); border-radius: 100px 0px 0 0; border-bottom: 0; border-right: 0;}
-/* 信号--end */
-.p3-scene-wall{position: absolute; left: 74%; width: 17%; height: 86%;}
-.p3-scene-door{position: absolute;     right: 10%; top: 55%; width: 8%; height: 31%;}
-.p3-scene-antenna{position: absolute; right: 23%; top: 18%; width: 5%; height: 8%; z-index: 10;}
-.p3-scene-rf{position: absolute; right: 9%; top: 39%; width: 10%; height: 13%; z-index: 10;}
+.p3-single-blue{width: 15rem; height: 15rem; position: absolute; left: 20%; top: 50%;}
+.p3-single-blue *{border:2px solid #58A8F2; position:absolute; border-radius:50%; -webkit-animation:singleBlue 5s infinite; }
+.semi-circle{width: 0px; height: 0px; border-radius: 100px 0px 0 0; transform: rotate(90deg); border-bottom: 0; border-right: 0; }
 
-.p3-scene-gate-close{position: absolute; right: 12.6%; top: 56%; width: 3%; height: 30%;}
-.p3-scene-gate-open{display: none; position: absolute; right: 12.5%; bottom: 40%; width: 3%; height: 45%; z-index: 15;}
-.p3-scene-pc{display: none;position: absolute; right: 21%; bottom: 9%;    width: 10%; height: 15%;z-index: 10;}
-.p3-scene-yes{display: none; position: absolute; right: 30%; bottom: 15%; width: 8%; height: 8%; z-index: 15;}
 
-.p3-scene-line-blue{position: absolute; background-color: #6BCAFB;}
-.p3-scene-line-yellow{position: absolute; background-color: #FFD738;}
-.p3-scene-line1{width: 4%; height: 1px; top: 19.5%; left: 74%;}
-.p3-scene-line2{width: 1px; height: 2.5%; left: 78%; top: 19.5%;}
-.p3-scene-line3{width: 7.5%; height: 1px; top: 22%; left: 78%;}
-.p3-scene-line4{width: 1px; height: 20%; top: 22%; left: 85.5%;} .p3-scene-line5{width: 15%; height: 1px; top: 45%; right: 10%;} .p3-scene-line6{    width: 1px; height: 38%; top: 45%; right: 25%; }
-.p3-scene-right{position: absolute; right: 0; width: 20%; height: 100%;} 
-.p3-scene-btn{width: 100%; margin: 6% 0; background: url(../images/img3/scene/btn-bg-grey.png) no-repeat; font-size: 14px; color: #EEE; height: 12%;
-    background-size: 100% 100%;justify-content: center; align-items: center; display: -webkit-flex;cursor: pointer;} 
-.p3-scene-btn-active{background: url(../images/img3/scene/btn-bg-red.png) no-repeat;background-size: 100% 100%;}
- /* 第三关--RFID读写工作原理展现游戏--end */
 
- /* 第5关--EDI标准构成识别游戏--start */ .p5_content{width: 90%; height: 80%;position: absolute; left: 50%; top: 55%; transform: translate(-50%,-50%);} .p5_content_bg{width: 100%; height: 20%;position: absolute; left: 50%; transform: translateX(-50%);background: url(../images/img5/answer.png) no-repeat;background-size: 100% 100%; } .p5_content_bg_text{font-size: 17px; color: #0097B9;position: absolute;}
+
+.p3-scene-right{position: absolute; right: 0; width: 20%; height: 100%;}
+.p3-scene-btn{width: 141px;margin: 6% 0;background: url(../images/img3/scene/btn-bg-grey.png) no-repeat;font-size: 14px;color: #EEE;text-align: center; line-height: 50px;}
+.p3-scene-btn-active{background: url(../images/img3/scene/btn-bg-red.png) no-repeat;}
+.p3-scene-btn1{}
+.p3-scene-btn2{}
+.p3-scene-btn3{}
+.p3-scene-btn4{}
+.p3-scene-btn5{}
+.p3-scene-btn6{}
+.p3-scene-btn7{}
+/* 第三关--RFID读写工作原理展现游戏--end */
+
+
+
+
+
+/* 第5关--EDI标准构成识别游戏--start */
+.p5_content{width: 90%; height: 80%;position: absolute; left: 50%; top: 55%; transform: translate(-50%,-50%);}
+.p5_content_bg{width: 100%; height: 20%;position: absolute; left: 50%; transform: translateX(-50%);background: url(../images/img5/answer.png) no-repeat;background-size: 100% 100%; }
+.p5_content_bg_text{font-size: 17px; color: #0097B9;position: absolute;}
 .p5_text_1{left: 38%; top: 8%;}
 .p5_text_2{left: 11.5%; top: 56%}
 .p5_text_3{left: 69%; top: 56%}
