@@ -2,7 +2,7 @@
 * @Author: pz
 * @Date:   2018-01-16 09:52:21
 * @Last Modified by:   pz
-* @Last Modified time: 2018-01-31 15:34:26
+* @Last Modified time: 2018-02-01 16:50:43
 */
 
 body { font-family: "Microsoft YaHei",Helvetica,Arial,sans-serif; font-size: 14px; line-height: 1.42857143; color: #333; background: #f6f6f6;}
@@ -29,7 +29,6 @@ body{background: url(../images/sys_bg.png) no-repeat; background-size: 100% 100%
 
 
 /* 游戏选择界面 --start*/
-/*.game_select_bg{width: 60%; min-width: 700px; height: 75%;min-height: 475px; background: url(../images/sel_bg.png); background-size: 100% 100%; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}*/
 .game_select_bg{background: darkred;width: 60%; min-width: 700px; height: 75%;min-height: 475px; background: url(../images/sel_bg.png); background-size: 100% 100%; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
 .sel_title{font-size: 26px;font-weight: bold;position: absolute; left: 50%; transform: translateX(-50%);top: 4%;}
 .sel_btns{width: 80%; height: 50%;position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
@@ -46,15 +45,6 @@ body{background: url(../images/sys_bg.png) no-repeat; background-size: 100% 100%
 .addon7{ background-position: -5px -130px;}
 .addon8{ background-position: -5px -363px;}
 .addon9{ background-position: -5px -176px;}
-/* .addon1{ background-position: -3px 0px;}
-.addon2{ background-position: -55px 0px;}
-.addon3{ background-position: -3px -45px;}
-.addon4{ background-position: -55px -45px;}
-.addon5{ background-position: -3px -90px;}
-.addon6{ background-position: -55px -90px;}
-.addon7{ background-position: -3px -135px;}
-.addon8{ background-position: -55px -142px;}
-.addon9{ background-position: -3px -180px;} */
 .sel_btn_hover{width: 442px; height: 58px;background: url(../images/sel_btn_hover.png); background-size: 100% 100%;}
 /* 游戏选择界面 --end*/
 
@@ -133,6 +123,7 @@ video::-webkit-media-controls-panel { width: calc(100% + 30px);  }
 .p2_option_text{ max-width: 99%;line-height: 36px;background: url(../images/img2/text_bg.png) no-repeat;background-size: 100% 100%; margin-left: 40px;padding-left: 17px;color: #0097B9;}
 /* 第二关--物流标准化存在的问题判断--end */
 
+
 /* 第三关--RFID读写工作原理展现游戏--start */
 .game_select_bg_p3{min-width: 800px;}
 .p3_content{width: 90%; height: 75%;position: absolute; left: 50%; top: 55%; transform: translate(-50%,-50%);}
@@ -149,7 +140,6 @@ video::-webkit-media-controls-panel { width: calc(100% + 30px);  }
 .p3-rfid{width: 70px; height: 93px; position: absolute; top: 22%; right: 4%; background: url(../images/img3/info/rfid.png); background-size: 100% 100%;}
 .p3-line3{width: 1px; height: 84px; background-color: #34828F; position: absolute; top: 45%; left: 12%;}
 .p3-application{width: 100px; height: 126px; position: absolute; top: 66%; left: 5%; background: url(../images/img3/info/application.png); background-size: 100% 100%;}
-
 @-webkit-keyframes opac{
 	from {opacity: 1; width:0; height:0; top:50%; left:50%; } 
 	to {opacity : 1; width:100%; height:100%; top:0; left:50%; } 
@@ -169,24 +159,17 @@ video::-webkit-media-controls-panel { width: calc(100% + 30px);  }
 .p3-data{width: 138px; position: relative; top: 25%; left: 43%;font-size: 0;}
 .p3-data-left{width: 69px; height: 34px;position: absolute;right: 50%;}
 .p3-data-right{width: 69px; height: 34px;position: absolute; left: 50%;}
-
-
-
 /* 场景动画 */
 .p3-scene-box{display: none;}
 .p3-scene-left{position: absolute; width: 75%;height: 100%;background: url(../images/img3/scene/bg.png); background-size: 100% 100%; overflow: hidden;}
-
 /* 小车 */
 .p3-car{width: 200px; height: 81px; position: absolute; bottom: 12%; left: -40%; background: url(../images/img3/scene/car.png); background-size: 100% 100%;z-index: 100;}
 .p3-car-tyre{width: 29px; height: 29px; position: absolute; bottom: 0; background: url(../images/img3/scene/tyre.png); background-size: 100% 100%;}
 .p3-car-tyre-left{ left: 12%; }
 .p3-car-tyre-right{ right: 11%; }
-
 .p3-car-rfid{display: none;position: absolute; right: 92px; top: 13px;}
 .p3-car-rfid-in{position: absolute; width: 27px; height: 27px; background: url(../images/img3/scene/rfid-in.png) no-repeat; background-size: 100% 100%;}
 .p3-car-rfid-out{position: absolute; width: 44px; height: 44px; background: url(../images/img3/scene/rfid-out.png) no-repeat; background-size: 100% 100%; right: -36px; top: -9px;}
-
-
 /* 信号--start */
 .p3-single-box{}
 .p3-single{width: 15rem; height: 15rem; position: absolute; left: 20%; top: 50%;}
@@ -230,14 +213,58 @@ video::-webkit-media-controls-panel { width: calc(100% + 30px);  }
 .p3-scene-line1{width: 4%; height: 1px; top: 19.5%; left: 74%;}
 .p3-scene-line2{width: 1px; height: 2.5%; left: 78%; top: 19.5%;}
 .p3-scene-line3{width: 7.5%; height: 1px; top: 22%; left: 78%;}
-.p3-scene-line4{width: 1px; height: 20%; top: 22%; left: 85.5%;} .p3-scene-line5{width: 15%; height: 1px; top: 45%; right: 10%;} .p3-scene-line6{    width: 1px; height: 38%; top: 45%; right: 25%; }
+.p3-scene-line4{width: 1px; height: 20%; top: 22%; left: 85.5%;}
+.p3-scene-line5{width: 15%; height: 1px; top: 45%; right: 10%;} 
+.p3-scene-line6{width: 1px; height: 38%; top: 45%; right: 25%; }
 .p3-scene-right{position: absolute; right: 0; width: 20%; height: 100%;} 
 .p3-scene-btn{width: 100%; margin: 6% 0; background: url(../images/img3/scene/btn-bg-grey.png) no-repeat; font-size: 14px; color: #EEE; height: 12%;
     background-size: 100% 100%;justify-content: center; align-items: center; display: -webkit-flex;cursor: pointer;} 
 .p3-scene-btn-active{background: url(../images/img3/scene/btn-bg-red.png) no-repeat;background-size: 100% 100%;}
  /* 第三关--RFID读写工作原理展现游戏--end */
 
- /* 第5关--EDI标准构成识别游戏--start */ .p5_content{width: 90%; height: 80%;position: absolute; left: 50%; top: 55%; transform: translate(-50%,-50%);} .p5_content_bg{width: 100%; height: 20%;position: absolute; left: 50%; transform: translateX(-50%);background: url(../images/img5/answer.png) no-repeat;background-size: 100% 100%; } .p5_content_bg_text{font-size: 17px; color: #0097B9;position: absolute;}
+
+ /* 第4关--EDI传输翻译通信小游戏--start */
+.p4-content{width: 90%; height: 75%;position: absolute; left: 50%; top: 55%; transform: translate(-50%,-50%);}
+.p4-top-box{width: 100%; height: 80%;position: absolute; background: url(../images/img4/bg.png);background-size: 100% 100%;}
+.p4-form-l{position: absolute; width: 3%; height: 8%; left: 32%; top: 44%;}
+.p4-form-r{display: none; position: absolute; width: 5%; height: 13%; right: 25.5%; top: 35%;}
+.p4-refresh-l{display: none; position: absolute; width: 2%; height: 6%; left: 32.5%; top: 44.5%; }
+.p4-refresh-r{display: none; position: absolute; width: 2%; height: 6%; right: 26.5%; top: 37.5%; }
+.p4-order-l{display: none; position: absolute; width: 57%; height: 100%; left: 35%;}
+.p4-file-l{display: none; position: absolute;    width: 65%; height: 66%; left: 35%; top: 16%;}
+.p4-edi-l{display: none; position: absolute; width: 69%; height: 76%; left: 35%; top: 12%;}
+.p4-edi-r{display: none; position: absolute; width: 70%; height: 76%; right: 30%; top: 6%;}
+.p4-file-r{display: none; position: absolute;     width: 70%; height: 76%; right: 30%; top: 6%;}
+.p4-order-r{display: none; position: absolute; width: 56%; height: 100%; right: 30%;}
+.p4-bulb{display: none; position: absolute;width: 2.5%; height: 7.5%; right: 27%; top: 38%;}
+ @-webkit-keyframes mailMove{
+	0% {top: 43%; left: 34%; transform: rotate(-17deg);} 
+	25% {width: 6%; height: 7%; top: 44%; left: 42%; transform: rotate(30deg); }
+	50% {width: 6%; height: 7%; top: 44%; left: 50%; transform: rotate(-31deg); }
+	75% {width: 6%; height: 7%; top: 44%; left: 58%; transform: rotate(18deg); }
+	100% {width: 5%; height: 6%; top: 39%; left: 66%; transform: rotate(5deg);}
+} 
+.p4-mail{display:none; position: absolute; width: 7%; height: 8%;top: 43%; left: 34%; transform: rotate(-17deg);}
+.p4-mail-move{
+-webkit-animation-name: mailMove;
+-webkit-animation-duration: 5s;
+/* -webkit-animation-iteration-count: infinite; //无限循环 */
+-webkit-animation-timing-function: linear;
+}
+/* 下方按钮区 */
+.p4-bottom-box{width: 100%; height: 20%; position: absolute; bottom: 0; background-color: pink; }
+.p4-bottom-btn {padding: 1.5% 5%; background: url(../images/img4/btn-bg-red.png) no-repeat; background-size: 100% 100%; font-size: 16px; color: #EEE; cursor: pointer;position: absolute; bottom: 0px;  }
+.p4-change-btn{margin-left: 20%;}
+.p4-trans-btn{margin-left: 41%;}
+.p4-corresp-btn{margin-left: 62%;}
+ /* 第4关--EDI传输翻译通信小游戏--end */
+
+
+
+
+
+ /* 第5关--EDI标准构成识别游戏--start */
+.p5_content{width: 90%; height: 80%;position: absolute; left: 50%; top: 55%; transform: translate(-50%,-50%);} .p5_content_bg{width: 100%; height: 20%;position: absolute; left: 50%; transform: translateX(-50%);background: url(../images/img5/answer.png) no-repeat;background-size: 100% 100%; } .p5_content_bg_text{font-size: 17px; color: #0097B9;position: absolute;}
 .p5_text_1{left: 38%; top: 8%;}
 .p5_text_2{left: 11.5%; top: 56%}
 .p5_text_3{left: 69%; top: 56%}
@@ -276,6 +303,7 @@ video::-webkit-media-controls-panel { width: calc(100% + 30px);  }
 .p5_game_time_box{ position: relative; bottom: -5px; width: 35%;display: inline-block;}
 .p5_game_time{left: 95%;}
 /* 第5关--EDI标准构成识别游戏--end */
+
 
 
 
