@@ -2,7 +2,7 @@
 * @Author: pz
 * @Date:   2018-01-16 09:52:21
 * @Last Modified by:   pz
-* @Last Modified time: 2018-02-01 16:50:43
+* @Last Modified time: 2018-02-01 17:29:18
 */
 
 body { font-family: "Microsoft YaHei",Helvetica,Arial,sans-serif; font-size: 14px; line-height: 1.42857143; color: #333; background: #f6f6f6;}
@@ -51,7 +51,7 @@ body{background: url(../images/sys_bg.png) no-repeat; background-size: 100% 100%
 /* 第一关--物流信息系统分类配对游戏--start */
 .p1_game_content{width: 92%; height: 75%;position: absolute; left: 50%; top: 55%; transform: translate(-50%,-50%);}
 .p1_game_title{font-size: 32px;font-weight:bold;}
-.p1_target_area{background-color: pink; width: 50%; height: 75%;}
+.p1_target_area{width: 50%; height: 75%;}
 .p1_target_area span{width: 250px;height: 58px;background: url(../images/img1/target_btn.png) no-repeat; background-size: 100% 100%;}
 
 
@@ -225,7 +225,7 @@ video::-webkit-media-controls-panel { width: calc(100% + 30px);  }
 
  /* 第4关--EDI传输翻译通信小游戏--start */
 .p4-content{width: 90%; height: 75%;position: absolute; left: 50%; top: 55%; transform: translate(-50%,-50%);}
-.p4-top-box{width: 100%; height: 80%;position: absolute; background: url(../images/img4/bg.png);background-size: 100% 100%;}
+.p4-top-box{width: 100%; height: 82%;position: absolute; background: url(../images/img4/bg.png);background-size: 100% 100%;}
 .p4-form-l{position: absolute; width: 3%; height: 8%; left: 32%; top: 44%;}
 .p4-form-r{display: none; position: absolute; width: 5%; height: 13%; right: 25.5%; top: 35%;}
 .p4-refresh-l{display: none; position: absolute; width: 2%; height: 6%; left: 32.5%; top: 44.5%; }
@@ -252,7 +252,7 @@ video::-webkit-media-controls-panel { width: calc(100% + 30px);  }
 -webkit-animation-timing-function: linear;
 }
 /* 下方按钮区 */
-.p4-bottom-box{width: 100%; height: 20%; position: absolute; bottom: 0; background-color: pink; }
+.p4-bottom-box{width: 100%; height: 15%; position: absolute; bottom: 0;}
 .p4-bottom-btn {padding: 1.5% 5%; background: url(../images/img4/btn-bg-red.png) no-repeat; background-size: 100% 100%; font-size: 16px; color: #EEE; cursor: pointer;position: absolute; bottom: 0px;  }
 .p4-change-btn{margin-left: 20%;}
 .p4-trans-btn{margin-left: 41%;}
