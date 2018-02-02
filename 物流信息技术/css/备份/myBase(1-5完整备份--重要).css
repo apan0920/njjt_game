@@ -2,7 +2,7 @@
 * @Author: pz
 * @Date:   2018-01-16 09:52:21
 * @Last Modified by:   pz
-* @Last Modified time: 2018-02-02 18:25:30
+* @Last Modified time: 2018-02-01 17:29:18
 */
 
 body { font-family: "Microsoft YaHei",Helvetica,Arial,sans-serif; font-size: 14px; line-height: 1.42857143; color: #333; background: #f6f6f6;}
@@ -257,31 +257,14 @@ video::-webkit-media-controls-panel { width: calc(100% + 30px);  }
 .p4-change-btn{margin-left: 20%;}
 .p4-trans-btn{margin-left: 41%;}
 .p4-corresp-btn{margin-left: 62%;}
-/* 任务说明及提示 */
-.p4-msg-box{height: 100%;}
-.p4-msg-close{width: 15px;height: 15px;position: absolute; background: url(../images/img4/msg-close.png);cursor: pointer;}
-.p4-msg-mask{width: 100%;height: 100%; position: absolute; background-color: #000; opacity: 0.7; z-index: 50;}
-.p4-mission-intro{width: 436px; height: 288px; position: absolute; left: 50%; top: 50%; background: url(../images/img4/msg-intro-bg.png) no-repeat; background-size: 100% 100%; z-index: 99; margin-top: -144px; margin-left: -196px; }
-.p4-mission-intro-title{position: absolute; left: 56%; top: 9%;font-size: 22px;}
-.p4-mission-intro-text{text-indent: 28px; position: absolute; left: 37%; top: 21%; font-size: 17px; right: 4%;}
-.p4-mission-intro-close{right: 4%; top: 8%;}
-.p4-mission-intro-confirm{width: 39px;height: 28px;position: absolute; left: 61%; top: 72%;background: url(../images/img4/btn-confirm.png);cursor: pointer;}
-
-.p4-msg-boy{display:none; width: 392px; height: 288px; position: absolute; left: -8%; top: 22%; background: url(../images/img4/msg-boy.png) no-repeat; background-size: 100% 100%; z-index: 99; }
-.p4-msg-boy-text{position: absolute; left: 43%; top: 32%;}
-.p4-msg-boy-close{right: 4%; top: 28%;}
-.p4-msg-girl{display:none; width: 382px; height: 286px; position: absolute; right: -8%; top: 22%; background: url(../images/img4/msg-girl.png) no-repeat; background-size: 100% 100%; z-index: 99; }
-.p4-msg-girl-text{position: absolute; left: 5%; top: 32%;  }
-.p4-msg-girl-close{left: 57%; top: 28%;}
-
-.p4-msg-text-comm{width: 194px; font-size: 15px; text-indent: 30px;}
  /* 第4关--EDI传输翻译通信小游戏--end */
 
 
+
+
+
  /* 第5关--EDI标准构成识别游戏--start */
-.p5_content{width: 90%; height: 80%;position: absolute; left: 50%; top: 55%; transform: translate(-50%,-50%);} 
-.p5_content_bg{width: 100%; height: 20%;position: absolute; left: 50%; transform: translateX(-50%);background: url(../images/img5/answer.png) no-repeat;background-size: 100% 100%; } 
-.p5_content_bg_text{font-size: 17px; color: #0097B9;position: absolute;}
+.p5_content{width: 90%; height: 80%;position: absolute; left: 50%; top: 55%; transform: translate(-50%,-50%);} .p5_content_bg{width: 100%; height: 20%;position: absolute; left: 50%; transform: translateX(-50%);background: url(../images/img5/answer.png) no-repeat;background-size: 100% 100%; } .p5_content_bg_text{font-size: 17px; color: #0097B9;position: absolute;}
 .p5_text_1{left: 38%; top: 8%;}
 .p5_text_2{left: 11.5%; top: 56%}
 .p5_text_3{left: 69%; top: 56%}
@@ -321,19 +304,7 @@ video::-webkit-media-controls-panel { width: calc(100% + 30px);  }
 .p5_game_time{left: 95%;}
 /* 第5关--EDI标准构成识别游戏--end */
 
-/* 6. 电商物流呼叫小游戏（基于任务）--start */
-.p6-content{width: 90%; height: 80%;position: absolute; left: 50%; top: 55%; transform: translate(-50%,-50%);}
-.p6-top-box{width: 100%; height: 15%;position: absolute; }
-.p6-top-head-customer{width: 28%; height: 68%; position: absolute; top: 15%; background: url(../images/img6/head-customer.png); background-size: 100% 100%; color: #5D1022;}
-.p6-top-head-service{width: 28%; height: 68%; position: absolute; top: 15%; right: 0; background: url(../images/img6/head-service.png);background-size: 100% 100%;color: #0B3C74;}
-.p6-top-head-text{font-size: 16px; padding: 3% 0 0 10%;}
-    /* 下方聊天框 height: 61%; */
-.p6-bottom-box{width: 100%; height: 80%; position: absolute; bottom: 3%;background: url(../images/img6/bg.png);background-size: 100% 100%;}
-.p6-left-box{width: 50%;height: 100%;position: absolute;background-color: #000; }
-.p6-browse{width: 100%; height: 100%; position: absolute; background: url(../images/img6/bg-browse.png);background-size: 100% 100%;}
-.p6-right-box{width: 50%; height: 100%; position: absolute; right:0; background-color: red; }
 
-/* 6. 电商物流呼叫小游戏（基于任务）--end */
 
 
 @media (max-height: 900px) {

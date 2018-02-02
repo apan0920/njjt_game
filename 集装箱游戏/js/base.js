@@ -1,5 +1,5 @@
 
-var ajaxUrl = 'http://192.168.10.61:9999/nosgame/';
+var ajaxUrl = 'http://192.168.10.196:8888/nosgame/';
 /*var curWwwPath=window.document.location.href; 
 //获取主机地址之后的目录如：/Tmall/index.jsp 
 var pathName=window.document.location.pathname; 
