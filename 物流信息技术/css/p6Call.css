@@ -1,0 +1,271 @@
+/*
+* @Author: pz
+* @Date:   2018-02-03 09:51:51
+* @Last Modified by:   pz
+* @Last Modified time: 2018-02-06 15:46:11
+*/
+body { font-family: "Microsoft YaHei",Helvetica,Arial,sans-serif; font-size: 14px; line-height: 1.42857143; color: #333; background: #f6f6f6;}
+html,body { width:100%; height: 100%;min-width: 800px;min-height: 600px; }
+#wrapper{height: 100%;min-width: 800px;min-height: 600px;position: relative;}
+/* 登录页--start */
+body{background: url(../images/sys_bg.png) no-repeat; background-size: 100% 100%;}
+.logo{position: absolute; display: inline;top: 30px;}
+.logo_nos{width: 194px; height: 42px; left: 60px;background: url(../images/logo_nos_blue.png) no-repeat; background-size: 100% 100%;}
+.logo_school{width: 244px; height: 42px; right: 60px;background: url(../images/logo_school.png) no-repeat; background-size: 100% 100%;}
+.game_select_bg{background: darkred;width: 60%; min-width: 800px; height: 75%;min-height: 500px; background: url(../images/sel_bg.png); background-size: 100% 100%; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
+.sel_title{font-size: 26px;font-weight: bold;position: absolute; left: 50%; transform: translateX(-50%);top: 4%;}
+.back_btn{background: url(../images/btn_back.png)  no-repeat; background-size: 100%; width: 52px; height: 52px; position: absolute;right: 1%; cursor:pointer;}
+.bottom_btns{ width: 100%;position: absolute;bottom:11%;}
+.footer{position: absolute; bottom: 1px; left: 50%;transform: translate(-50%);color:#EEE;}
+/* 公共--橘色边框按钮 */
+.p6-btn-orange{ position: absolute; border: 1px solid #FF6600; border-radius: 5px; font-size: 12px; display: -webkit-flex; justify-content: center; align-items: center;padding: 2px 6px; cursor: pointer;}
+.p6-btn-white{ position: absolute; border: 2px solid rgb(207, 244, 255); border-radius: 10px; font-size: 16px; display: -webkit-flex; justify-content: center; align-items: center; color: rgb(207, 244, 255); left: 50%; padding: 10px 25px; transform: translateX(-50%); cursor: pointer;}
+/* 提示框 */
+.msg_box_alert {display: none; position: fixed; z-index: 99999; width: 100%; height: 100%; top: 0; left: 0; background: rgba(0,0,0,.7); }
+.msg_box{background: url(../images/msg_box_bg.png) no-repeat;width: 329px;height: 173px; position: absolute; top: 50%; left: 50%;margin-top:-82px; margin-left:-163px; transform: translate(-50%,-50%);}
+.msg_content{color:#CE1717;position: absolute; top: 30%; left: 27%;}
+.msg_confirm{background: url(../images/msg_box_confirm.png) no-repeat;width: 107px;height: 37px;position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%);}
+.msg_cancel{background: url(../images/msg_box_cancel.png) no-repeat;width: 107px;height: 37px;position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%);}
+.msg_close{width: 28px;height: 28px;position: absolute; right: 1%;}
+
+
+/* 6. 电商物流呼叫小游戏（基于任务）--start */
+.p6-content{width: 90%; height: 80%; position: absolute; left: 50%; top: 55%; transform: translate(-50%,-50%);}
+.p6-top{width: 100%; height: 15%;position: absolute; }
+.p6-top-head{width: 28%; height: 80%; position: relative;display: inline-block; top: 15%; }
+.p6-top-customer{ background: url(../images/img6/head-customer.png); background-size: 100% 100%; }
+.p6-customer-text{font-size: 24px; color: #5D1022; position: absolute; top: 45%;left: 30%}
+.p6-top-service{float: right; background: url(../images/img6/head-service.png);background-size: 100% 100%;}
+.p6-service-text{font-size: 24px; color: #0B3C74; position: absolute; top: 45%;right: 30%;}
+
+/* 下方聊天框 height: 61%; */
+.p6-bottom{width: 100%; height: 80%; position: absolute; bottom: 3%;background: url(../images/img6/bg.png);background-size: 100% 100%;}
+.p6-talk-bg{width: 90%; height: 90%; position: absolute; background: url(../images/img6/bg-talk.png); background-size: 100% 100%; top: 8%; left: 5%; }
+/* 左侧-------------Start-----------------客户 */
+.p6-left-box{width: 50%;height: 100%;position: absolute;}
+/* 1.浏览商品 */
+.p6-browse{display:block; width: 100%; height: 100%; position: absolute; background: url(../images/img6/bg-browse.png);background-size: 100% 100%;}
+.p6-browse-pic{width: 16%; height: 23%; position: absolute; left: 29%; top: 41%; background-color: #A6D9E8; padding: 2%; }
+.p6-browse-pic-clothes{ width: 90%; height: 90%; margin-left: 7%; margin-top: 7%;}
+.p6-browse-pic-pc{display:none; width: 120%; height: 80%; margin-top: 15%; margin-left: -10%;}
+.p6-browse-pic-seafood{display:none; width: 135%; height: 75%; margin-top: 18%; margin-left: -20%;}
+.p6-browse-name{position: absolute; left: 47%; top: 41%;}
+.p6-browse-num{position: absolute; left: 47%; top: 48%; opacity: 0.7; font-size: 12px;}
+.p6-browse-price{position: absolute; left: 47%; top: 57%; color: #FF6600;}
+.p6-browse-icon{position: absolute; left: 68%; top: 41%; width: 5%;cursor: pointer;}
+.p6-browse-pur{left: 62%; top: 55%;}
+/* 2.咨询聊天 */
+.p6-talk-1, .p6-talk-2, .p6-talk-3, .p6-talk-4{display: none;}
+.p6-talk-bg-l{display: none;}
+.p6-talk{position: absolute; top: 16%; left: 14%;width: 60%;}
+.p6-talk-content{width: 100%; font-size: 12px;margin: 5px 0 0 0;}
+.p6-talk-text{clear:both;background: #D7F2FF; border-radius: 4px;padding: 0 1px 0; }
+.p6-talk-text-mine{float: right;}
+.p6-talk-title-mine{margin: 0 0 0 2px; color:#6AC5F2; text-align: right;}
+.p6-talk-title-other{margin: 0 0 0 2px; color:#FF6600; float: left;}
+/* 3.确认订单 */
+.p6-con-order{display: none;}
+.p6-order{width: 100%; height: 100%; position: absolute; background: url(../images/img6/bg-order.png);background-size: 100% 100%; font-size: 12px;} 
+/* .p6-order{width: 90%; height: 90%; position: absolute; background: url(../images/img6/bg-order.png); background-size: 100% 100%; font-size: 12px; top: 50%; left: 50%; transform: translate(-50%,-50%);} */
+.p6-order p{position: absolute; left: 8%; top: 17%; width: 83%;}
+
+.p6-order .tel{float: right;}
+.p6-order .address{top: 22%;}
+.p6-order .pic{width: 16%; height: 23%; position: absolute; left: 8%; top: 29%; background-color: #A6D9E8; padding: 2%; }
+.p6-order .clothes{ width: 90%; height: 90%; margin-left: 7%; margin-top: 7%;}
+.p6-order .pc{display:none; width: 120%; height: 80%; margin-top: 15%; margin-left: -10%;}
+.p6-order .seafood{display:none; width: 135%; height: 75%; margin-top: 18%; margin-left: -20%;}
+.p6-order .name{position: absolute; left: 30%; top: 28%; font-size: 14px;}
+.p6-order .color{position: absolute; left: 30%; top: 35%; opacity: 0.7;}
+.p6-order .send-time{position: absolute; left: 30%; top: 40%; color: orange;}
+.p6-order .price{position: absolute; left: 29%; top: 46%;color:#FF6600; width: 60%; font-size: 14px;}
+.p6-order .price .num{color: #000;float: right;}
+.p6-order .require{position: absolute; left: 8%; top: 53%;}
+.p6-order .total{position: absolute; left: 7%; top: 57%; width: 83%; text-align: right;}
+.p6-order .total .total-price{color:#FF6600; font-size: 14px;}
+.p6-order .cut-line{position: absolute; left: 8%; top: 63%; width: 83%; height:1px; background-color: #D5D5D5;}
+.p6-order .btn-pur{right: 10%; top: 66%;}
+/* 4.跟踪信息 */
+.p6-track{display: none; width: 90%; height: 90%; position: absolute; left: 2%; background: url(../images/img6/bg-order.png);background-size: 100% 100%; font-size: 12px;    left: 50%; top: 50%; transform: translate(-50%,-50%);}
+ul li{list-style: none;}
+.p6-track-ul{padding-left: 5%;}
+.track-rcol{width: 100%; position: absolute;top: 13%;}
+.track-list{margin: 20px; padding-left: 5px; position: relative;}
+.track-list li{display:none; position: relative; padding: 0.5% 0 0 25px; line-height: 18px; border-left: 1px solid #d9d9d9; margin-top: 1%;}
+.text-grey{color: #999;}
+.text-orange{color: #FF6600; }
+.track-list li.first{color: #FF6600; padding-top: 0; border-left-color: #fff;}
+.track-list li .orange-icon{position: absolute; left: -6px; top: 50%; width: 11px; height: 11px; background: url(../images/img6/track-state-orange.png) no-repeat; background-size: 100% 100%;}
+.track-list li .node-icon{position: absolute; left: -6px; top: 50%; width: 11px; height: 11px; background: url(../images/img6/track-state-grey.png) no-repeat; background-size: 100% 100%;}
+.track-list li .orange-icon-start{position: absolute; left: -6px; top: 50%; width: 11px; height: 11px; background: url(../images/img6/orange-icon-start.png) no-repeat; background-size: 100% 100%;}
+.track-list li .orange-icon-end{position: absolute; left: -6px; top: 50%; width: 11px; height: 11px; background: url(../images/img6/orange-icon-end.png) no-repeat; background-size: 100% 100%;}
+.track-list ul .last .node-icon{ width: 8px;height: 8px;background: url(../images/img6/track-state-start.png) no-repeat; background-size: 100% 100%;left: -5px;}
+.track-list li .time{margin-right: 5px; position: relative; top: 4px; display: inline-block; vertical-align: middle;}
+.track-list li .txt{max-width: 600px; position: relative; top: 4px; display: inline-block; vertical-align: middle;}
+.track-list li.first .time{margin-right: 5px; }
+.track-list li.first .txt{max-width: 600px; }
+
+/* Left-5.确认收货 */
+.p6-con-receive{display:none; width: 90%; height: 90%; left: 50%; top: 50%; transform: translate(-50%, -50%);}
+.p6-con-receive .pic{width: 19%; height: 31%; position: absolute; left: 8%; top: 21%; background-color: #A6D9E8; padding: 2%;}
+.p6-con-receive .clothes{ width: 90%; height: 90%; margin-left: 7%; margin-top: 7%;}
+.p6-con-receive .pc{display:none; width: 120%; height: 80%; margin-top: 15%; margin-left: -10%;}
+.p6-con-receive .seafood{display:none; width: 135%; height: 75%; margin-top: 18%; margin-left: -20%;}
+.p6-con-receive .name{position: absolute; left: 30%; top: 20%; font-size: 14px;width: 61%;}
+.p6-con-receive .color{position: absolute; left: 30%; top: 28%; opacity: 0.7;}
+.p6-con-receive .send-time {top: 36%; }
+.p6-con-receive .price{position: absolute; left: 29%; top: 44%;color:#FF6600; width: 60%; font-size: 14px;}
+.p6-con-receive .price .num{color: #000;float: right;}
+.p6-con-receive .cut-line{position: absolute; left: 8%; top: 60%; width: 83%; height:1px; background-color: #D5D5D5;}
+.p6-con-receive .btn-con-receive{ left: 45%; top: 63%;padding:3px 6px;}
+.p6-con-receive .btn-apply-cuntomer-receive{ left: 69%; top: 63%;padding:3px 6px;}
+/* Left-6.申请售后 */
+.p6-receive-apply{display:none; width: 90%; height: 90%; left: 50%; top: 50%; transform: translate(-50%, -50%);}
+.p6-receive-apply .pic{width: 19%; height: 31%; position: absolute; left: 8%; top: 21%; background-color: #A6D9E8; padding: 2%;}
+.p6-receive-apply .clothes{ width: 90%; height: 90%; margin-left: 7%; margin-top: 7%;}
+.p6-receive-apply .pc{display:none; width: 120%; height: 80%; margin-top: 15%; margin-left: -10%;}
+.p6-receive-apply .seafood{display:none; width: 135%; height: 75%; margin-top: 18%; margin-left: -20%;}
+.p6-receive-apply .name{position: absolute; left: 30%; top: 20%; font-size: 14px;width: 61%;}
+.p6-receive-apply .name .tel{position: absolute; left: 73%; top: 20%;  font-size: 12px;color:#FF6600; }
+.p6-receive-apply .color{position: absolute; left: 30%; top: 28%; opacity: 0.7;}
+.p6-receive-apply .send-time {top: 36%; }
+.p6-receive-apply .price{position: absolute; left: 29%; top: 44%;color:#FF6600; width: 60%; font-size: 14px;}
+.p6-receive-apply .price .num{color: #000;float: right;}
+.p6-receive-apply .cut-line{position: absolute; left: 8%; top: 55%; width: 83%; height:1px; background-color: #D5D5D5;}
+.p6-receive-apply .btns{display: none;}
+.p6-receive-apply .btn-only-return{ left: 13%; top: 60%;}
+.p6-receive-apply .btn-all-return{ left: 43%; top: 60%;}
+.p6-receive-apply .btn-exchange-goods{ padding: 2px 13px;left: 74%; top: 60%;}
+/* Left-7.售后状态 */
+.p6-receive-apply .after-sale-state{border:none; position:absolute; left: 58%; top: 60%;}
+.p6-receive-apply .after-sale-state .state{color: #FF6600;}
+
+/* 右侧------右侧---右侧----------Start------右侧-------右侧---右侧---右侧---右侧---右侧---右侧---右侧----------客服 */
+.p6-right-box{width: 50%; height: 100%; position: absolute; right:0; }
+/* Right-1.客服聊天 */
+.p6-talk-bg-r{display: block;}
+.p6-talk{display: none;width: 60%;}
+/* Right-2.接到订单 */
+.p6-receive-order{display:none; width: 90%; height: 90%; position: absolute; background: url(../images/img6/bg-null.png); background-size: 100% 100%; top: 8%; left: 5%; }
+.p6-receive-order .bg-white{position: absolute;width: 60%;height: 45%; border-radius:10px; top:15%;left: 21%; background-color:#EDFFFF; text-align: center;}
+.p6-receive-order .btn-close{position: absolute; width: 8%; height: 8%; top: 5%; right: 4%; border-radius: 4px; background-color: #B5F4FF; }
+.p6-receive-order .bulb{width: 15%; height: 24%; position: absolute; background: url(../images/img6/icon-bulb.png); background-size: 100% 100%; top: 15%; left: 42%;}
+.p6-receive-order .text{position: absolute; top: 44%; left: 24%;}
+.p6-receive-order .btn-view{left: 34%; top: 67%; }
+/* Right-3.查看及处理订单 */
+.p6-deal-order{display: none;}
+.p6-order .cut-line-r{top: 54%;}
+.p6-order .btn-deal{ left: 46%; top: 57%;}
+/* Right-4.选择配送方式 */
+.p6-sel-style{display:none; width: 90%; height: 90%; position: absolute; background: url(../images/img6/bg-null.png); background-size: 100% 100%; top: 8%; left: 5%; }
+.p6-sel-style .sel-bg{position: absolute; left: 10%; top: 9%; width: 80%; height: 52%; border-width: 6px; border-color: rgb(41, 45, 48); border-style: solid; border-radius: 22px; background-color: rgb(255, 244, 219); }
+.p6-sel-style .sel-bg .title {font-size: 18px; font-weight: bold; position: absolute; left: 20%; top: 2%; }
+.p6-sel-style .sel-bg .dis-bg { position: absolute; width: 47%; height: 35%;border-radius: 5px; background-color: rgb(255, 231, 178);cursor: pointer;}
+.p6-sel-style .sel-bg .dis-bg1{left: 2%; top: 22%;}
+.p6-sel-style .sel-bg .dis-bg2{right: 2%; top: 22%;}
+.p6-sel-style .sel-bg .dis-bg3{left: 2%; top: 60%;}
+.p6-sel-style .sel-bg .dis-bg4{right: 2%; top: 60%;}
+.comp-logo{width: 25px; height: 25px; position: absolute;top: 27%;left: 4%;}
+.comp-detail{font-size: 12px; color: rgba(41, 45, 48, 0.6); position: absolute; left: 30%;}
+.comp-name {font-size: 14px; color: #292d30; font-weight:bolder; }
+.comp-weight {top: 35%; }
+.comp-day {top: 65%;}
+
+/* Right-5.打包 */
+.p6-package{display:none;}
+.p6-package-box{position: absolute; width: 50%; height: 50%; left: 27%; top: 15%;}
+.box-open{display:block; }
+.box-close{display: none;}
+.p6-package .btn-package{bottom: 10%;}
+/* Right-6.揽件 */
+.p6-embrace-part{display:none; overflow: hidden; width: 100%; height: 100%; position: absolute; background: url(../images/img6/package/bg-package.png); background-size: 100% 100%;}
+.p6-car{width: 330px; height: 128px; position: absolute; bottom: 31%; left: 50%; background: url(../images/img6/package/car.png); background-size: 100% 100%; z-index: 100; transform: translateX(-50%);}
+.p6-car-tyre{width: 42px; height: 42px; position: absolute; bottom: -21px; background: url(../images/img6/package/wheel.png); background-size: 100% 100%;}
+.p6-car-tyre-left{ left: 11.5%; }
+.p6-car-tyre-right{ right: 10%; }
+.p6-men{ width: 72px; height: 110px; position: absolute; bottom: 22%; left: 45%; background: url(../images/img6/package/men.png); background-size: 100% 100%; z-index: 100; transform: translateX(-50%);}
+.p6-embrace-part .btn-embrace{bottom: 3%;}
+/* Right-7.配送中心 */
+.p6-bg-comm{width: 100%; height: 100%; position: absolute;}
+.p6-dis-center{display:none; overflow: hidden; background: url(../images/img6/dis-center/worker.png);  background-size: 100% 100%; }
+.p6-dis-center .left1{background: url(../images/img6/dis-center/left1.png);  background-size: 100% 100%; }
+.p6-dis-center .left2{background: url(../images/img6/dis-center/left2.png);  background-size: 100% 100%; }
+.p6-dis-center .left3{background: url(../images/img6/dis-center/left3.png);  background-size: 100% 100%; }
+.p6-dis-center .right1{background: url(../images/img6/dis-center/right1.png);  background-size: 100% 100%; }
+.p6-dis-center .right2{background: url(../images/img6/dis-center/right2.png);  background-size: 100% 100%; }
+.p6-dis-center .right3{background: url(../images/img6/dis-center/right3.png);  background-size: 100% 100%; }
+.p6-dis-center .btn-dis-center{bottom: 3%;}
+/* Right-8.抵达配送地 */
+.p6-dis-land{display:none;background: url(../images/img6/dis-land/bg-dis-land.png);  background-size: 100% 100%; }
+.p6-dis-land .box-1{display: none; background: url(../images/img6/dis-land/box-1.png);  background-size: 100% 100%; }
+.p6-dis-land .box-2{display: none; background: url(../images/img6/dis-land/box-2.png);  background-size: 100% 100%; }
+.p6-dis-land .box-3{display: none; background: url(../images/img6/dis-land/box-3.png);  background-size: 100% 100%; }
+.p6-dis-land .box-4{display: none; background: url(../images/img6/dis-land/box-4.png);  background-size: 100% 100%; }
+.p6-dis-land .btn-dis-land{top: 17%; left: 60%; transform: translateX(0);}
+/* Right-9.派送员派送 */
+.p6-dis-start{display:none; overflow: hidden;}
+.p6-dis-bg{background: url(../images/img6/dis-start/bg-dis-start.png);  background-size: 100% 100%; }
+.p6-dis-start .l-1{background: url(../images/img6/dis-start/l-1.png);  background-size: 100% 100%; }
+.p6-dis-start .l-2{background: url(../images/img6/dis-start/l-2.png);  background-size: 100% 100%; }
+.p6-dis-start .l-3{background: url(../images/img6/dis-start/l-3.png);  background-size: 100% 100%; }
+.p6-dis-start .m-1{background: url(../images/img6/dis-start/m-1.png);  background-size: 100% 100%; }
+.p6-dis-start .m-2{background: url(../images/img6/dis-start/m-2.png);  background-size: 100% 100%; }
+.p6-dis-start .r-1{background: url(../images/img6/dis-start/r-1.png);  background-size: 100% 100%; }
+.p6-dis-start .r-2{background: url(../images/img6/dis-start/r-2.png);  background-size: 100% 100%; }
+.p6-dis-start .r-3{background: url(../images/img6/dis-start/r-3.png);  background-size: 100% 100%; }
+.p6-dis-start .r-4{background: url(../images/img6/dis-start/r-4.png);  background-size: 100% 100%; }
+
+.p6-dis-start .l-11{background: url(../images/img6/dis-start/l-1.png);  background-size: 100% 100%; }
+.p6-dis-start .l-21{background: url(../images/img6/dis-start/l-2.png);  background-size: 100% 100%; }
+.p6-dis-start .l-31{background: url(../images/img6/dis-start/l-3.png);  background-size: 100% 100%; }
+.p6-dis-start .m-11{background: url(../images/img6/dis-start/m-1.png);  background-size: 100% 100%; }
+.p6-dis-start .m-21{background: url(../images/img6/dis-start/m-2.png);  background-size: 100% 100%; }
+.p6-dis-start .r-11{background: url(../images/img6/dis-start/r-1.png);  background-size: 100% 100%; }
+.p6-dis-start .r-21{background: url(../images/img6/dis-start/r-2.png);  background-size: 100% 100%; }
+.p6-dis-start .r-31{background: url(../images/img6/dis-start/r-3.png);  background-size: 100% 100%; }
+.p6-dis-start .r-41{background: url(../images/img6/dis-start/r-4.png);  background-size: 100% 100%; }
+.p6-dis-start .cloud{left: 100%;}
+.p6-dis-start .tree{position: absolute; left: -54%; bottom: 10%; width: 831px; height: 119px;}
+.p6-dis-start .btn-dis-start{top: 2%; left: 40%; transform: translateX(0);z-index: 100}
+/* Right-10.快递签收 */
+.p6-sign{display: none;background-color:#A5CDD1; }
+.p6-sign-bg{background: url(../images/img6/sign.png);  background-size: 100% 100%; }
+.p6-sign .btn-sign{top: 7%;}
+/* Right-11.售后请求  同 Right-2.接到订单 */
+.p6-receive-order .cus-service{display: none;background: url(../images/img6/icon-service.png);background-size: 100% 100%;  }
+/* Right-12.售后信息  类似Right-3.查看及处理订单 */
+.p6-after-sale{display: none;width: 90%; height: 90%; position: absolute; background: url(../images/img6/bg-order.png); background-size: 100% 100%; font-size: 12px; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+.p6-after-sale .pic{width: 19%; height: 31%; position: absolute; left: 8%; top: 21%; background-color: #A6D9E8; padding: 2%;}
+.p6-after-sale .clothes{ width: 90%; height: 90%; margin-left: 7%; margin-top: 7%;}
+.p6-after-sale .pc{display:none; width: 120%; height: 80%; margin-top: 15%; margin-left: -10%;}
+.p6-after-sale .seafood{display:none; width: 135%; height: 75%; margin-top: 18%; margin-left: -20%;}
+.p6-after-sale .name{position: absolute; left: 30%; top: 20%; font-size: 14px;width: 61%;}
+.p6-after-sale .name .tel{position: absolute; left: 73%; top: 20%;  font-size: 12px;}
+.p6-after-sale .color{position: absolute; left: 30%; top: 28%; opacity: 0.7;}
+.p6-after-sale .send-type{position: absolute; left: 30%; top: 46%;color: #707070;}
+.p6-after-sale .send-type .type-name{color:#FF6600;}
+.p6-after-sale .price{position: absolute; left: 29%; top: 35%;color:#FF6600; width: 60%; font-size: 14px;}
+.p6-after-sale .price .num{color: #000;float: right;}
+.p6-after-sale .cut-line{position: absolute; left: 8%; top: 63%; width: 83%; height:1px; background-color: #D5D5D5;}
+.p6-after-sale .cut-line-r{top: 54%;}
+.p6-after-sale .btn-agree{ left: 69%; top: 60%;padding:3px 6px;}
+
+/* Right-13.交易完成 */
+.p6-order .btn-order-finish{display: none; left: 75%; top: 58%;border:none;}
+/* 6. 电商物流呼叫小游戏（基于任务）--end */
+
+@media (max-height: 900px) {
+	.sel_title {top: 3%;}
+
+	.p6-top-head{width: 250px; height: 65px;}
+	.p6-customer-text{font-size: 16px;}
+	.p6-service-text{font-size: 16px;}
+}
+@media (max-height: 800px) {
+	.p6-top-head{width: 200px; height: 52px;}
+}
+@media (max-height: 600px) {
+	.sel_title {top: 2%;}
+
+	.p6-top-head{width: 200px; height: 52px;}
+}

@@ -2,7 +2,7 @@
 * @Author: pz
 * @Date:   2018-01-16 09:52:21
 * @Last Modified by:   pz
-* @Last Modified time: 2018-02-02 18:25:30
+* @Last Modified time: 2018-02-03 09:56:09
 */
 
 body { font-family: "Microsoft YaHei",Helvetica,Arial,sans-serif; font-size: 14px; line-height: 1.42857143; color: #333; background: #f6f6f6;}
@@ -321,19 +321,7 @@ video::-webkit-media-controls-panel { width: calc(100% + 30px);  }
 .p5_game_time{left: 95%;}
 /* 第5关--EDI标准构成识别游戏--end */
 
-/* 6. 电商物流呼叫小游戏（基于任务）--start */
-.p6-content{width: 90%; height: 80%;position: absolute; left: 50%; top: 55%; transform: translate(-50%,-50%);}
-.p6-top-box{width: 100%; height: 15%;position: absolute; }
-.p6-top-head-customer{width: 28%; height: 68%; position: absolute; top: 15%; background: url(../images/img6/head-customer.png); background-size: 100% 100%; color: #5D1022;}
-.p6-top-head-service{width: 28%; height: 68%; position: absolute; top: 15%; right: 0; background: url(../images/img6/head-service.png);background-size: 100% 100%;color: #0B3C74;}
-.p6-top-head-text{font-size: 16px; padding: 3% 0 0 10%;}
-    /* 下方聊天框 height: 61%; */
-.p6-bottom-box{width: 100%; height: 80%; position: absolute; bottom: 3%;background: url(../images/img6/bg.png);background-size: 100% 100%;}
-.p6-left-box{width: 50%;height: 100%;position: absolute;background-color: #000; }
-.p6-browse{width: 100%; height: 100%; position: absolute; background: url(../images/img6/bg-browse.png);background-size: 100% 100%;}
-.p6-right-box{width: 50%; height: 100%; position: absolute; right:0; background-color: red; }
 
-/* 6. 电商物流呼叫小游戏（基于任务）--end */
 
 
 @media (max-height: 900px) {
