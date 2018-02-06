@@ -2,7 +2,7 @@
 * @Author: pz
 * @Date:   2018-02-02 09:34:20
 * @Last Modified by:   pz
-* @Last Modified time: 2018-02-06 15:58:03
+* @Last Modified time: 2018-02-06 16:56:13
 */
 $(function () {
 	fadeInTime = 1500;
@@ -62,8 +62,19 @@ $(function () {
 	$(".last").show(); */
 
 	/*$(".p6-sel-style").show();//选择配送方式*/
+	
 });
-
+/*任务说明--关闭/确认按钮*/
+$(".p6-mission-intro-confirm, .p6-mission-intro-close").click(function () {
+	$(".p6-mission-intro").removeClass("bounceInLeft").addClass("bounceOutRight");
+	setTimeout(function () {
+		$(".p6-msg-box").fadeOut();
+	},200);
+	/*头像不停闪动效果*/
+	setInterval(function(){
+		$(".p6-browse-icon").fadeOut(300).fadeIn(300); 
+	},200);
+});
 /*Left-1.浏览商品 */
 /*蓝色水滴--客服聊天*/
 $(".p6-browse-icon").click(function () {
@@ -337,4 +348,9 @@ $(".btn-agree").click(function () {
 function finish() {
 	$(".btn-order-finish").show();
 	$(".p6-deal-order").fadeIn(fadeInTime);
+	setTimeout(function (argument) {
+		showAlert('游戏完成，返回主界面!','end',function(){
+			window.location.href = "index.html";
+		});
+	},2500);
 }
