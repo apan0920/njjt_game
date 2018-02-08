@@ -2,7 +2,7 @@
 * @Author: pz
 * @Date:   2018-01-16 09:52:21
 * @Last Modified by:   pz
-* @Last Modified time: 2018-02-08 16:56:59
+* @Last Modified time: 2018-02-08 11:51:07
 */
 
 body { font-family: "Microsoft YaHei",Helvetica,Arial,sans-serif; font-size: 14px; line-height: 1.42857143; color: #333; background: #f6f6f6;}
@@ -326,57 +326,126 @@ video::-webkit-media-controls-panel { width: calc(100% + 30px);  }
 .p7-wrapper{height: 100%; width: 100%; min-width: 800px; min-height: 600px; display: table-cell; vertical-align: middle;}
 .p7-game-select-bg{background: none; width: 60%; min-width: 700px; height: 80%; min-height: 475px; margin: 0 auto;}
 .p7-sel-title{width: 52%; height: 15%; text-align: center; background: url(../images/img7/nav.png); background-size: 100% 100%; font-size: 26px; font-weight: bold; margin: 0 auto; padding-top: 4%;}
-.p7-content{width: 100%; min-width: 750px; height: 85%; border-radius: 10px;}
+.p7-content{width: 100%; height: 85%; border-radius: 10px;}
 
 .p7-mission-btn{position: absolute;width: 71px;height: 50px; right: 21%; top:23%; background: url(../images/img7/btn-mission.png); background-size: 100% 100%; cursor: pointer;}
-.p7-mission-box{display: none; position: absolute; right: 28%; top:23%; width: 50%; border: 2px solid #000; border-radius: 10px; background-color: #FFF4DB; font-size: 13px; padding: 8px 0 8px 25px;z-index: 99;}
+.p7-mission-box{display: none; position: absolute; right: 28%; top:23%; width: 50%; border: 2px solid #000; border-radius: 10px; background-color: #FFF4DB; font-size: 13px; padding: 8px 0 8px 25px;}
 /* 透明 */
 /* .p7-mission-prompt{position: absolute; width: 50%; border: 2px solid #000; border-radius: 10px; background-color: rgba(255, 244, 219, 0.502); font-size: 13px; padding: 8px 0 8px 25px;} */
 .p7-mission-close{right: 5px; top: 5px;}
 
-.p7-menu-box{overflow: hidden;position: absolute; top: 24%; width: 327px; height: 62%; background-color: #FFF4DB; border: 4px solid rgb(41, 45, 48); border-radius: 20px; }
-.p7-menu-content{width: 100%; height: 100%; overflow-y: auto; }
-.routebox {-webkit-transition: max-height 1s ease-in; transition: max-height 1s ease-in; overflow: hidden;}
-.routebox .routebox-content {height: auto!important; position: relative; }
-.searchbox-content .searchbox-content-common {box-sizing: border-box; float: left; width: 329px; height: 38px; }
-.routebox .routebox-content {height: auto!important; position: relative; }
-.searchbox-content .searchbox-content-common {box-sizing: border-box; float: left; width: 329px; height: 38px; }
-.routebox .routebox-content .routebox-input {height: 40px; width: 289px; border-bottom: 1px solid #eaebed; position: relative; }
-.routebox .routebox-content .routebox-input .route-input-icon {width: 12px; height: 16px; background: url(../images/img7/point-circle.png) no-repeat 0 0; position: absolute; top: 14px; left:  -13%; }
-.route-searchbox-content.drive .routebox .routebox-content .route-start-input, .route-searchbox-content.drive .routebox .routebox-content .route-end-input, .route-searchbox-content.drive .routebox .routebox-content .route-through-input {border-right: 49px solid transparent; }
-.routebox .routebox-content .routebox-input input {box-sizing: border-box; border: 0; height: 100%; width: 100%; padding: 10px 0; font-size: 14px; border-left: 20px solid transparent; border-right: 27px solid transparent; line-height: 20px; background: none; }
-.route-searchbox-content.drive .routebox .routebox-content .route-input-add-icon.hide {display: none; }
-.route-searchbox-content.drive .routebox .routebox-content .route-input-add-icon {display: block; }
-.routebox .routebox-content .routebox-input .route-input-add-icon {width: 16px; height: 16px; position: absolute; background: url(../images/img7/btn-plus.png); top: 12px; right: -23px; display: none; cursor: pointer; }
-.hide {display: none; }
-.route-searchbox-content.drive .routebox .routebox-content .route-through {display: block; }
-.routebox .routebox-content .routebox-input.route-through {display: block; }
-.routebox .routebox-content .routebox-input {height: 40px; width: 289px; border-bottom: 1px solid #eaebed; position: relative; }
-.routebox .routebox-content .routebox-input .route-input-remove-icon {width: 16px; height: 16px; position: absolute; background: url(../images/img7/btn-remove.png); top: 12px; right: -23px; cursor: pointer; }
-.routebox .routebox-content .routebox-input:last-child {border-bottom: 0; }
-.routebox .routebox-content .routebox-input {height: 40px; width: 70%; border-bottom: 1px solid #292d30; position: relative; left:15%; }
-.routebox .routebox-content .routebox-input.route-end .route-input-icon {background: url(../images/img7/point-end.png) no-repeat 0 0; top:11px; }
-.p7-point-middle{ width: 6px; position: absolute; font-size: 0; left: -11%; top: 76%;}
-.p7-point-middle-img{vertical-align: middle; margin-bottom: 3px; width: 4px; height: 4px; }
-/* 驾车策略 */
-.drive-plan{position: relative; width: 100%;height: 15%;background: #ffeabb;}
-.route-chose{padding: 10px 0 0 17px;color: #292D30;}
-.btn-check-box{position: absolute;margin: 0 20px 0 0;}
-.btn-check{position: absolute;width: 12px;height: 12px; top: 50%; transform: translateY(-50%);background: url(../images/img7/btn-check.png);}
-.btn-check img{ position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
-.btn-check-text{padding-left: 20px;color: #000;}
-.last-time{margin: 0 0 0 17px;}
-.last-dist{margin: 0 0 0 117px;}
-.avoid_highways{margin: 0 0 0 217px;}
-
-.plan-box{background: #FFF;width: 100%; padding: 10px 0 0 17px; color: #000;}
-.plan-bg{width: 55px; height: 22px; background-color: rgb(160, 194, 249); color: #FFF; text-align: center; }
-.plan-time{ padding: 5px 0 0 0;}
-.through-highway{padding: 5px 0;font-size: 12px;color: #000;opacity: 0.9;padding: 0;}
-
-.btn-search{background: url(../images/img7/btn-check.png);
-	
+.p7-menu-box{position: absolute; left: 21%; top: 24%; width: 20%; height: 62%; background-color: #FFF4DB; border: 4px solid rgb(41, 45, 48); border-radius: 20px; }
+.routebox {
+    -webkit-transition: max-height 1s ease-in;
+    transition: max-height 1s ease-in;
+    overflow: hidden;}
+.routebox .routebox-content {
+    height: auto!important;
+    position: relative;
 }
+.searchbox-content .searchbox-content-common {
+    box-sizing: border-box;
+    float: left;
+    width: 329px;
+    height: 38px;
+}
+.routebox .routebox-content {
+    height: auto!important;
+    position: relative;
+}
+.searchbox-content .searchbox-content-common {
+    box-sizing: border-box;
+    float: left;
+    width: 329px;
+    height: 38px;
+}
+.routebox .routebox-content .routebox-input {
+    height: 40px;
+    width: 289px;
+    border-bottom: 1px solid #eaebed;
+    position: relative;
+}
+.routebox .routebox-content .routebox-input .route-input-icon {
+    width: 12px;
+    height: 16px;
+    background: url(../images/img7/point-circle.png) no-repeat 0 0;
+    position: absolute;
+    top: 14px;
+    left: 3px;
+}
+.route-searchbox-content.drive .routebox .routebox-content .route-start-input, .route-searchbox-content.drive .routebox .routebox-content .route-end-input, .route-searchbox-content.drive .routebox .routebox-content .route-through-input {
+    border-right: 49px solid transparent;
+}
+.routebox .routebox-content .routebox-input input {
+    box-sizing: border-box;
+    border: 0;
+    height: 100%;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 14px;
+    border-left: 20px solid transparent;
+    border-right: 27px solid transparent;
+    line-height: 20px;
+    background: none;
+}
+/* .route-searchbox-content.drive .routebox .routebox-content .input-clear {right: 22px; }
+.routebox .routebox-content .routebox-input .input-clear {left: auto; right: 0; top: 1px; }
+.searchbox-content .input-clear {cursor: pointer; position: absolute; width: 27px; height: 38px; top: 0; background: url(//webmap1.bdimg.com/wolfman/static/common/images/new/searchbox_f175577.png) no-repeat 0 -114px #fff; display: none; } */
+.route-searchbox-content.drive .routebox .routebox-content .route-input-add-icon.hide {
+    display: none;
+}
+.route-searchbox-content.drive .routebox .routebox-content .route-input-add-icon {
+    display: block;
+}
+.routebox .routebox-content .routebox-input .route-input-add-icon {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    background: url(../images/img7/btn-plus.png);
+    top: 12px;
+    right: 5px;
+    display: none;
+    cursor: pointer;
+}
+.hide {
+    display: none;
+}
+.route-searchbox-content.drive .routebox .routebox-content .route-through {
+    display: block;
+}
+.routebox .routebox-content .routebox-input.route-through {
+    display: block;
+}
+.routebox .routebox-content .routebox-input {
+    height: 40px;
+    width: 289px;
+    border-bottom: 1px solid #eaebed;
+    position: relative;
+}
+.routebox .routebox-content .routebox-input .route-input-remove-icon {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    background: url(../images/img7/btn-remove.png);
+    top: 12px;
+    right: 5px;
+    cursor: pointer;
+}
+.routebox .routebox-content .routebox-input:last-child {
+    border-bottom: 0;
+}
+.routebox .routebox-content .routebox-input {
+    height: 40px;
+    width: 100%;
+    border-bottom: 1px solid #292d30;
+    position: relative;
+}
+.routebox .routebox-content .routebox-input.route-end .route-input-icon {
+    background: url(../images/img7/point-end.png) no-repeat 0 0;
+    top:11px;
+}
+.p7-point-middle{ width: 6px; position: absolute; font-size: 0; left: 3%; top: 76%;}
+.p7-point-middle-img{vertical-align: middle; margin-bottom: 3px; width: 4px; height: 4px; }
 /* 第7关--GIS的操作模拟游戏--end */
 
 

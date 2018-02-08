@@ -1,0 +1,68 @@
+<html>
+<head>
+    <title>兰州市实时路况</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.4"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/library/TrafficControl/1.4/src/TrafficControl_min.js"></script>
+   <!--  <script type="text/javascript" src="js/jquery.min.js"></script> -->
+    <script type="text/javascript" src="js/lz_traffice_map.js"></script>
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    
+    <style type="text/css">
+    #mapContainer {width:949px;height:500px;}
+    .traffic_container {width:1010px;background-color:#FFF;}
+    .left_map_container{float:left;width:949px;border:1px solid #1970CF;}
+    .left_map_container h4{display:block;width:949px;height:33px;line-height:33px;text-indent:12px; overflow:hidden;padding:0px;margin:0px;background:url('images/bg1.gif') repeat-x left top;color:#FFF;}
+    .left_map_container h4 .traffic_status_icon {float:right;width:110px;height:34px;margin-top:0px;background:url('images/traffic_status.png') no-repeat center center;}
+    .BMap_cpyCtrl{display:none;}.anchorBL{display:none;}
+    </style>
+</head>
+
+<body>
+<!--内容开始-->
+<div class="traffic_container">
+    <div class="left_map_container">
+        <h4>兰州市实时路况<span class="traffic_status_icon"></span></h4>
+        <div id="mapContainer"></div>
+    </div>
+</div>
+<div style="color:#444;font-size:12px;padding:10px 3px;">实时路况</div>
+
+<script type="text/javascript">
+    $(function() {
+        var map = new BMap.Map("mapContainer");
+        map.centerAndZoom(new BMap.Point(103.840745,36.067329), 16); 
+        var ctrl = new BMapLib.TrafficControl({
+            showPanel: false
+        });      
+
+        map.addControl(new BMap.NavigationControl());
+        map.enableContinuousZoom(false); 
+        map.enableScrollWheelZoom(false); 
+
+
+        map.addControl(ctrl);
+        ctrl.setAnchor(BMAP_ANCHOR_BOTTOM_RIGHT);  
+        ctrl.showTraffic();
+
+    });
+
+    //按坐标移动
+    function goPosition(xPos,yPos){
+        var mapa = new BMap.Map("mapContainer");
+        mapa.centerAndZoom(new BMap.Point(xPos,yPos), 16); 
+        var ctrla = new BMapLib.TrafficControl({
+            showPanel: false
+        });
+            
+        mapa.addControl(new BMap.NavigationControl());
+        mapa.enableContinuousZoom(false); 
+        mapa.enableScrollWheelZoom(true); 
+
+        mapa.addControl(ctrla);
+        ctrla.setAnchor(BMAP_ANCHOR_BOTTOM_RIGHT); 
+        ctrla.showTraffic();
+    }
+    </script>
+</body>
+</html>

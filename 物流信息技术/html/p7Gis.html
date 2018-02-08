@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>物流信息技术教学游戏--GIS的操作模拟游戏</title>
+		<meta name="keywords" content="物流信息技术教学游戏,GIS的操作模拟游戏,物流游戏,游戏" />
+		<meta name="description" content="南京交通-物流信息技术教学游戏" />
+
+		<!-- basic styles -->
+		<link href="../js/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="../css/myBase.css" rel="stylesheet" />
+		<!-- 百度API-实时路况 -->
+		<link href="http://api.map.baidu.com/library/TrafficControl/1.4/src/TrafficControl_min.css" rel="stylesheet" type="text/css" />
+		<style>
+			/*去掉bootstrap里input点击之后会出现蓝色边框*/
+			input { outline:none; }
+		</style>
+		
+	</head>
+
+	<body class="p7-body">
+		<div class="p7-wrapper">
+			<div id="header">
+				<!-- 引入公共头页面 -->
+			</div>
+			
+			<div class="p7-game-select-bg " >
+				<div class="p7-sel-title ">GIS的操作模拟游戏</div>
+				<!-- 地图 -->
+				<div id="mapContainer" class="p7-content" style="position:absolute;width: 60%; height: 66%;">
+				</div>
+				<!-- 任务提示 -->
+				<div class="p7-mission-btn"></div>
+				<div class="p7-mission-box">小李准备从珠海体育中心运送一批货物去广州火车站南站，利用地图寻找最佳路线。<br/>
+						1.要求走高速，最节约时间和最短路程比较（红绿灯、限速、拥堵）<br/>
+						2.要求经过XX点装货<br/>
+						3.XX路段维修，要求避开改路线
+					<div class="p4-msg-close p7-mission-close"></div>
+				</div>
+				<!-- 左侧菜单 -->
+				<div class="p7-menu-box">
+					<div class="p7-menu-content">
+						<div class="routebox">
+							<div class="searchbox-content-common routebox-content">
+							<div class="routebox-inputs">
+								<!-- 起始地点 -->
+								<div class="routebox-input route-start">
+									<div class="route-input-icon"> </div> 
+									<div class="p7-point-middle">
+										<img src="../images/img7/point-middle.png" alt="中间点" class="p7-point-middle-img">
+										<img src="../images/img7/point-middle.png" alt="中间点" class="p7-point-middle-img">
+										<img src="../images/img7/point-middle.png" alt="中间点" class="p7-point-middle-img">
+									</div>                   
+									<input autocomplete="off" maxlength="256" placeholder="输入起点" class="route-start-input" type="text" value="">                    
+									<!-- <div class="input-clear" title="清空" style="display: block;"> </div>  -->
+									<div class="route-input-add-icon show">   </div>
+								</div>        
+								<!-- 途经点 -->        
+								<!-- <div class="routebox-input route-through">    
+									<div class="route-input-icon">    </div>  
+									<div class="p7-point-middle">
+										<img src="../images/img7/point-middle.png" alt="中间点" class="p7-point-middle-img">
+										<img src="../images/img7/point-middle.png" alt="中间点" class="p7-point-middle-img">
+										<img src="../images/img7/point-middle.png" alt="中间点" class="p7-point-middle-img">
+									</div>
+									<input autocomplete="off" maxlength="256" placeholder="输入途经点" class="route-through-input" type="text" value="">    
+									<div class="route-input-remove-icon" data-index="0"></div>
+								</div> -->
+								<!-- 目的地 -->
+								<div class="routebox-input route-end">
+									<div class="route-input-icon"></div>
+									<input autocomplete="off" maxlength="256" placeholder="输入终点" class="route-end-input" type="text" value="">
+									<!-- <div class="input-clear" title="清空" style="display: block;"></div>  -->
+								</div>          
+							</div>
+							</div>
+						</div>
+						<!-- //三种驾车策略：最少时间，最短距离，避开高速 -->
+						<div class="drive-plan">
+							<p class="route-chose">路线选项</p>
+							<div class="btn-check-box last-time">
+								<span class="btn-check">
+									<img src="../images/img7/icon-right.png" alt="√">
+								</span>
+								<span class="btn-check-text">最少时间</span>
+							</div>
+							<div class="btn-check-box last-dist">
+								<span class="btn-check">
+									<img src="../images/img7/icon-right.png" alt="√">
+								</span>
+								<span class="btn-check-text">最短距离</span>
+							</div>
+							<div class="btn-check-box avoid_highways">
+								<span class="btn-check">
+									<img src="../images/img7/icon-right.png" alt="√">
+								</span>
+								<span class="btn-check-text">避开高速</span>
+							</div>
+						</div>
+						<!-- 方案 -->
+						<div class="plan-box">
+							<div class="plan">
+								<div class="plan-bg">方案一</div>
+								<p class="plan-time">
+									<span>约2小时4分钟| </span>
+									<span>125.6公里| </span>
+									<span>红绿灯10个</span>
+								</p>
+								<p class="through-highway">途径：S3广深沿江高速>大涌桥>G1501广州绕城高速</p>
+							</div>
+							<div class="plan">
+								<div class="plan-bg">方案二</div>
+								<p class="plan-time">
+									<span>约2小时4分钟| </span>
+									<span>125.6公里| </span>
+									<span>红绿灯10个</span>
+								</p>
+								<p class="through-highway">途径：S3广深沿江高速>大涌桥>G1501广州绕城高速</p>
+							</div>
+							<div class="plan">
+								<div class="plan-bg">方案三</div>
+								<p class="plan-time">
+									<span>约2小时4分钟| </span>
+									<span>125.6公里| </span>
+									<span>红绿灯10个</span>
+								</p>
+								<p class="through-highway">途径：S3广深沿江高速>大涌桥>G1501广州绕城高速</p>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<!-- 搜索按钮 -->
+				<div class="btn-search"></div>
+
+
+			</div>
+
+			<div class="bottom_btns">
+				<!-- 下一关-按钮
+				<div class="next_btn" onclick="nextBtn();"></div> -->
+				<!-- 返回主界面按钮 -->
+				<div class="back_btn" onclick="backBtn();"></div>
+			</div>
+			<div id="footer" > 
+				<!-- 引入公共尾页面（版权说明） -->
+			</div>
+		</div>
+		<!-- basic scripts -->
+		<script src="../js/jquery.min.js"></script>
+		<script src="../js/base.js"></script>
+		<!-- 百度API -->
+		<script src="http://api.map.baidu.com/api?v=2.0&ak=dApOtvB5E3x6byHpUGHbRF1fxctCBdjw"></script>
+		<!-- 百度API-实时路况 -->
+		<script type="text/javascript" src="http://api.map.baidu.com/library/TrafficControl/1.4/src/TrafficControl_min.js"></script>
+		<script src="../js/p7Gis.js"></script>
+	</body>
+</html>
