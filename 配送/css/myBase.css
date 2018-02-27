@@ -1,0 +1,63 @@
+/*
+* @Author: pz
+* @Date:   2018-01-16 09:52:21
+* @Last Modified by:   pz
+* @Last Modified time: 2018-02-26 15:02:55
+*/
+
+body { font-family: "Microsoft YaHei",Helvetica,Arial,sans-serif; font-size: 14px; line-height: 1.42857143; color: #333; background: #f6f6f6;}
+html,body { width:100%; height: 100%;min-width: 800px;min-height: 600px; }
+#wrapper{height: 100%;min-width: 800px;min-height: 600px;position: relative;}
+/* 登录页--start */
+body{background: url(../images/sys_bg.png) no-repeat; background-size: 100% 100%;}
+.logo{position: absolute; display: inline;top: 30px;}
+.logo_nos{width: 229px; height: 41px; left: 60px;background: url(../images/logo_nos_white.png) no-repeat; background-size: 100% 100%;}
+.logo_school{width: 244px; height: 42px; right: 60px;background: url(../images/logo_school.png) no-repeat; background-size: 100% 100%;}
+
+
+.sys_name{width: 38%;margin-left: 50%; margin-top: 110px; transform: translateX(-50%);}
+.login_box{background: url(../images/login_box_bg.png) no-repeat; width: 27%; min-width: 300px; height: 36%; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); background-size: 100% 100%;}
+.login_input_bg{background: url(../images/bg_login02.png); background-size: 100% 100%; }
+
+.login_btn_bg{width: 399px; height: 50px;background: url(../images/img_login03.png); background-size: 100% 100%; }
+.login-btn-text{position: absolute;top: 50%;left: 50%; transform: translate(-50%,-50%); }
+.login_box_content{width: 70%; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
+.login_box span{border: none;background: none;}
+.login_box input{border: none;border-radius: 25px;background: none;}
+.inputDiv{margin-top:8%;}
+.bottom_btns{ width: 100%;position: absolute;bottom:11%;}
+.footer{position: absolute; bottom: 1px; left: 50%;transform: translate(-50%);color:#EEE;}
+/* 登录页--end */
+
+
+/* 游戏选择界面 --start*/
+.game_select_bg{background: darkred;width: 60%; min-width: 700px; max-width:751px; height: 75%;min-height: 475px; background: url(../images/sel_bg.png); background-size: 100% 100%; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
+.sel_title{position: absolute; left: 50%; transform: translateX(-50%);top: 3%;}
+.sel_btns{width: 90%; height: 50%;position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
+.sel_btn{width: 292px; height: 122px;background: url(../images/sel_btn.png); background-size: 100% 100%;display: inline-block; position: absolute;}
+.sel_btn:hover{width: 292px; height: 122px;background: url(../images/sel_btn_hover.png); background-size: 100% 100%;display: inline-block; position: absolute;}
+.sel_btn_addon{left: 50%; top: 50%; position: absolute; transform: translate(-50%,-50%);}
+.btn-left{left: 1%;}
+.btn-right{right: 1%;}
+
+.sel_btn_hover{width: 442px; height: 58px;background: url(../images/sel_btn_hover.png); background-size: 100% 100%;}
+
+.back_btn{background: url(../images/btn_back.png)  no-repeat; background-size: 100%; width: 52px; height: 52px; position: absolute;right: 1%; cursor:pointer;}
+/* 游戏选择界面 --end*/
+
+
+@media (max-height: 900px) {
+	/* 游戏选择界面 --start*/
+	/* .sel_btns { height: 65%;}
+	.sel_btn { width: 47%;margin: 1%;}
+	.sel_btn:hover{width: 47%;margin:1%;}
+	.sel_btn_title{font-size: 16px;} */
+	/* 游戏选择界面 --end*/
+
+}
+@media (max-height: 800px) {
+	
+}
+@media (max-height: 600px) {
+
+}

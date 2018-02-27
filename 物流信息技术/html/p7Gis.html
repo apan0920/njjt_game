@@ -29,14 +29,12 @@
 			<div class="p7-game-select-bg " >
 				<div class="p7-sel-title ">GIS的操作模拟游戏</div>
 				<!-- 地图 -->
-				<div id="mapContainer" class="p7-content" style="position:absolute;width: 60%; height: 66%;">
+				<div id="mapContainer" class="p7-content" style="position:absolute;">
 				</div>
 				<!-- 任务提示 -->
 				<div class="p7-mission-btn"></div>
-				<div class="p7-mission-box">小李准备从珠海体育中心运送一批货物去广州火车站南站，利用地图寻找最佳路线。<br/>
-						1.要求走高速，最节约时间和最短路程比较（红绿灯、限速、拥堵）<br/>
-						2.要求经过XX点装货<br/>
-						3.XX路段维修，要求避开改路线
+				<div class="p7-mission-box">
+					<span role="题目内容描述"></span>
 					<div class="p4-msg-close p7-mission-close"></div>
 				</div>
 				<!-- 左侧菜单 -->
@@ -53,7 +51,8 @@
 										<img src="../images/img7/point-middle.png" alt="中间点" class="p7-point-middle-img">
 										<img src="../images/img7/point-middle.png" alt="中间点" class="p7-point-middle-img">
 									</div>                   
-									<input autocomplete="off" maxlength="256" placeholder="输入起点" class="route-start-input" type="text" value="">                    
+									<input id="startPointId" autocomplete="off" maxlength="256" placeholder="输入起点" class="route-start-input" type="text" value="">
+									<div id="searchResultStart" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;">隐藏域</div>                    
 									<!-- <div class="input-clear" title="清空" style="display: block;"> </div>  -->
 									<div class="route-input-add-icon show">   </div>
 								</div>        
@@ -65,13 +64,15 @@
 										<img src="../images/img7/point-middle.png" alt="中间点" class="p7-point-middle-img">
 										<img src="../images/img7/point-middle.png" alt="中间点" class="p7-point-middle-img">
 									</div>
-									<input autocomplete="off" maxlength="256" placeholder="输入途经点" class="route-through-input" type="text" value="">    
+									<input id="wayPoint0" autocomplete="off" maxlength="256" placeholder="输入途经点" class="route-through-input" type="text" value="">  
+									<div id="wayPointDiv0" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;">隐藏域</div>    
 									<div class="route-input-remove-icon" data-index="0"></div>
 								</div> -->
 								<!-- 目的地 -->
 								<div class="routebox-input route-end">
 									<div class="route-input-icon"></div>
-									<input autocomplete="off" maxlength="256" placeholder="输入终点" class="route-end-input" type="text" value="">
+									<input id="endPointId" autocomplete="off" maxlength="256" placeholder="输入终点" class="route-end-input" type="text" value="">
+									<div id="searchResultPanelEnd" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;">隐藏域</div>  
 									<!-- <div class="input-clear" title="清空" style="display: block;"></div>  -->
 								</div>          
 							</div>
@@ -81,61 +82,63 @@
 						<div class="drive-plan">
 							<p class="route-chose">路线选项</p>
 							<div class="btn-check-box last-time">
-								<span class="btn-check">
+								<span class="btn-check" roadType="0">
 									<img src="../images/img7/icon-right.png" alt="√">
 								</span>
 								<span class="btn-check-text">最少时间</span>
 							</div>
 							<div class="btn-check-box last-dist">
-								<span class="btn-check">
-									<img src="../images/img7/icon-right.png" alt="√">
+								<span class="btn-check" roadType="1">
+									<img src="../images/img7/icon-right.png" alt="√" >
 								</span>
 								<span class="btn-check-text">最短距离</span>
 							</div>
-							<div class="btn-check-box avoid_highways">
-								<span class="btn-check">
+							<div class="btn-check-box avoid-highways">
+								<span class="btn-check" roadType="2">
 									<img src="../images/img7/icon-right.png" alt="√">
 								</span>
 								<span class="btn-check-text">避开高速</span>
 							</div>
+
 						</div>
 						<!-- 方案 -->
 						<div class="plan-box">
-							<div class="plan">
+							<div id="plan-result-0" class="plan">
 								<div class="plan-bg">方案一</div>
 								<p class="plan-time">
-									<span>约2小时4分钟| </span>
-									<span>125.6公里| </span>
-									<span>红绿灯10个</span>
+									<span id="result-0-time"></span>
+									<span id="result-0-dist"></span>
+									<!-- <span>红绿灯10个</span> -->
 								</p>
-								<p class="through-highway">途径：S3广深沿江高速>大涌桥>G1501广州绕城高速</p>
+								<!-- <p class="through-highway">途径：S3广深沿江高速>大涌桥>G1501广州绕城高速</p> -->
+								
 							</div>
-							<div class="plan">
+							<div id="plan-result-1" class="plan">
 								<div class="plan-bg">方案二</div>
 								<p class="plan-time">
-									<span>约2小时4分钟| </span>
-									<span>125.6公里| </span>
-									<span>红绿灯10个</span>
+									<span id="result-1-time"></span>
+									<span id="result-1-dist"></span>
+									<!-- <span>红绿灯10个</span> -->
 								</p>
-								<p class="through-highway">途径：S3广深沿江高速>大涌桥>G1501广州绕城高速</p>
+								<!-- <p class="through-highway">途径：S3广深沿江高速>大涌桥>G1501广州绕城高速</p> -->
 							</div>
-							<div class="plan">
+							<div id="plan-result-2" class="plan">
 								<div class="plan-bg">方案三</div>
 								<p class="plan-time">
-									<span>约2小时4分钟| </span>
-									<span>125.6公里| </span>
-									<span>红绿灯10个</span>
+									<span id="result-2-time"></span>
+									<span id="result-2-dist"></span>
+									<!-- <span>红绿灯10个</span> -->
 								</p>
-								<p class="through-highway">途径：S3广深沿江高速>大涌桥>G1501广州绕城高速</p>
+								<!-- <p class="through-highway">途径：S3广深沿江高速>大涌桥>G1501广州绕城高速</p> -->
 							</div>
+							<!-- 确定按钮 -->
+							<div class="p7-menu-confirm"></div>
 
 						</div>
 					</div>
 				</div>
 				<!-- 搜索按钮 -->
-				<div class="btn-search"></div>
-
-
+				<div class="p7-menu-search"></div>
 			</div>
 
 			<div class="bottom_btns">

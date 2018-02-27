@@ -97,12 +97,31 @@
 				if (driving1.getStatus() == BMAP_STATUS_SUCCESS) {
 			            // 地图覆盖物
 			            addOverlays(results);
+
+			             // 获取第一条方案
+		                var plan = results.getPlan(0);
+		                // 获取方案的驾车线路
+		                var route = plan.getRoute(0);
+
+		                console.log(plan);
+		                 console.log(route);
+		                 console.log( plan.getDuration() +"*****"+plan.getDistance());
+
+
 			            // 方案描述
 			            /*addText(results);*/
-			            console.log(results);
+			            /*console.log(results);*/
 			        }
 			}
 		});
+		var driving = new BMap.DrivingRoute(map, {
+			renderOptions: {
+				map: map, 
+				panel: "panel", 
+				autoViewport: false}
+		}
+		);
+		driving.search(start,end);
 			driving1.search(start,end);
 			/*alert(driving1.getResults());*/
 

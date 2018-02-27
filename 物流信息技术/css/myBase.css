@@ -2,7 +2,7 @@
 * @Author: pz
 * @Date:   2018-01-16 09:52:21
 * @Last Modified by:   pz
-* @Last Modified time: 2018-02-08 16:56:59
+* @Last Modified time: 2018-02-27 15:17:26
 */
 
 body { font-family: "Microsoft YaHei",Helvetica,Arial,sans-serif; font-size: 14px; line-height: 1.42857143; color: #333; background: #f6f6f6;}
@@ -324,17 +324,18 @@ video::-webkit-media-controls-panel { width: calc(100% + 30px);  }
 /* 第7关--GIS的操作模拟游戏-start */
 .p7-body{display: table;}
 .p7-wrapper{height: 100%; width: 100%; min-width: 800px; min-height: 600px; display: table-cell; vertical-align: middle;}
-.p7-game-select-bg{background: none; width: 60%; min-width: 700px; height: 80%; min-height: 475px; margin: 0 auto;}
+.p7-game-select-bg{background: none;position: relative; width: 60%; min-width: 750px; height: 80%; min-height: 475px; margin: 0 auto;}
 .p7-sel-title{width: 52%; height: 15%; text-align: center; background: url(../images/img7/nav.png); background-size: 100% 100%; font-size: 26px; font-weight: bold; margin: 0 auto; padding-top: 4%;}
 .p7-content{width: 100%; min-width: 750px; height: 85%; border-radius: 10px;}
 
-.p7-mission-btn{position: absolute;width: 71px;height: 50px; right: 21%; top:23%; background: url(../images/img7/btn-mission.png); background-size: 100% 100%; cursor: pointer;}
-.p7-mission-box{display: none; position: absolute; right: 28%; top:23%; width: 50%; border: 2px solid #000; border-radius: 10px; background-color: #FFF4DB; font-size: 13px; padding: 8px 0 8px 25px;z-index: 99;}
+.p7-mission-btn{position: absolute;width: 71px;height: 50px; right: 10px; top:16%; background: url(../images/img7/btn-mission.png); background-size: 100% 100%; cursor: pointer;}
+.p7-mission-box{display: none; position: absolute; right: 90px; top:16%; border: 2px solid #000; border-radius: 10px; background-color: #FFF4DB; font-size: 14px; line-height: 22px; padding: 8px 25px 8px 15px;z-index: 99;color: rgb(41, 45, 48);}
+
 /* 透明 */
 /* .p7-mission-prompt{position: absolute; width: 50%; border: 2px solid #000; border-radius: 10px; background-color: rgba(255, 244, 219, 0.502); font-size: 13px; padding: 8px 0 8px 25px;} */
 .p7-mission-close{right: 5px; top: 5px;}
 
-.p7-menu-box{overflow: hidden;position: absolute; top: 24%; width: 327px; height: 62%; background-color: #FFF4DB; border: 4px solid rgb(41, 45, 48); border-radius: 20px; }
+.p7-menu-box{overflow: hidden;position: absolute; top: 17%; left: 10px; width: 327px; height: 81%; background-color: #FFF4DB; border: 4px solid rgb(41, 45, 48); border-radius: 20px; }
 .p7-menu-content{width: 100%; height: 100%; overflow-y: auto; }
 .routebox {-webkit-transition: max-height 1s ease-in; transition: max-height 1s ease-in; overflow: hidden;}
 .routebox .routebox-content {height: auto!important; position: relative; }
@@ -359,7 +360,7 @@ video::-webkit-media-controls-panel { width: calc(100% + 30px);  }
 .p7-point-middle{ width: 6px; position: absolute; font-size: 0; left: -11%; top: 76%;}
 .p7-point-middle-img{vertical-align: middle; margin-bottom: 3px; width: 4px; height: 4px; }
 /* 驾车策略 */
-.drive-plan{position: relative; width: 100%;height: 15%;background: #ffeabb;}
+.drive-plan{position: relative; width: 100%;height: 70px;background: #ffeabb;}
 .route-chose{padding: 10px 0 0 17px;color: #292D30;}
 .btn-check-box{position: absolute;margin: 0 20px 0 0;}
 .btn-check{position: absolute;width: 12px;height: 12px; top: 50%; transform: translateY(-50%);background: url(../images/img7/btn-check.png);}
@@ -367,19 +368,20 @@ video::-webkit-media-controls-panel { width: calc(100% + 30px);  }
 .btn-check-text{padding-left: 20px;color: #000;}
 .last-time{margin: 0 0 0 17px;}
 .last-dist{margin: 0 0 0 117px;}
-.avoid_highways{margin: 0 0 0 217px;}
+.avoid-highways{margin: 0 0 0 217px;}
 
 .plan-box{background: #FFF;width: 100%; padding: 10px 0 0 17px; color: #000;}
+.plan{display: inline-block;}
 .plan-bg{width: 55px; height: 22px; background-color: rgb(160, 194, 249); color: #FFF; text-align: center; }
 .plan-time{ padding: 5px 0 0 0;}
 .through-highway{padding: 5px 0;font-size: 12px;color: #000;opacity: 0.9;padding: 0;}
+/* 搜索按钮 */
+.p7-menu-search{width: 43px;height: 39px;background: url(../images/img7/btn-search.png); top: 19%; left: 340px; position: absolute;}
+.p7-menu-confirm{width: 43px;height: 39px;background: url(../images/img7/btn-confirm.png);  left: 84%; position: absolute; display: none;}
 
-.btn-search{background: url(../images/img7/btn-check.png);
-	
-}
+
+
 /* 第7关--GIS的操作模拟游戏--end */
-
-
 @media (max-height: 900px) {
 	/* 游戏选择界面 --start*/
 	.sel_btns { height: 65%;}
