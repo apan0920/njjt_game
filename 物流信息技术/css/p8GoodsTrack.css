@@ -1,0 +1,92 @@
+/*
+* @Author: pz
+* @Date:   2018-02-03 09:51:51
+* @Last Modified by:   pz
+* @Last Modified time: 2018-02-28 18:05:04
+*/
+body { font-family: "Microsoft YaHei",Helvetica,Arial,sans-serif; font-size: 14px; line-height: 1.42857143; color: #333; background: #f6f6f6;}
+html,body { width:100%; height: 100%;min-width: 800px;min-height: 600px; }
+#wrapper{height: 100%;min-width: 800px;min-height: 600px;position: relative;}
+/* 登录页--start */
+body{background: url(../images/sys_bg.png) no-repeat; background-size: 100% 100%;}
+.logo{position: absolute; display: inline;top: 30px;}
+.logo_nos{width: 194px; height: 42px; left: 60px;background: url(../images/logo_nos_blue.png) no-repeat; background-size: 100% 100%;}
+.logo_school{width: 244px; height: 42px; right: 60px;background: url(../images/logo_school.png) no-repeat; background-size: 100% 100%;}
+.game_select_bg{background: darkred;width: 60%; min-width: 800px; height: 75%;min-height: 500px; background: url(../images/sel_bg.png); background-size: 100% 100%; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
+.sel_title{font-size: 26px;font-weight: bold;position: absolute; left: 50%; transform: translateX(-50%);top: 4%;}
+.back_btn{background: url(../images/btn_back.png)  no-repeat; background-size: 100%; width: 52px; height: 52px; position: absolute;right: 1%; cursor:pointer;}
+.bottom_btns{ width: 100%;position: absolute;bottom:11%;}
+.footer{position: absolute; bottom: 1px; left: 50%;transform: translate(-50%);color:#EEE;}
+
+/* 任务说明及提示 */
+.p8-msg-box{height: 100%;}
+.p8-msg-close{width: 15px;height: 15px;position: absolute; background: url(../images/img4/msg-close.png);cursor: pointer;}
+.p8-msg-mask{width: 100%;height: 100%; position: absolute; background-color: #000; opacity: 0.7; z-index: 50;}
+.p8-mission-intro{width: 436px; height: 288px; position: absolute; left: 50%; top: 50%; background: url(../images/img4/msg-intro-bg.png) no-repeat; background-size: 100% 100%; z-index: 99; margin-top: -144px; margin-left: -196px; }
+.p8-mission-intro-title{position: absolute; left: 56%; top: 9%;font-size: 22px;}
+.p8-mission-intro-text{text-indent: 28px; position: absolute; left: 37%; top: 21%; font-size: 17px; right: 4%;}
+.p8-mission-intro-close{right: 4%; top: 8%;}
+.p8-mission-intro-confirm{width: 39px;height: 28px;position: absolute; left: 61%; top: 72%;background: url(../images/img4/btn-confirm.png);cursor: pointer;}
+
+/* 通用 */
+.common-center{ position: absolute;left: 50%; top: 50%; transform: translate(-50%,-50%)}
+/* .p8-content{width: 90%; height: 80%; position: absolute; left: 50%; top: 55%; transform: translate(-50%,-50%);background: url(../images/img8/bg.png) no-repeat; background-size: 100% 100%;} */
+.p8-content {width: 100%; height: 88%; position: absolute; left: 50%; top: 56%; transform: translate(-50%,-50%); background: url(../images/img8/bg.png) no-repeat; background-size: 100% 100%; }
+
+.top{}
+.bg-gold{width: 138px;height: 50px;background: url(../images/img8/bg-gold.png) no-repeat;position: absolute; left: 20px; top: 2%; color: #fff4db;font-size: 18px;padding: 13px 55px;}
+.legend{width: 50px;height: 26px;position: absolute;top: 5%;}
+.legend-car-cold{right: 350px;}
+.legend-car{right: 290px;}
+.bg-time{width: 174px;height: 50px;background: url(../images/img8/bg-time.png) no-repeat;position: absolute; right: 100px; top: 2%; color: #fff4db;font-size: 18px;}
+.time-min{padding-left: 17%; padding-top: 7%; display: inline-block;}
+.time-sec{padding-left: 31%;}
+.mission-btn{position: absolute;width: 71px;height: 50px; right: 20px; top:2%; background: url(../images/img7/btn-mission.png); background-size: 100% 100%; cursor: pointer;}
+
+.shop{width: 73px;height: 77px;position: absolute;bottom: 20px; right: 20px;}
+.shop-carport{height: 73px; right: 110px;}
+/* 实时运单 */
+.order{border-radius: 5px; background-color: rgb(255, 244, 219); border: 3px solid #000; position: absolute; left: 20px; bottom: 50px; width: 259px; height: 80%; }
+.order-bg {background: #ffeabb; text-align: center; color: rgb(41, 46, 49);  }
+.order-title{line-height: 2;font-size: 20px;font-weight: bold;}
+.order-detail{margin: 5px 0 0 0;text-align: left;position: relative;height: 110px; }
+.order-detail-top{}
+.order-detail-goods{width: 67px;height: 65px; position: absolute; left: 2%; top: 10px;}
+.order-detail-text{display: inline-block; position: absolute; left: 82px; top: 11px;}
+.text-good{font-size: 18px;}
+.text-address{font-size: 14px; line-height: 40px; color: rgba(41, 45, 48, 0.502); }
+
+.order-detail-right{position: absolute; left: 75%; text-align: center; top: 8%;}
+.order-detail-right > img{position: absolute; left: 5px; top: 45px;}
+.order-detail-right span{position: absolute; left: 25px; top: 45px; color: #dd4747;}
+.btn-bg-car{position: absolute; width: 57px; height: 38px; background: url(../images/img8/btn-bg.png) no-repeat; }
+.btn-bg .sel-car{top: 60%}
+.btn-bg-red{width: 38px; height: 27px; background: url(../images/img8/btn-bg-red.png) no-repeat;background-size: 100% 100%;color: #fff; line-height: 27px;}
+.order-btn{position: absolute; left: 58%; text-align: center; top: 15px;}
+.order-detail-bottom{position: absolute; bottom: 9%; left: 2%; width: 96%; height: 16px; background: url(../images/img8/line.png) no-repeat; background-size: 100% 100%; }
+.order-detail-bottom > img{position: absolute; left: 4%;}
+
+/* 为订单匹配车辆  */
+.match-vehicle{border-radius: 5px; background-color: rgb(255, 244, 219); border: 3px solid #000; position: absolute; left: 287px; bottom: 50px; width: 140px; height: 73%; }
+.vehicle-bg{position: relative;width: 103px; height: 80px; background: url(../images/img8/match-bg.png); margin: 10px 0 0 10px; }
+.vehicle-bg > img{padding: 10px 10px 0;}
+.vehicle-bg-hover{background: url(../images/img8/match-bg-hover.png) ;}
+.deceive-bg{position: absolute;right: 0;bottom: 0;}
+
+
+
+
+
+@media (max-height: 900px) {
+	.sel_title {top: 3%;}
+
+
+}
+@media (max-height: 800px) {
+	
+}
+@media (max-height: 600px) {
+	.sel_title {top: 2%;}
+
+	
+}
