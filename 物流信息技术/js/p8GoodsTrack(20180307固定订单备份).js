@@ -2,13 +2,12 @@
 * @Author: pz
 * @Date:   2018-02-27 16:34:24
 * @Last Modified by:   pz
-* @Last Modified time: 2018-03-07 18:46:56
+* @Last Modified time: 2018-03-07 11:03:06
 */
 
 (function () {
-	addOrderNo = 5;//动态添加的订单的起始编号
 	countdownFlag = 0;//是否开始计时
-	initMoney = 50000;//定义初始资金
+	initMoney = 1000;//定义初始资金
 	targetAmount = 2000;//定义游戏目标金额
 	
 	tempPurchaseNum = [0, 0, 0, 0];//定义临时对象购买设备数量集合["carColdNum", "carNum", "gpsNum", "humitureNum"]
@@ -18,9 +17,7 @@
 	show_num(initMoney);//初始资金总数
 	totalGoodNum = 0;//车辆总数
 	carportData = new Array();//车库内车辆及车辆装载设备数据
-
-	waittingArr = [];//需要弹出事故框框的排队订单
-
+	
 })();
 
 // 计算变化后资金
@@ -92,8 +89,7 @@ $(".p8-mission-intro-confirm, .p8-mission-intro-close").click(function () {
 		}
 		countdown(gameTime);//调用倒计时
 		countdownFlag = 1;
-	}
-
+	} 
 	$(".p8-mission-intro").removeClass("bounceInLeft").addClass("bounceOutRight");
 	setTimeout(function () {
 		$(".p8-msg-box").fadeOut();
@@ -102,12 +98,6 @@ $(".p8-mission-intro-confirm, .p8-mission-intro-close").click(function () {
 });
 // 打开-任务提示
 $(".mission-btn").click(function () {
-	//打开任务时-只读
-	$("#targetAmount").val(targetAmount);
-	$("#targetAmount").attr("readonly","readonly");
-	$("#gameTime").val(gameTime);
-	$("#gameTime").attr("readonly","readonly");
-	
 	$(".p8-mission-intro").removeClass("bounceOutRight");
 	setTimeout(function () {
 		$(".p8-msg-box").show();
@@ -116,7 +106,7 @@ $(".mission-btn").click(function () {
 });
 
 //滚动条
-$(".order-content, .shop-mall-detail, .shop-carport-bottom-left").mCustomScrollbar();
+$(".order-content, .match-vehicle-content, .shop-mall-detail, .shop-carport-bottom-left").mCustomScrollbar();
 
 
 /*商城按钮--右下角*/
@@ -172,28 +162,27 @@ $(".pur-btn").click(function () {
 /*更改车辆数据*/
 function updateCarportData(tempPurchaseNum) {
 	for (var i = 0; i < tempPurchaseNum.length; i++) {
-		
+		var currentCar = new Object();//当前车辆
 		var type = "cold";//normal
 		if (i < 2) {
+			if (i == 0) {//车辆类型判断
+				currentCar.name = "冷藏车";
+				currentCar.type = "cold";
+				currentCar.carImg = "car-cold.png";
+				currentCar.gps = 0;
+				currentCar.humiture = 0;
+				currentCar.state = "空闲中";
+				currentCar.orderNo = "绑定被使用的订单编号";
+			} else {
+				currentCar.name = "普通运输车";
+				currentCar.type = "normal";
+				currentCar.carImg = "car.png";
+				currentCar.gps = 0;
+				currentCar.state = "空闲中";
+				currentCar.orderNo = "绑定被使用的订单编号";
+			}
+
 			for (var j = 0; j < tempPurchaseNum[i]; j++) {//循环添加车辆
-				// 随机数（0-1）
-				var currentCar = new Object();//当前车辆
-				if (i == 0) {//车辆类型判断
-					currentCar.name = "冷藏车";
-					currentCar.type = "cold";
-					currentCar.carImg = "car-cold.png";
-					currentCar.gps = 0;
-					currentCar.humiture = 0;
-					currentCar.state = "空闲中";
-					currentCar.orderNo = "绑定被使用的订单编号";
-				} else {
-					currentCar.name = "普通运输车";
-					currentCar.type = "normal";
-					currentCar.carImg = "car.png";
-					currentCar.gps = 0;
-					currentCar.state = "空闲中";
-					currentCar.orderNo = "绑定被使用的订单编号";
-				}
 				carportData.push(currentCar);
 				totalGoodNum++;
 			}
@@ -333,29 +322,24 @@ function addCar(obj) {
 // 添加车辆按钮
 
 // 初始化可用车辆界面
-function add_car(obj) {
-	var selectCarFlag = $(obj).attr("addcar");
+$(".add-car").click(function () {
+	var selectCarFlag = $(this).attr("addcar");
 	if (selectCarFlag=="true") {
 		showAlert("选择失败，不可重复选择车辆","end");
 		return ;
 	}
 	$("#matchVehicle").fadeIn();
-	initUsableCar($(obj));
-}
-
+	initUsableCar($(this));
+});
 $("#matchVehicleCloseBtn").click(function () {
 	$("#matchVehicle").fadeOut();
 });
 function initUsableCar(obj) {
-	$(".match-vehicle-content").mCustomScrollbar();//添加滚动条
-	// $(".match-vehicle-content").empty();//清空车库弹窗
-	$(".car-list").empty();//清空车库弹窗
-	
+	$(".match-vehicle-content").empty();//清空车库弹窗
 	var addHtml = '';
 	if (carportData.length == 0) {
 			addHtml = '<div style="width:100%; text-align:center;">暂无车辆，请购买</div>';
-			/*$(".match-vehicle-content").append(addHtml);*/
-			$(".car-list").append(addHtml);
+			$(".match-vehicle-content").append(addHtml);
 			return ;
 		} 
 	for (var i = 0; i < carportData.length; i++) {
@@ -377,16 +361,15 @@ function initUsableCar(obj) {
 					'</div>'+
 				  '</div>';
 		
-		/*$(".match-vehicle-content").append(addHtml);*/
-		$(".car-list").append(addHtml);
-
+		$(".match-vehicle-content").append(addHtml);
 	}
-	
+
 	// 修改弹窗所属订单
 	var orderNo = $(obj).parent().parent().parent().parent().attr("orderNo");
 	var cargoType = $(obj).parent().parent().parent().parent().attr("cargoType");
 	$("#matchVehicle").attr("belongOrder", orderNo);//所属订单编号
 	$("#matchVehicle").attr("cargoType", cargoType);//所属订单的货物类型
+	
 }
 /*绑定hover事件*/
 function addHover(obj) {
@@ -398,7 +381,7 @@ function removeClass(obj) {
 
 /*选择车辆*/
 function chooseCar(obj) {
-	var carportdatanum = $(obj).attr("carportdatanum")*1;//车辆数据编号
+	var carportdatanum = $(obj).attr("carportdatanum")//车辆数据编号
 
 	var carState = $(obj).attr("carportdatastate");//车辆当前状态
 	var cargoType = $("#matchVehicle").attr("cargoType");//货物订单货物类型
@@ -413,7 +396,7 @@ function chooseCar(obj) {
 	if (carState == stateUsing) {
 		showAlert("选择失败，请选择空闲车辆","end");
 	} else {
-		var belongorder = $(obj).parent().parent().parent().parent().parent().attr("belongorder");//获取所属订单编号（包含滚动条插件增加的层级**）
+		var belongorder = $(obj).parent().parent().attr("belongorder");//获取所属订单编号
 		var orderObj = $("[orderNo="+ belongorder +"]");//获取所属订单对象
 		
 		orderObj.find('[cartype="plus"]').remove();//1.移除加号
@@ -432,8 +415,10 @@ function chooseCar(obj) {
 
 		$(obj).attr("carportdatastate",stateUsing)//4.1修改车辆状态为使用中
 
+		
 		carportData[carportdatanum].state = stateUsing;//4.2修改车库数据：状态
 		carportData[carportdatanum].orderNo = orderObj.attr("orderNo");//4.2修改车库数据：订单编号
+		console.log(carportData);
 		$(obj).find('#stateShow').empty().html(stateUsing);//4.3修改车辆状态文字显示
 		/*4.4修改订单下方车辆图标--待优化*/
 
@@ -448,8 +433,9 @@ function chooseCar(obj) {
 		orderObj.find(".order-detail-bottom").empty().append(carHtml);//更改订单下部车辆图标
 		orderObj.attr("useGps", carportData[carportdatanum].gps);//GPS
 		orderObj.attr("useHumiture", carportData[carportdatanum].humiture);//温湿度
-		/*关闭弹窗--避免更换车辆*/
-		$("#matchVehicle").fadeOut();
+
+
+
 	}
 	
 }
@@ -541,19 +527,19 @@ function countdown(Fen) {
 }
 
 /*接单--按钮*/
-function receive_order(obj) {
+$(".receive-order").click(function () {
 	// disAnimate($(this));//动画调试
 	
 	$('#matchVehicle').fadeOut();// 关闭选择车辆弹框
-	
-	if ($(obj).parent().find(".add-car").attr("addCar") == "false") {
+	var btnObj = $(this);
+	if ($(this).parent().find(".add-car").attr("addCar") == "false") {
 		showAlert("接单失败，请先选择车辆","end");
 	}else{
 		showAlert("接单成功，开始运输","end",function () {
-			disAnimate($(obj));
+			disAnimate(btnObj);
 		});
 	}
-}
+});
 
 // 运输动画
 function disAnimate(obj) {
@@ -566,18 +552,14 @@ function disAnimate(obj) {
 	
 	var className = "car-move-b" + end;
 	/*判断哪种车在地图上走*/
-	var orderCarNoId = "orderCarNo" + orderObj.attr("orderNo"); 
-	var legendColdHtml ='<img id="'+ orderCarNoId +'" src="../images/img8/legend-car-cold.png" alt="冷藏车-图标" class="legend legend-car-cold">';
-	var legendNormalHtml = '<img id="'+ orderCarNoId +'" src="../images/img8/legend-car.png" alt="车-图标" class="legend legend-car">';
+	console.log("className=="+className+ "cartype" +orderObj.attr("cartype"));
 	if (orderObj.attr("cartype") == 'cold') {
-		$(".legend-div").append(legendColdHtml);
+		$(".legend-car-cold").addClass(className);//小车在地图上移动【动画】
 	} else {
-		$(".legend-div").append(legendNormalHtml);
+		$(".legend-car").addClass(className);//小车在地图上移动【动画】
 	}
-	$("#"+orderCarNoId).show().addClass(className);//小车在地图上移动【动画】
-    document.getElementById(orderCarNoId).addEventListener("webkitAnimationEnd", function(){ //动画结束时事件-移除添加的车辆 
-    	$("#"+orderCarNoId).remove();
-    });
+	
+	
 	/*判断事件发生机率【事故20%、偷窃35%、货物损坏50%】*/
 	var useGps = orderObj.attr("useGps");
 	var useHumiture = orderObj.attr("useHumiture");
@@ -605,20 +587,15 @@ function disAnimate(obj) {
 	}
 	// 扣除事故损失
 	var loseMoney = 0;
-	// 计算发生事故概率（<50发生事故）
-	var chance =getRand(100, 1);//(0-100的随机整数)
-	if (chance > 50) {
-		if (useGps == "0") {
-			chance = chance*0.8;//降低20%概率
-		}
-		if (type== "cold" && useHumiture == "0") {
-			chance = chance*0.8;//降低20%概率
-		} 
+	var chance = Math.random();
+	if (useGps == "0") {
+		chance = chance*10;
 	}
-	chance = 40;//调试用
-	console.log("发生事故概率chance=="+chance);
+	if (type== "cold" && useHumiture == "0") {
+		chance = chance*10;
+	} 
 	var storyHappen = false;
-	if (chance < 50) {
+	if (chance > 5) {
 		currentStoryNo = storyNo[Math.floor(Math.random() * storyNo.length)];
 		// console.log("随机事故currentStoryNo" + currentStoryNo);
 		loseMoney = storyLose[currentStoryNo]*1*ownMoney;//按比率计算损失金额
@@ -628,18 +605,7 @@ function disAnimate(obj) {
 		$(".story-text").html(resText);
 		$(".lose-money").html("-"+loseMoney);
 		setTimeout(function () {
-			// 判断是否需要排队（多个订单同时运输的时候）
-			var showFlag = $(".p8-story-box").css("display");
-			var orderNo = orderObj.attr("orderNo");
-			if (showFlag == "none") {
-				//标记出弹框属于哪个订单（Bug）
-				$(".p8-story-box").attr("belongorder", orderNo).show();//p8-story-box 连续两单发生事故编号会覆盖？？
-			} else {
-				var waitOrder = {"orderNo":orderNo};
-				waittingArr.push(waitOrder);
-				console.log(waittingArr);
-			}
-			
+			$(".p8-story-box").show();//p8-story-box
 		},6000);
 		storyHappen = true;
 	} 
@@ -651,46 +617,32 @@ function disAnimate(obj) {
 	} else {
 		orderObj.find(".own-money").html("-" + finishMoney);//订单赚取金额（订单总金额-事故损失-车辆成本）
 	}
-	orderObj.attr("finishMoney", finishMoney);//订单最终赚取金额
 	
+	set_address("orderObjNo", orderObj.attr("orderNo"));//存到缓存中
+	set_address("finishMoney", finishMoney);//存到缓存中
 	setTimeout(function () {
 		orderObj.find(".order-content-detail").hide();//关闭订单明细
 		orderObj.find(".order-finish").show();//显示订单完成界面
 		// 没有发生事故
 		if (!storyHappen) {
-			orderFinish(orderObj.attr("orderNo"), finishMoney*1);//加金钱
+			orderFinish(get_address("orderObjNo"), get_address("finishMoney")*1);//加金钱
 			setTimeout(function () {//订单消失
-				orderObj.hide();
+				orderObj.find(".order-finish").hide();
 			},1000);
 		}
 	},6000);
 
 }
-// 指定范围随机整数
-function getRand(x, y) {//x上限，y下限
-    /*var x = 100;     
-    var y = 1;  */   
-    var rand = parseInt(Math.random() * (x - y + 1) + y); 
-    return rand;
-}
 
 // 事故确认/关闭按钮
+/*myFadeToggle("#storyBoxCloseBtn", ".p8-story-box");
+myFadeToggle(".story-box-btn", ".p8-story-box");*/
 $("#storyBoxCloseBtn, .story-box-btn").click(function () {
 	$(".p8-story-box").fadeOut();//关闭事故按钮
-	var belongorder = $(".p8-story-box").attr("belongorder");//所属订单编号
-	orderFinish(belongorder, $('[orderNo="'+ belongorder +'"]').attr("finishMoney")*1);//加金钱
+	orderFinish(get_address("orderObjNo"), get_address("finishMoney")*1);//加金钱
 	setTimeout(function () {//订单消失
-		$('[orderNo="'+ belongorder +'"]').hide();
-	},1000);
-
-	//判断是否有订单在排队（多个订单同时运输的时候）
-	if (waittingArr.length > 0) {
-		//标记出弹框属于哪个订单（Bug）
-		console.log(waittingArr);
-		$(".p8-story-box").attr("belongorder", waittingArr[0]).show();
-		// waittingArr.splice(0,1);//删除起始下标为1，长度为1的一个值(len设置1，如果为0，则数组不变)
-		console.log(waittingArr);
-	}
+		$('[orderNo="'+ get_address("orderObjNo") +'"]').hide();
+	},8000);
 });
 
 /*订单完成按钮--确定*/
@@ -701,17 +653,42 @@ function orderFinish(orderObjNo, finishMoney) {
 	} else {//负数
 		countMoney("-",finishMoney);//计算资金变化
 	}
-	//2.释放车辆
+	// 2.显示新的订单
+	
+	//3.释放车辆
 	for (var i = 0; i < carportData.length; i++) {
 		if(carportData[i].orderNo == orderObjNo){
 			carportData[i].orderNo = "无绑定订单编号";
 			carportData[i].state = "空闲中";
 		}
 	}
-	//3.追加新的订单
-	addOrder();
 }
 
+
+/*订单完成按钮--确定--备份*/
+// $(".order-finish-btn").click(function () {
+// 	// 1.增加资金
+// 	var earnMoney = $(this).parent().find(".own-money").html()*1;
+	
+// 	if (earnMoney > 0) {
+// 		countMoney("+",earnMoney);//计算资金变化
+// 	} else {//负数
+// 		countMoney("-",earnMoney);//计算资金变化
+// 	}
+	
+// 	$(this).hide();//隐藏确定按钮--避免重复累加金额
+
+
+// 	// 2.显示新的订单
+	
+// 	//3.释放车辆
+// 	for (var i = 0; i < carportData.length; i++) {
+// 		if(carportData[i].orderNo == $(this).parent().parent().attr("orderno")){
+// 			carportData[i].orderNo = "无绑定订单编号";
+// 			carportData[i].state = "空闲中";
+// 		}
+// 	}
+// });
 
 // 游戏结束（1.时间到 or 2.达到目标金额 or 3.资金为负数）
 function gameOver(overType) {
@@ -720,65 +697,4 @@ function gameOver(overType) {
 			window.location.href = "index.html";
 		});
 	},2500);
-}
-
-//动态添加订单
-function addOrder() {
-	/*var cargoTypeArr =['cold', 'ordinary'];//货物种类
-	var ordinaryGoodsNameArr =['衣服', '裤子', '裙子', '帽子', '背包'];//普通货物
-	var coldGoodsNameArr =['大虾', '螃蟹', "鲶鱼"];//生鲜货物
-	var destArr = ['A', 'C', 'D'];//目的地*/
-	/*订单金额 800 600 */
-	var orderArr = [
-		{cargoType:"ordinary", goodsName: "衣服", dest: "A", money: "600"},
-		{cargoType:"ordinary", goodsName: "裤子", dest: "C", money: "600"},
-		{cargoType:"ordinary", goodsName: "裙子", dest: "D", money: "600"},
-		{cargoType:"ordinary", goodsName: "帽子", dest: "A", money: "600"},
-		{cargoType:"ordinary", goodsName: "裤子", dest: "D", money: "600"},
-		{cargoType:"ordinary", goodsName: "背包", dest: "D", money: "600"},
-
-		{cargoType:"cold", goodsName: "大虾", dest: "A", money: "800"},
-		{cargoType:"cold", goodsName: "螃蟹", dest: "C", money: "800"},
-		{cargoType:"cold", goodsName: "鲶鱼", dest: "D", money: "800"},
-		{cargoType:"cold", goodsName: "鲶鱼", dest: "A", money: "800"},
-		{cargoType:"cold", goodsName: "大虾", dest: "D", money: "800"},
-		{cargoType:"cold", goodsName: "螃蟹", dest: "D", money: "800"},
-	];
-
-	var currentOrder = orderArr[Math.floor(Math.random() * orderArr.length)];
-	console.log(currentOrder);
-	var addOrderHtml =  '<div class="order-bg order-detail" orderNo="'+ addOrderNo +'" cargoType="'+ currentOrder.cargoType +'" useGps="0" useHumiture="0" cartype="订单选择的车辆类型" finishMoney="订单最终赚取金额">'+
-							'<div class="order-finish">'+
-								'<div class="order-finish-text">货物送达，途中货物遭偷窃</div>'+
-								'<img src="../images/img8/icon-gold.png" alt="金钱图标">'+
-								'<span class="own-money">+20</span>'+ 
-							'</div>'+
-							'<div class="order-content-detail" >'+
-								'<div class="order-detail-top">'+
-									'<img src="../images/img8/goods.png" alt="货物" class="order-detail-goods">'+
-									'<div class="order-detail-text">'+
-										'<span class="text-good">'+ currentOrder.goodsName +'</span>'+
-										'<br>'+
-										'<span class="text-address">'+
-											'<span class="start">B</span>区-'+
-											'<span class="end">'+ currentOrder.dest +'</span>区'+
-										'</span>'+
-									'</div>'+
-									'<div class="btn-bg-red order-btn receive-order" onclick="receive_order(this);">接单</div>'+
-									'<div class="order-detail-right">'+
-										'<div class="btn-bg-car add-car" addCar="false" onclick="add_car(this);">'+
-											'<img src="../images/img8/icon-plus-white.png" class="common-center" cartype="plus" alt="添加">'+
-										'</div>'+
-										'<img src="../images/img8/icon-gold.png" alt="金钱图标">'+
-										'<span >'+ currentOrder.money +'</span> '+
-									'</div> '+
-								'</div>'+
-								'<div class="order-detail-bottom">'+
-								'</div>'+
-							'</div>'+
-						'</div>';
-		/*$(".order-content").append(addOrderHtml);*/
-		$("#orderAdd").append(addOrderHtml);
-		
-		addOrderNo++;
 }

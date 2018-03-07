@@ -31,8 +31,8 @@
 				<div class="p8-mission-intro animated bounceInLeft">
 					<span class="p8-mission-intro-title">任务说明</span>
 					<span class="p8-mission-intro-text">
-					【目标金额】：<input type="text" id="targetAmount" class="game-input" value="55555" placeholder="目标金额" >元<br>
-					【游戏时长】：<input type="text" id="gameTime" class="game-input" value="5" placeholder="游戏时长" >分钟<br>
+					【目标金额】：<input type="text" id="targetAmount" class="game-input" value="" placeholder="目标金额">元<br>
+					【游戏时长】：<input type="text" id="gameTime" class="game-input" value="" placeholder="游戏时长">分钟<br>
 					<span style="font-size: 14px;">
 					 请设置目标金额（5000~100000）及游戏时长（3~30）。根据订单内不同的商品，选择出合适的车辆进行运输，完成游戏。
 					 </span>
@@ -58,10 +58,8 @@
 					<!-- 顶部图标（资金+车辆icon+时间+任务提示） -->
 					<div class="top">
 						<div class="bg-gold"> <span class="t_num" ></span></div>
-						<div class="legend-div">
-							<!-- <img src="../images/img8/legend-car-cold.png" alt="冷藏车-图标" class="legend legend-car-cold">
-							<img src="../images/img8/legend-car.png" alt="车-图标" class="legend legend-car"> -->
-						</div>
+						<img src="../images/img8/legend-car-cold.png" alt="冷藏车-图标" class="legend legend-car-cold">
+						<img src="../images/img8/legend-car.png" alt="车-图标" class="legend legend-car">
 						<div class="bg-time"><span class="time-min">03</span><span class="time-sec">00</span></div>
 						<div class="mission-btn"></div>
 					</div>
@@ -75,9 +73,8 @@
 					<div class="order">
 						<div class="order-bg order-title">实时运单</div>
 						<div class="order-content">
-							<div id="orderAdd"></div>
 							<!-- 订单详细内容-第1个单 -->
-							<div class="order-bg order-detail" orderNo="0" cargoType="ordinary" useGps="0" useHumiture="0" cartype="cold" finishMoney="0" >
+							<div class="order-bg order-detail" orderNo="0" cargoType="ordinary" useGps="0" useHumiture="0" cartype="cold">
 								<!-- 完成订单-界面 -->
 								<div class="order-finish">
 									<div class="order-finish-text">货物送达，途中货物遭偷窃</div>
@@ -98,9 +95,9 @@
 												<span class="end">A</span>区
 											</span>
 										</div>
-										<div class="btn-bg-red order-btn receive-order" onclick="receive_order(this);">接单</div>
+										<div class="btn-bg-red order-btn receive-order">接单</div>
 										<div class="order-detail-right">
-											<div class="btn-bg-car add-car" addCar="false" onclick="add_car(this);">
+											<div class="btn-bg-car add-car" addCar="false">
 												<img src="../images/img8/icon-plus-white.png" class="common-center" cartype="plus" alt="添加">
 											</div>
 											<img src="../images/img8/icon-gold.png" alt="金钱图标">
@@ -115,7 +112,7 @@
 							</div>
 
 							<!-- 订单详细内容-第2个单 -->
-							<div class="order-bg order-detail" orderNo="1" cargoType="cold" useGps="0" useHumiture="0" cartype="cold" finishMoney="0" >
+							<div class="order-bg order-detail" orderNo="1" cargoType="cold" useGps="0" useHumiture="0" cartype="cold">
 								<!-- 完成订单-界面 -->
 								<div class="order-finish">
 									<div class="order-finish-text">货物送达，途中货物遭偷窃</div>
@@ -136,9 +133,9 @@
 												<span class="end">C</span>区
 											</span>
 										</div>
-										<div class="btn-bg-red order-btn receive-order" onclick="receive_order(this);">接单</div>
+										<div class="btn-bg-red order-btn receive-order">接单</div>
 										<div class="order-detail-right">
-											<div class="btn-bg-car add-car" addCar="false" onclick="add_car(this);">
+											<div class="btn-bg-car add-car" addCar="false">
 												<img src="../images/img8/icon-plus-white.png" class="common-center " alt="添加">
 											</div>
 											<img src="../images/img8/icon-gold.png" alt="金钱图标">
@@ -153,7 +150,7 @@
 							</div>
 
 							<!-- 订单详细内容-第3个单 -->
-							<div class="order-bg order-detail" orderNo="2" cargoType="ordinary" useGps="0" useHumiture="0" cartype="cold" finishMoney="0" >
+							<div class="order-bg order-detail" orderNo="2" cargoType="ordinary" useGps="0" useHumiture="0" cartype="cold">
 								<!-- 完成订单-界面 -->
 								<div class="order-finish">
 									<div class="order-finish-text">货物送达，途中货物遭偷窃</div>
@@ -174,9 +171,9 @@
 												<span class="end">D</span>区
 											</span>
 										</div>
-										<div class="btn-bg-red order-btn receive-order" onclick="receive_order(this);">接单</div>
+										<div class="btn-bg-red order-btn receive-order">接单</div>
 										<div class="order-detail-right">
-											<div class="btn-bg-car add-car" addCar="false" onclick="add_car(this);">
+											<div class="btn-bg-car add-car" addCar="false">
 												<img src="../images/img8/icon-plus-white.png" class="common-center " alt="添加">
 											</div>
 											<img src="../images/img8/icon-gold.png" alt="金钱图标">
@@ -191,7 +188,7 @@
 							</div>
 
 							<!-- 订单详细内容-第4个单 -->
-							<div class="order-bg order-detail" orderNo="3" cargoType="ordinary" useGps="0" useHumiture="0" cartype="cold" finishMoney="0" >
+							<div class="order-bg order-detail" orderNo="3" cargoType="ordinary" useGps="0" useHumiture="0" cartype="cold">
 								<!-- 完成订单-界面 -->
 								<div class="order-finish">
 									<div class="order-finish-text">货物送达，途中货物遭偷窃</div>
@@ -212,9 +209,9 @@
 												<span class="end">A</span>区
 											</span>
 										</div>
-										<div class="btn-bg-red order-btn receive-order" onclick="receive_order(this);">接单</div>
+										<div class="btn-bg-red order-btn receive-order">接单</div>
 										<div class="order-detail-right">
-											<div class="btn-bg-car add-car" addCar="false" onclick="add_car(this);">
+											<div class="btn-bg-car add-car" addCar="false">
 												<img src="../images/img8/icon-plus-white.png" class="common-center" alt="添加">
 											</div>
 											<img src="../images/img8/icon-gold.png" alt="金钱图标">
@@ -229,7 +226,7 @@
 							</div>
 
 							<!-- 订单详细内容-第5个单 -->
-							<div class="order-bg order-detail" orderNo="4" cargoType="cold" useGps="0" useHumiture="0" cartype="cold" finishMoney="0" >
+							<div class="order-bg order-detail" orderNo="4" cargoType="cold" useGps="0" useHumiture="0" cartype="cold">
 								<!-- 完成订单-界面 -->
 								<div class="order-finish">
 									<div class="order-finish-text">货物送达，途中货物遭偷窃</div>
@@ -250,9 +247,9 @@
 												<span class="end">A</span>区
 											</span>
 										</div>
-										<div class="btn-bg-red order-btn receive-order" onclick="receive_order(this);">接单</div>
+										<div class="btn-bg-red order-btn receive-order">接单</div>
 										<div class="order-detail-right">
-											<div class="btn-bg-car add-car" addCar="false" onclick="add_car(this);">
+											<div class="btn-bg-car add-car" addCar="false">
 												<img src="../images/img8/icon-plus-white.png" class="common-center" alt="添加">
 											</div>
 											<img src="../images/img8/icon-gold.png" alt="金钱图标">
@@ -276,8 +273,7 @@
 							<img id="matchVehicleCloseBtn" src="../images/msg-close.png" alt="关闭按钮" class="shop-mall-close-btn">
 						</div>
 						<div class="match-vehicle-content" >
-							<!-- 可选车辆信息-动态生成 -->
-							<div class="car-list" ></div>
+							<!-- 可选车辆信息 -->
 						</div>
 					</div>
 					
@@ -432,7 +428,7 @@
 						</div>
 					</div>
 					<!-- 事故提示框 -->
-					<div class="p8-story-box" belongorder="所属订单编号">
+					<div class="p8-story-box">
 						<div class="p8-story-mask"></div>
 						<div class="story-box">
 							<div class="story-box-content">
