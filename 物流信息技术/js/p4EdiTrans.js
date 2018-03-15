@@ -2,7 +2,7 @@
 * @Author: pz
 * @Date:   2018-02-01 09:27:20
 * @Last Modified by:   pz
-* @Last Modified time: 2018-02-02 18:31:13
+* @Last Modified time: 2018-03-12 11:39:49
 */
 $(function () {
 	/*任务提示*/
@@ -11,7 +11,7 @@ $(function () {
 
 	
 });
-var msg1 = '1.小明使用电脑将制作完成的订购单证发送给小王，应用系统形成数据文件后，需要转化为平面软件，请选择其中一种软件进行转化。';
+var msg1 = '1.小明使用电脑将制作完成的订购单证发送给小王，应用系统形成数据文件后，需要转化为平面文件，请选择其中一种软件进行转化。';
 var msg2 = '2.数据文件经过转换软件，转化为平面文件，平面文件需要转化为标准的EDI格式报文，请选择其中一种软件进行转化。';
 var msg3 = '3.EDI标准报文需要发送至EDI系统交换中，那么对于EDI的传输，请选择其中一种软件进行传输。';
 var msg4 = '4.通信软件将EDI系统交换中心内邮箱接收到的文件取出，请选择一种软件将EDI报文转化为平面文件。';
@@ -73,7 +73,7 @@ $(".p4-change-btn").click(function () {
 		setTimeout(function () {
 			showAlert('游戏完成，返回主界面!','end',function(){
 				window.location.href = "index.html";
-			});
+			}, "false");
 		},3000);
 		/*显示提示信息*/
 		showMsg(".p4-msg-girl",msg6, 3);

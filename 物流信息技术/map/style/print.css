@@ -1,0 +1,16 @@
+#tabDetail td,th,tr{
+font-family:"ËÎÌו";
+font-size:12px;
+font-weight:normal;
+border:#003300 solid 1px;
+border-top:#003300 solid 2px !important;
+border-top:#003300 solid 1px;
+border-left:#003300 solid 1px;
+border-right:#003300 solid 1px;
+border-bottom:#003300 solid 1px;
+overflow:hidden;
+word-break:keep-all;
+text-overflow:ellipsis;
+height:23px;
+text-align:center;
+}

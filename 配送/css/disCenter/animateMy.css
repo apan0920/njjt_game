@@ -1,0 +1,153 @@
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+.animated_01 { animation-duration: 0s; animation-fill-mode: both; }
+.animated_5 { animation-duration: 3s; animation-fill-mode: both; animation-timing-function:linear; }
+
+.delay_5{ animation-delay: 3s; }
+
+@keyframes slideInLeft {
+  0% {
+    transform: translate3d(-300%, 0, 0);
+    visibility: visible;
+  }
+  99.9% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.slideInLeft {
+  animation-name: slideInLeft;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+@keyframes fadeInSize {
+  0% {
+    display: block;
+    width: 0;
+    height: 0;
+  }
+  100% {
+  }
+}
+.fadeInSize {
+  animation-name: fadeInSize;
+}
+
+@keyframes fadeOutSize {
+  0% {
+  }
+  100% {
+    width: 0;
+    height: 0;
+    padding: 0; 
+    opacity: 0;
+  }
+}
+.fadeOutSize {
+  animation-name: fadeOutSize;
+}
+
+@keyframes fadeInDownBig {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -2000px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.fadeInDownBig {
+  animation-name: fadeInDownBig;
+}
+
+@keyframes bounceInDown {
+  from, 60%, 75%, 90%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -3000px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(0, 25px, 0);
+  }
+
+  75% {
+    transform: translate3d(0, -10px, 0);
+  }
+
+  90% {
+    transform: translate3d(0, 5px, 0);
+  }
+
+  to {
+    transform: none;
+  }
+}
+
+.bounceInDown {
+  animation-name: bounceInDown;
+}
+
+@keyframes bounceOutDown {
+  20% {
+    transform: translate3d(0, 10px, 0);
+  }
+
+  40%, 45% {
+    opacity: 1;
+    transform: translate3d(0, -20px, 0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate3d(0, 2000px, 0);
+  }
+}
+
+.bounceOutDown {
+  animation-name: bounceOutDown;
+}
+
+@keyframes bounceOutUp {
+  20% {
+    transform: translate3d(0, -10px, 0);
+  }
+
+  40%, 45% {
+    opacity: 1;
+    transform: translate3d(0, 20px, 0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate3d(0, -2000px, 0);
+  }
+}
+
+.bounceOutUp {
+  animation-name: bounceOutUp;
+}

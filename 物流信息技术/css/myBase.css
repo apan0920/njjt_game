@@ -2,7 +2,7 @@
 * @Author: pz
 * @Date:   2018-01-16 09:52:21
 * @Last Modified by:   pz
-* @Last Modified time: 2018-02-27 15:17:26
+* @Last Modified time: 2018-03-14 11:26:00
 */
 
 body { font-family: "Microsoft YaHei",Helvetica,Arial,sans-serif; font-size: 14px; line-height: 1.42857143; color: #333; background: #f6f6f6;}
@@ -51,34 +51,31 @@ body{background: url(../images/sys_bg.png) no-repeat; background-size: 100% 100%
 /* 第一关--物流信息系统分类配对游戏--start */
 .p1_game_content{width: 92%; height: 75%;position: absolute; left: 50%; top: 55%; transform: translate(-50%,-50%);}
 .p1_game_title{font-size: 32px;font-weight:bold;}
-.p1_target_area{width: 50%; height: 75%;}
-.p1_target_area span{width: 250px;height: 58px;background: url(../images/img1/target_btn.png) no-repeat; background-size: 100% 100%;}
+.p1_target_area{width: 400px; height: 75%;}
+/* .p1_target_area span{width: 250px;height: 56px;} */
 
 
-.p1_target_font{font-size: 16px; color: #0097B9; padding-left: 60px; line-height: 57px;}
-.p1_target1{ position: absolute; top: 15%;}
-.p1_target2{ position: absolute; top: 30%;}
-.p1_target3{ position: absolute; top: 45%;}
-.p1_target4{ position: absolute; top: 60%;}
+.p1_target_font{width: 250px;height: 58px;display:inline-block; font-size: 16px; color: #0097B9; padding-left: 60px; line-height: 57px; margin:2% 0 0 2%;    background: url(../images/img1/target_btn.png) no-repeat;
+    background-size: 100% 100%;cursor: pointer;}
+
 .p1_game_intro{position: absolute; top: 75%;color: #CE1717;width: 40%;}
 
 
 .p1_game_content_right{width: 55%;height: 100%; position: absolute; top: 0; left: 48%;}
-.p1_drag_btn{width: 45%;height: 10%; background: url(../images/img1/drag_btn.png) no-repeat;background-size: 100% 100%;position: relative; display: inline-block; margin: 0% 4% 7% 0;cursor: pointer;}
-.p1_btn_icons{width: 20%; height: 76%; background: url(../images/img1/match_icons.png) no-repeat; left: 3%; top: 50%; position: absolute; transform: translateY(-50%);}
-.p1_addon1{background-position: 8px 5px; }
-.p1_addon2{ background-position: -55px 7px;}
-.p1_addon3{background-position: 8px -35px;}
-.p1_addon4{ background-position: -55px -35px;}
-.p1_addon5{background-position: 8px -75px;}
-.p1_addon6{ background-position: -55px -78px;}
-.p1_addon7{background-position: 8px -125px;}
-.p1_addon8{ background-position: -55px -125px;}
-.p1_addon9{background-position: 8px -166px;}
-.p1_addon10{ background-position: -55px -169px;}
-.p1_addon11{background-position: 8px -210px;}
+.p1_drag_btn{width: 45%;height: 10%;position: relative; display: inline-block; margin: 0% 4% 7% 0;cursor: pointer;}
+/* .p1_btn_icons{width: 20%; height: 76%; background: url(../images/img1/match_icons.png) no-repeat; left: 3%; top: 50%; position: absolute; transform: translateY(-50%);} */
+.p1_addon1{ background: url(../images/img1/dragBtns/drag-1.png) no-repeat;background-size: 100% 100%; }
+.p1_addon2{ background: url(../images/img1/dragBtns/drag-2.png) no-repeat;background-size: 100% 100%; }
+.p1_addon3{ background: url(../images/img1/dragBtns/drag-3.png) no-repeat;background-size: 100% 100%; }
+.p1_addon4{ background: url(../images/img1/dragBtns/drag-4.png) no-repeat;background-size: 100% 100%; }
+.p1_addon5{ background: url(../images/img1/dragBtns/drag-5.png) no-repeat;background-size: 100% 100%; }
+.p1_addon6{ background: url(../images/img1/dragBtns/drag-6.png) no-repeat;background-size: 100% 100%; }
+.p1_addon7{ background: url(../images/img1/dragBtns/drag-7.png) no-repeat;background-size: 100% 100%; }
+.p1_addon8{ background: url(../images/img1/dragBtns/drag-8.png) no-repeat;background-size: 100% 100%; }
+.p1_addon9{ background: url(../images/img1/dragBtns/drag-9.png) no-repeat;background-size: 100% 100%; }
+.p1_addon10{ background: url(../images/img1/dragBtns/drag-10.png) no-repeat;background-size: 100% 100%; }
+.p1_addon11{ background: url(../images/img1/dragBtns/drag-11.png) no-repeat;background-size: 100% 100%; }
 .p1_sel_btn_title{font-size: 17px; left: 27%; color: #0097B9; position: absolute; transform: translateY(-50%); top: 50%;}
-
 .p1_game_time_box {position: absolute; bottom: 0; width: 35%; }
 .p1_game_time_bg {background: url(../images/img1/time_bar_bg.png) no-repeat; width: 83%; height: 21px; display: inline-block; background-size: 100% 100%; }
 .p1_game_time_speed_box {position: relative; width: 100%; height: 21px; left: 1px; overflow: hidden; }
@@ -86,14 +83,16 @@ body{background: url(../images/sys_bg.png) no-repeat; background-size: 100% 100%
 .p1_game_time {display: inline-block; color: #5C4A22; position: absolute; left: 86%; opacity: 0.7; }
 
 .next_btn{background: url(../images/next_pass.png) no-repeat; width: 141px; height: 50px; position: absolute;left: 50%; transform: translateX(-50%);cursor:pointer;}
-
+.finish_btn{background: url(../images/finish_btn.png) no-repeat;}
 /* 提示框 */
 .msg_box_alert {display: none; position: fixed; z-index: 99999; width: 100%; height: 100%; top: 0; left: 0; background: rgba(0,0,0,.7); }
 .msg_box{background: url(../images/msg_box_bg.png) no-repeat;width: 329px;height: 173px; position: absolute; top: 50%; left: 50%;margin-top:-82px; margin-left:-163px; transform: translate(-50%,-50%);}
+/*.msg_box {background: url(../images/msg_box_bg.png) no-repeat; width: 329px; height: 173px; position: absolute; top: 50%; left: 50%; text-align: center; transform: translate(-50%,-50%); }
+.msg_content{color: #CE1717; margin-top: 15%;}*/
 .msg_content{color:#CE1717;position: absolute; top: 30%; left: 27%;}
 .msg_confirm{background: url(../images/msg_box_confirm.png) no-repeat;width: 107px;height: 37px;position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%);}
 .msg_cancel{background: url(../images/msg_box_cancel.png) no-repeat;width: 107px;height: 37px;position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%);}
-.msg_close{width: 28px;height: 28px;position: absolute; right: 1%;}
+.msg_close{width: 16px;height: 16px;position: absolute; right: 3%;top: 3%; background: url(../images/msg_box_close.png) no-repeat;cursor: pointer;}
 
 .back_btn{background: url(../images/btn_back.png)  no-repeat; background-size: 100%; width: 52px; height: 52px; position: absolute;right: 1%; cursor:pointer;}
 
@@ -118,7 +117,7 @@ video::-webkit-media-controls-panel { width: calc(100% + 30px);  }
 
 .p2_answer{width: 100%;height:40%;position: absolute; margin-top: 60px;}
 .p2_option{width: 100%;height:33%;}
-.p2_radio{position: absolute;width: 36px;height: 36px;background: url(../images/img2/radio.png);background-size: 100%;}
+.p2_radio{position: absolute;width: 36px;height: 36px;background: url(../images/img2/radio.png); background-size: 100%; cursor: pointer;}
 .p2_radio_sel{background: url(../images/img2/radio_sel.png);background-size: 100%; }
 .p2_option_text{ max-width: 99%;line-height: 36px;background: url(../images/img2/text_bg.png) no-repeat;background-size: 100% 100%; margin-left: 40px;padding-left: 17px;color: #0097B9;}
 /* 第二关--物流标准化存在的问题判断--end */
@@ -301,7 +300,7 @@ video::-webkit-media-controls-panel { width: calc(100% + 30px);  }
 
 .p5_content_middle{width: 100%; height: 50%;position: absolute; left: 51%; top: 59%; transform: translateX(-50%); margin-left: 1%;}
 .p5_drag_btn{width: 6%;height: 70%;position: relative;display: inline-block;margin-left: 3%;color: #0097B9;}
-.p5_sourceBox_text{font-size: 15px; writing-mode: vertical-lr; position: absolute; left: 50%;top: 5%;
+.p5_sourceBox_text{font-size: 15px; writing-mode: vertical-lr; position: absolute; left: 50%;top: 15%;
     transform: translateX(-50%);padding-top: 38px;cursor: pointer;}
 .p5_drag_1{background: url(../images/img5/drag_1.png) no-repeat;background-size: 100% 100%;margin-left: 2%;}
 .p5_drag_2{background: url(../images/img5/drag_2.png) no-repeat;background-size: 100% 100%; }
@@ -393,9 +392,9 @@ video::-webkit-media-controls-panel { width: calc(100% + 30px);  }
 	/* 第一关--物流信息系统分类配对游戏--start */
 	.sel_title {top: 3%;}
 	
-	.p1_target_area span{height: 45px;}
+	.p1_target_area span{height: 45px; margin-top: 15px;}
 	.p1_target_font{line-height: 45px;}
-	.p1_game_intro{top: 60%;}
+	.p1_game_intro{top: 71%;}
 	.p1_drag_btn{ height: 12%; margin: 0% 4% 4% 0;}
 	.p1_btn_icons{width: 30%;left: 0%;}
 	/* 第二关--物流标准化存在的问题判断--start */
@@ -406,6 +405,7 @@ video::-webkit-media-controls-panel { width: calc(100% + 30px);  }
 	.p5_text_1{left: 38%; top: 4% }
 	.p5_text_2{left: 11%; top: 53%}
 	.p5_text_3{left: 68%; top: 53%}
+	.p5_sourceBox_text{top: 10%;}
 	/* 第五关--EDI标准构成识别游戏--end */
 
 	/* 第7关--GIS的操作模拟游戏--start */

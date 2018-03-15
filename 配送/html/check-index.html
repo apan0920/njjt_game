@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>盘点游戏</title>
+		<meta name="keywords" content="盘点游戏,盘点,物流游戏,游戏" />
+		<meta name="description" content="南京交通-配送游戏" />
+
+		<!-- basic styles -->
+		<link href="../js/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/animate.css">
+
+		<link href="../css/check-index.css" rel="stylesheet" />
+	</head>
+
+	<body  class="inventory-body">
+		<div id="wrapper" class="wrapper">
+			<div id="header">
+				<!-- 引入公共头页面 -->
+			</div>
+			<!-- 任务背景 -->
+			<img class="renwu-bg" src="../images/check/renwu.png" alt="任务背景">
+			<!-- 信息提示框 -->
+			<div id="msgBox" class="msg-box" style="display: none;">
+				<div class="msg-mask"></div>
+				<div class="mission-intro">
+					<div>
+						<span class="mission-intro-title">任务描述</span>
+						<span id="ticker" class="mission-intro-text">
+							<div>
+								<p>请开始盘点前的准备。</p>
+								<a id="startCheck" href="#" class="btn-yellow">开始盘点</a>
+							</div>
+						</span>
+					</div>
+				</div>
+			</div>
+			
+			<!-- 移动的Div -->
+			<div class="move-div" style="display: none;">
+				<!-- 货架动画 -->
+				<div id="shelfBg" class="shelf-bg">
+					<!-- 锁库 -->
+					<div class="shelf shelf1">
+						<img id="shelfBefore1" class="shelf-before" src="../images/check/shelf-before.png" alt="整理前货架">
+						<img id="shelfAfter1" class="shelf-after" src="../images/check/shelf-after.png" alt="整理后货架">
+						<img class="shelf-img-lock" src="../images/check/shelf-lock.png" alt="上锁">
+						<img id="fire1" class="fire" src="../images/check/gif/fire.gif" alt="整理时动画">
+					</div>
+					<div class="shelf shelf2">
+						<img id="shelfBefore2" class="shelf-before" src="../images/check/shelf-before.png" alt="整理前货架">
+						<img id="shelfAfter2" class="shelf-after" src="../images/check/shelf-after.png" alt="整理后货架">
+						<img class="shelf-img-lock" src="../images/check/shelf-lock.png" alt="上锁">
+						<img id="fire2" class="fire" src="../images/check/gif/fire.gif" alt="整理时动画">
+					</div>
+					<div class="shelf shelf3">
+						<img id="shelfBefore3" class="shelf-before" src="../images/check/shelf-before.png" alt="整理前货架">
+						<img id="shelfAfter3" class="shelf-after" src="../images/check/shelf-after.png" alt="整理后货架">
+						<img class="shelf-img-lock" src="../images/check/shelf-lock.png" alt="上锁">
+						<img id="fire3" class="fire" src="../images/check/gif/fire.gif" alt="整理时动画">
+					</div>
+					<!-- 打印机 -->
+					<div class="printer">
+						<img src="../images/check/printer.png" alt="打印机">
+					</div>
+					<!-- 盘点货架 -->
+					<div class="check-shelf">
+						<!-- 由下至上 第3层酒or巧克力-->
+						<div class="floor floor3">
+						</div>
+						<!-- 由下至上 第2层 牛奶-->
+						<div class="floor floor2">
+						</div>
+						<!-- 由下至上 第1层 水-->
+						<div class="floor floor1">
+						</div>
+						<!-- 由下至上 第0层 冰红茶-->
+						<div class="floor floor0">
+						</div>
+					</div>
+					<!-- 信息员 -->
+					<div class="messenger">
+						<img id="messengerStop" style="display: block;" src="../images/check/messenger.png" alt="信息员">
+						<img id="messengerMove" style="display: none;" src="../images/check/gif/messenger.gif" alt="信息员打印">
+					</div>
+				</div>
+				<!-- 小人动画 -->
+				<div class="people">
+					<p id="checkerId" class="checker">盘点员：<span id="checkerNo"></span></p>
+					<img id="sideMove" src="../images/check/gif/peo-side-move.gif" alt="员工侧走">
+					<img id="sideStop" src="../images/check/gif/peo-side-stop.png" alt="员工侧停">
+					<img id="theBackStop" src="../images/check/gif/peo-back-stop.png" alt="员工背面停">
+					<img id="managerStop" src="../images/check/manager-side-stop.png" alt="经理侧面停">
+					<div class="talk-bok">
+						<div id="newPlanDiv" class="talk-box" style="display: none;">
+							<div class="talk-intro">
+								<div>
+									<span class="talk-intro-title">任务描述</span>
+									<span id="newPlanSpan" class="talk-intro-text">
+										<div>
+											<p>现场整理完成，请新建盘点方案。</p>
+											<a id="newPlan" href="#" class="btn-check">新建盘点方案</a>
+										</div>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div id="printDiv" class="talk-box" style="display: none;">
+							<div class="talk-intro" style="text-align: center;">
+								<div>
+									<span id="printSpan" class="talk-intro-text" style="right: 20%;">
+										<div>
+											<p>正在打印盘点表</p>
+											<img src="../images/check/gif/print-orange.gif" alt="正在打印盘点表gif">
+										</div>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			<!-- 表单背景 -->
+			<div class="game-select-bg" style="display: none;">
+				<!-- 表单 -->
+				<iframe  name="childframe" src="../html/check.html" frameborder="0" class="inventory-iframe"></iframe>
+			</div>
+			<!-- 打印-差异盘点单 -->
+			<div id="diffOrderPrint" class="msg-box" style="display: none;">
+				<div class="msg-mask"></div>
+				<div class="mission-intro" style="text-align: center;">
+					<div>
+						<span  class="talk-intro-text" style="right: 20%;color: #FFF;">
+							<div>
+								<p id="printTextId">正在打印《差异盘点单》</p>
+								<img src="../images/check/gif/print-orange.gif" alt="正在打印盘点表gif">
+							</div>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="bottom_btns">
+				<!-- 返回主界面按钮 -->
+				<div class="back_btn"></div>
+			</div>
+
+			<div id="footer" > 
+				<!-- 引入公共尾页面（版权说明） -->
+			</div>
+		</div>
+		<!-- basic scripts -->
+		<script src="../js/jquery.min.js"></script>
+		<!-- 打字机效果 -->
+		<script src="../js/typer/jquery.jticker.js"></script>
+
+		<!-- 自定义-业务逻辑 -->
+		<script src="../js/base.js"></script>
+		<script src="../js/check-index.js"></script>
+	</body>
+</html>

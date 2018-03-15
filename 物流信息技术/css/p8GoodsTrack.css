@@ -2,7 +2,7 @@
 * @Author: pz
 * @Date:   2018-02-03 09:51:51
 * @Last Modified by:   pz
-* @Last Modified time: 2018-03-07 17:11:03
+* @Last Modified time: 2018-03-12 10:33:09
 */
 body { font-family: "Microsoft YaHei",Helvetica,Arial,sans-serif; font-size: 14px; line-height: 1.42857143; color: #333; background: #f6f6f6;}
 html,body { width:100%; height: 100%;min-width: 800px;min-height: 600px; }
@@ -14,13 +14,14 @@ body{background: url(../images/sys_bg.png) no-repeat; background-size: 100% 100%
 .logo_school{width: 244px; height: 42px; right: 60px;background: url(../images/logo_school.png) no-repeat; background-size: 100% 100%;}
 .game_select_bg{background: darkred;width: 60%; min-width: 800px; height: 75%;min-height: 500px; background: url(../images/sel_bg.png); background-size: 100% 100%; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
 .sel_title{font-size: 26px;font-weight: bold;position: absolute; left: 50%; transform: translateX(-50%);top: 4%;}
-.back_btn{background: url(../images/btn_back.png)  no-repeat; background-size: 100%; width: 52px; height: 52px; position: absolute;right: 1%; cursor:pointer;}
+.back_btn{background: url(../images/btn_back.png)  no-repeat; background-size: 100%; width: 52px; height: 52px; position: absolute;right: 1%; cursor:pointer; z-index: 999;}
 .bottom_btns{ width: 100%;position: absolute;bottom:11%;}
 .footer{position: absolute; bottom: 1px; left: 50%;transform: translate(-50%);color:#EEE;}
 /* 提示框 */
 .msg_box_alert {display: none; position: fixed; z-index: 99999; width: 100%; height: 100%; top: 0; left: 0; background: rgba(0,0,0,.7); }
 .msg_box{background: url(../images/msg_box_bg.png) no-repeat;width: 329px;height: 173px; position: absolute; top: 50%; left: 50%;margin-top:-82px; margin-left:-163px; transform: translate(-50%,-50%);}
-.msg_content{color:#CE1717;position: absolute; top: 30%; left: 27%;}
+/* .msg_content{color:#CE1717;position: absolute; top: 30%; left: 27%;} */
+.msg_content{color: #CE1717; position: absolute; top: 23%; left: 50%; width: 90%; text-align: center; transform: translateX(-50%);}
 .msg_confirm{background: url(../images/msg_box_confirm.png) no-repeat;width: 107px;height: 37px;position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%);}
 .msg_cancel{background: url(../images/msg_box_cancel.png) no-repeat;width: 107px;height: 37px;position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%);}
 .msg_close{width: 28px;height: 28px;position: absolute; right: 1%;}
@@ -91,6 +92,7 @@ text-indent: -999em;
 .sel-car{top: 60%}
 .btn-bg-red{width: 38px; height: 27px; background: url(../images/img8/btn-bg-red.png) no-repeat;background-size: 100% 100%;color: #fff; line-height: 27px;}
 .order-btn{position: absolute; left: 58%; text-align: center; top: 15px; cursor: pointer;}
+.btn-bg-remove{width: 43px;left: 53%; top: 10px; background: none; color: #dd4747; }
 .order-detail-bottom{position: absolute; bottom: 9%; left: 2%; width: 96%; height: 16px; background: url(../images/img8/line.png) no-repeat; background-size: 100% 100%; }
 .order-detail-bottom > img{position: absolute; left: 4%;}
 
@@ -105,7 +107,7 @@ text-indent: -999em;
 .deceive-bg{position: absolute;right: 0;bottom: 0;}
 
 /* 商城弹窗 */
-.shop-mall{ display: none; border-radius: 5px; background-color: rgb(255, 244, 219); border: 3px solid #000; position: absolute; left: 285px; height: 65%; max-height: 320px; width: 45%; min-width: 500px; top: 50%; transform: translateY(-50%); }
+.shop-mall{ display: none; border-radius: 5px; background-color: rgb(255, 244, 219); border: 3px solid #000; position: absolute; left: 285px; height: 65%; max-height: 360px; width: 45%; min-width: 500px; top: 50%; transform: translateY(-50%); }
 .shop-mall-title{font-size: 20px; font-weight: bold; height: 10%;}
 .shop-mall-close-btn{position: absolute; top: 3%; right: 1%;cursor: pointer;}
 .shop-mall-detail{height: 90%; overflow: hidden;}

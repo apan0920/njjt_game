@@ -1,0 +1,27 @@
+/*
+* @Author: pz
+* @Date:   2018-03-14 09:50:27
+* @Last Modified by:   pz
+* @Last Modified time: 2018-03-15 18:27:32
+*/
+/* .divClass{width:60%; margin-left: 20% }
+.table th, .table td {text-align: center; vertical-align: middle!important; } */
+body { font-family: "Microsoft YaHei",Helvetica,Arial,sans-serif; font-size: 14px; line-height: 1.42857143; color: #333; background: transparent;}
+h3{color: #0F4262;}
+.divClass{text-align:center; }
+.table th, .table td {text-align: center; color: #0F4262; font-weight: normal; }
+.tableDiv{margin: 30px 20px 10px;}
+.address th{text-align: left;}
+.order-no{color: #FFF; float: left; font-size: 18px;}
+.table-bordered,.table-bordered > thead > tr > th, .table-bordered > thead > tr > td {
+    border: 2px solid #FFF;
+    background-color: rgb(122, 212, 255);
+}
+.table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td{
+	border: 2px solid #FFF;
+	background-color: rgb(122, 212, 255);
+}
+.order-btn{width: 151px; height: 52px; background: url(../../images/inventory/btn-bg.png); background-size: 100% 100%; cursor: pointer; text-align: center; font-size: 18px; font-weight: bold; border:none;color: #FFF;outline: none;}
+.modal-dialog{margin: 5%;}
+.table6Div{margin: 70px 20px 10px;}
+.table11Div{margin: 70px 20% 10px;width: 60%;display: none;}

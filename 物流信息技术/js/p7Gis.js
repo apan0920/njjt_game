@@ -2,7 +2,7 @@
 * @Author: pz
 * @Date:   2018-02-06 17:28:40
 * @Last Modified by:   pz
-* @Last Modified time: 2018-02-27 15:18:26
+* @Last Modified time: 2018-03-12 11:40:14
 */
 $(function () {
 
@@ -247,7 +247,7 @@ $(".p7-menu-confirm").click(function () {
 	if (currentAnswer.toString() == standerAnswer.toString()) {
 		showAlert('游戏完成，返回主界面!','end',function(){
 					window.location.href = "index.html";
-				});
+				}, "false");
 	}else {
 		showAlert('答案错误，请重新选择！','end');
 		return;

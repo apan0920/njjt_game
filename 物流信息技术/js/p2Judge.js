@@ -2,7 +2,7 @@
 * @Author: pz
 * @Date:   2018-01-16 09:52:25
 * @Last Modified by:   pz
-* @Last Modified time: 2018-01-24 16:12:51
+* @Last Modified time: 2018-03-09 11:54:13
 */
 
 $(function () {
@@ -62,13 +62,22 @@ $(function () {
 					
 				} 
 			}
+			//更改题目编号
+			if (questionNo<4) {
+				$("#questionNo").html("第"+ (questionNo+2) +"题、");
+			}
+			//最后一题显示为[完成]按钮
+			if (questionNo == 3) {
+				$(".next_btn").addClass("finish_btn");
+			}
+			
 			console.log("questionNo=="+questionNo);
 			if (currAnswer == standerArr[questionNo]) {
 				/*进入下一关:显示下一关视频-隐藏其他视频*/
 				if (questionNo == 4) {
 					showAlert('游戏完成，返回主界面!','end',function(){
 						window.location.href = "index.html";
-					});
+					},"false");
 				}else{
 					for (var i = 1; i < 6; i++) {
 						$("#scene"+i).css({"display":"none"});

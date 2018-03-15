@@ -1,0 +1,99 @@
+/*
+* @Author: pz
+* @Date:   2018-01-16 09:52:21
+* @Last Modified by:   pz
+* @Last Modified time: 2018-03-14 10:29:52
+*/
+
+body { font-family: "Microsoft YaHei",Helvetica,Arial,sans-serif; font-size: 14px; line-height: 1.42857143; color: #333; background: #f6f6f6;}
+html,body { width:100%; height: 100%;min-width: 800px;min-height: 600px; }
+a:link, a:visited, a:hover, a:active{text-decoration:none; color: #FFF; }
+
+/* 登录页--start */
+body{background: url(../images/sys_bg.png) no-repeat; background-size: 100% 100%;}
+.logo{position: absolute; display: inline;top: 30px;}
+.logo_nos{width: 229px; height: 41px; left: 60px;background: url(../images/logo_nos_white.png) no-repeat; background-size: 100% 100%;}
+.logo_school{width: 244px; height: 42px; right: 60px;background: url(../images/logo_school.png) no-repeat; background-size: 100% 100%;}
+
+
+.sys_name{width: 38%;margin-left: 50%; margin-top: 110px; transform: translateX(-50%);}
+.login_box{background: url(../images/login_box_bg.png) no-repeat; width: 27%; min-width: 300px; height: 36%; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); background-size: 100% 100%;}
+.login_input_bg{background: url(../images/bg_login02.png); background-size: 100% 100%; }
+
+.login_btn_bg{width: 399px; height: 50px;background: url(../images/img_login03.png); background-size: 100% 100%; }
+.login-btn-text{position: absolute;top: 50%;left: 50%; transform: translate(-50%,-50%); }
+.login_box_content{width: 70%; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
+.login_box span{border: none;background: none;}
+.login_box input{border: none;border-radius: 25px;background: none;}
+.inputDiv{margin-top:8%;}
+.bottom_btns{ width: 100%;position: absolute;bottom:11%;}
+.footer{position: absolute; bottom: 1px; left: 50%;transform: translate(-50%);color:#EEE;}
+/* 登录页--end */
+
+/* 提示框 */
+.msg_box_alert {display: none; position: fixed; z-index: 99999; width: 100%; height: 100%; top: 0; left: 0; background: rgba(0,0,0,.7); }
+.msg_box{background: url(../images/prompt/msg_box_bg.png) no-repeat;width: 329px;height: 173px; position: absolute; top: 50%; left: 50%;margin-top:-82px; margin-left:-163px; transform: translate(-50%,-50%);}
+.msg_content{color:#CE1717;position: absolute; top: 30%; left: 27%;}
+.msg_confirm{background: url(../images/prompt/msg_box_confirm.png) no-repeat;width: 107px;height: 37px;position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%);}
+.msg_cancel{background: url(../images/prompt/msg_box_cancel.png) no-repeat;width: 107px;height: 37px;position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%);}
+.msg_close{width: 28px;height: 28px;position: absolute; right: 1%;}
+/* 任务说明及提示 */
+.msg-box{height: 100%;font-size: 18px; color: #FFF; font-weight: bold;}
+.msg-close{width: 15px;height: 15px;position: absolute; background: url(../images/msg/msg-close.png);cursor: pointer;}
+.msg-mask{width: 100%;height: 100%; position: absolute; background-color: #000; opacity: 0.7; z-index: 50;}
+.mission-intro{width: 755px; height: 404px; position: absolute; left: 50%; top: 50%; background: url(../images/msg/msg-intro-bg.png) no-repeat; background-size: 100% 100%; z-index: 99; margin-top: -200px; margin-left: -400px; }
+.mission-intro-title{position: absolute; left: 56%; top: 9%;font-size: 22px;}
+.mission-intro-text{position: absolute; left: 37%; top: 21%; font-size: 17px; right: 4%;}
+.mission-intro-close{right: 4%; top: 8%;}
+.mission-intro-confirm{width: 181px;position: absolute; left: 50%; transform: translateX(-50%);background: url(../images/msg/btn-confirm.png);cursor: pointer; text-align: center; line-height: 52px; color: white; font-size: 18px; font-weight: bold;}
+
+
+
+/* 游戏选择界面 --start*/
+.inventory-body{display: table;}
+.wrapper{height: 100%; width: 100%; min-width: 800px; min-height: 600px; display: table-cell; vertical-align: middle;}
+.game-select-bg{background: url(../images/sel_bg.png); background-size: 100% 100%;position: relative; width: 60%; min-width: 750px; height: 80%; min-height: 600px; margin: 0 auto;}
+.sel_title{position: absolute; left: 50%; transform: translateX(-50%);top: 3%;}
+.sel_btns{width: 90%; position: absolute; left: 50%; top: 55%; transform: translate(-50%,-50%);}
+.sel_btn{width: 292px; height: 122px;background: url(../images/sel_btn.png); display: inline-block; position: relative; margin: 0 0% 3% 2%;}
+.sel_btn_grey{background: url(../images/sel_btn_grey.png);}
+.sel_btn_hover{background: url(../images/sel_btn_hover.png);}
+.sel_btn_addon{left: 50%; top: 50%; position: absolute; transform: translate(-50%,-50%);} 
+
+
+.back_btn{background: url(../images/btn_back.png)  no-repeat; background-size: 100%; width: 52px; height: 52px; position: absolute;right: 1%; cursor:pointer;}
+/* 游戏选择界面 --end*/
+
+/*存货分配--start*/
+/*1.查看订单--订单制作*/
+.btn-view-order{width: 181px;position: absolute; right: 1%; background: url(../images/msg/btn-confirm.png);cursor: pointer; text-align: center; line-height: 52px; font-size: 18px; font-weight: bold; top: 400%;}
+.inventory-iframe{/*background: #9C27B0; */width: 100%; height: 100%; border-radius: 50px;}
+#singleOrderDist{left:1%;}
+/*存货分配--end*/
+
+
+/*线路派送游戏--start*/
+.game-select-bg-delivery {
+    background: url(../images/sel_bg.png);
+    background-size: 100% 100%;
+    position: relative;
+    width: 90%;
+    min-width: 800px;
+    max-width: 1020px;
+    height: 80%;
+    min-height: 570px;
+    max-height: 680px;
+    margin: 0 auto;}
+.delivery-iframe{width: 100%; height: 100%; border-radius: 15px;}
+/*线路派送游戏--end*/
+
+
+@media (max-height: 900px) {
+	
+}
+@media (max-height: 800px) {
+	
+}
+@media (max-height: 600px) {
+
+}

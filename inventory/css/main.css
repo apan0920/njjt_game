@@ -1,0 +1,28 @@
+
+*{ margin:0; padding:0; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+html{ width:100%; height:100%; font-family: 'Microsoft YaHei'; }
+h3,p,label,input,input[type="text"], input[type="password"], { margin:0; }
+body{font-size:12px; background: url(../images/bg_login.jpg) center top no-repeat #eee; }
+
+.loginwrap{ position: absolute; top:50%; left:0; width:100%; height:460px; margin-top:-230px;  }
+.loginwrap .bgBox { position: absolute; width:100%; height:278px; top:50%; margin-top:-139px; overflow: hidden; }
+.loginwrap .bgLeft { position: absolute; width:50%; left:0; height:278px; top:0; z-index: 7; background: #20a358; }
+.loginwrap .bgRight { position: absolute; width:50%; right:0; height:278px; top:0; z-index: 7; background: #36cd9c; }
+.loginwrap .bgCenter { position: absolute; width:1360px; left:50%; margin-left: -680px; height:278px; top:0; z-index: 8; background: url(../images/bg_login3.jpg) center no-repeat; }
+
+.loginBg { position:absolute; z-index: 9; width:833px; height:465px; top:0; left:50%; margin-left: -417px; padding:1px 6px 11px; background: url(../images/bg_login4.png) center no-repeat; }
+
+
+.loginBg .title { padding: 59px 22px; background: url(../images/logo_login.png) 22px center no-repeat #e0f2ef; }
+.loginBg .title h3 { font-size: 26px; line-height: 40px; font-weight: normal; padding-left: 114px; text-align: left; letter-spacing: 1px; }
+.loginBg .title p { font-size: 18px; line-height: 18px; color:#333333; display: inline-block; padding-left: 74px; background: url(../images/bg_title.png) left center no-repeat; }
+
+.loginBg .loginBox { padding:46px 0 0; text-align: center; }
+.loginBg .loginBox .item { margin-bottom:46px; position: relative; font-size: 0; text-align: center; }
+.loginBg .loginBox .item input { font-size: 16px; color:#333; height:34px; line-height: 16px; border:1px solid #bfbfbf; width:350px; display: inline-block; vertical-align: middle;  }
+.loginBg .loginBox .item label { font-size: 16px; color:#666; line-height: 34px; text-align: right; width:80px; display: inline-block; vertical-align: middle; }
+
+
+.loginBg .divBtn { height: 55px; background: url(../images/bg_login2.png) center no-repeat; }
+.loginBg .divBtn button { margin:0; padding:0; border: none; font-size: 24px; line-height: 44px; width:172px;  text-align: center; color:#fff; background: none; }
+

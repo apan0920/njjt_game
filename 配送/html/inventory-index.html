@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>存货分配</title>
+		<meta name="keywords" content="配送游戏,配送,物流游戏,游戏" />
+		<meta name="description" content="南京交通-配送游戏" />
+
+		<!-- basic styles -->
+		<link href="../js/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/animate.css">
+
+		<link href="../css/inventory-index.css" rel="stylesheet" />
+	</head>
+
+	<body class="inventory-body">
+		<div id="wrapper" class="wrapper">
+			<div id="header">
+				<!-- 引入公共头页面 -->
+			</div>
+			<!-- 信息提示框 -->
+			<div class="msg-box">
+				<div class="msg-mask"></div>
+				<div class="mission-intro">
+					<div>
+						<span class="mission-intro-title">内容预习</span>
+						<span id="ticker" class="mission-intro-text">
+							<div>
+								<p>（1）同学们，我们已经学习了订单处理流程，包括四个步骤</p>
+									<ul>
+										<li>订单接收</li>
+										<li>订单内容确认</li>
+										<li>存货查询及订单分配存货</li>
+										<li>订单资料输出</li>
+									</ul>
+								<p>（2）本节课主要针对存货查询及订单分配存货环节进行重点练习</p>
+								<a class="mission-intro-confirm" href="#">确定</a>
+							</div>
+							<div>
+								<p>配送中心某天先后收到的如下订单，那么拣货信息处理人员如何进行订单分配呢?</p>
+								<a id="viewOrderBtn" href="#" class="btn-view-order">查看订单</a>
+							
+							</div>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="game-select-bg" style="display: none;">
+				<!-- 表单 -->
+				<iframe id="inventoryIframe" name="childframe" src="../html/inventory.html" frameborder="0" class="inventory-iframe"></iframe>
+			</div>
+			<div id="searchStorageDiv" class="msg-box" style="display: none;">
+				<div class="msg-mask"></div>
+				<div class="mission-intro">
+					<div>
+						<span id="tickerStorage" class="mission-intro-text">
+							<div>
+								<p>接受到客户订单后，信息处理人员先进场存货查询。</p>
+								<a id="searchStorage" href="#" class="btn-view-order">库存查询</a>
+							</div>
+						</span>
+					</div>
+				</div>
+			</div>
+			<!-- 5、信息人员：根据订单分配库存，有两种分配方式 -->
+			<div id="stepDiv5" class="msg-box" style="display: none;">
+				<div class="msg-mask"></div>
+				<div class="mission-intro">
+					<div>
+						<span id="stepTalk5" class="mission-intro-text">
+							<div>
+								<p>信息人员：根据订单分配库存，有两种分配方式</p>
+								<a id="singleOrderDist" href="#" class="btn-view-order">单一订单分配</a>
+								<a id="batchOrderDist" href="#" class="btn-view-order">批量订单分配</a>
+							</div>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="bottom_btns">
+				<!-- 返回主界面按钮 -->
+				<div class="back_btn"></div>
+			</div>
+
+			<div id="footer" > 
+				<!-- 引入公共尾页面（版权说明） -->
+			</div>
+		</div>
+		<!-- basic scripts -->
+		<script src="../js/jquery.min.js"></script>
+		<!-- 打字机效果 -->
+		<script src="../js/typer/jquery.jticker.js"></script>
+
+		<!-- 自定义-业务逻辑 -->
+		<script src="../js/base.js"></script>
+		<script src="../js/inventory-index.js"></script>
+	</body>
+</html>

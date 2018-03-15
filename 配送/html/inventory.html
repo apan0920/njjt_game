@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>存货分配</title>
+    <link href="../js/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="../css/form/inventory.css" rel="stylesheet" />
+    <link href="../js/bootstrap-select-1.12.4/dist/css/bootstrap-select.min.css" rel="stylesheet" />
+    <script src='../js/jquery/jquery-1.10.2.min.js' ></script>
+    <script src="../js/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap-select-1.12.4/dist/js/bootstrap-select.min.js"></script>
+    <script src="../js/bootstrap/js/typeahead-bs2.min.js"></script>
+	<script type="text/javascript" src="../js/base.js"></script>
+</head>
+<body id="inventoryBody" onbeforeunload="clearData()">
+    <!-- A客户订单页面 -->
+    <div id="company1" class="divClass" style="display: block;">
+        <div style="height: 20px"></div>
+        <img src="../images/inventory/order-a.png" class="sel_title"></img>
+        <div class="tableDiv">
+            <p class="order-no">NO:00001</p>
+			<table class="table table-striped table-bordered table-hover">
+			     <thead>
+				    <tr class="address">  
+				        <th colspan="3">订货单位：A客户</th>  
+				        <th colspan="3">电话：025-86115093</th>  
+				    </tr>  
+				    <tr class="address">  
+				        <th colspan="3">地址：南京江宁</th>  
+				        <th colspan="3">订货日期：<span id="orderDate1"></span></th>  
+				    </tr>  
+				    <tr>  
+				        <th>序号</th>  
+				        <th>产品名称</th>  
+				        <th>条码</th>  
+				        <th>单位</th>  
+				        <th>数量</th>  
+				        <th>备注</th>  
+				    </tr> 
+			     </thead>
+			     <tbody id="table1">
+			     </tbody>
+			</table>
+        </div>
+        <div align="center" class="btnClass">
+            <button onclick="showGoods(this)" x="1" class="order-btn" 
+                type="button"> 添加产品
+            </button>
+            <button onclick="saveGoods(this)" x="1" class="order-btn" 
+                type="button"> 确定
+            </button>
+        </div>
+	</div>
+	
+	<!-- B客户订单页面 -->
+	<div id="company2" class="divClass" style="display: none;">
+        <div style="height: 20px"></div>
+        <img src="../images/inventory/order-b.png" class="sel_title"></img>
+        <div class="tableDiv">
+            <p class="order-no">NO:00002</p>
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+                     <tr>  
+                        <th colspan="3">订货单位：B客户</th>  
+                        <th colspan="3">电话：025-86115094</th>  
+                    </tr>  
+                     <tr>  
+                        <th colspan="3">地址：南京江宁</th>  
+                        <th colspan="3">订货日期：<span id="orderDate2"></span></th>  
+                    </tr>  
+                    <tr style="text-align: center">  
+                        <th>序号</th>  
+                        <th>产品名称</th>  
+                        <th>条码</th>  
+                        <th>单位</th>  
+                        <th>数量</th>  
+                        <th>备注</th>  
+                    </tr> 
+                 </thead>
+                 <tbody id="table2">
+                 </tbody>
+            </table>
+        </div>
+        <div align="center" class="btnClass">
+            <button onclick="showGoods(this)" x="2" class="order-btn" 
+                type="button"> 添加产品
+            </button>
+            <button onclick="saveGoods(this)" x="2" class="order-btn" 
+                type="button"> 确定
+            </button>
+        </div>
+    </div>
+    
+    <!-- C客户订单页面 -->
+    <div id="company3" class="divClass" style="display: none;">
+        <div style="height: 20px"></div>
+        <img src="../images/inventory/order-c.png" class="sel_title"></img>
+        <div class="tableDiv">
+            <p class="order-no">NO:00003</p>
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+                     <tr>  
+                        <th colspan="3">订货单位：C客户</th>  
+                        <th colspan="3">电话：025-86115095</th>  
+                    </tr>  
+                     <tr>  
+                        <th colspan="3">地址：南京江宁</th>  
+                        <th colspan="3">订货日期：<span id="orderDate3"></span></th>  
+                    </tr>  
+                    <tr style="text-align: center">  
+                        <th>序号</th>  
+                        <th>产品名称</th>  
+                        <th>条码</th>  
+                        <th>单位</th>  
+                        <th>数量</th>  
+                        <th>备注</th>  
+                    </tr> 
+                 </thead>
+                 <tbody id="table3">
+                 </tbody>
+            </table>
+        </div>
+        <div align="center" class="btnClass">
+            <button onclick="showGoods(this)" x="3" class="order-btn" 
+                type="button" class="btnClass"> 添加产品
+            </button>
+            <button onclick="saveGoods(this)" x="3" class="order-btn" 
+                type="button"> 确定
+            </button>
+        </div>
+    </div>
+    
+     <!-- 库存查询结果页面 -->
+    <div id="table5" class="divClass" style="display: none;">
+        <div style="height: 20px"></div>
+        <img src="../images/inventory/storage-info.png" class="sel_title"></img>
+        <div class="tableDiv">
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+	                 <tr>
+	                     <th colspan="3">苏宁南京雨花物流基地</th>
+	                     <th colspan="4">电商仓库</th>
+	                 </tr>
+	                 <tr style="text-align: center;">
+	                     <th>序号</th>
+	                     <th>产品名称</th>
+	                     <th>条码</th>
+	                     <th>单位</th>
+	                     <th>库存数量</th>
+	                     <th>库位</th>
+	                     <th>入库日期</th>
+	                 </tr>
+                </thead>
+                 <tbody>
+	                 <tr style="text-align: center;">
+	                     <td>1</td>
+	                     <td>完达山牛奶</td>
+	                     <td>6920459905321</td>
+	                     <td>箱</td>
+	                     <td><span id="inventory1" no='A010101'></span></td>
+	                     <td>A010101</td>
+	                     <td>2018.05.06</td>
+	                 </tr>
+	                 
+	                 <tr style="text-align: center;">
+	                     <td>2</td>
+	                     <td>完达山牛奶</td>
+	                     <td>6920459905321</td>
+	                     <td>箱</td>
+	                     <td><span id="inventory2" no='A010103'></span></td>
+	                     <td>A010103</td>
+	                     <td>2018.03.15</td>
+	                 </tr>
+	                 
+	                 <tr style="text-align: center;">
+	                     <td>3</td>
+	                     <td>康师傅水</td>
+	                     <td>6920459905395</td>
+	                     <td>瓶</td>
+	                     <td><span id="inventory3" no='B010203'></span></td>
+	                     <td>B010203</td>
+	                     <td>2018.01.01</td>
+	                 </tr>
+	                 
+	                 <tr style="text-align: center;">
+	                     <td>4</td>
+	                     <td>冰红茶</td>
+	                     <td>6920459904587</td>
+	                     <td>瓶</td>
+	                     <td><span id="inventory4" no='C010102'></span></td>
+	                     <td>C010102</td>
+	                     <td>2018.02.03</td>
+	                 </tr>
+	                 
+	                 <tr style="text-align: center;">
+	                     <td>5</td>
+	                     <td>冰红茶</td>
+	                     <td>6920459904587</td>
+	                     <td>瓶</td>
+	                     <td><span id="inventory5" no='C010102'></span></td>
+	                     <td>C010102</td>
+	                     <td>2018.01.05</td>
+	                 </tr>
+	                 
+	                 <tr style="text-align: center;">
+	                     <td>6</td>
+	                     <td>德芙巧克力</td>
+	                     <td>6920459906687</td>
+	                     <td>盒</td>
+	                     <td><span id="inventory6" no='D010203'></span></td>
+	                     <td>D010203</td>
+	                     <td>2017.12.12</td>
+	                 </tr>
+	                 
+	                 <tr style="text-align: center;">
+	                     <td>7</td>
+	                     <td>海之蓝酒</td>
+	                     <td>6920459904698</td>
+	                     <td>瓶</td>
+	                     <td><span id="inventory7" no='E020301'></span></td>
+	                     <td>E020301</td>
+	                     <td>2017.11.11</td>
+	                 </tr>
+                 </tbody>
+            </table>
+        </div>
+        <div align="center" class="btnClass">
+            <button onclick="orderDistribute()" class="order-btn" 
+                type="button"> 订单分配
+            </button>
+
+        </div>
+    </div>
+    
+    <div id="table6" class="divClass" style="display: none;">
+        <div style="height: 20px"></div>
+        <div id="orderNoImg">
+        </div>
+        
+        <div class="table6Div">
+            <table class="table table-striped table-bordered table-hover">
+                <thead style="text-align: center;">
+	                 <tr>
+	                     <th colspan="4">苏宁南京雨花物流基地</th>
+	                     <th colspan="2">电商仓库</th>
+	                 </tr>
+	                 <tr>
+	                     <th>序号</th>
+	                     <th>产品名称</th>
+	                     <th>单位</th>
+	                     <th>库存数量</th>
+	                     <th><span id="orderType"></span>(产品数量)</th>
+	                     <th>是否缺货</th>
+	                 </tr>
+                </thead>
+                <tbody id="tbody6">
+                </tbody>
+            </table>
+        </div>
+        <div align="center">
+            <button onclick="ensureSingle()" class="order-btn" 
+                type="button"> 确定
+            </button>
+        </div>
+    </div>
+    
+    <div id="table7" class="divClass" style="display: none;">
+        <div align="center" id="table7_div1" class="table6Div">
+            <br>
+            <button onclick="outList()" class="order-btn" 
+                type="button"> 不足订单处理
+            </button>
+        </div>
+        <div align="center" id="table7_div2" class="table6Div">
+            <br>
+            <button onclick="outList()" class="order-btn" 
+                type="button"> 不足订单处理
+            </button>
+        </div>
+    </div>
+    
+    <div id="table8" class="divClass" style="display: none;">
+        <br>
+        <div class="table6Div">
+            <table class="table table-striped table-bordered table-hover" style="height:auto;">
+                <thead style="text-align: center;">
+                     <tr>
+                         <th>客户意见</th>
+                         <th>订单处理结果</th>
+                     </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="width: 40%">
+                            <select class="form-control" id="reasonSelect">
+                                <option value="">请选择...</option>
+                                <option value="1">客户不允许过期交货</option>
+                                <option value="2">客户允许不足额订单</option>
+                                <option value="3">客户希望所有订单一次配送，且不允许延期</option>
+                            </select>
+                        </td>
+                        <td style="width: 60%">
+                            <select class="form-control" id="select2">
+                                <option value="">请选择...</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div align="center">
+            <button onclick="ensureEdit()" class="order-btn" 
+                type="button"> 确定
+            </button>
+        </div>
+    </div>
+    
+    <div id="table9" class="divClass" style="display: none;">
+        <br>
+        <div class="table6Div">
+            <table class="table table-striped table-bordered table-hover" style="text-align: center;">
+                <thead style="text-align: center;">
+                     <tr>
+                         <th colspan="4">苏宁南京雨花物流基地</th>
+                         <th colspan="2">电商仓库</th>
+                     </tr>
+                     <tr>
+                         <th>序号</th>
+                         <th>产品名称</th>
+                         <th>单位</th>
+                         <th>库存数量</th>
+                         <th>A+B+C订单总计</th>
+                         <th>是否缺货</th>
+                     </tr>
+                </thead>
+                <tbody id="tbody9">
+                </tbody>
+            </table>
+        </div>
+        <div align="center">
+            <button id="ensureBatch" onclick="ensureBatch()" class="order-btn" 
+                type="button"> 确定
+            </button>
+            <button id="ensureBatchPick" onclick="ensureBatchPick()" class="order-btn" 
+                type="button" style="display: none;"> 确定
+            </button>
+        </div>
+    </div>
+    
+    <div id="table10" class="divClass" style="display: none;">
+        <div class="table6Div">
+            <br>
+            <button onclick="priorityList()" class="order-btn" 
+                type="button"> 优先权设置
+            </button>
+        </div>
+    </div>
+    
+    <div align="center" id="table11" class="table11Div">
+        <br>
+        <div>
+            <table class="table table-striped table-bordered table-hover" style="width: 70%;text-align: center;">
+                <thead style="text-align: center;">
+                     <tr>
+                         <th colspan="2">订单</th>
+                         <th colspan="2">优先权排序</th>
+                     </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                         <td colspan="2">A订单</td>
+                         <td colspan="2">
+                            <select class="selectpicker" style="width: 30%" id="priority1">
+							    <option value="1">1</option>
+							    <option value="2">2</option>
+							    <option value="3">3</option>
+							</select>
+                         </td>
+                     </tr>
+                    <tr>
+                         <td colspan="2">B订单</td>
+                         <td colspan="2">
+                            <select class="selectpicker" style="width: 30%" id="priority2">
+							    <option value="1">1</option>
+							    <option value="2">2</option>
+							    <option value="3">3</option>
+							</select>
+                         </td>
+                     </tr>
+                    <tr>
+                         <td colspan="2">C订单</td>
+                         <td colspan="2">
+                            <select class="selectpicker" style="width: 30%" id="priority3">
+							    <option value="1">1</option>
+							    <option value="2">2</option>
+							    <option value="3">3</option>
+							</select>
+                         </td>
+                     </tr>
+                </tbody>
+            </table>
+        </div>
+        <div align="center">
+            <button onclick="ensurePriority()" class="order-btn" 
+                type="button"> 确定
+            </button>
+        </div>
+    </div>
+    
+    <div id="table12" class="table11Div">
+        <div align="center">
+            <br>
+            <button onclick="seed()" class="order-btn" 
+                type="button"> 播种式库存分配
+            </button>
+        </div>
+    </div>
+    
+    <div id="table13" class="divClass table6Div" style="display: none;">
+        <br>
+        <input type="hidden" id="game2"/>
+        <input type="hidden" id="num1"/>
+        <input type="hidden" id="num2"/>
+        <input type="hidden" id="num3"/>
+        <div>
+            <table class="table table-striped table-bordered table-hover" style="text-align: center;">
+                <thead style="text-align: center;">
+                     <tr>
+                         <th colspan="4">苏宁南京雨花物流基地</th>
+                         <th colspan="4">电商仓库</th>
+                     </tr>
+                     <tr>
+                         <th>序号</th>
+                         <th>产品名称</th>
+                         <th>单位</th>
+                         <th>库存数量</th>
+                         <th>A订单</th>
+                         <th>B订单</th>
+                         <th>C订单</th>
+                         <th>是否满足</th>
+                     </tr>
+                </thead>
+                <tbody id="tbody13">
+                </tbody>
+            </table>
+        </div>
+        <div align="center">
+            <button onclick="ensureEachBatch()" class="order-btn" 
+                type="button"> 确定
+            </button>
+        </div>
+    </div>
+    
+    <div id="table15" class="divClass table11Div" >
+        <div align="center">
+            <br>
+            <button onclick="singlePick()" class="order-btn" 
+                type="button"> 单一订单分拣
+            </button>
+            <button onclick="batchPick()" class="order-btn" 
+                type="button"> 批量订单分拣
+            </button>
+        </div>
+    </div>
+    <div id="table16" class="divClass" style="display: none;">
+        <div align="center"><h3 id="orderName">A客户订单</h3></div>
+        <div class="table6Div">
+            <span id="orderNo"></span>
+            <table class="table table-striped table-bordered table-hover">
+                 <thead>
+                     <tr>  
+                        <th colspan="4">订货单位：<span id="companyName"></span></th>  
+                        <th colspan="4">电话：<span id="phone"></span></th>  
+                    </tr>  
+                     <tr>  
+                        <th colspan="4">地址：南京江宁</th>  
+                        <th colspan="4">订货日期：<span id="orderDate1"></span></th>  
+                    </tr>  
+                    <tr style="text-align: center">  
+                        <th>序号</th>  
+                        <th>产品名称</th>  
+                        <th>条码</th>  
+                        <th>单位</th>  
+                        <th>库存数量</th>  
+                        <th>库位</th>  
+                        <th>拣货数量</th>  
+                        <th>备注</th>  
+                    </tr> 
+                 </thead>
+                 <tbody id="orderBody">
+                 </tbody>
+                 <tr>
+                    <td colspan="6" style="text-align: center;">拣货员</td>
+                    <td colspan="2"><input class="form-control"/></td>
+                 </tr>
+            </table>
+        </div>
+        
+        <div align="center">
+            <button id="addGoods" onclick="showOrderGoods()" class="order-btn" type="button"> 添加产品</button>
+            <button id="transferBtn" onclick="transferGoods()" class="order-btn" type="button">
+            </button>
+            <button id="dealBtn" onclick="ensureSinglePick()" class="order-btn" type="button">确定</button>
+        </div>
+    </div>
+    
+    <!-- 选择产品页面 -->
+    <div class="modal fade" id="dlg" align="center">  
+	    <div class="modal-dialog" >  
+	        <div class="modal-content">  
+	            <div class="modal-header">  
+	                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>  
+	                <h4 class="modal-title">选择产品</h4>  
+	            </div>  
+	            <div class="modal-body">  
+	               <input type="hidden" id="chooseGoodsType"/>
+			       <br>
+			       <table class="table table-striped table-bordered table-hover" style="width: 98%;text-align: center;">
+			           <thead>
+				           <tr>
+				               <th>序号</th>
+				               <th>产品编号</th>
+				               <th>产品名称</th>
+				               <th>单位</th>
+				           </tr>
+			           </thead>
+			           <tbody>
+				           <tr>
+				               <td><input name="goodsId" type="radio" gn="完达山牛奶" gc="6920459905321" unit="箱"/></td>
+				               <td>6920459905321</td>
+				               <td>完达山牛奶</td>
+				               <td>箱</td>
+				           </tr>
+				           <tr>
+				               <td><input name="goodsId" type="radio" gn="康师傅水" gc="6920459905395" unit="瓶"/></td>
+				               <td>6920459905395</td>
+				               <td>康师傅水</td>
+				               <td>瓶</td>
+				           </tr>
+				           <tr>
+				               <td><input name="goodsId" type="radio" gn="冰红茶" gc="6920459904587" unit="瓶"/></td>
+				               <td>6920459904587</td>
+				               <td>冰红茶</td>
+				               <td>瓶</td>
+				           </tr>
+				           <tr>
+				               <td><input name="goodsId" type="radio" gn="德芙巧克力" gc="6920459906687" unit="盒"/></td>
+				               <td>6920459906687</td>
+				               <td>德芙巧克力</td>
+				               <td>盒</td>
+				           </tr>
+				           <tr>
+				               <td><input name="goodsId" type="radio" gn="海之蓝酒" gc="6920459904698" unit="瓶"/></td>
+				               <td>6920459904698</td>
+				               <td>海之蓝酒</td>
+				               <td>瓶</td>
+				           </tr>
+                       </tbody>
+			       </table>
+	            </div>  
+	            <div class="modal-footer">  
+	                <button type="button" class="order-btn" data-dismiss="modal">关闭</button>  
+	                <button type="button" onclick="chooseGoods()" class="order-btn">确定</button>  
+	            </div>  
+	        </div><!-- /.modal-content -->  
+	    </div><!-- /.modal-dialog -->  
+	</div>
+	
+	<!-- 选择订单页面 -->
+	<div class="modal fade" id="orderList">  
+	    <div class="modal-dialog" style="margin-left: 17%">  
+	        <div class="modal-content">  
+	            <div class="modal-header">  
+	                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>  
+	                <h4 class="modal-title">请选择订单</h4>  
+	            </div>  
+	            <div class="modal-body"> 
+		            <div class="dropdown">
+			           <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">请选择订单...
+			               <span class="caret"></span>
+			           </button>
+			            <ul class="dropdown-menu" role="menu" id="orderDetail" aria-labelledby="dropdownMenu1">
+			                <li role="presentation" id="li1">
+			                    <a role="menuitem" tabindex="-1" onclick="showOrderDetail(1)">A订单</a>
+			                </li>
+			                <li role="presentation" id="li2">
+			                    <a role="menuitem" tabindex="-1" onclick="showOrderDetail(2)">B订单</a>
+			                </li>
+			                <li role="presentation" id="li3">
+			                    <a role="menuitem" tabindex="-1" onclick="showOrderDetail(3)">C订单</a>
+			                </li>
+			            </ul>
+	                </div>
+	            </div>  
+	            <div class="modal-footer">  
+	                <button type="button" onclick="showOrderDetail()" class="order-btn">确定</button>  
+	            </div>  
+	        </div><!-- /.modal-content -->  
+	    </div><!-- /.modal-dialog -->  
+	</div><!-- /.modal --> 
+	
+	<!-- 订单产品页面 -->
+    <div class="modal fade" id="orderGoodsList"> 
+        <div class="modal-dialog" style="margin-left: 17%">  
+            <div class="modal-content">  
+                <div class="modal-header">  
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>  
+                    <h4 class="modal-title">请选择产品</h4>  
+                </div>  
+                <div class="modal-body"> 
+                    <div class="dropdown">
+                       <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">请选择产品...
+                           <span class="caret"></span>
+                       </button>
+                        <ul class="dropdown-menu" role="menu" id="orderGoodsDetail" aria-labelledby="dropdownMenu1">
+                        </ul>
+                    </div>
+                </div>  
+            </div><!-- /.modal-content -->  
+        </div><!-- /.modal-dialog -->  
+    </div><!-- /.modal --> 
+	<!-- 选择缺货订单页面 -->
+    <div class="modal fade" id="outList">  
+        <div class="modal-dialog" style="margin-left: 17%">  
+            <div class="modal-content">  
+                <div class="modal-header">  
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>  
+                    <h4 class="modal-title">请选择订单</h4>  
+                </div>  
+                <div class="modal-body"> 
+                    <div class="dropdown">
+                       <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">请选择订单...
+                           <span class="caret"></span>
+                       </button>
+                        <ul class="dropdown-menu" role="menu" id="outDetail" aria-labelledby="dropdownMenu1">
+                        </ul>
+                    </div>
+                </div>  
+            </div><!-- /.modal-content -->  
+        </div><!-- /.modal-dialog -->  
+    </div><!-- /.modal -->  
+
+    <div class="modal fade" id="resultAlert"> 
+        <div class="modal-dialog" style="margin-left: 17%">  
+            <div class="modal-content">  
+                <div class="modal-header">  
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">提示</h4>  
+                </div>  
+                <div class="modal-body"> 
+                    <span id="alertSpan"></span>
+                </div>  
+                <div align="center" class="modal-body" id="nextBtn"> 
+                </div>  
+            </div><!-- /.modal-content -->  
+        </div><!-- /.modal-dialog -->  
+    </div><!-- /.modal --> 
+    
+    <div class="modal fade" id="alertDiv">
+        <div class="modal-dialog" style="margin-left: 17%">  
+            <div class="modal-content">  
+                <div class="modal-header">  
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">提示</h4>  
+                </div>  
+                <div class="modal-body"> 
+                    <span id="dialogSpan"></span>
+                </div>  
+                <div align="center" class="modal-body" id="btnDiv"> 
+                </div>  
+            </div><!-- /.modal-content -->  
+        </div><!-- /.modal-dialog -->  
+    </div><!-- /.modal --> 
+    
+</body>
+<script type="text/javascript" src="../js/inventory.js"></script>
+<script type="text/javascript">
+$(function(){
+	var date = new Date();
+	var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var strDate = date.getDate();
+    if (month >= 1 && month <= 9) {
+        month = "0" + month;
+    }
+    if (strDate >= 0 && strDate <= 9) {
+        strDate = "0" + strDate;
+    }
+    var currentdate = year + "年" + month + "月" + strDate + "日";
+	$("span[id^='orderDate']").each(function(){
+		$(this).html(currentdate);
+	});
+});
+
+
+</script>
+</html>
+

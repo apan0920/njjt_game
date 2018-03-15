@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>线路派送</title>
+	<link rel="stylesheet" href="css/home.css" />
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <script src='js/jquery/jquery-1.10.2.min.js' ></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body class="page_3">
+    
+    <div id="main" class="main">
+        <div class="boxBg">
+            <table cellspacing="0" cellpadding="0">
+                <thead>
+                    <tr>
+                        <th colspan="3">派送路单</th>
+                    </tr>
+                    
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="h2">顺序</td>
+                        <td class="h2">派送地址</td>
+                        <td class="h2">备注</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td class="point"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td class="point"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td class="point"></td>
+                        <td></td>
+                        
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td class="point"></td>
+                        <td></td>
+                        
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td class="point"></td>
+                        <td></td>
+                        
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td class="point"></td>
+                        <td></td>
+                        
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td class="point"></td>
+                        <td></td>
+                        
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td class="point"></td>
+                        <td></td>
+                        
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td class="point"></td>
+                        <td></td>
+                        
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td class="point"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td class="point"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td class="point"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td class="point"></td>
+                        <td></td>
+                        
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td class="point"></td>
+                        <td></td>
+                        
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td class="point"></td>
+                        <td></td>
+                        
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td class="point"></td>
+                        <td></td>
+                        
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td class="point"></td>
+                        <td></td>
+                        
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td class="point"></td>
+                        <td></td>
+                        
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td class="point"></td>
+                        <td></td>
+                        
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td class="point"></td>
+                        <td></td>
+                    </tr>
+                    
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3">
+                            <span style="display:block;float:left">提交时间: <span id="time"></span></span>
+                            <span style="display:block;float:right">派送总路长：<span id="long"></span>KM</span>
+                        </td>
+                    </tr>
+
+                </tfoot>
+            </table>
+            <div class="divBtn">
+                <a href="javascript:void(0)" onclick="openprinl()"><i></i><span id="print" color="#ffffff">提交</span></a>
+                <a style="background: url(images/close_1.png) center no-repeat" href="javascript:void(0)" onclick="backGo()" >
+                    <i style="background: url(images/close_02.png) center no-repeat"></i>
+                    <span id="back">重新配线</span>
+                </a>
+            </div>
+        </div>
+        <div class="modal fade" style="" id="resultAlert">  
+	        <div class="modal-dialog">  
+	            <div class="modal-content">  
+	                <div class="modal-header">  
+	                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+	                    <h4 class="modal-title">提示</h4>  
+	                </div>  
+	                <div class="modal-body"> 
+	                    <span id="alertSpan"></span>
+	                </div>  
+	            </div><!-- /.modal-content -->  
+	        </div><!-- /.modal-dialog -->  
+	    </div><!-- /.modal --> 
+    </div>
+    
+</body>
+<script type="text/javascript">
+//屏蔽前进后退按钮
+    var LODOP;
+    function CreateFormPage(){
+        LODOP=getLodop();
+        if(LODOP==undefined){
+            return;
+        }
+        LODOP.PRINT_INIT("派送路线单");
+        LODOP.SET_PRINT_PAGESIZE(1,0,0,"A4");
+        LODOP.SET_PRINT_STYLE("FontSize",9);
+        var img='<img src="images/logo.png">';
+        LODOP.ADD_PRINT_IMAGE(0,0,100,100,img);
+        LODOP.ADD_PRINT_TEXT("20","100","600","30","2017年全国邮政行业职业技能大赛");
+        LODOP.SET_PRINT_STYLEA(0, "ItemType", 1);
+        LODOP.SET_PRINT_STYLEA(0, "FontSize", 20);
+        LODOP.SET_PRINT_STYLEA(0, "Bold", 1);
+        
+        var strStyle="<style>table{width:750px;cellspacing:0;cellpadding=0;margin:0 auto 0;border:1px solid #333;border-bottom:none;border-right:none;}table th,table td{border-bottom:1px solid #333;border-right:1px solid #333;font-size:16px;line-height:15px;padding:7px;text-align:center;}table tr th {font-size: 22px;line-height: 22px;}table tfoot td{text-align: left;padding-left: 20px;}.divBtn{display:none;}</style>";
+        var strHtml=strStyle+"<body>"+document.getElementById('main').innerHTML+"</body>";
+        LODOP.ADD_PRINT_HTM("90", "0", "100%","100%",strHtml);
+    }
+    
+    function openprinl(){
+    	var score = data.split("&&")[2];
+	    if (score != 22) {
+		    $("#alertSpan").html("派送线路不是最优，请调整线路");
+		    $("#resultAlert").modal("toggle");
+	    } else {
+	    	$("#alertSpan").html("任务完成");
+	        $("#resultAlert").modal("toggle");
+	    }
+
+    }
+    
+    function backGo(){
+        window.location.href="delivery.html";
+    }
+    var data = window.location.href.split("?")[1];
+    var point = (data.split("&&")[0]).split(",");
+    $("#long").html(data.split("&&")[1]);
+    var obj = ["青年路35号", "青年路35号创业大厦5楼506室", "黄河路81号", "黄河路55号大美制衣办公楼209室", "中华路32号", "中华路56号", "中华路85号", "中华路101号", "长江路45号", "长江路53号", "长江路61号", "长江路69号", "新华路86号", "新华路72号", "新华路54号", "长江快递网店", "青年路35号创业大厦11楼1110室", "青年路35号创业大厦15楼1511室", "青年路35号创业大厦17楼1703室", "黄河路55号大美制衣办公楼318室", "黄河路55号大美制衣办公楼405室"]
+
+    for (var i = 0; i < point.length; i++) {
+        $(".point").eq(i).html(obj[point[i]]);
+    }
+
+    var date = new Date();
+    var time = date.toLocaleDateString();
+    $("#time").html(time + "&nbsp;" + date.toLocaleTimeString().slice(0, -3));
+</script>
+</html>
+

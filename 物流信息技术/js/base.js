@@ -1,5 +1,5 @@
 
-var ajaxUrl = 'http://192.168.10.61:8888/nosgame/';
+var ajaxUrl = 'http://192.168.10.196:8888/nosgame/';
 /*var curWwwPath=window.document.location.href; 
 //获取主机地址之后的目录如：/Tmall/index.jsp 
 var pathName=window.document.location.pathname; 
@@ -60,17 +60,22 @@ function getNowFormatDate() {
  *  });
  */
 //弹窗（提示信息）
-function showAlert(name,status,callback){
+function showAlert(name,status,callback, closeShow){
+	var close_html = '<div href="javascript:;" class="msg_close"></div>';
+	if (closeShow == "false") {
+		close_html = '';
+	}
 	var alert_html = '<div class="msg_box_alert">'+
 						'<div class="msg_box">'+
 							'<p class="msg_content">'+ name +'</p>'+
 							'<a href="javascript:;" class="msg_confirm"></a>'+
 							'<a href="javascript:;" class="msg_cancel"></a>'+
-							'<div href="javascript:;" class="msg_close"></div>'+
+							close_html+
 						'</div>'+
 					'</div>';
 
 	var obj = $(alert_html);
+	
 
 	if(status == 'end'){
 		obj.find('.msg_cancel').remove();
@@ -118,6 +123,7 @@ function showAlert(name,status,callback){
 				obj.remove();
 			},500);
 	});
+	
 
 };
 
@@ -138,8 +144,7 @@ function signOut(){
 		},
 		error: function(){}
 	});*/
-
-	window.location.href = '../login.html';
+	window.location.href = '../../login.html';
 
 };
 

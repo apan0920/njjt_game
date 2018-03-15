@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: 1042px;
+    height: 630px;
+    border: 1px solid #8e8e8e;
+    margin: 10px auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.cancel {
+    z-index: 110;
+    position: absolute;
+    width: 48px;
+    height: 30px;
+    top: 8px;
+    right: 119px;
+    cursor: pointer;
+}
+
+.point_list {
+    width: 1042px;
+    height: 630px;
+    background: url(image/1.jpg) top left no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.point_list li {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+/*        background: red;*/
+    z-index: 100;
+    cursor: pointer;
+}
+
+.point1 {
+    top: 560px;
+    left: 365px;
+}
+
+.point2 {
+    top: 560px;
+    left: 529px;
+}
+
+.point3 {
+    top: 560px;
+    left: 640px;
+}
+
+.point4 {
+    top: 355px;
+    left: 895px;
+}
+
+.point5 {
+    top: 261px;
+    left: 895px;
+}
+.point6 {
+    top: 149px;
+    left: 895px;
+}
+
+.point7 {
+    top: 253px;
+    left: 758px;
+}
+
+.point8 {
+    top: 435px;
+    left: 682px;
+}
+
+.point9 {
+    top: 436px;
+    left: 439px;
+}
+
+.point10 {
+    top: 254px;
+    left: 262px;
+}
+
+.point11 {
+    top: 192px;
+    left: 129px;
+}
+
+.point12 {
+    top: 353px;
+    left: 127px;
+}
+
+
+#line {
+    position: absolute;
+    z-index: 99;
+}

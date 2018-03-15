@@ -2,12 +2,14 @@
 * @Author: pz
 * @Date:   2018-01-16 09:52:21
 * @Last Modified by:   pz
-* @Last Modified time: 2018-02-26 15:02:55
+* @Last Modified time: 2018-03-15 20:07:13
 */
 
 body { font-family: "Microsoft YaHei",Helvetica,Arial,sans-serif; font-size: 14px; line-height: 1.42857143; color: #333; background: #f6f6f6;}
 html,body { width:100%; height: 100%;min-width: 800px;min-height: 600px; }
 #wrapper{height: 100%;min-width: 800px;min-height: 600px;position: relative;}
+a:link, a:visited, a:hover, a:active{text-decoration:none; color: #FFF; }
+
 /* 登录页--start */
 body{background: url(../images/sys_bg.png) no-repeat; background-size: 100% 100%;}
 .logo{position: absolute; display: inline;top: 30px;}
@@ -19,7 +21,7 @@ body{background: url(../images/sys_bg.png) no-repeat; background-size: 100% 100%
 .login_box{background: url(../images/login_box_bg.png) no-repeat; width: 27%; min-width: 300px; height: 36%; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); background-size: 100% 100%;}
 .login_input_bg{background: url(../images/bg_login02.png); background-size: 100% 100%; }
 
-.login_btn_bg{width: 399px; height: 50px;background: url(../images/img_login03.png); background-size: 100% 100%; }
+.login_btn_bg{width: 399px; height: 50px;background: url(../images/img_login03.png); background-size: 100% 100%; cursor: pointer;}
 .login-btn-text{position: absolute;top: 50%;left: 50%; transform: translate(-50%,-50%); }
 .login_box_content{width: 70%; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
 .login_box span{border: none;background: none;}
@@ -29,31 +31,50 @@ body{background: url(../images/sys_bg.png) no-repeat; background-size: 100% 100%
 .footer{position: absolute; bottom: 1px; left: 50%;transform: translate(-50%);color:#EEE;}
 /* 登录页--end */
 
+/* 提示框 */
+.msg_box_alert {display: none; position: fixed; z-index: 99999; width: 100%; height: 100%; top: 0; left: 0; background: rgba(0,0,0,.7); }
+.msg_box{background: url(../images/msg_box_bg.png) no-repeat;width: 329px;height: 173px; position: absolute; top: 50%; left: 50%;margin-top:-82px; margin-left:-163px; transform: translate(-50%,-50%);}
+.msg_content{color:#CE1717;position: absolute; top: 30%; left: 27%;}
+.msg_confirm{background: url(../images/msg_box_confirm.png) no-repeat;width: 107px;height: 37px;position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%);}
+.msg_cancel{background: url(../images/msg_box_cancel.png) no-repeat;width: 107px;height: 37px;position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%);}
+.msg_close{width: 28px;height: 28px;position: absolute; right: 1%;}
+/* 任务说明及提示 */
+.msg-box{height: 100%;}
+.msg-close{width: 15px;height: 15px;position: absolute; background: url(../images/msg/msg-close.png);cursor: pointer;}
+.msg-mask{width: 100%;height: 100%; position: absolute; background-color: #000; opacity: 0.7; z-index: 50;}
+.mission-intro{width: 755px; height: 404px; position: absolute; left: 50%; top: 50%; background: url(../images/msg/msg-intro-bg.png) no-repeat; background-size: 100% 100%; z-index: 99; margin-top: -200px; margin-left: -400px; }
+.mission-intro-title{position: absolute; left: 56%; top: 9%;font-size: 22px;}
+.mission-intro-text{position: absolute; left: 37%; top: 21%; font-size: 17px; right: 4%;}
+.mission-intro-close{right: 4%; top: 8%;}
+.mission-intro-confirm{width: 181px;position: absolute; left: 50%; transform: translateX(-50%);background: url(../images/msg/btn-confirm.png);cursor: pointer; text-align: center; line-height: 52px; color: white; font-size: 18px; font-weight: bold;}
+
+
 
 /* 游戏选择界面 --start*/
 .game_select_bg{background: darkred;width: 60%; min-width: 700px; max-width:751px; height: 75%;min-height: 475px; background: url(../images/sel_bg.png); background-size: 100% 100%; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
 .sel_title{position: absolute; left: 50%; transform: translateX(-50%);top: 3%;}
-.sel_btns{width: 90%; height: 50%;position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
-.sel_btn{width: 292px; height: 122px;background: url(../images/sel_btn.png); background-size: 100% 100%;display: inline-block; position: absolute;}
-.sel_btn:hover{width: 292px; height: 122px;background: url(../images/sel_btn_hover.png); background-size: 100% 100%;display: inline-block; position: absolute;}
-.sel_btn_addon{left: 50%; top: 50%; position: absolute; transform: translate(-50%,-50%);}
-.btn-left{left: 1%;}
-.btn-right{right: 1%;}
+.sel_btns{width: 90%; position: absolute; left: 50%; top: 55%; transform: translate(-50%,-50%);}
+.sel_btn{width: 292px; height: 122px;background: url(../images/sel_btn.png); display: inline-block; position: relative; margin: 0 0% 3% 2%;}
+.sel_btn_grey{background: url(../images/sel_btn_grey.png);}
+.sel_btn_hover{background: url(../images/sel_btn_hover.png);}
+.sel_btn_addon{left: 50%; top: 50%; position: absolute; transform: translate(-50%,-50%);} 
 
-.sel_btn_hover{width: 442px; height: 58px;background: url(../images/sel_btn_hover.png); background-size: 100% 100%;}
 
 .back_btn{background: url(../images/btn_back.png)  no-repeat; background-size: 100%; width: 52px; height: 52px; position: absolute;right: 1%; cursor:pointer;}
+.index_btn{background: url(../images/btn_back.png)  no-repeat; background-size: 100%; width: 52px; height: 52px; position: absolute;right: 1%; cursor:pointer;}
 /* 游戏选择界面 --end*/
+
+/*存货分配*/
+/*1.查看订单--订单制作*/
+.btn-view-order{width: 181px;position: absolute; right: 1%; background: url(../images/msg/btn-confirm.png);cursor: pointer; text-align: center; line-height: 52px; font-size: 18px; font-weight: bold; top: 400%;}
+
+
+
+
 
 
 @media (max-height: 900px) {
-	/* 游戏选择界面 --start*/
-	/* .sel_btns { height: 65%;}
-	.sel_btn { width: 47%;margin: 1%;}
-	.sel_btn:hover{width: 47%;margin:1%;}
-	.sel_btn_title{font-size: 16px;} */
-	/* 游戏选择界面 --end*/
-
+	
 }
 @media (max-height: 800px) {
 	

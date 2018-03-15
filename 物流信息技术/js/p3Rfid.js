@@ -2,11 +2,11 @@
 * @Author: pz
 * @Date:   2018-01-23 15:40:35
 * @Last Modified by:   pz
-* @Last Modified time: 2018-01-31 15:57:34
+* @Last Modified time: 2018-03-09 12:05:41
 */
 $(function () {
 	// 播放视频--start
-	var myVideo = document.getElementById('rfid');
+	myVideo = document.getElementById('rfid');
 	$('.p2_video_bg , .p2_video_bg_refresh').click(function(){
 		$(this).hide();
 
@@ -257,18 +257,22 @@ function controlBtn(btnNo) {
 
 function nextBtn() {
 	if ($(".p3-box-item").css("display") == "block") {
+		myVideo.pause();//停止播放音频
 		$(".p3-box-item").hide();
 		$(".p3-info-box").show();
+
 		/*显示信息流动画*/
 		setTimeout(infoAnimate(),500);
 	} else if ($(".p3-info-box").css("display") == "block") {
 		$(".p3-info-box").hide();
 		$(".p3-scene-box").show();
+		//最后一步显示为[完成]按钮
+		$(".next_btn").addClass("finish_btn");
 		/*显示场景动画*/
 		setTimeout(sceneAnimate(),500);
 	} else if ($(".p3-scene-box").css("display") == "block"){
 		showAlert('游戏完成，返回主界面!','end',function(){
 			window.location.href = "index.html";
-		});
+		},"false");
 	}
 }

@@ -1,0 +1,210 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: 1000px;
+    height: 680px;
+    border: 1px solid #8e8e8e;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.cancel {
+    z-index: 110;
+    position: absolute;
+    width: 53px;
+    height: 33px;
+    top: 17px;
+    right: 146px;
+    cursor: pointer;
+    /*    background: rgba(255, 0, 0, .5);*/
+}
+
+.show {
+    z-index: 110;
+    position: absolute;
+    width: 116px;
+    height: 33px;
+    top: 17px;
+    right: 15px;
+    cursor: pointer;
+/*    background: rgba(255, 0, 0, .5);*/
+}
+
+.select{
+    background: url(../images/selected.png) 50% 50% no-repeat;
+    background-size: 25px 25px;
+}
+
+.selects{
+    background: url(../images/selected.png) top left no-repeat;
+    background-size: 20px 20px;
+}
+
+.point_list {
+    width: 1000px;
+    height: 680px;
+    background: url(../images/3.png) top left no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.point_list li {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    /*    background: red;*/
+    z-index: 100;
+    cursor: pointer;
+}
+
+.point_list li a {
+    display: block;
+    padding-left: 15px;
+    line-height: 33px;
+    color: white;
+    text-decoration: underline;
+    font-size: 15px;
+}
+
+.point_list li a:hover {
+    color: #a8a8a8;
+}
+
+.point1 {
+    top: 635px;
+    left: 333px;
+}
+
+.point_list .point2 {
+    top: 397px;
+    left: 538px;
+    width: 265px;
+    height: 28px;
+}
+
+.point_list .point3 {
+	height:30px;
+    top: 330px;
+    left: 776px;
+}
+
+.point_list .point4 {
+    top: 183px;
+    left: 582px;
+    width: 263px;
+    height: 28px;
+}
+
+.point5 {
+    top: 138px;
+    left: 676px;
+}
+
+.point6 {
+    top: 138px;
+    left: 581px;
+}
+
+.point7 {
+    top: 0;
+    left: 317px;
+}
+
+.point8 {
+    top: 0;
+    left: 239px;
+}
+
+.point9 {
+    top: 160px;
+    left: 51px;
+}
+
+.point10 {
+    top: 231px;
+    left: 51px;
+}
+
+.point11 {
+    top: 310px;
+    left: 51px;
+}
+
+.point12 {
+    top: 396px;
+    left: 51px;
+}
+
+.point13 {
+    top: 434px;
+    left: 493px;
+}
+
+.point14 {
+    top: 311px;
+    left: 493px;
+}
+
+.point15 {
+    top: 213px;
+    left: 493px;
+}
+
+.point16 {
+    top: 639px;
+    left: 232px;
+}
+
+.point_list .point17 {
+    top: 425px;
+    left: 538px;
+    width: 265px;
+    height: 28px;
+}
+
+.point_list .point18 {
+    top: 453px;
+    left: 538px;
+    width: 265px;
+    height: 28px;
+}
+
+.point_list .point19 {
+    top: 481px;
+    left: 538px;
+    width: 265px;
+    height: 28px;
+}
+
+.point_list .point20 {
+    top: 214px;
+    left: 582px;
+    width: 264px;
+    height: 28px;
+}
+
+.point_list .point21 {
+    top: 242px;
+    left: 582px;
+    width: 264px;
+    height: 28px;
+}
+
+#line {
+    position: absolute;
+    z-index: 99;
+}

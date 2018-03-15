@@ -1,0 +1,60 @@
+*{ margin:0; padding:0; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+html{ width:100%; height:100%; }
+h3,p,label,input,input[type="text"], input[type="password"], { margin:0; }
+body{font-size:12px; background:#fff; font-family: "Microsoft YaHei"; min-height: 100%; }
+ul,li { list-style: none; }
+a,a:active,a:link { color:#333; display: block; text-decoration: none; }
+
+.fl { float: left; }
+.fr { float: right; }
+.clearfix{ zoom:1; }
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+.container { /*width:980px;*/ margin:auto; position: relative; }
+
+/*html,body { width:100%; height:100%; }*/
+
+/*头部&底部*/
+.header { background: url(../images/bg_header.jpg) center top no-repeat; height:90px; position: relative; z-index: 9999; }
+.header .logo { display: inline-block; vertical-align: middle; margin:0 20px; }
+.header .logo img { height: 70px; }
+.header .title { display: inline-block; vertical-align: middle; padding: 0 0 0 15px; font-size: 24px; line-height: 40px; padding:25px 0; color:#000; letter-spacing: 2px; }
+
+.header .userInfo { position: absolute; top:0; right:30px; padding:26px 0; }
+.header .userInfo span { font-size: 16px; line-height: 34px; vertical-align: middle; color:#fff; margin-right:10px; }
+.header .userInfo a { display: inline-block; font-size: 16px; width:80px; height: 34px; line-height: 34px; border:1px solid #fff; border-radius: 5px; color:#fff; text-align: center; }
+
+
+/*内页公用*/
+.main { width:100%; height:100%; margin-top:-90px; padding-top:90px; z-index: 9998; position: relative;  }
+
+.main .boxBg { width:100%; height: 100%; position: relative; }
+.main .leftNav { position: absolute; top:0; left:0; height:100%; width:200px; text-align: center; background: #eeeeee; font-size: 0; }
+.main .rightContent { margin-left: 200px; height: 100%;  }
+
+.main .leftNav a { display: inline-block; font-size: 16px; line-height: 50px; width:130px; height: 50px; color:#ffffff; background: url(../images/bg_nav1.png) center no-repeat; margin-top:16px; }
+.main .leftNav a i { display: inline-block; vertical-align: middle; width:18px; margin-right:5px; height:50px; background-position: center; background-repeat: no-repeat; }
+.main .leftNav a span { display: inline-block; vertical-align: middle; }
+.main .leftNav a.ico_1 i { background-image: url(../images/ico_p1.png); }
+.main .leftNav a.ico_2 i { background-image: url(../images/ico_p2.png); }
+.main .leftNav a.ico_3 i { background-image: url(../images/ico_p3.png); }
+.main .leftNav a.ico_4 i { background-image: url(../images/ico_p4.png); }
+
+.print { position: absolute; top:20px; right:20px; width:190px; height:50px; font-size: 16px; line-height: 50px; background: url(../images/bg_p1.png) center no-repeat; text-align: center; }
+.print i { display: inline-block; vertical-align: middle; width:26px; height:50px; background: url(../images/form/ico_p5.png) center no-repeat; margin-right:5px; color:#fff; }
+.print span { color:#fff; letter-spacing: 2px; }
+
+
+/*page_1*/
+.boxBg { padding-top:20px;  }
+
+table { width:800px; margin:0 auto 0; border:1px solid #333333; border-bottom:none; border-right: none; }
+table td,table th { border-bottom: 1px solid #333;border-right: 1px solid #333; font-size: 16px; line-height: 15px; padding:7px; text-align: center; }
+table tfoot td {  text-align: left; padding-left: 20px; }
+table tr th{font-size:22px; line-height:22px;}
+
+.divBtn { padding:30px 0 0; text-align: center; }
+.divBtn a { display: inline-block; width:110px; height: 50px; background: url(../../images/form/bg_p2.png) center no-repeat; }
+.divBtn a i { display: inline-block; vertical-align: middle; width:20px; height:100%; background: url(../../images/form/ico_p5.png) center no-repeat; }
+.divBtn a span { font-size: 16px; line-height: 50px; color:#fff; vertical-align: middle; margin-left: 6px; letter-spacing: 2px; }
+
+

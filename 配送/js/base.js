@@ -26,6 +26,10 @@ function get_address(name) {
     return window.localStorage.getItem(name);
 };
 
+function clearData(){
+	window.localStorage.clear();
+}
+
 //获取当前时间
 function getNowFormatDate() {
     var date = new Date();
@@ -60,13 +64,17 @@ function getNowFormatDate() {
  *  });
  */
 //弹窗（提示信息）
-function showAlert(name,status,callback){
+function showAlert(name, status, callback, closeShow){
+	var close_html = '<div href="javascript:;" class="msg_close"></div>';
+	if (closeShow == "false") {
+		close_html = '';
+	}
 	var alert_html = '<div class="msg_box_alert">'+
 						'<div class="msg_box">'+
 							'<p class="msg_content">'+ name +'</p>'+
 							'<a href="javascript:;" class="msg_confirm"></a>'+
 							'<a href="javascript:;" class="msg_cancel"></a>'+
-							'<div href="javascript:;" class="msg_close"></div>'+
+							close_html+
 						'</div>'+
 					'</div>';
 
@@ -178,7 +186,68 @@ $(function () {
 /*返回按钮*/
 $(".back_btn").click(
 		function function_name(argument) {
-			/*window.location.href = "index.html";*/
-			window.location.href = "../login.html";
+			window.location.href = "index.html";
 		}
 	);
+
+/*首页-index.html 效果控制--start*/
+// 选择效果
+$('.sel_btn').hover(
+	function () {
+		if (!$(this).hasClass('sel_btn_grey')) {
+			$(this).addClass('sel_btn_hover');	
+		}
+	},function () {
+		if (!$(this).hasClass('sel_btn_grey')) {
+			$(this).removeClass('sel_btn_hover');
+		}
+	}
+);
+//释放拣货单制作按钮
+function orderMakeControl() {
+	var childImgHtml = '';
+	if (getQueryString('orderMake') == "1") {
+		childImgHtml = '<img src="../images/icon-pickOrderMake.png" class="sel_btn_addon" alt="拣货单制作"></img>';
+		$('#orderMake').attr('href','pick-index.html?orderMake=pick');
+	}else{
+		$('#orderMake').addClass('sel_btn_grey');
+		childImgHtml = '<img src="../images/icon-pickOrderMakeGrey.png" class="sel_btn_addon" alt="拣货单制作"></img>';
+	}
+	$('#orderMake').empty().append(childImgHtml);
+}
+/*首页-index.html 效果控制--end*/
+
+/*根据参数名获取地址栏参数*/
+function getQueryString(name) {
+     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+     var r = window.location.search.substr(1).match(reg);
+     if(r!=null)return  unescape(r[2]); return null;
+}
+/** 
+  * 获取指定URL的参数值 
+  * @param url  指定的URL地址 
+  * @param name 参数名称 
+  * @return 参数值 
+  */  
+ function getUrlParam(url,name) {  
+     var pattern = new RegExp("[?&]"+name+"\=([^&]+)", "g");  
+     var matcher = pattern.exec(url);  
+     var items = null;  
+     if(null != matcher){  
+             try{  
+                    items = decodeURIComponent(decodeURIComponent(matcher[1]));  
+             }catch(e){  
+                     try{  
+                             items = decodeURIComponent(matcher[1]);  
+                     }catch(e){  
+                             items = matcher[1];  
+                     }  
+             }  
+     }  
+     return items;  
+}  
+
+function gameBegin() {
+	clearData();
+	window.location.href = "inventory-index.html"
+}

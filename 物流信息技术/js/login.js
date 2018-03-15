@@ -19,7 +19,10 @@ function login(){
 		data: { ucode:ucode ,password:password },
 		success: function(data){
 			// console.log(JSON.stringify(data));
-			if(data.status != '1'){ showAlert(data.message,'end'); return; };
+			if(data.status != '1'){
+			 showAlert(data.message,'end'); 
+			 return; 
+			};
 			$('#loginBtn').attr('isSubmit','false');
 			set_address('ucode',ucode);
 
@@ -33,7 +36,7 @@ function login(){
 
 $(function(){
 
-	/*//监听输入框值变化：有值时显示删除按钮
+	//监听输入框值变化：有值时显示删除按钮
 	$('.login_item input').bind('input propertychange', function() {  
 		var val = $(this).val().length;
 		if(val>0){
@@ -47,7 +50,7 @@ $(function(){
 	$('i.login_close').click(function(){
 		$(this).siblings('input').val('');
 		$(this).fadeOut();
-	});*/
+	});
 
 	//登录游戏
 	$('#loginBtn').click(function(){
