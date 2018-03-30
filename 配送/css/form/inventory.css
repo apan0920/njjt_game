@@ -1,7 +1,7 @@
 body { font-family: "Microsoft YaHei",Helvetica,Arial,sans-serif; font-size: 14px; line-height: 1.42857143; color: #333; background: transparent;}
 .divClass{text-align:center; }
 .table th, .table td {text-align: center; color: #0F4262; font-weight: normal; }
-.tableDiv{margin: 30px 20px 10px;}
+.tableDiv{margin: 7% 20px 10px;}
 .address th{text-align: left;}
 .order-no{color: #FFF; float: left; font-size: 18px;}
 .table-bordered,.table-bordered > thead > tr > th, .table-bordered > thead > tr > td {
@@ -16,3 +16,6 @@ body { font-family: "Microsoft YaHei",Helvetica,Arial,sans-serif; font-size: 14p
 .modal-dialog{margin: 5%;}
 .table6Div{margin: 70px 20px 10px;}
 .table11Div{margin: 70px 20% 10px;width: 60%;display: none;}
+
+.pick-order-tables{display: none; position: fixed;  width: 100%; margin: 71px 0 0px;; bottom: 1%; background: #259ed6; }
+#table5{ padding-bottom: 70px;}

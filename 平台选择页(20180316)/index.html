@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>游戏选择页面</title>
+		<meta name="keywords" content="配送游戏,配送,物流游戏,游戏" />
+		<meta name="description" content="游戏" />
+
+		<!-- basic styles -->
+		<link href="../css/myBase.css" rel="stylesheet" />
+		<link href="../js/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div id="wrapper">
+			<div id="header">
+				<!-- 引入公共头页面 -->
+			</div>
+			<div class="game_select_bg" >
+				<!-- <img src="../images/sel_title.png" class="sel_title"></img> -->
+				<div class="sel_btns">
+					<a onclick="gameBegin()" class="sel_btn">
+						<img src="../images/icon-storage.png" alt="3D仓储" class="sel_btn_addon" ></img>
+					</a>
+				
+					<a href="check-index.html" class="sel_btn ">
+						<img src="../images/icon-eoq.png"  alt="EOQ" class="sel_btn_addon"></img>
+					</a>
+					
+					<a href="check-index.html" class="sel_btn ">
+						<img src="../images/icon-pick.png"  alt="拣货策略" class="sel_btn_addon"></img>
+					</a>
+					<a href="check-index.html" class="sel_btn ">
+						<img src="../images/icon-check.png"  alt="库存盘点" class="sel_btn_addon"></img>
+					</a>
+					<a href="check-index.html" class="sel_btn ">
+						<img src="../images/icon-fire.png"  alt="灭火器游戏" class="sel_btn_addon"></img>
+					</a>
+					<a href="check-index.html" class="sel_btn ">
+						<img src="../images/icon-gps.png"  alt="四号定位法" class="sel_btn_addon"></img>
+					</a>
+					<a href="check-index.html" class="sel_btn ">
+						<img src="../images/icon-inspection.png"  alt="验货" class="sel_btn_addon"></img>
+					</a>
+				</div>
+
+				<!-- <div class="bottom_btns"> -->
+				<!-- 返回主界面按钮 -->
+				<div class="index_btn" onclick="signOut();"></div>
+			<!-- </div> -->
+				
+			</div>
+			
+			
+
+			<div id="footer" > 
+				<!-- 引入公共尾页面（版权说明） -->
+			</div>
+		</div>
+		<!-- basic scripts -->
+		<script src="../js/jquery.min.js"></script>
+		<script src="../js/base.js"></script>
+		<script type="text/javascript">
+			orderMakeControl();
+		</script>
+	</body>
+</html>

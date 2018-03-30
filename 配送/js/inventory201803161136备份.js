@@ -767,7 +767,7 @@ function singlePick(){
 //显示客户拣货单
 var companyOrder = 0;
 function pick(){
-//	$("#alertDiv").modal("hide"); 
+	$("#alertDiv").modal("hide"); 
 	$("#resultAlert").modal("hide"); 
 	$("#table15").hide();
 	$("#company1").hide();
@@ -832,22 +832,21 @@ function pick(){
 				var htmls = "<div align='center' class='modal-footer'><button type='button' onclick='transfer()' class='btn btn-primary'>确定</button></div>";
 				$("#btnDiv").empty();
 				$("#btnDiv").html(htmls);
-				$("#dialogSpan").html("由于当前订单："+compNo+"订单中的康师傅水库存不足，并且配送措施选择：重新调拨。所以需要先完成调拨完成后  ，才能生成拣货单"); 
+				$("#dialogSpan").html("由于当前订单："+orderName+" 中的康师傅水库存不足，并且配送措施选择：重新调拨。所以需要先完成调拨完成后  ，才能生成拣货单"); 
 				totalBak[index+2] = orderNum;//设置库存数量与订单数量相同
 				set_address("totalBak",totalBak);
 				$("#alertDiv").modal("toggle");
 			} else if (deal == 2 || deal == 6){//取消整张订单,则不生成拣货单
-				$("#dialogSpan").html("由于当前订单："+compNo+"订单中的康师傅水库存不足，并且配送措施选择：取消整张订单。所以该订单不生成拣货单"); 
+				$("#dialogSpan").html("由于当前订单："+orderName+" 中的康师傅水库存不足，并且配送措施选择：取消整张订单。所以该订单不生成拣货单"); 
 				var htmls = "<div align='center' class='modal-footer'><button type='button' onclick='nextOrder()' class='btn btn-primary'>确定</button></div>";
 				$("#btnDiv").empty();
 				$("#btnDiv").html(htmls);
-				
-				$("#alertDiv").modal("show"); 
+				$("#alertDiv").modal("toggle"); 
 			} else if (deal == 3) {//公司有货时，补送不足额商品
 				var htmls = "<div align='center' class='modal-footer'><button type='button' onclick='transfer()' class='btn btn-primary'>确定</button></div>";
 				$("#btnDiv").empty();
 				$("#btnDiv").html(htmls);
-				$("#dialogSpan").html("由于当前订单："+compNo+"订单中的康师傅水库存不足，并且配送措施选择：公司有货时，补送不足额商品。");
+				$("#dialogSpan").html("由于当前订单："+orderName+" 中的康师傅水库存不足，并且配送措施选择：公司有货时，补送不足额商品。");
 				totalBak[index+2] = orderNum;//设置库存数量与订单数量相同
 				set_address("totalBak",totalBak);
 				$("#alertDiv").modal("toggle");
@@ -870,10 +869,10 @@ function pick(){
 					var htmls = "<div align='center' class='modal-footer'><button type='button' onclick='transfer()' class='btn btn-primary'>确定</button></div>";
 					$("#btnDiv").empty();
 					$("#btnDiv").html(htmls);
-					$("#dialogSpan").html("由于当前订单："+compNo+"订单中的康师傅水库存不足，并且配送措施选择：公司政策不允许分批出货，删除订单中不足额部分商品。所以需要先删除库存不足的产品，再生成拣货单。"); 
+					$("#dialogSpan").html("由于当前订单："+orderName+" 中的康师傅水库存不足，并且配送措施选择：公司政策不允许分批出货，删除订单中不足额部分商品。所以需要先删除库存不足的产品，再生成拣货单。"); 
 					$("#alertDiv").modal("toggle");
 				} else {
-					$("#dialogSpan").html("由于当前订单："+compNo+"订单中的康师傅水库存不足，并且配送措施选择：公司政策不允许分批出货，删除订单中不足额部分商品。所以需要先删除库存不足的产品，再生成拣货单。<br>删除缺货产品后，该订单已没有产品，所以不产生拣货单"); 
+					$("#dialogSpan").html("由于当前订单："+orderName+" 中的康师傅水库存不足，并且配送措施选择：公司政策不允许分批出货，删除订单中不足额部分商品。所以需要先删除库存不足的产品，再生成拣货单。<br>删除缺货产品后，该订单已没有产品，所以不产生拣货单"); 
 					var htmls = "<div align='center' class='modal-footer'><button type='button' onclick='nextOrder()' class='btn btn-primary'>确定</button></div>";
 					$("#btnDiv").empty();
 					$("#btnDiv").html(htmls);
@@ -883,7 +882,7 @@ function pick(){
 				var htmls = "<div align='center' class='modal-footer'><button type='button' onclick='transfer()' class='btn btn-primary'>确定</button></div>";
 				$("#btnDiv").empty();
 				$("#btnDiv").html(htmls);
-				$("#dialogSpan").html("由于当前订单："+compNo+"订单中的康师傅水库存不足，并且配送措施选择：客户允许一定时间的延期交货，并所有订单一次配送。所以需要先等产品库存足够  ，才能生成拣货单"); 
+				$("#dialogSpan").html("由于当前订单："+orderName+" 中的康师傅水库存不足，并且配送措施选择：客户允许一定时间的延期交货，并所有订单一次配送。所以需要先等产品库存足够  ，才能生成拣货单"); 
 				totalBak[index+2] = orderNum;//设置库存数量与订单数量相同
 				set_address("totalBak",totalBak);
 				$("#alertDiv").modal("toggle");
@@ -993,20 +992,13 @@ function transferGoods(){
 function nextOrder(){
 	if (companyOrder != 2) {//未完成拣货
 		companyOrder++;
-		$("#alertDiv").modal("hide");
-		$('#alertDiv').on('hidden.bs.modal', function () {
-			pick();	
-			  // 执行一些动作...
-		})
+		pick();
 	} else {
-		$("#alertDiv").modal("hide");
-		$('#alertDiv').on('hidden.bs.modal', function () {
-			var htmls = "<div align='center' class='modal-footer'><button type='button' onclick='newGame()' class='btn btn-primary'>确定</button></div>";
-			$("#btnDiv").empty();
-			$("#btnDiv").html(htmls);
-			$("#dialogSpan").html("任务完成"); 
-			$("#alertDiv").modal("show"); 	
-		})
+		var htmls = "<div align='center' class='modal-footer'><button type='button' onclick='newGame()' class='btn btn-primary'>确定</button></div>";
+		$("#nextBtn").empty();
+		$("#nextBtn").html(htmls);
+		$("#alertSpan").html("任务完成"); 
+		$("#resultAlert").modal("toggle"); 
 	}
 }
 

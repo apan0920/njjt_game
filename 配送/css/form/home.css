@@ -57,4 +57,5 @@ table tr th{font-size:22px; line-height:22px;}
 .divBtn a i { display: inline-block; vertical-align: middle; width:20px; height:100%; background: url(../../images/form/ico_p5.png) center no-repeat; }
 .divBtn a span { font-size: 16px; line-height: 50px; color:#fff; vertical-align: middle; margin-left: 6px; letter-spacing: 2px; }
 
-
+.disDetail{text-align: center; width: 94%; background: #fff; position: fixed; bottom: 0px; padding: 5px 0 2px 0;}
+.boxBgPage{margin-bottom: 80px;}

@@ -3,7 +3,7 @@
 * @Date:   2018-03-12 17:09:27
 * @intro:  存货分配游戏
 * @Last Modified by:   pz
-* @Last Modified time: 2018-03-15 19:40:12
+* @Last Modified time: 2018-03-16 08:59:15
 */
 
 $(function () {
@@ -240,8 +240,11 @@ function diffOrderPrint(text, funName) {
         } else if(funName == "ensureEdit"){
             // 把人换成经理
             $('#theBackStop').fadeOut();//隐藏小组长图片
-            $('#checkerNo').html("经理");
-            $('#managerStop').fadeIn();//显示经理图片
+            $('#checkerId').html("经理签字");
+            setTimeout(function (argument) {
+                $('#managerStop').fadeIn();//显示经理图片
+            },300);
+            
             
             childframe.window.ensureEdit();//6、调用子页面--显示差异盘点单--经理签字
         }

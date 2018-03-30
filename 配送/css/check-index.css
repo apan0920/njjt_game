@@ -2,7 +2,7 @@
 * @Author: pz
 * @Date:   2018-01-16 09:52:21
 * @Last Modified by:   pz
-* @Last Modified time: 2018-03-15 19:41:35
+* @Last Modified time: 2018-03-16 09:35:47
 */
 
 body { font-family: "Microsoft YaHei",Helvetica,Arial,sans-serif; font-size: 14px; line-height: 1.42857143; color: #333; background: #f6f6f6;}
@@ -122,8 +122,9 @@ body{background: url(../images/check/game-bg.png) no-repeat; background-size: 10
 	
 }
 @media (max-height: 800px) {
-	
+	.game-select-bg-check{width: 40%; min-width: 290px;}
 }
 @media (max-height: 600px) {
 
+    .game-select-bg-check{width: 30%; min-width: 290px;}
 }

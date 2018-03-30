@@ -2,7 +2,7 @@
 * @Author: pz
 * @Date:   2018-01-16 09:52:21
 * @Last Modified by:   pz
-* @Last Modified time: 2018-03-16 10:44:46
+* @Last Modified time: 2018-03-16 11:59:24
 */
 
 body { font-family: "Microsoft YaHei",Helvetica,Arial,sans-serif; font-size: 14px; line-height: 1.42857143; color: #333; background: #f6f6f6;}
@@ -11,9 +11,9 @@ html,body { width:100%; height: 100%;min-width: 800px;min-height: 600px; }
 a:link, a:visited, a:hover, a:active{text-decoration:none; color: #FFF; }
 
 /* 登录页--start */
-body{background: url(../images/sys_bg.png) no-repeat; background-size: 100% 100%;}
+body{background: url(../images/bg-page.png) no-repeat; background-size: 100% 100%;}
 .logo{position: absolute; display: inline;top: 30px;}
-.logo_nos{width: 229px; height: 41px; left: 60px;background: url(../images/logo_nos_white.png) no-repeat; background-size: 100% 100%;}
+.logo_nos{width: 194px; height: 42px; left: 60px;background: url(../images/logo_nos_blue.png) no-repeat; background-size: 100% 100%;}
 .logo_school{width: 244px; height: 42px; right: 60px;background: url(../images/logo_school.png) no-repeat; background-size: 100% 100%;}
 
 
@@ -39,30 +39,18 @@ body{background: url(../images/sys_bg.png) no-repeat; background-size: 100% 100%
 .msg_confirm{background: url(../images/prompt/msg_box_confirm.png) no-repeat;width: 107px;height: 37px;position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%);}
 .msg_cancel{background: url(../images/prompt/msg_box_cancel.png) no-repeat;width: 107px;height: 37px;position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%);}
 .msg_close{width: 28px;height: 28px;position: absolute; right: 1%;}
-/* 任务说明及提示 */
-.msg-box{height: 100%;}
-.msg-close{width: 15px;height: 15px;position: absolute; background: url(../images/msg/msg-close.png);cursor: pointer;}
-.msg-mask{width: 100%;height: 100%; position: absolute; background-color: #000; opacity: 0.7; z-index: 50;}
-.mission-intro{width: 755px; height: 404px; position: absolute; left: 50%; top: 50%; background: url(../images/msg/msg-intro-bg.png) no-repeat; background-size: 100% 100%; z-index: 99; margin-top: -200px; margin-left: -400px; }
-.mission-intro-title{position: absolute; left: 56%; top: 9%;font-size: 22px;}
-.mission-intro-text{position: absolute; left: 37%; top: 21%; font-size: 17px; right: 4%;}
-.mission-intro-close{right: 4%; top: 8%;}
-.mission-intro-confirm{width: 181px;position: absolute; left: 50%; transform: translateX(-50%);background: url(../images/msg/btn-confirm.png);cursor: pointer; text-align: center; line-height: 52px; color: white; font-size: 18px; font-weight: bold;}
-
 
 
 /* 游戏选择界面 --start*/
-.game_select_bg{background: darkred;width: 60%; min-width: 700px; max-width:751px; height: 75%;min-height: 500px; background: url(../images/sel_bg.png); background-size: 100% 100%; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
+.game_select_bg{background: darkred;width: 700px; height: 630px; background: url(../images/bg-sel.png); background-size: 100% 100%; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
 .sel_title{position: absolute; left: 50%; transform: translateX(-50%);top: 3%;}
-.sel_btns{width: 90%; position: absolute; left: 50%; top: 55%; transform: translate(-50%,-50%);}
-.sel_btn{width: 292px; height: 122px;background: url(../images/sel_btn.png); display: inline-block; position: relative; margin: 0 0% 3% 2%;}
-.sel_btn_grey{background: url(../images/sel_btn_grey.png);}
-.sel_btn_hover{background: url(../images/sel_btn_hover.png);}
+.sel_btns{width: 90%; position: absolute; left: 50%; top: 52%; transform: translate(-50%,-50%);}
+.sel_btn{width: 190px; height: 168px;background: url(../images/btn-bg.png); display: inline-block; position: relative; margin: 0 0% 3% 2%;}
+.sel_btn_hover{background: url(../images/btn-bg-hover.png);}
 .sel_btn_addon{left: 50%; top: 50%; position: absolute; transform: translate(-50%,-50%);} 
 
 
-.back_btn{background: url(../images/btn_back.png)  no-repeat; background-size: 100%; width: 52px; height: 52px; position: absolute;right: 1%; cursor:pointer;}
-.index_btn{background: url(../images/btn_back.png)  no-repeat; background-size: 100%; width: 52px; height: 52px; position: absolute;right: 1%; cursor:pointer;}
+.index_btn{ position: absolute; right: 8%; bottom: 7%; width: 144px; height: 64px; background: url(../images/btn-back.png) ; cursor:pointer;}
 /* 游戏选择界面 --end*/
 
 /*存货分配*/

@@ -151,7 +151,7 @@ function saveCheckDetail(){
 }
 //6、提交差异处理--前的打印动画
 function ensureEditAnimate() {
-	parent.diffOrderPrint("打印《打印盘点差异表》","ensureEdit");
+	parent.diffOrderPrint("正在打印《盘点差异表》","ensureEdit");
 }
 //提交差异处理
 function ensureEdit(){
@@ -233,7 +233,7 @@ function submit(){
 
 // 5.打印差异盘点单-前的打印动画
 function printDiffAnimate(){
-	parent.diffOrderPrint("打印《打印盘点差异单》","printDiff");// 调用父级--打印动画
+	parent.diffOrderPrint("正在打印《盘点差异单》","printDiff");// 调用父级--打印动画
 }
 //打印差异盘点表
 function printDiff(){

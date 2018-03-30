@@ -11,7 +11,7 @@ function login(){
 		showAlert('帐号和密码不能为空！','end');
 		return;
 	};
-	/*$.ajax({
+	$.ajax({
 		url: ajaxUrl + 'inter/user-login!login.action',
 		type: 'post',
 		dataType: 'json',
@@ -19,14 +19,14 @@ function login(){
 		success: function(data){
 			if(data.status != '1'){ showAlert(data.message,'end'); return; };
 			$('#loginBtn').attr('isSubmit','false');
-			set_address('ucode',ucode);*/
+			set_address('ucode',ucode);
 
 			window.location.href = 'html/index.html';
-	/*	},
+		},
 		error: function(){
 			$('#loginBtn').attr('isSubmit','false');
 		}
-	});*/
+	});
 };
 
 $(function(){

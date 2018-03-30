@@ -181,8 +181,6 @@ $(function(){
 $(function () {
 	$("#header").load("/html/head.html");
 	$("#footer").load("/html/foot.html");
-	/*$("#header").load("/nosgame/html/head.html");
-	$("#footer").load("/nosgame/html/foot.html");*/
 });
 
 /*返回按钮*/

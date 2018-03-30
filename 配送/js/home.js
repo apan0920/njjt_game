@@ -224,7 +224,9 @@ $(function(){
 	});
 
 	/*步骤一_1确定*/
+	var step1Sub = 0;//禁止重复提交
 	$('.plan_1 .plan_bgn').on('click',function(){
+		if (step1Sub > 0) {return;}//禁止重复提交
 		$('.plan_1 table input').removeClass('error');
 		var isNull = false;
 		var nullObj;
@@ -254,10 +256,9 @@ $(function(){
 				var _index = errorIndex[i];
 				obj.eq(_index).val(obj.eq(_index).attr('answer')).addClass('error');
 			}
-
 			return false;			
 		}
-
+		step1Sub = 1;//已提交
 		$('.plan_1').fadeOut(function(){
 			peopleMove('-40%',function(){
 				$('.plan_1_2').fadeIn();
@@ -266,7 +267,9 @@ $(function(){
 	});
 
 	/*步骤一_2确定*/
+	var step12Sub = 0;//禁止重复提交
 	$('.plan_1_2 .plan_bgn').on('click',function(){
+		if (step12Sub > 0) {return;}//禁止重复提交
 		$('.plan_1_2 table input').removeClass('error');
 		var isNull = false;
 		var nullObj;
@@ -298,7 +301,7 @@ $(function(){
 
 			return false;			
 		}
-
+		step12Sub = 1;//已提交
 		$('.plan_1_2').fadeOut(function(){
 			peopleMove('-65%',function(){
 				$('.plan_2').fadeIn();
@@ -308,7 +311,9 @@ $(function(){
 
 	/*步骤二确定*/
 	var error = [];
+	var step2Sub = 0;//禁止重复提交
 	$('.plan_2 .plan_bgn').on('click',function(){
+		if (step2Sub > 0) {return;}//禁止重复提交
 		$('.plan_2 .bottom .item p i').removeClass('error');
 		var isNull = false;
 		var nullObj;
@@ -347,7 +352,7 @@ $(function(){
 			error = [];
 			return false;			
 		}
-
+		step2Sub = 1;//已提交
 		$('.plan_2').fadeOut(function(){
 			peopleMove('-90%',function(){
 				$('.plan_3').fadeIn();
@@ -356,7 +361,9 @@ $(function(){
 	});
 
 	/*步骤三确定*/
+	var step3Sub = 0;//禁止重复提交
 	$('.plan_3 .plan_bgn').on('click',function(){
+		if (step3Sub > 0) {return;}//禁止重复提交
 		var isNull = true;
 		$('.plan_3 label input').each(function(i){
 			if($(this).prop('checked')){ isNull = false; return false; }
@@ -366,7 +373,7 @@ $(function(){
 			showAlert('请选择方案！');
 			return false;
 		};
-
+		step3Sub = 1;//已提交
 		$('.plan_3').fadeOut(function(){
 			peopleMove('-115%',function(){
 				$('.plan_4').fadeIn();
@@ -375,12 +382,14 @@ $(function(){
 	});
 
 	/*步骤四_1确定*/
+	var step4Sub = 0;//禁止重复提交
 	$('.plan_4 .plan_bgn').on('click',function(){
+		if (step4Sub > 0) {return;}//禁止重复提交
 		if(!$(this).hasClass('isClick')){
 			showAlert('请完成连线！');
 			return false;
 		};
-
+		step4Sub = 1;//已提交
 		$('.plan_4').fadeOut(function(){
 			peopleMove('-140%',function(){
 				$('.plan_4_2').fadeIn();
@@ -502,9 +511,9 @@ $(function(){
 });
 
 // 完成游戏
-$('.plan_bgn_2').click(function () {
-	showAlert('游戏完成，返回主界面!','end',function(){
-				window.location.href = "index.html";//orderMake=1 释放拣货单制作按钮
-			},"false");
-});
+function gameOver() {
+	showAlert('游戏完成，返回主界面!',function(){
+				window.location.href = "index.html";
+			});
+};
 

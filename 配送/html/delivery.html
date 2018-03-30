@@ -56,15 +56,15 @@
         <canvas width="1000px" height="680px" id="line"></canvas>
     </div>
     <div class="modal fade" id="resultAlert">  
-        <div class="modal-dialog" style="width: 90%">  
-            <div class="modal-content">  
+        <div class="modal-dialog" style="width: 95%;height: 90%;">  
+            <div class="modal-content" style="height: 100%; overflow-y: scroll; ">  
                 <div class="modal-header">  
                     <button id="modalClose" type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
                     <h4 class="modal-title">派送详情</h4>  
                 </div>  
                 <div class="modal-body"> 
 				    <div id="main" class="main">
-				        <div class="boxBg">
+				        <div class="boxBg  boxBgPage">
 				            <table cellspacing="0" cellpadding="0">
 				                <thead>
 				                    <tr>
@@ -203,7 +203,7 @@
 				
 				                </tfoot>
 				            </table>
-				            <div class="divBtn">
+				            <div class="divBtn disDetail">
 				                <a href="javascript:void(0)" onclick="openprinl()"><i></i><span id="print" color="#FFF">提交</span></a>
 				                <a style="background: url(../images/form/close_1.png) center no-repeat" href="javascript:void(0)" onclick="backGo()" >
 				                    <i style="background: url(../images/form/close_02.png) center no-repeat"></i>
@@ -219,14 +219,15 @@
 					               $("#resultModal").modal("toggle");
 					           } else {
 					           		// $('#modalClose').remove();//隐藏关闭按钮
-					           		var htmls = "<div align='center' class='modal-footer'>"+ 
+					           		/*var htmls = "<div align='center' class='modal-footer'>"+ 
 											"<button type='button' onclick='gameOver()' class='btn btn-primary'>确定</button>"+
 											"</div>";
 									
 									$("#resultSpan").html("任务完成！");
 									$("#nextBtn").html(htmls);
 
-					               $("#resultModal").modal("toggle");
+					               $("#resultModal").modal("toggle");*/
+					               gameOver();
 					           }
 					       }
 					       
@@ -700,8 +701,9 @@ $(document).ready(function(){
 				
 				// $("#resultSpan").html("任务完成！");
 				// $("#nextBtn").html(htmls);
-               $("#alertSpan").html("任务完成");
-               $("#resultAlert").modal("toggle");
+               /*$("#alertSpan").html("任务完成");
+               $("#resultAlert").modal("toggle");*/
+               gameOver();
            }
        }
        
