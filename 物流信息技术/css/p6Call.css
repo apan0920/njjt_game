@@ -2,17 +2,20 @@
 * @Author: pz
 * @Date:   2018-02-03 09:51:51
 * @Last Modified by:   pz
-* @Last Modified time: 2018-02-06 16:50:55
+* @Last Modified time: 2018-04-13 09:46:05
 */
 body { font-family: "Microsoft YaHei",Helvetica,Arial,sans-serif; font-size: 14px; line-height: 1.42857143; color: #333; background: #f6f6f6;}
 html,body { width:100%; height: 100%;min-width: 800px;min-height: 600px; }
 #wrapper{height: 100%;min-width: 800px;min-height: 600px;position: relative;}
 /* 登录页--start */
+/*水平垂直居中*/
+.margin-center{position: absolute;top: 0;right: 0;bottom: 0;left: 0;margin:auto;}
+
 body{background: url(../images/sys_bg.png) no-repeat; background-size: 100% 100%;}
 .logo{position: absolute; display: inline;top: 30px;}
 .logo_nos{width: 194px; height: 42px; left: 60px;background: url(../images/logo_nos_blue.png) no-repeat; background-size: 100% 100%;}
 .logo_school{width: 244px; height: 42px; right: 60px;background: url(../images/logo_school.png) no-repeat; background-size: 100% 100%;}
-.game_select_bg{background: darkred;width: 60%; min-width: 800px; height: 75%;min-height: 500px; background: url(../images/sel_bg.png); background-size: 100% 100%; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
+.game_select_bg{width: 60%; min-width: 800px; height: 75%;min-height: 500px; background: url(../images/sel_bg.png); background-size: 100% 100%; position: absolute; top: 0; right: 0; bottom: 0;left: 0;margin:auto;  }
 .sel_title{font-size: 26px;font-weight: bold;position: absolute; left: 50%; transform: translateX(-50%);top: 4%;}
 .back_btn{background: url(../images/btn_back.png)  no-repeat; background-size: 100%; width: 52px; height: 52px; position: absolute;right: 1%; cursor:pointer;}
 .bottom_btns{ width: 100%;position: absolute;bottom:11%;}
@@ -22,7 +25,7 @@ body{background: url(../images/sys_bg.png) no-repeat; background-size: 100% 100%
 .p6-btn-white{ position: absolute; border: 2px solid rgb(207, 244, 255); border-radius: 10px; font-size: 16px; display: -webkit-flex; justify-content: center; align-items: center; color: rgb(207, 244, 255); left: 50%; padding: 10px 25px; transform: translateX(-50%); cursor: pointer;}
 /* 提示框 */
 .msg_box_alert {display: none; position: fixed; z-index: 99999; width: 100%; height: 100%; top: 0; left: 0; background: rgba(0,0,0,.7); }
-.msg_box{background: url(../images/msg_box_bg.png) no-repeat;width: 329px;height: 173px; position: absolute; top: 50%; left: 50%;margin-top:-82px; margin-left:-163px; transform: translate(-50%,-50%);}
+.msg_box{background: url(../images/msg_box_bg.png) no-repeat;width: 329px;height: 173px;position: absolute;top: 0;right: 0;bottom: 0;left: 0;margin:auto; }
 .msg_content{color:#CE1717;position: absolute; top: 30%; left: 27%;}
 .msg_confirm{background: url(../images/msg_box_confirm.png) no-repeat;width: 107px;height: 37px;position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%);}
 .msg_cancel{background: url(../images/msg_box_cancel.png) no-repeat;width: 107px;height: 37px;position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%);}
@@ -38,7 +41,7 @@ body{background: url(../images/sys_bg.png) no-repeat; background-size: 100% 100%
 .p6-mission-intro-confirm{width: 39px;height: 28px;position: absolute; left: 61%; top: 72%;background: url(../images/img4/btn-confirm.png);cursor: pointer;}
 
 /* 6. 电商物流呼叫小游戏（基于任务）--start */
-.p6-content{width: 90%; height: 80%; position: absolute; left: 50%; top: 55%; transform: translate(-50%,-50%);}
+.p6-content{width: 90%; height: 80%; position: absolute; top: 50px; right: 0; bottom: 0;left: 0;margin:auto; }
 .p6-top{width: 100%; height: 15%;position: absolute; }
 .p6-top-head{width: 28%; height: 80%; position: relative;display: inline-block; top: 15%; }
 .p6-top-customer{ background: url(../images/img6/head-customer.png); background-size: 100% 100%; }
@@ -74,7 +77,7 @@ body{background: url(../images/sys_bg.png) no-repeat; background-size: 100% 100%
 /* 3.确认订单 */
 .p6-con-order{display: none;}
 .p6-order{width: 100%; height: 100%; position: absolute; background: url(../images/img6/bg-order.png);background-size: 100% 100%; font-size: 12px;} 
-/* .p6-order{width: 90%; height: 90%; position: absolute; background: url(../images/img6/bg-order.png); background-size: 100% 100%; font-size: 12px; top: 50%; left: 50%; transform: translate(-50%,-50%);} */
+/* .p6-order{width: 90%; height: 90%; position: absolute; background: url(../images/img6/bg-order.png); background-size: 100% 100%; font-size: 12px; top: 50%; left: 50%; -webkit-transform:translate(-50%,-50%); -ms-transform: translate(-50%,-50%); -o-transform: translate(-50%,-50%); transform: translate(-50%,-50%);} */
 .p6-order p{position: absolute; left: 8%; top: 17%; width: 83%;}
 
 .p6-order .tel{float: right;}
@@ -94,7 +97,7 @@ body{background: url(../images/sys_bg.png) no-repeat; background-size: 100% 100%
 .p6-order .cut-line{position: absolute; left: 8%; top: 63%; width: 83%; height:1px; background-color: #D5D5D5;}
 .p6-order .btn-pur{right: 10%; top: 66%;}
 /* 4.跟踪信息 */
-.p6-track{display: none; width: 90%; height: 90%; position: absolute; left: 2%; background: url(../images/img6/bg-order.png);background-size: 100% 100%; font-size: 12px;    left: 50%; top: 50%; transform: translate(-50%,-50%);}
+.p6-track{display: none; width: 90%; height: 90%; position: absolute; left: 2%; background: url(../images/img6/bg-order.png);background-size: 100% 100%; font-size: 12px;    left: 50%; top: 50%; -webkit-transform:translate(-50%,-50%); -ms-transform: translate(-50%,-50%); -o-transform: translate(-50%,-50%); transform: translate(-50%,-50%);}
 ul li{list-style: none;}
 .p6-track-ul{padding-left: 5%;}
 .track-rcol{width: 100%; position: absolute;top: 13%;}

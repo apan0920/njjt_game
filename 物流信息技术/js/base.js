@@ -66,7 +66,7 @@ function showAlert(name,status,callback, closeShow){
 		close_html = '';
 	}
 	var alert_html = '<div class="msg_box_alert">'+
-						'<div class="msg_box">'+
+						'<div class="msg_box ">'+
 							'<p class="msg_content">'+ name +'</p>'+
 							'<a href="javascript:;" class="msg_confirm"></a>'+
 							'<a href="javascript:;" class="msg_cancel"></a>'+

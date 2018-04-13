@@ -2,24 +2,24 @@
 * @Author: pz
 * @Date:   2018-01-16 09:52:21
 * @Last Modified by:   pz
-* @Last Modified time: 2018-03-14 11:26:00
+* @Last Modified time: 2018-04-13 14:31:45
 */
 
 body { font-family: "Microsoft YaHei",Helvetica,Arial,sans-serif; font-size: 14px; line-height: 1.42857143; color: #333; background: #f6f6f6;}
 html,body { width:100%; height: 100%;min-width: 800px;min-height: 600px; }
 #wrapper{height: 100%;min-width: 800px;min-height: 600px;position: relative;}
 /* 登录页--start */
-body{background: url(../images/sys_bg.png) no-repeat; background-size: 100% 100%;}
+body{background: url(../images/sys_bg.png) no-repeat; background-size: 100% 100%;overflow:hidden;}
 .logo{position: absolute; display: inline;top: 30px;}
 .logo_nos{width: 194px; height: 42px; left: 60px;background: url(../images/logo_nos_blue.png) no-repeat; background-size: 100% 100%;}
 .logo_school{width: 244px; height: 42px; right: 60px;background: url(../images/logo_school.png) no-repeat; background-size: 100% 100%;}
 
 
 .sys_name{width: 38%;margin-left: 50%; margin-top: 110px; transform: translateX(-50%);}
-.login_box{background: url(../images/login_box_bg.png) no-repeat; width: 27%; min-width: 300px; height: 36%; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); background-size: 100% 100%;}
+.login_box{background: url(../images/login_box_bg.png) no-repeat; width: 27%; min-width: 300px; height: 36%; position: absolute; top: 50%; left: 50%;  -webkit-transform:translate(-50%,-50%); -ms-transform: translate(-50%,-50%); -o-transform: translate(-50%,-50%); transform: translate(-50%,-50%); background-size: 100% 100%;}
 .login_input_bg{width: 399px; height: 50px;background: url(../images/bg_login02.png); background-size: 100% 100%; }
 .login_btn_bg{width: 399px; height: 50px;background: url(../images/img_login03.png); background-size: 100% 100%; }
-.login_box_content{width: 70%; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
+.login_box_content{width: 70%; position: absolute; top: 50%; left: 50%;  -webkit-transform:translate(-50%,-50%); -ms-transform: translate(-50%,-50%); -o-transform: translate(-50%,-50%); transform: translate(-50%,-50%);}
 .login_box span{border: none;background: none;}
 .login_box input{border: none;border-radius: 25px;}
 .inputDiv{margin-top:8%;}
@@ -29,9 +29,20 @@ body{background: url(../images/sys_bg.png) no-repeat; background-size: 100% 100%
 
 
 /* 游戏选择界面 --start*/
-.game_select_bg{background: darkred;width: 60%; min-width: 700px; height: 75%;min-height: 475px; background: url(../images/sel_bg.png); background-size: 100% 100%; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
-.sel_title{font-size: 26px;font-weight: bold;position: absolute; left: 50%; transform: translateX(-50%);top: 4%;}
-.sel_btns{width: 80%; height: 50%;position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
+.game_select_bg{background: darkred;width: 60%; min-width: 700px; height: 75%;min-height: 550px; background: url(../images/sel_bg.png); background-size: 100% 100%; position: absolute; left: 50%; top: 50%;
+ -webkit-transform:translate(-50%,-50%); 
+ -ms-transform:translate(-50%,-50%); 
+ -o-transform: translate(-50%,-50%); 
+ transform: translate(-50%,-50%); }
+
+.sel_title{font-size: 26px;font-weight: bold;position: absolute; left: 50%; top: 4%; -webkit-transform: translateX(-50%);
+-ms-transform: translateX(-50%);
+-o-transform: translateX(-50%);
+transform: translateX(-50%);}
+.sel_btns{width: 80%; height: 80%;position: absolute; left: 50%; top: 56%;  -webkit-transform:translate(-50%,-50%);
+ -ms-transform: translate(-50%,-50%);
+ -o-transform: translate(-50%,-50%);
+ transform: translate(-50%,-50%);}
 .sel_btn{width: 45%; height: 58px;background: url(../images/sel_btn.png); background-size: 100% 100%;display: inline-block;margin:2%;position: relative;}
 .sel_btn:hover{width: 45%; height: 58px;background: url(../images/sel_btn_hover.png); background-size: 100% 100%;display: inline-block;margin:2%;position: relative;}
 .sel_btn_addon{width: 17%; height: 76%; background: url(../images/sel_btn_icons.png) no-repeat; left: 3%; top: 50%; position: absolute; transform: translateY(-50%);}
@@ -49,7 +60,10 @@ body{background: url(../images/sys_bg.png) no-repeat; background-size: 100% 100%
 /* 游戏选择界面 --end*/
 
 /* 第一关--物流信息系统分类配对游戏--start */
-.p1_game_content{width: 92%; height: 75%;position: absolute; left: 50%; top: 55%; transform: translate(-50%,-50%);}
+.p1_game_content{width: 92%; height: 75%;position: absolute; left: 50%; top: 55%;  -webkit-transform:translate(-50%,-50%);
+ -ms-transform: translate(-50%,-50%);
+ -o-transform: translate(-50%,-50%);
+ transform: translate(-50%,-50%);}
 .p1_game_title{font-size: 32px;font-weight:bold;}
 .p1_target_area{width: 400px; height: 75%;}
 /* .p1_target_area span{width: 250px;height: 56px;} */
@@ -86,9 +100,7 @@ body{background: url(../images/sys_bg.png) no-repeat; background-size: 100% 100%
 .finish_btn{background: url(../images/finish_btn.png) no-repeat;}
 /* 提示框 */
 .msg_box_alert {display: none; position: fixed; z-index: 99999; width: 100%; height: 100%; top: 0; left: 0; background: rgba(0,0,0,.7); }
-.msg_box{background: url(../images/msg_box_bg.png) no-repeat;width: 329px;height: 173px; position: absolute; top: 50%; left: 50%;margin-top:-82px; margin-left:-163px; transform: translate(-50%,-50%);}
-/*.msg_box {background: url(../images/msg_box_bg.png) no-repeat; width: 329px; height: 173px; position: absolute; top: 50%; left: 50%; text-align: center; transform: translate(-50%,-50%); }
-.msg_content{color: #CE1717; margin-top: 15%;}*/
+.msg_box{background: url(../images/msg_box_bg.png) no-repeat;width: 329px;height: 173px; position: absolute; top: 50%; left: 50%;margin-top:-82px; margin-left:-163px;  -webkit-transform:translate(-50%,-50%); -ms-transform: translate(-50%,-50%); -o-transform: translate(-50%,-50%); transform: translate(-50%,-50%);}
 .msg_content{color:#CE1717;position: absolute; top: 30%; left: 27%;}
 .msg_confirm{background: url(../images/msg_box_confirm.png) no-repeat;width: 107px;height: 37px;position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%);}
 .msg_cancel{background: url(../images/msg_box_cancel.png) no-repeat;width: 107px;height: 37px;position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%);}
@@ -100,7 +112,7 @@ body{background: url(../images/sys_bg.png) no-repeat; background-size: 100% 100%
 
 
 /* 第二关--物流标准化存在的问题判断--start */
-.p2_content{width: 75%; height: 75%;position: absolute; left: 50%; top: 55%; transform: translate(-50%,-50%);}
+.p2_content{width: 75%; height: 75%;position: absolute; left: 50%; top: 55%;  -webkit-transform:translate(-50%,-50%); -ms-transform: translate(-50%,-50%); -o-transform: translate(-50%,-50%); transform: translate(-50%,-50%);}
 
 .p2_box_item { display: none; position: relative; width: 100%; height: 50%; top:0; left:50%;transform: translateX(-50%);}
 .p2_box_item:first-child { display: block; } 
@@ -111,7 +123,6 @@ body{background: url(../images/sys_bg.png) no-repeat; background-size: 100% 100%
 video::-internal-media-controls-download-button { display:none; }
 video::-webkit-media-controls-enclosure { overflow:hidden; }
 video::-webkit-media-controls-panel { width: calc(100% + 30px);  }
-/* video::-webkit-media-controls-fullscreen-button { display: none; } */
 
 .p2_intro{ width: 100%;position: absolute; margin-top: 22px;}
 
@@ -125,7 +136,7 @@ video::-webkit-media-controls-panel { width: calc(100% + 30px);  }
 
 /* 第三关--RFID读写工作原理展现游戏--start */
 .game_select_bg_p3{min-width: 800px;}
-.p3_content{width: 90%; height: 75%;position: absolute; left: 50%; top: 55%; transform: translate(-50%,-50%);}
+.p3_content{width: 90%; height: 75%;position: absolute; left: 50%; top: 55%;  -webkit-transform:translate(-50%,-50%); -ms-transform: translate(-50%,-50%); -o-transform: translate(-50%,-50%); transform: translate(-50%,-50%);}
 .p3-box-item{height: 100%;}
 .p3-info-box{background: #e5fbff;width: 100%;height: 100%;}
 .p3-reader-text{width: 157px; height: 93px; position: absolute; top: 9%; left: 1%; color: #58A8F2; text-align: center;}
@@ -139,6 +150,7 @@ video::-webkit-media-controls-panel { width: calc(100% + 30px);  }
 .p3-rfid{width: 70px; height: 93px; position: absolute; top: 22%; right: 4%; background: url(../images/img3/info/rfid.png); background-size: 100% 100%;}
 .p3-line3{width: 1px; height: 84px; background-color: #34828F; position: absolute; top: 45%; left: 12%;}
 .p3-application{width: 100px; height: 126px; position: absolute; top: 66%; left: 5%; background: url(../images/img3/info/application.png); background-size: 100% 100%;}
+
 @-webkit-keyframes opac{
 	from {opacity: 1; width:0; height:0; top:50%; left:50%; } 
 	to {opacity : 1; width:100%; height:100%; top:0; left:50%; } 
@@ -177,12 +189,7 @@ video::-webkit-media-controls-panel { width: calc(100% + 30px);  }
 .p3-single .p3-b4{-webkit-animation-delay:3s; }
 .p3-single .p3-b5{-webkit-animation-delay:4s; }
 .p3-single .p3-b6{-webkit-animation-delay:5s; }
-/* .p3-single .p3-b7{-webkit-animation-delay:6s; }
-.p3-single .p3-b8{-webkit-animation-delay:7s; }
-.p3-single .p3-b9{-webkit-animation-delay:8s; }
-.p3-single .p3-b10{-webkit-animation-delay:9s; }
-.p3-single .p3-b11{-webkit-animation-delay:10s; }
-.p3-single .p3-b12{-webkit-animation-delay:11s; } */
+
 @-webkit-keyframes singleBlue{
 	from {width:0; height:0; top:50%; left:50%; } 
 	to {width: 100px; height: 100px; top:-66%; left:120%; } 
@@ -217,13 +224,13 @@ video::-webkit-media-controls-panel { width: calc(100% + 30px);  }
 .p3-scene-line6{width: 1px; height: 38%; top: 45%; right: 25%; }
 .p3-scene-right{position: absolute; right: 0; width: 20%; height: 100%;} 
 .p3-scene-btn{width: 100%; margin: 6% 0; background: url(../images/img3/scene/btn-bg-grey.png) no-repeat; font-size: 14px; color: #EEE; height: 12%;
-    background-size: 100% 100%;justify-content: center; align-items: center; display: -webkit-flex;cursor: pointer;} 
+    background-size: 100% 100%;display:flex;justify-content: center; align-items: center; cursor: pointer;} 
 .p3-scene-btn-active{background: url(../images/img3/scene/btn-bg-red.png) no-repeat;background-size: 100% 100%;}
  /* 第三关--RFID读写工作原理展现游戏--end */
 
 
  /* 第4关--EDI传输翻译通信小游戏--start */
-.p4-content{width: 90%; height: 75%;position: absolute; left: 50%; top: 55%; transform: translate(-50%,-50%);}
+.p4-content{width: 90%; height: 75%;position: absolute; left: 50%; top: 55%;  -webkit-transform:translate(-50%,-50%); -ms-transform: translate(-50%,-50%); -o-transform: translate(-50%,-50%); transform: translate(-50%,-50%);}
 .p4-top-box{width: 100%; height: 82%;position: absolute; background: url(../images/img4/bg.png);background-size: 100% 100%;}
 .p4-form-l{position: absolute; width: 3%; height: 8%; left: 32%; top: 44%;}
 .p4-form-r{display: none; position: absolute; width: 5%; height: 13%; right: 25.5%; top: 35%;}
@@ -278,7 +285,7 @@ video::-webkit-media-controls-panel { width: calc(100% + 30px);  }
 
 
  /* 第5关--EDI标准构成识别游戏--start */
-.p5_content{width: 90%; height: 80%;position: absolute; left: 50%; top: 55%; transform: translate(-50%,-50%);} 
+.p5_content{width: 90%; height: 80%;position: absolute; left: 50%; top: 55%;  -webkit-transform:translate(-50%,-50%); -ms-transform: translate(-50%,-50%); -o-transform: translate(-50%,-50%); transform: translate(-50%,-50%);}
 .p5_content_bg{width: 100%; height: 20%;position: absolute; left: 50%; transform: translateX(-50%);background: url(../images/img5/answer.png) no-repeat;background-size: 100% 100%; } 
 .p5_content_bg_text{font-size: 17px; color: #0097B9;position: absolute;}
 .p5_text_1{left: 38%; top: 8%;}
@@ -363,7 +370,10 @@ video::-webkit-media-controls-panel { width: calc(100% + 30px);  }
 .route-chose{padding: 10px 0 0 17px;color: #292D30;}
 .btn-check-box{position: absolute;margin: 0 20px 0 0;}
 .btn-check{position: absolute;width: 12px;height: 12px; top: 50%; transform: translateY(-50%);background: url(../images/img7/btn-check.png);}
-.btn-check img{ position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
+.btn-check img{ position: absolute; left: 50%; top: 50%;  -webkit-transform:translate(-50%,-50%);
+ -ms-transform: translate(-50%,-50%);
+ -o-transform: translate(-50%,-50%);
+ transform: translate(-50%,-50%);}
 .btn-check-text{padding-left: 20px;color: #000;}
 .last-time{margin: 0 0 0 17px;}
 .last-dist{margin: 0 0 0 117px;}
@@ -377,13 +387,15 @@ video::-webkit-media-controls-panel { width: calc(100% + 30px);  }
 /* 搜索按钮 */
 .p7-menu-search{width: 43px;height: 39px;background: url(../images/img7/btn-search.png); top: 19%; left: 340px; position: absolute;}
 .p7-menu-confirm{width: 43px;height: 39px;background: url(../images/img7/btn-confirm.png);  left: 84%; position: absolute; display: none;}
-
-
-
 /* 第7关--GIS的操作模拟游戏--end */
+
+/*第11关--物流信息技术运用选择小游戏*/
+
+.p11_game_title{font-size: 24px;font-weight:bold;}
+.p11_game_intro{/*color: #CE1717;*/width: 40%;text-indent: 28px;}
+
 @media (max-height: 900px) {
 	/* 游戏选择界面 --start*/
-	.sel_btns { height: 65%;}
 	.sel_btn { width: 47%;margin: 1%;}
 	.sel_btn:hover{width: 47%;margin:1%;}
 	.sel_btn_title{font-size: 16px;}
@@ -411,10 +423,8 @@ video::-webkit-media-controls-panel { width: calc(100% + 30px);  }
 	/* 第7关--GIS的操作模拟游戏--start */
 	.p7-sel-title{padding-top: 3.5%;}
     /* 第7关--GIS的操作模拟游戏--end */
-
 }
 @media (max-height: 800px) {
-
 	/* 第五关--EDI标准构成识别游戏--start */
 	.p5_text_1{left: 36%; }
 	.p5_text_2{left: 9%; top: 50%}
@@ -424,19 +434,12 @@ video::-webkit-media-controls-panel { width: calc(100% + 30px);  }
 	/* 第7关--GIS的操作模拟游戏--start */
 	.p7-sel-title{padding-top: 2.5%;}
     /* 第7关--GIS的操作模拟游戏--end */
-	
-
 }
 @media (max-height: 600px) {
 	/* 第一关--物流信息系统分类配对游戏--start */
 	.sel_title {top: 2%;}
 	/* 第一关--物流信息系统分类配对游戏--end */
 
-
-	/* 第二关--物流标准化存在的问题判断--start */
-
-	/* 第二关--物流标准化存在的问题判断--end */
-
 	/* 第五关--EDI标准构成识别游戏--start */
 	.p5_text_1{left: 36%; }
 	.p5_text_2{left: 9%; top: 50%}
@@ -446,6 +449,4 @@ video::-webkit-media-controls-panel { width: calc(100% + 30px);  }
 	/* 第7关--GIS的操作模拟游戏--start */
 	.p7-sel-title{padding-top: 2.5%;}
     /* 第7关--GIS的操作模拟游戏--end */
-
-
 }

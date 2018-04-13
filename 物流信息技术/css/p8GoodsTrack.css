@@ -2,7 +2,7 @@
 * @Author: pz
 * @Date:   2018-02-03 09:51:51
 * @Last Modified by:   pz
-* @Last Modified time: 2018-03-12 10:33:09
+* @Last Modified time: 2018-04-12 18:07:38
 */
 body { font-family: "Microsoft YaHei",Helvetica,Arial,sans-serif; font-size: 14px; line-height: 1.42857143; color: #333; background: #f6f6f6;}
 html,body { width:100%; height: 100%;min-width: 800px;min-height: 600px; }
@@ -12,14 +12,14 @@ body{background: url(../images/sys_bg.png) no-repeat; background-size: 100% 100%
 .logo{position: absolute; display: inline;top: 30px;}
 .logo_nos{width: 194px; height: 42px; left: 60px;background: url(../images/logo_nos_blue.png) no-repeat; background-size: 100% 100%;}
 .logo_school{width: 244px; height: 42px; right: 60px;background: url(../images/logo_school.png) no-repeat; background-size: 100% 100%;}
-.game_select_bg{background: darkred;width: 60%; min-width: 800px; height: 75%;min-height: 500px; background: url(../images/sel_bg.png); background-size: 100% 100%; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
+.game_select_bg{background: darkred;width: 60%; min-width: 800px; height: 75%;min-height: 500px; background: url(../images/sel_bg.png); background-size: 100% 100%; position: absolute; left: 50%; top: 50%; -webkit-transform:translate(-50%,-50%); -ms-transform: translate(-50%,-50%); -o-transform: translate(-50%,-50%); transform: translate(-50%,-50%);}
 .sel_title{font-size: 26px;font-weight: bold;position: absolute; left: 50%; transform: translateX(-50%);top: 4%;}
 .back_btn{background: url(../images/btn_back.png)  no-repeat; background-size: 100%; width: 52px; height: 52px; position: absolute;right: 1%; cursor:pointer; z-index: 999;}
 .bottom_btns{ width: 100%;position: absolute;bottom:11%;}
 .footer{position: absolute; bottom: 1px; left: 50%;transform: translate(-50%);color:#EEE;}
 /* 提示框 */
 .msg_box_alert {display: none; position: fixed; z-index: 99999; width: 100%; height: 100%; top: 0; left: 0; background: rgba(0,0,0,.7); }
-.msg_box{background: url(../images/msg_box_bg.png) no-repeat;width: 329px;height: 173px; position: absolute; top: 50%; left: 50%;margin-top:-82px; margin-left:-163px; transform: translate(-50%,-50%);}
+.msg_box{background: url(../images/msg_box_bg.png) no-repeat;width: 329px;height: 173px; position: absolute; top: 50%; left: 50%;margin-top:-82px; margin-left:-163px; -webkit-transform:translate(-50%,-50%); -ms-transform: translate(-50%,-50%); -o-transform: translate(-50%,-50%); transform: translate(-50%,-50%);}
 /* .msg_content{color:#CE1717;position: absolute; top: 30%; left: 27%;} */
 .msg_content{color: #CE1717; position: absolute; top: 23%; left: 50%; width: 90%; text-align: center; transform: translateX(-50%);}
 .msg_confirm{background: url(../images/msg_box_confirm.png) no-repeat;width: 107px;height: 37px;position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%);}
@@ -38,9 +38,9 @@ input { outline:none; }
 .p8-mission-intro-confirm{width: 39px;height: 28px;position: absolute; left: 61%; top: 72%;background: url(../images/img4/btn-confirm.png);cursor: pointer;}
 
 /* 通用 */
-.common-center{ position: absolute;left: 50%; top: 50%; transform: translate(-50%,-50%);cursor: pointer;}
-/* .p8-content{width: 90%; height: 80%; position: absolute; left: 50%; top: 55%; transform: translate(-50%,-50%);background: url(../images/img8/bg.png) no-repeat; background-size: 100% 100%;} */
-.p8-content {width: 100%; height: 88%; position: absolute; left: 50%; top: 56%; transform: translate(-50%,-50%); background: url(../images/img8/bg.png) no-repeat; background-size: 100% 100%; }
+.common-center{ position: absolute;left: 50%; top: 50%; -webkit-transform:translate(-50%,-50%); -ms-transform: translate(-50%,-50%); -o-transform: translate(-50%,-50%); transform: translate(-50%,-50%);cursor: pointer;}
+/* .p8-content{width: 90%; height: 80%; position: absolute; left: 50%; top: 55%; -webkit-transform:translate(-50%,-50%); -ms-transform: translate(-50%,-50%); -o-transform: translate(-50%,-50%); transform: translate(-50%,-50%);background: url(../images/img8/bg.png) no-repeat; background-size: 100% 100%;} */
+.p8-content {width: 100%; height: 88%; position: absolute; left: 50%; top: 56%; -webkit-transform:translate(-50%,-50%); -ms-transform: translate(-50%,-50%); -o-transform: translate(-50%,-50%); transform: translate(-50%,-50%); background: url(../images/img8/bg.png) no-repeat; background-size: 100% 100%; }
 
 .top{}
 /* .bg-gold{width: 138px;height: 50px;background: url(../images/img8/bg-gold.png) no-repeat;position: absolute; left: 20px; top: 2%; color: #fff4db;font-size: 18px;padding: 13px 55px;} */

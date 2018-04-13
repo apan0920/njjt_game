@@ -2,7 +2,7 @@
 * @Author: pz
 * @Date:   2018-01-16 09:52:25
 * @Last Modified by:   pz
-* @Last Modified time: 2018-04-13 14:52:47
+* @Last Modified time: 2018-04-13 14:22:46
 */
 
 /*拖拽功能--start*/
@@ -10,13 +10,11 @@ var answer = new Array();//答案
 
 $(function () {
 	setQuestion();//随机出题
-	$("#targetBox1 span, #targetBox2 span, #targetBox3 span, #targetBox4 span, #sourceBox div").draggable({
+	$("#targetBox1 span, #targetBox2 span, #targetBox3 span, #targetBox4 span, #targetBox5 span, #sourceBox div").draggable({
 		helper : "clone"
 	});
-	/*$("#targetBox1 span, #targetBox2 span, #targetBox3 span, #targetBox4 span, #sourceBox div").droppable({
-		accept : "#targetBox1 span, #targetBox2 span, #targetBox3 span, #targetBox4 span, #sourceBox div",*/
-	$("#targetBox1 span, #targetBox2 span, #targetBox3 span, #targetBox4 span").droppable({
-		accept : "#targetBox1 span, #targetBox2 span, #targetBox3 span, #targetBox4 span, #sourceBox div",
+	$("#targetBox1 span, #targetBox2 span, #targetBox3 span, #targetBox4 span, #targetBox5 span").droppable({
+		accept : "#targetBox1 span, #targetBox2 span, #targetBox3 span, #targetBox4 span, #targetBox5 span, #sourceBox div",
 		drop : function(event, ui) {
 			//更换背景
 			var dragNo = ui.draggable.attr("dragNo");//被拖动的元素的id
@@ -57,8 +55,6 @@ $(function () {
 				console.log("当前答案answer="+answer);
 
 			}
-			// console.log(ui.draggable);
-			
 			/*2.修改被拖动后的样式*/
 			if (ui.draggable.hasClass('p1_drag_btn')) {//拖动答案区域的按钮【禁止答案区域已拖动的按钮继续拖动,并置灰】
 				ui.draggable.draggable({ disabled: true });//禁止拖动
@@ -70,7 +66,6 @@ $(function () {
 				ui.draggable.empty();
 				ui.draggable.html("将正确系统拖至此处");
 				// 移除答案中的此项答案20180309
-				// console.log("当前答案answerArr="+answer);
 				var index = answer.indexOf($(this).text().trim());
 				if (index > -1) {
 					answer.splice(index, 1);
@@ -84,17 +79,13 @@ $(function () {
 
 /*下一关按钮--start*/
 //标准答案 
-var standard_arr_1 = ["进货管理系统","销售管理系统","库存管理系统"];
-var standard_arr_2 = ["仓库管理系统","出库作业系统","配送管理系统","运输管理系统"];
-var standard_arr_3 = ["操作型系统","决策型系统"];
-var standard_arr_4 = ["单机系统","计算机网络系统"];
-var answerArr = [standard_arr_1, standard_arr_2, standard_arr_3, standard_arr_4];
+var answerArr = ["条码技术", "EDI技术", "RFID技术", "GIS技术", "GPS技术"];
 function nextBtn() {
 	var standard_arr = new Array();//当前标准答案
 	
 	var currentNo = 0;
-	for (var i = 1; i < 5; i++) {
-		if ($("#targetBox"+i).css("display") == "block") {
+	for (var i = 1; i < (answerArr.length+1); i++) {
+		if ($("#targetBox"+i).is(':visible')) {
 			currentNo = i;
 		}
 	};
@@ -106,12 +97,10 @@ function nextBtn() {
 		if (answer.indexOf(contentTJ) < 0 && contentTJ != "将正确系统拖至此处") {//不能重复20180309
 			answer.push(contentTJ);
 		}
-		// console.log("当前答案answerArr="+answer);
-		// answer.push(contentTJ);
 	});
-	if (standard_arr.sort().toString() == answer.sort().toString()) {
+	if (standard_arr.toString() == answer.toString()) {
 		controlShow();
-		if (currentNo == 3) {
+		if (currentNo == (answerArr.length-1)) {
 			$(".next_btn").addClass("finish_btn");
 		}
 		// 分关判断答案--清除之前的答案
@@ -126,18 +115,24 @@ function nextBtn() {
 
 /*控制答题区显示*/
 function controlShow(){
-	var titleArr = ["按物流作业流程分类","按物流环节分类","按系统功能性质分类","按系统配置分类"];
-	for (var i = 1; i < 5; i++) {
+	var titleArr = [
+		"该技术是在计算机的应用实践中产生和发展起来的一种自动识别技术。为我们提供了一种对物流中的货物进行标识和描述的方法。 是实现POS系统、EDI、电子商务、供应链管理的技术基础，是物流管理现代化、提高企业管理水平和竞争能力的重要技术手段。",
+		"该技术是指通过电子方式，采用标准化的格式，利用计算机网络进行结构化数据的传输和交换。 构成EDI系统的三个要素是EDI软硬件、通信网络以及数据标准化。",
+		"该技术是一种非接触式的自动识别技术，它通过射频信号自动识别目标对象来获取相关数据。识别工作无须人工干预，可工作于各种恶劣环境。 短距离射频产品不怕油渍、灰尘污染等恶劣的环境，可以替代条码，例如用在工厂的流水线上跟踪物体。长距射频产品多用于交通上，识别距离可达几十米，如自动收费或识别车辆身份等。",
+		"该技术是多种学科交叉的产物，它以地理空间数据为基础，采用地理模型分析方法，适时地提供多种空间的和动态的地理信息，是一种为地理研究和地理决策服务的计算机技术系统。其基本功能是将表格型数据（无论它来自数据库、电子表格文件或直接在程序中输入）转换为地理图形显示，然后对显示结果浏览、操作和分析。其显示范围可以从洲际地图到非常详细的街区地图，显示对象包括人口、销售情况、运输线路和其它内容。",
+		"该技术具有在海、陆、空进行全方位实时三维导航与定位能力，且在物流领域可以应用于汽车自定位、跟踪调度，用于铁路运输管理，用于军事物流。"
+	];
+	for (var i = 1; i < (answerArr.length+1); i++) {
 		var aa = $("#targetBox"+i).css("display");
-		if ($("#targetBox"+i).css("display") == "block") {
+		if ($("#targetBox"+i).is(':visible')) {
 			$("#targetBox"+i).hide();
-			if (i == 4) {
+			if (i == answerArr.length) {
 				showAlert('游戏完成，返回主界面!','end',function(){
 						window.location.href = "index.html";
 					},"false");
 			} else {
 				$("#targetBox"+(i+1)).show();
-				$(".p1_game_title").html(titleArr[i]);
+				$(".p11_game_intro").html(titleArr[i]);
 				return;
 			}
 		}
@@ -145,36 +140,14 @@ function controlShow(){
 };
 
 
-//获取答题时间
-// function getDate(){
-// 	var bookingId = get_address('bookingId');
-// 	var time;
-
-// 	$.ajax({
-// 		url: ajaxUrl + 'inter/delivery-game!getTime.action',
-// 		type: 'get',
-// 		dataType: 'json',
-// 		data: { deliveryId:bookingId },
-// 		async: false,
-// 		success: function(data){
-// 			// console.log(JSON.stringify(data));
-// 			if(data.status == 0){ showAlert('aaa！'); return; }
-
-// 			time = data.time;
-// 		},
-// 		error: function(){ console.log('加载失败') }
-// 	});
-
-// 	return time;
-// };
-//倒计时；
+/*//倒计时；
 var time = 1;//暂定1分钟
 var mytime = 1*1000*60;
 var timeCell = 1000;//动画和文字变化时间间隔
 
 
 setTimeout(function(){
-	/*$('.p1_game_time').removeClass('bounceInDown delay_08');//.addClass('tada')*/
+	// $('.p1_game_time').removeClass('bounceInDown delay_08');//.addClass('tada')
 	startTime = new Date();
 	// $('.booking_submit a').attr('isSubmit','true');
 	var changeTimeInterval = setInterval(function () {
@@ -191,30 +164,23 @@ setTimeout(function(){
 	});
 
 	$(".p1_game_time").html(mytime/1000+":00");
-},timeCell);
+},timeCell);*/
 
 // 出题-将右侧选项随机打乱
 function setQuestion() {
-	/*var answerArr = ["进货管理系统","销售管理系统","库存管理系统","仓库管理系统","出库作业系统","配送管理系统","运输管理系统","操作型系统","决策型系统","单机系统","计算机网络系统"];*/
 	var answerArr = [
-	{"name":"进货管理系统","no":"1"},
-	{"name":"销售管理系统","no":"2"},
-	{"name":"库存管理系统","no":"3"},
-	{"name":"仓库管理系统","no":"4"},
-	{"name":"出库作业系统","no":"5"},
-	{"name":"配送管理系统","no":"6"},
-	{"name":"运输管理系统","no":"7"},
-	{"name":"操作型系统","no":"8"},
-	{"name":"决策型系统","no":"9"},
-	{"name":"单机系统","no":"10"},
-	{"name":"计算机网络系统","no":"11"}];
+		{"name":"条码技术","no":"1"},
+		{"name":"EDI技术","no":"2"},
+		{"name":"RFID技术","no":"3"},
+		{"name":"GIS技术","no":"4"},
+		{"name":"GPS技术","no":"5"}
+	];
 
 	answerArr.sort(function() {
 	     return (0.5-Math.random());
 	});
 	console.log(answerArr);
 	for (var i = 0; i < answerArr.length; i++) {
-		// var questNo = i+1;//题目编号
 		var addHtml = 	'<div class="p1_drag_btn  p1_addon'+ answerArr[i].no +'" dragNo="'+ answerArr[i].no +'" >'+
 						'<span class="p1_sel_btn_title" >'+ answerArr[i].name +'</span>'+
 					'</div> ';

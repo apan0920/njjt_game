@@ -2,7 +2,7 @@
 * @Author: pz
 * @Date:   2018-02-01 09:27:20
 * @Last Modified by:   pz
-* @Last Modified time: 2018-03-12 11:39:49
+* @Last Modified time: 2018-04-13 14:21:45
 */
 $(function () {
 	/*任务提示*/
@@ -48,7 +48,7 @@ function animateInit() {
 /*转换按钮*/
 $(".p4-change-btn").click(function () {
 	closeMsg();//关闭提示框
-	if ($(".p4-order-l").css("display") == "block") {
+	if ($(".p4-order-l").is(':visible')) {
 		$(".p4-form-l").hide();//隐藏电脑表单
 		$(".p4-order-l").fadeOut();//隐藏订购单
 
@@ -60,7 +60,7 @@ $(".p4-change-btn").click(function () {
 		},rotateTime);
 		/*显示提示信息*/
 		showMsg(".p4-msg-boy", msg2, 3);
-	} else if($(".p4-file-r").css("display") == "block") {
+	} else if($(".p4-file-r").is(':visible')) {
 		$(".p4-file-r").fadeOut();//隐藏平面文件
 
 		var refreshObj = $(".p4-refresh-r");
@@ -85,7 +85,7 @@ $(".p4-change-btn").click(function () {
 /*翻译按钮*/
 $(".p4-trans-btn").click(function () {
 	closeMsg();//关闭提示框
-	if ($(".p4-file-l").css("display") == "block") {
+	if ($(".p4-file-l").is(':visible')) {
 		$(".p4-file-l").fadeOut();
 
 		var refreshObj = $(".p4-refresh-l");
@@ -96,7 +96,7 @@ $(".p4-trans-btn").click(function () {
 		},rotateTime);
 		/*显示提示信息*/
 		showMsg(".p4-msg-boy", msg3, 3);
-	} else if($(".p4-edi-r").css("display") == "block") {
+	} else if($(".p4-edi-r").is(':visible')) {
 		$(".p4-form-r").hide();//隐藏电脑表单
 		$(".p4-edi-r").fadeOut();
 		var refreshObj = $(".p4-refresh-r");
@@ -116,7 +116,7 @@ $(".p4-trans-btn").click(function () {
 /*通信按钮*/
 $(".p4-corresp-btn").click(function () {
 	closeMsg();//关闭提示框
-	if ($(".p4-edi-l").css("display") == "block") {
+	if ($(".p4-edi-l").is(':visible')) {
 		$(".p4-edi-l").fadeOut();//隐藏EDI标准文件（左）
 		$(".p4-mail").show().addClass("p4-mail-move");//邮件传输动画
 		setTimeout(function () {
